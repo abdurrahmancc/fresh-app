@@ -3,13 +3,15 @@ import BannerSlider from "./BannerSlider";
 
 const Home = () => {
   return (
-    <div>
+    <main>
+      {/*------- Banner Slider section start -------*/}
       <section className="container mx-auto mt-8 ">
         <div className="ml-[320px] ">
           <BannerSlider />
         </div>
       </section>
-    </div>
+      {/*------- Banner Slider section start -------*/}
+    </main>
   );
 };
 

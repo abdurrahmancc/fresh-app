@@ -12,12 +12,6 @@ import { Pagination, Autoplay, Navigation } from "swiper";
 // import "./Banner.css";
 
 const BannerSlider = () => {
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span className="' + className + '">' + (index + 1) + "</span>";
-    },
-  };
   const bannerItems = [img1, img2, img3, img4, img5, img6];
   return (
     <>
@@ -29,8 +23,6 @@ const BannerSlider = () => {
           disableOnInteraction: false,
         }}
         loop={true}
-        // navigation={true}
-        // pagination={pagination}
         pagination={{
           dynamicBullets: true,
         }}
@@ -40,7 +32,7 @@ const BannerSlider = () => {
         {bannerItems.map((bgItem, index) => (
           <SwiperSlide key={index}>
             <div className="w-full">
-              <img className="w-full h-[600px] rounded-3xl" src={bgItem} alt="" />
+              <img className="w-full h-[600px] rounded-3xl" src={bgItem} alt="Banner-Slider" />
             </div>
           </SwiperSlide>
         ))}
