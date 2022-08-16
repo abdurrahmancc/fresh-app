@@ -68,7 +68,7 @@ const TopHeader = () => {
     },
   };
   return (
-    <div className=" py-3 bg-success">
+    <div className=" py-3 bg-success border-b-[0.1px] border-[#a7f1bb55]">
       <div className="container mx-auto">
         <div className="flex items-center justify-center  lg:justify-between">
           <div className="hidden lg:block">

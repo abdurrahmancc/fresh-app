@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../../../assets/logo/logo.png";
+import logo from "../../../../assets/logo/logo_white.png";
 import { Link } from "react-router-dom";
 import { BsHeadphones } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
@@ -18,7 +18,7 @@ const MiddleHeader = () => {
     <div className="bg-success">
       <div className="container mx-auto">
         <div className="hidden lg:block z-20 relative ">
-          <div class="navbar  py-4">
+          <div class="navbar  py-7">
             {/* <div className="container mx-auto"> */}
             <div class="navbar-start pr-7 flex items-center justify-between">
               <div>
@@ -105,7 +105,6 @@ const MiddleHeader = () => {
             {/* </div> */}
           </div>
         </div>
-        ;
       </div>
     </div>
   );
