@@ -6,7 +6,7 @@ const Home = () => {
     <main>
       {/*------- Banner Slider section start -------*/}
       <section className="container mx-auto mt-8 ">
-        <div className="lg:ml-[320px] ">
+        <div className="lg:ml-[260px] xl:ml-[320px] ">
           <BannerSlider />
         </div>
       </section>

@@ -7,6 +7,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import BottomCategories from "./BottomCategories";
 import { AiFillSetting } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
+import { VscThreeBars } from "react-icons/vsc";
 
 const BottomHeader = () => {
   const [user, loading] = useState("");
@@ -15,32 +16,96 @@ const BottomHeader = () => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {};
+
+  const navItems = (
+    <>
+      <li className="">
+        <NavLink
+          to={"/home"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              : "text-lg px-0 font-semibold"
+          }
+        >
+          HOME
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/shop"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              : "text-lg px-0 font-semibold"
+          }
+        >
+          SHOP
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/products"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              : "text-lg px-0 font-semibold"
+          }
+        >
+          PRODUCTS
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/fresh"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              : "text-lg px-0 font-semibold"
+          }
+        >
+          FRESH
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/pages"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              : "text-lg px-0 font-semibold"
+          }
+        >
+          PAGES
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"/mega-menu"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              : "text-lg px-0 font-semibold"
+          }
+        >
+          MEGA MENU
+        </NavLink>
+      </li>
+    </>
+  );
   return (
     <div className="bg-accent">
       {/*----- Bottom Header start -----*/}
       <div className="container mx-auto">
         <div class="navbar px-0 max-h-[64px]">
           <div class="navbar-start">
-            <div class="dropdown">
-              <label tabindex="0" class="btn btn-ghost lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
+            <div class="dropdown lg:pl-0 pl-2">
+              <label tabindex="0" class=" lg:hidden">
+                <VscThreeBars className="text-2xl" />
               </label>
               <ul
                 tabindex="0"
-                class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                class="menu menu-compact dropdown-content mt-5 shadow-xl bg-base-100 rounded-box w-52"
               >
                 <li>
                   <a>Item 1</a>
@@ -67,9 +132,7 @@ const BottomHeader = () => {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a>Item 3</a>
-                </li>
+                {navItems}
               </ul>
             </div>
             <div
@@ -79,84 +142,11 @@ const BottomHeader = () => {
             </div>
           </div>
           <div class="navbar-center hidden lg:flex">
-            <ul class="flex justify-center items-center gap-5">
-              <li className="">
-                <NavLink
-                  to={"/home"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-                      : "text-lg px-0 font-semibold"
-                  }
-                >
-                  HOME
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/shop"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-                      : "text-lg px-0 font-semibold"
-                  }
-                >
-                  SHOP
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/products"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-                      : "text-lg px-0 font-semibold"
-                  }
-                >
-                  PRODUCTS
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/fresh"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-                      : "text-lg px-0 font-semibold"
-                  }
-                >
-                  FRESH
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/pages"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-                      : "text-lg px-0 font-semibold"
-                  }
-                >
-                  PAGES
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/mega-menu"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-                      : "text-lg px-0 font-semibold"
-                  }
-                >
-                  MEGA MENU
-                </NavLink>
-              </li>
-            </ul>
+            <ul class="flex justify-center items-center gap-5">{navItems}</ul>
           </div>
           {/* navbar-end */}
           <div className="navbar-end flex items-center xl:gap-8 lg:gap-4 justify-end">
-            <div onClick={() => navigate("/view-cart")} className=" cursor-pointer">
+            <div onClick={() => navigate("/view-cart")} className="hidden lg:block cursor-pointer">
               <Link
                 to={"/"}
                 className="flex items-center font-semibold gap-2 pr-5 border-r border-[#000]"
@@ -168,13 +158,13 @@ const BottomHeader = () => {
               </Link>
             </div>
 
-            <div className="dropdown dropdown-hover dropdown-end">
+            <div className="dropdown dropdown-hover dropdown-end lg:pr-0 pr-2">
               <label tabIndex="0" className="text m-1">
                 <FaUserAlt className="text-2xl" />
               </label>
               <ul
                 tabIndex="0"
-                className="dropdown-content menu mt-[-12px] shadow-xl bg-base-100 rounded-box w-52"
+                className="dropdown-content menu mt-[-6px] shadow-xl bg-base-100 rounded-box w-52"
               >
                 <li className="hover:text-primary">
                   <Link to={"/user-dashboard/my-account"}>
