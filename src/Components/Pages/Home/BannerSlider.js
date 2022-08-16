@@ -32,7 +32,11 @@ const BannerSlider = () => {
         {bannerItems.map((bgItem, index) => (
           <SwiperSlide key={index}>
             <div className="w-full">
-              <img className="w-full h-[600px] rounded-3xl" src={bgItem} alt="Banner-Slider" />
+              <img
+                className="w-full lg:h-[500px] xl:h-[600px] rounded-xl"
+                src={bgItem}
+                alt="Banner-Slider"
+              />
             </div>
           </SwiperSlide>
         ))}
