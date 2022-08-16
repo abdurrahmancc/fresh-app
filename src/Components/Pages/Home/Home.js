@@ -1,9 +1,14 @@
 import React from "react";
+import BannerSlider from "./BannerSlider";
 
 const Home = () => {
   return (
     <div>
-      <h1>home</h1>
+      <section className="container mx-auto mt-8 ">
+        <div className="ml-[320px] ">
+          <BannerSlider />
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import logo from "../../../../assets/logo/logo_white.png";
 import { Link } from "react-router-dom";
-import { BsHeadphones } from "react-icons/bs";
-import { FaUserAlt } from "react-icons/fa";
+import { BsArrowLeftRight, BsHeadphones } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
 import { MdAddShoppingCart } from "react-icons/md";
 import Select from "react-select";
+import { middleCategorySelected } from "../../../SharedCss/SelectComponentCss";
+import { BiSearchAlt } from "react-icons/bi";
 
 const MiddleHeader = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -14,19 +15,18 @@ const MiddleHeader = () => {
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" },
   ];
+
   return (
     <div className="bg-success">
       <div className="container mx-auto">
-        <div className="hidden lg:block z-20 relative ">
+        <div className="z-20 relative ">
           <div class="navbar  py-7">
             {/* <div className="container mx-auto"> */}
-            <div class="navbar-start pr-7 flex items-center justify-between">
-              <div>
-                <Link to="/">
-                  <img className="h-16 w-auto" src={logo} alt="logo" />
-                </Link>
-              </div>
-              <div className="flex items-center gap-2">
+            <div class="navbar-start  lg:pr-7 pr-4 flex items-center justify-between">
+              <Link to="/" className="max-h-[60px] pl-0">
+                <img className="w-[10vw] lg:w-[100px]  max-w-[150px]" src={logo} alt="logo" />
+              </Link>
+              <div className="lg:flex items-center gap-2 hidden">
                 <div>
                   <span>
                     <BsHeadphones className="text-5xl text-neutral" />
@@ -38,12 +38,14 @@ const MiddleHeader = () => {
                 </div>
               </div>
             </div>
-            <div class="navbar-center  rounded bg-[white] w-screen max-w-[700px] hidden  lg:flex">
-              <div className="w-full  border rounded border-primary">
-                <form action="" className="flex justify-center w-full relative px-4 ">
-                  <div class="inline-block  mt-1 ml-[-10px] max-w-[190px]  relative w-full">
+            {/*----- category search from start ------*/}
+            <div class="navbar-center h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
+              <div className="w-full  ">
+                <form action="" className="flex justify-center w-full  relative pl-4 ">
+                  <div class="inline-block  mt-1 ml-[-10px] max-w-[100px] md:max-w-[190px]  relative w-full">
                     <Select
                       id="select-component"
+                      styles={middleCategorySelected}
                       defaultValue={selectedOption}
                       onChange={setSelectedOption}
                       options={options}
@@ -51,27 +53,14 @@ const MiddleHeader = () => {
                     />
                   </div>
 
-                  <div className=" border-r  h-6 my-auto z-20 border-[#070707] "></div>
+                  <div className=" my-auto z-20 border-[#070707] "></div>
                   <label class="relative block w-full">
                     <span class="sr-only">Search</span>
                     <button
                       type="submit"
-                      class="absolute  inset-y-0 right-0 rounded pr-1  flex items-center pl-2"
+                      class="absolute btn bg-[#3d9657] hover:bg-[#46a362] inset-y-0 right-[6px] rounded   flex items-center px-3"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-full text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
+                      <BiSearchAlt className="text-2xl text-neutral" />
                     </button>
                     <input
                       class="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-12   rounded-md py-2 pl-6 pr-9 shadow-sm focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
@@ -83,26 +72,41 @@ const MiddleHeader = () => {
                 </form>
               </div>
             </div>
+            {/*----- category search from end ------*/}
             <div class="navbar-end ">
-              <ul className="flex items-center xl:gap-8 lg:gap-4 justify-end">
+              <ul className="flex items-center lg:pl-0  pl-4 xl:gap-8 md:gap-4 gap-2 justify-end ">
                 <li>
-                  <Link to={"/"}>
-                    <FiHeart className="text-2xl text-neutral" />
-                  </Link>
+                  <div class="indicator">
+                    <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-neutral">
+                      <BsArrowLeftRight className="text-lg" />
+                    </Link>
+                    <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                      <span>44</span>
+                    </div>
+                  </div>
                 </li>
                 <li>
-                  <Link to={"/"}>
-                    <MdAddShoppingCart className="text-2xl text-neutral" />
-                  </Link>
+                  <div class="indicator">
+                    <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-neutral">
+                      <FiHeart className="text-lg" />
+                    </Link>
+                    <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                      <span>44</span>
+                    </div>
+                  </div>
                 </li>
                 <li>
-                  <Link to={"/"}>
-                    <FaUserAlt className="text-2xl text-neutral" />
-                  </Link>
+                  <div class="indicator">
+                    <Link to={"/"} className="md:p-3 p-2  rounded-full bg-neutral">
+                      <MdAddShoppingCart className="text-lg " />
+                    </Link>
+                    <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                      <span>44</span>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
-            {/* </div> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,18 @@
+#shopCategories span{
+    font-size: 26px;
+    color: white;
+}
+#shopCategories .Collapsible__trigger{
+    font-size: 20px;
+    padding: 18px 20px;
+    line-height: 28px;
+}
+.Collapsible__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+.Collapsible__trigger.is-open svg {
+    transform: rotate(180deg);
+  }
