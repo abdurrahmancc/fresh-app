@@ -27,7 +27,7 @@ export const middleCategorySelected = {
   dropdownIndicator: (base) => ({
     ...base,
     color: "#ffffff",
-    padding: 0,
+    paddingRight: 10,
   }),
   input: (base, state) => ({
     ...base,

@@ -24,8 +24,8 @@ const BottomHeader = () => {
           to={"/home"}
           className={({ isActive }) =>
             isActive
-              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
-              : "text-lg px-0 font-semibold"
+              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none activeNavbar"
+              : "text-lg px-0 font-semibold "
           }
         >
           HOME
@@ -36,7 +36,7 @@ const BottomHeader = () => {
           to={"/shop"}
           className={({ isActive }) =>
             isActive
-              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
               : "text-lg px-0 font-semibold"
           }
         >
@@ -48,7 +48,7 @@ const BottomHeader = () => {
           to={"/products"}
           className={({ isActive }) =>
             isActive
-              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
               : "text-lg px-0 font-semibold"
           }
         >
@@ -60,7 +60,7 @@ const BottomHeader = () => {
           to={"/fresh"}
           className={({ isActive }) =>
             isActive
-              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
               : "text-lg px-0 font-semibold"
           }
         >
@@ -72,7 +72,7 @@ const BottomHeader = () => {
           to={"/pages"}
           className={({ isActive }) =>
             isActive
-              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
               : "text-lg px-0 font-semibold"
           }
         >
@@ -84,7 +84,7 @@ const BottomHeader = () => {
           to={"/mega-menu"}
           className={({ isActive }) =>
             isActive
-              ? "border-b pb-2 text-lg text-success font-semibold  border-success px-0 rounded-none"
+              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
               : "text-lg px-0 font-semibold"
           }
         >

@@ -22,7 +22,7 @@ const MiddleHeader = () => {
         <div className="z-20 relative ">
           <div class="navbar  py-7">
             {/* <div className="container mx-auto"> */}
-            <div class="navbar-start  lg:pr-7 pr-4 flex items-center justify-between">
+            <div class="navbar-start  lg:pr-8 pr-4 flex items-center justify-between">
               <Link to="/" className="max-h-[60px] pl-0">
                 <img className="w-[10vw] lg:w-[100px]  max-w-[150px]" src={logo} alt="logo" />
               </Link>

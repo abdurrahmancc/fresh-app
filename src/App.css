@@ -21,6 +21,15 @@
     padding: 0;
 }
 
+/* custom Badge */
+.customBadge{
+    padding: 5px 14px;
+    position: absolute;
+    top: 0;
+    border-bottom-right-radius: 1rem;
+    display: inline-block;
+}
+
 
 
 

@@ -45,6 +45,12 @@ const BottomCategories = () => {
             <Link to={"/categories/AC"}>AC</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
+            <Link to={"/categories/AC"}>AC</Link>
+          </li>
+          <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
+            <Link to={"/categories/AC"}>AC</Link>
+          </li>
+          <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
             <a className="">More Category</a>
           </li>
         </ul>
