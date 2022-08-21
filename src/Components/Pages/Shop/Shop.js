@@ -2,18 +2,18 @@ import React, { createContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaList } from "react-icons/fa";
 import { MdGridView } from "react-icons/md";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import ShopFilter from "./ShopFilter";
 import Select from "react-select";
 import { shopProduct, sortByProduct } from "../../SharedCss/SelectComponentCss";
-import axios from "axios";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
 export const shopAllProducts = createContext("products");
 
 const Shop = () => {
+  const { pathname } = useLocation();
   const [selectedSortOption, setSelectedSortOption] = useState("popularity");
   const [selectedShowOption, setSelectedShowOption] = useState({ value: 20, label: "20" });
   const [products, setProducts] = useState([]);
@@ -156,6 +156,7 @@ const Shop = () => {
   if (!products) {
     // return <Loading />;
   }
+  console.log(pathname);
 
   return (
     <main>
@@ -174,8 +175,12 @@ const Shop = () => {
           value={[products, setProducts, setReload, page, setPage, selectedShowOption?.value]}
         >
           <div className=" w-full">
-            <div className="grid lg:grid-cols-5 gap-8">
-              <div className="lg:col-span-1 w-full">
+            <div className="grid  gap-8 lg:grid-cols-5">
+              <div
+                className={` w-full ${
+                  pathname.includes("/shop/fullwidth") ? "hidden" : "lg:col-span-1"
+                }`}
+              >
                 <div className="lg:sticky top-0 ">
                   <ShopFilter
                     handleChangeChecked={handleChangeChecked}
@@ -187,7 +192,11 @@ const Shop = () => {
                   />
                 </div>
               </div>
-              <div className=" lg:col-span-4">
+              <div
+                className={` ${
+                  pathname.includes("/shop/fullwidth") ? "lg:col-span-5" : "lg:col-span-4"
+                }`}
+              >
                 <div className="flex lg:justify-between items-center justify-center ">
                   <div className="max-w-xs w-full lg:block hidden ">
                     <p>

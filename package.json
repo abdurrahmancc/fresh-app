@@ -9,6 +9,7 @@
     "axios": "^0.27.2",
     "daisyui": "^2.24.0",
     "multi-range-slider-react": "^1.0.7",
+    "rc-menu": "^9.6.3",
     "react": "^18.2.0",
     "react-collapsible": "^2.10.0",
     "react-dom": "^18.2.0",

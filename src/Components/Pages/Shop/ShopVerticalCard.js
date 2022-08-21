@@ -112,7 +112,9 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
           <span>Unit: {item?.unit}</span>
           <div className="flex gap-2  items-center">
             <span className="text-lg text-primary capitalize font-semibold">${item?.price}</span>
-            <span className="text-gray-400 line-through capitalize">${item?.regularPrice}</span>
+            {item?.regularPrice && (
+              <span className="text-gray-400 line-through capitalize">${item?.regularPrice}</span>
+            )}
           </div>
           <div class="card-actions  ">
             <button class=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">

@@ -5,7 +5,7 @@ import { MdDarkMode, MdLocationOn } from "react-icons/md";
 import { BiHeart, BiNotepad } from "react-icons/bi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import BottomCategories from "./BottomCategories";
-import { AiFillSetting } from "react-icons/ai";
+import { AiFillSetting, AiOutlineCaretDown } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { VscThreeBars } from "react-icons/vsc";
 
@@ -24,32 +24,72 @@ const BottomHeader = () => {
           to={"/home"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none activeNavbar"
-              : "text-lg px-0 font-semibold "
+              ? "border-b-2 py-[17px] text-lg text-success hover:bg-accent focus:bg-accent  font-semibold  border-primary px-0 rounded-none activeNavbar"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
           }
         >
           HOME
         </NavLink>
       </li>
-      <li>
+
+      <li tabindex="0">
         <NavLink
           to={"/shop"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 font-semibold"
+              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent text-success font-semibold  border-primary px-0 rounded-none"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
           }
         >
           SHOP
+          <AiOutlineCaretDown />
         </NavLink>
+        <ul class="menu bg-base-100 z-50 w-44 shadow">
+          <li>
+            <NavLink
+              to={"/shop"}
+              className={({ isActive }) =>
+                isActive
+                  ? " text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5">Shop default</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/shop/fullwidth"}
+              className={({ isActive }) =>
+                isActive
+                  ? "  text-lg text-success font-semibold px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5">Shop wide</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/shop/2"}
+              className={({ isActive }) =>
+                isActive
+                  ? "pb-2 text-lg text-success font-semibold px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5">Product list</span>
+            </NavLink>
+          </li>
+        </ul>
       </li>
       <li>
         <NavLink
           to={"/products"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 font-semibold"
+              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent  text-success font-semibold  border-primary px-0 rounded-none"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
           }
         >
           PRODUCTS
@@ -60,8 +100,8 @@ const BottomHeader = () => {
           to={"/fresh"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 font-semibold"
+              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent  text-success font-semibold  border-primary px-0 rounded-none"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
           }
         >
           FRESH
@@ -72,8 +112,8 @@ const BottomHeader = () => {
           to={"/pages"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 font-semibold"
+              ? "border-b-2 py-[17px] hover:bg-accent focus:bg-accent  text-lg text-success font-semibold  border-primary px-0 rounded-none"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
           }
         >
           PAGES
@@ -84,13 +124,97 @@ const BottomHeader = () => {
           to={"/mega-menu"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 font-semibold"
+              ? "border-b-2 py-[17px] hover:bg-accent focus:bg-accent  text-lg text-success font-semibold  border-primary px-0 rounded-none"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
           }
         >
           MEGA MENU
         </NavLink>
       </li>
+    </>
+  );
+
+  const items = (
+    <>
+      <ul
+        tabindex="0"
+        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <li>
+          <NavLink
+            to={"/products"}
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                : "text-lg px-0 font-semibold"
+            }
+          >
+            Item 1
+          </NavLink>
+        </li>
+        <li tabindex="0">
+          <NavLink
+            to={"/products"}
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                : "text-lg px-0 font-semibold"
+            }
+          >
+            Parent
+            <svg
+              class="fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
+          </NavLink>
+          <ul class="menu bg-base-100 w-56">
+            <li>
+              <NavLink
+                to={"/products"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                    : "text-lg px-0 font-semibold"
+                }
+              >
+                Item 1
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/products"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                    : "text-lg px-0 font-semibold"
+                }
+              >
+                Item 2
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/products"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                    : "text-lg px-0 font-semibold"
+                }
+              >
+                Item 3
+              </NavLink>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>Item 3</a>
+        </li>
+      </ul>
     </>
   );
   return (
@@ -142,7 +266,7 @@ const BottomHeader = () => {
             </div>
           </div>
           <div class="navbar-center hidden lg:flex">
-            <ul class="flex justify-center items-center gap-5">{navItems}</ul>
+            <ul class="menu menu-horizontal flex justify-center items-center gap-5 ">{navItems}</ul>
           </div>
           {/* navbar-end */}
           <div className="navbar-end flex items-center xl:gap-8 lg:gap-4 justify-end">
