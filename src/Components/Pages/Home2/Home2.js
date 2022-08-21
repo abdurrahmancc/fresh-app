@@ -14,15 +14,16 @@ import banner3 from "../../../assets/product_Banner/product_Banner-3.png";
 import TopTrendingRecently from "../Home/TopTrendingRecently/TopTrendingRecently";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
+import Footer2 from "../../SharedPages/Footer2.js/Footer2";
 
-const Home1 = () => {
+const Home2 = () => {
   const img1 = [banner1, banner2];
   const img2 = [banner3, banner4];
   return (
     <main>
       {/*------- Banner Slider section start -------*/}
       <section className="container mx-auto mt-10">
-        <div className="lg:ml-[260px] xl:ml-[320px] mx-5">
+        <div className="lg:mx-0 mx-5">
           <BannerSlider />
         </div>
       </section>
@@ -30,7 +31,9 @@ const Home1 = () => {
 
       {/*category features start*/}
       <section className="container mx-auto mt-20">
-        <Features></Features>
+        <div className="lg:mx-0 mx-5">
+          <Features></Features>
+        </div>
       </section>
       {/* category features  end */}
       {/*Banner start*/}
@@ -82,20 +85,14 @@ const Home1 = () => {
         </div>
       </section>
       {/*------ Top Trending Recently products end --------*/}
-      {/*------ Newsletters start ------*/}
-      <section className="max-w-[100%] w-full mt-20">
-        <Newsletters></Newsletters>
-      </section>
-      {/*------ Newsletters end -------*/}
+
       {/*------ footer start ------*/}
       <footer className=" mt-20">
-        <div className="lg:mx-0 mx-5">
-          <Footer></Footer>
-        </div>
+        <Footer2></Footer2>
       </footer>
       {/*------ footer end -------*/}
     </main>
   );
 };
 
-export default Home1;
+export default Home2;

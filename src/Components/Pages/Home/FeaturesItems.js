@@ -25,7 +25,7 @@ const FeaturesItems = ({ featuresItems }) => {
           },
           500: {
             width: 500,
-            slidesPerView: 3,
+            slidesPerView: 2,
           },
           300: {
             width: 300,
@@ -51,7 +51,7 @@ const FeaturesItems = ({ featuresItems }) => {
                 <img src={feature?.img} alt={feature?.name} class="rounded-xl" />
               </figure>
               <div class="card-body items-center text-center">
-                <h2 class="card-title text-[1vw] capitalize">{feature?.name}</h2>
+                <h2 class="card-title text-[2vw] md:text-[1vw] capitalize">{feature?.name}</h2>
               </div>
             </div>
           </SwiperSlide>

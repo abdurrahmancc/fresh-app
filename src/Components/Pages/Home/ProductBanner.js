@@ -5,7 +5,7 @@ const ProductBanner = ({ img }) => {
     <div className="grid lg:grid-cols-2 grid-cols-1  gap-10">
       {img && (
         <div
-          className="rounded lg:h-[22rem] w-full "
+          className="rounded-lg lg:h-[22rem] w-full "
           style={{
             backgroundImage: `url(${img[0]})`,
             backgroundPosition: "center",
@@ -30,7 +30,7 @@ const ProductBanner = ({ img }) => {
       )}
 
       <div
-        className="rounded lg:h-[22rem] w-full "
+        className="rounded-lg lg:h-[22rem] w-full "
         style={{
           backgroundImage: `url(${img[1]})`,
           backgroundPosition: "center",

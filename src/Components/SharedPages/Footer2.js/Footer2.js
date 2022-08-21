@@ -1,37 +1,39 @@
 import React from "react";
-import logo from "../../../assets/logo/logo.png";
-import apple from "../../../assets/logo/apple.png";
-import googlePlay from "../../../assets/logo/googlePlay.png";
-import paypal from "../../../assets/logo/paypal-logo.png";
+import logo from "../../../assets/logo/logo_white.png";
+import payment from "../../../assets/logo/payment.png";
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP, FaYoutube } from "react-icons/fa";
-import { TbPhoneCall } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { SiMinutemailer } from "react-icons/si";
-
-const Footer = () => {
+import GoogleApp from "../Footer/GoogleApp";
+const Footer2 = () => {
   return (
-    <div className="">
-      <div className="container mx-auto">
+    <div className="bg-success">
+      <div className="container mx-auto md:px-0 px-5">
+        <footer className="mb-20">
+          <GoogleApp />
+        </footer>
         <footer class="footer md:grid-cols-5 md:justify-items-start  sm:grid-cols-3 text-base-content">
           <div>
             <img className="md:w-6/12 w-4/12" src={logo} alt="logo" />
-            <p className="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <ul className="flex flex-col gap-y-3">
+            <p className="py-3 text-base-200">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <ul className="flex flex-col gap-y-3 text-base-200">
               <li className="">
-                <IoLocationOutline className="inline-block text-xl text-primary" />
+                <IoLocationOutline className="inline-block text-xl text-white" />
                 <strong> Address: </strong>
                 <span>2855 Stevens Creek BLVD, Utah 43332 United States.</span>
               </li>
               <li className="">
-                <SiMinutemailer className="inline-block text-xl text-primary" />
+                <SiMinutemailer className="inline-block text-xl text-white" />
                 <strong> E-mail: </strong>
                 <span>sale@fresh.com</span>
               </li>
             </ul>
           </div>
           <div>
-            <h5 class="text-lg font-bold pb-3 text-black">Company</h5>
-            <ul className="flex flex-col gap-3">
+            <h5 class="text-lg font-bold pb-3 text-white">Company</h5>
+            <ul className="flex flex-col gap-3 text-base-200">
               <li>
                 <a class="link link-hover">About Us</a>
               </li>
@@ -54,8 +56,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h5 class="text-lg font-bold pb-3 text-black">Account</h5>
-            <ul className="flex flex-col gap-3">
+            <h5 class="text-lg font-bold pb-3 text-white">Account</h5>
+            <ul className="flex flex-col gap-3 text-base-200">
               <li>
                 <a class="link link-hover">Sign In</a>
               </li>
@@ -77,8 +79,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h5 class="text-lg font-bold pb-3 text-black">Categories</h5>
-            <ul className="flex flex-col gap-3">
+            <h5 class="text-lg font-bold pb-3 text-white">Categories</h5>
+            <ul className="flex flex-col gap-3 text-base-200">
               <li>
                 <a class="link link-hover">Bakery & pastry</a>
               </li>
@@ -99,52 +101,35 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
           <div className="">
-            <h5 class="text-lg font-bold pb-3 text-black">Install App</h5>
-            <p className="">From App Store or Google Play</p>
-            <div className="flex items-center gap-2 pb-5 pt-2">
-              <a href="" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
-                <img src={apple} alt="apple store logo" />
-              </a>
-              <a href="" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
-                <img src={googlePlay} alt="google play logo" />
-              </a>
-            </div>
-            <p className="pb-2">Secured Payment Gateways</p>
-            <img src={paypal} className="w-6/12" alt="Payment Gateways" />
+            <h5 class="text-lg font-bold pb-3 text-white">Newsletter</h5>
+            <p className="text-base-200">Get update every week your inbox</p>
+            <form action="" className="relative">
+              <SiMinutemailer className="text-accent text-xl absolute xl:right-8  right-3 top-3" />
+              <input
+                type="text"
+                className="input w-full rounded-sm newsletter"
+                placeholder="Enter your e-mail"
+              />
+              <button type="submit" className="btn font-bold px-6 mt-5 btn-accent rounded-full">
+                Subscribe
+              </button>
+            </form>
           </div>
         </footer>
-        <footer class=" py-4 border-t  mt-10 flex justify-center md:justify-between">
+        <footer class=" py-4 border-t border-[#c5f8c51a] mt-10 flex justify-center md:justify-between">
           <div class="items-center grid-flow-col ">
-            <p className="capitalize text-center md:text-start">
+            <p className="capitalize text-center text-base-200 md:text-start">
               Copyright &copy; {new Date().getFullYear()}, {""}
-              <strong className="text-primary">Fresh</strong>
+              <strong className="text-accent">Fresh</strong>
               {""} - Ecommerce template <br /> All rights reserved
             </p>
           </div>
           <div class=" hidden  lg:flex items-center gap-10 md:justify-self-center">
-            <div class=" hidden xl:flex justify-center items-center gap-2">
-              <span>
-                <TbPhoneCall className="text-4xl text-gray-400" />
-              </span>
-              <p className="flex flex-col">
-                <span className="text-2xl text-primary font-semibold">2342-0434</span>
-                <span className="text-gray-500">working 7:00 - 21:00</span>
-              </p>
-            </div>
-            <div class=" flex justify-center items-center gap-2">
-              <span>
-                <TbPhoneCall className="text-4xl text-gray-400" />
-              </span>
-              <p className="flex flex-col">
-                <span className="text-2xl text-primary font-semibold">2342-0434</span>
-                <span className="text-gray-500">working 7:00 - 21:00</span>
-              </p>
-            </div>
+            <img src={payment} className="" alt="Payment Gateways" />
           </div>
           <div className="hidden md:flex flex-col">
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center text-base-200">
               <h5 className="font-semibold">Follow Us</h5>
               <div className="flex text-primary  gap-1">
                 <a
@@ -179,7 +164,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <p className="text-gray-500">Up to 15% discount on your first subscribe</p>
+            <p className="text-base-200">Up to 15% discount on your first subscribe</p>
           </div>
         </footer>
       </div>
@@ -187,4 +172,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer2;

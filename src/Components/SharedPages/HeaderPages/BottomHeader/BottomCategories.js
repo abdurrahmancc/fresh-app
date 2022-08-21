@@ -11,11 +11,11 @@ const BottomCategories = () => {
     <div id="shopCategories">
       <Collapsible
         className="w-full"
-        open={pathname.includes("home") || (pathname === "/" && true)}
+        open={pathname === "/home" || (pathname === "/" && true)}
         trigger={["SHOP BY CATEGORY", <BsChevronDown />]}
       >
         <ul
-          className={`menu bg-base-100 z-50 w-full shadow-lg border-primary mb-1 relative border-[2px] top-0  ease-in-out duration-500 border-t-0 rounded-b-xl font-bold`}
+          className={`menu bg-base-100 z-50 w-full shadow-lg border-primary mb-1 relative border-[2px] top-0 ease-in-out duration-500 border-t-0 rounded-b-xl font-bold`}
         >
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
             <Link to={"/categories/computer"}>Computer</Link>
@@ -37,6 +37,9 @@ const BottomCategories = () => {
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
             <Link to={"/categories/watch"}>Watch</Link>
+          </li>
+          <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
+            <Link to={"/categories/refrigerator"}>refrigerator</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
             <Link to={"/categories/refrigerator"}>refrigerator</Link>

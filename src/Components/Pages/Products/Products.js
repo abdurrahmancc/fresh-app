@@ -1,10 +1,17 @@
 import React from "react";
+import Breadcrumb from "../../SharedPages/Breadcrumb";
 
 const Products = () => {
   return (
-    <div>
-      <h2>products</h2>
-    </div>
+    <main>
+      <section className=" bg-slate-100 py-2 mb-6">
+        <div className="container mx-auto">
+          <div className="text-sm breadcrumbs">
+            <Breadcrumb />
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
 

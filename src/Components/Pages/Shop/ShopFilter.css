@@ -1,0 +1,14 @@
+.multi-range-slider .bar-inner{
+    background-color: #99f0d0;
+}
+.multi-range-slider{
+    /* border: none; */
+    box-shadow: none;
+}
+
+.dropDownFilter .Collapsible__trigger{
+    font-size: 20px;
+    padding: 20px;
+    line-height: 28px;
+    font-weight: bold;
+}

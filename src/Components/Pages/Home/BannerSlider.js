@@ -8,10 +8,11 @@ import img1 from "../../../assets/banner_img/banner-5.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay, Navigation } from "swiper";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import "./Banner.css";
 
 const BannerSlider = () => {
+  const { pathname } = useLocation();
   const bannerItems = [img1, img2, img3, img4, img5];
   return (
     <>
@@ -35,20 +36,25 @@ const BannerSlider = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
               }}
-              className="w-full lg:h-[500px] xl:h-[600px] rounded-xl"
+              className={`w-full h-auto lg:h-[500px] ${
+                pathname === "/home2" ? "xl:h-[800px]" : "xl:h-[600px]"
+              }  rounded-xl`}
             >
-              <div className="pl-28 h-full flex flex-col justify-center">
+              <div className="xl:pl-20 ml-10 md:pl-16 py-20 h-full flex flex-col justify-center">
                 <div>
-                  <span className="bg-error text-neutral rounded px-4 uppercase py-2">
+                  <span className="bg-error text-[2vw] md:text-sm text-neutral rounded px-4 uppercase py-2">
                     sale top 20% off
                   </span>
-                  <h1 className="text-[3.5vw] pt-2 leading-[80px] capitalize font-bold text-neutral">
+                  <h1 className="text-[3.5vw] lg:pt-2 pt-5 md:leading-10 lg:leading-[50px] xl:leading-[80px] capitalize font-bold text-neutral">
                     get fresh organic <br /> food everyday
                   </h1>
-                  <p className="text-neutral pb-10 pt-5 text-xl">
+                  <p className="text-neutral text-sm md:pb-10 pb-5 pt-5 md:text-xl">
                     making grocery food errands worth your while
                   </p>
-                  <Link to="/shop" className="px-6 py-4 bg-accent rounded font-semibold ">
+                  <Link
+                    to="/shop"
+                    className="md:px-6 px-4 text-[2vw] md:text-lg py-2 md:py-4 bg-accent rounded font-semibold "
+                  >
                     Buy Product
                   </Link>
                 </div>

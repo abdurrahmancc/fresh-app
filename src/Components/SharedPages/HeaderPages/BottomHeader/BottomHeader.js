@@ -136,7 +136,7 @@ const BottomHeader = () => {
               </ul>
             </div>
             <div
-              className={`max-w-[292.5px] lg:max-w-[250.5px] xl:max-w-[292.5px] w-screen bg-[#3d9657] h-[64px] hidden lg:block `}
+              className={`max-w-[292.5px] lg:max-w-[250.5px] xl:max-w-[292.5px] w-screen bg-[#f4a629] h-[64px] hidden lg:block `}
             >
               <BottomCategories categoryDown={categoryDown}></BottomCategories>
             </div>

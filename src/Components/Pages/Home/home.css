@@ -9,3 +9,10 @@
     }
 }
 
+/*------ input newsletter  -----*/
+@media screen and (min-width: 1350px) {
+    .newsletter{
+        width: 14rem;
+    }
+}
+
