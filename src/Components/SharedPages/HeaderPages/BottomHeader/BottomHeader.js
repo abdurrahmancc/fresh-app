@@ -83,6 +83,57 @@ const BottomHeader = () => {
           </li>
         </ul>
       </li>
+      <li tabindex="0">
+        <NavLink
+          to={"/about"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent text-success font-semibold  border-primary px-0 rounded-none"
+              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+          }
+        >
+          PAGES
+          <AiOutlineCaretDown />
+        </NavLink>
+        <ul class="menu bg-base-100 z-50 w-44 shadow">
+          <li>
+            <NavLink
+              to={"/about"}
+              className={({ isActive }) =>
+                isActive
+                  ? " text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5"> About us</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/contact"}
+              className={({ isActive }) =>
+                isActive
+                  ? "  text-lg text-success font-semibold px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5">Contact</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/blogs"}
+              className={({ isActive }) =>
+                isActive
+                  ? "pb-2 text-lg text-success font-semibold px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5">Blogs</span>
+            </NavLink>
+          </li>
+        </ul>
+      </li>
       <li>
         <NavLink
           to={"/products"}
@@ -95,6 +146,7 @@ const BottomHeader = () => {
           PRODUCTS
         </NavLink>
       </li>
+
       <li>
         <NavLink
           to={"/fresh"}
@@ -105,18 +157,6 @@ const BottomHeader = () => {
           }
         >
           FRESH
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={"/pages"}
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 py-[17px] hover:bg-accent focus:bg-accent  text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
-          }
-        >
-          PAGES
         </NavLink>
       </li>
       <li>

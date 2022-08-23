@@ -10,6 +10,7 @@ import Home2 from "./Components/Pages/Home2/Home2";
 import Shop from "./Components/Pages/Shop/Shop";
 import ShopVertical from "./Components/Pages/Shop/ShopVertical";
 import ShopCardHorizontal from "./Components/Pages/Shop/ShopCardHorizontal ";
+import BlogDetails from "./Components/Pages/Blogs/BlogDetails";
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
         </Route>
         <Route path={"/shop/:id"} element={<Shop />} />
         <Route path={"/products"} element={<Products />} />
+        <Route path={"/contact"} element={<Products />} />
         <Route path={"/blogs"} element={<Blogs />} />
+        <Route path={"/blog-details/:id"} element={<BlogDetails />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
     </>

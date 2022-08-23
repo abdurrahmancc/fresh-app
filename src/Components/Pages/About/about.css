@@ -1,0 +1,5 @@
+.clientReview_shadow{
+    box-shadow:1px 1px 10px 0.1px #C9C9C9;
+    -webkit-box-shadow:1px 1px 10px 0.1px #C9C9C9;
+    -moz-box-shadow:1px 1px 10px 0.1px #C9C9C9;
+}

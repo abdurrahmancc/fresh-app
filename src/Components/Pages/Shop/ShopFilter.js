@@ -7,10 +7,6 @@ import product1 from "../../../assets/products_img/CashewNuts.png";
 import product2 from "../../../assets/products_img/driedFishPacket.png";
 import product3 from "../../../assets/products_img/dryShrimp.png";
 import product4 from "../../../assets/products_img/greenPeasPacket.png";
-import product5 from "../../../assets/products_img/naturalNuts.png";
-import product6 from "../../../assets/products_img/naturalNutsMix.png";
-import product7 from "../../../assets/products_img/nestleMiloMiniPacket.png";
-import product8 from "../../../assets/products_img/nutsPacket.png";
 import Rating from "../../SharedPages/Rating";
 import { Link } from "react-router-dom";
 const products = [
