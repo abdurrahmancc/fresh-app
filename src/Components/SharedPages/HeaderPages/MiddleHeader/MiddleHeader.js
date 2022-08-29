@@ -97,7 +97,7 @@ const MiddleHeader = () => {
                 </li>
                 <li>
                   <div class="indicator">
-                    <Link to={"/"} className="md:p-3 p-2  rounded-full bg-neutral">
+                    <Link to={"/shopping-cart"} className="md:p-3 p-2  rounded-full bg-neutral">
                       <MdAddShoppingCart className="text-lg " />
                     </Link>
                     <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">

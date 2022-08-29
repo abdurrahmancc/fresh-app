@@ -11,6 +11,7 @@ import product2 from "../../../assets/products_img/driedFishPacket.png";
 import product3 from "../../../assets/products_img/dryShrimp.png";
 import product4 from "../../../assets/products_img/greenPeasPacket.png";
 import Loading from "../../SharedPages/Loading";
+import sideBanner from "../../../assets/banner_img/side-banner-6.png";
 
 const BlogSideBar = () => {
   const [error, setError] = useState("");
@@ -251,6 +252,13 @@ const BlogSideBar = () => {
               </Link>
             </div>
           </div>
+        </div>
+        <div className="hidden lg:block">
+          <img
+            src={sideBanner}
+            className={" best-selling-banner-img rounded-2xl w-full"}
+            alt="best selling banner"
+          />
         </div>
       </div>
     </>

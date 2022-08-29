@@ -83,18 +83,15 @@ const BottomHeader = () => {
           </li>
         </ul>
       </li>
+
       <li tabindex="0">
-        <NavLink
-          to={"/about"}
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
-          }
+        <a
+          href="#"
+          className="text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
         >
           PAGES
           <AiOutlineCaretDown />
-        </NavLink>
+        </a>
         <ul class="menu bg-base-100 z-50 w-44 shadow">
           <li>
             <NavLink
@@ -130,6 +127,18 @@ const BottomHeader = () => {
               }
             >
               <span className="px-5">Blogs</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/FAQ"}
+              className={({ isActive }) =>
+                isActive
+                  ? "pb-2 text-lg text-success font-semibold px-0 rounded-none"
+                  : "text-lg px-0 font-semibold"
+              }
+            >
+              <span className="px-5">FAQ</span>
             </NavLink>
           </li>
         </ul>

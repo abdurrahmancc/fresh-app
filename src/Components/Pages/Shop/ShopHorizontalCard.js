@@ -25,19 +25,21 @@ const ShopHorizontalCard = ({ item }) => {
       className="card max-w-[290px] md:max-w-full  md:card-side hover:z-10 w-full mx-auto shadow border border-gray-300"
     >
       <div className="flex items-center">
-        <div>
+        <div className="w-full">
           <figure
-            className={`m-3 max-w-[280px] md:max-w-[300px] md:border-none border-b border-gray-200  max-h-[251px] md:max-h-[320px] overflow-hidden duration-700 transition-all ease-in-out ${
+            className={`m-3  md:max-w-[300px] md:border-none border-b border-gray-300 md:w-[300px] md:max-h-[320px] overflow-hidden duration-700 transition-all ease-in-out ${
               hoveredCart === "block" && "rounded-lg"
             }`}
           >
-            <img
-              className={`md:h-[320px]  mx-auto  md:w-[300px] rounded-lg w-[280px] h-[252px] duration-300 transition-all ease-in-out ${
-                hoveredCart === "block" && " scale-110 "
-              }`}
-              src={item?.images?.ImageURL1}
-              alt="Shoes"
-            />
+            <Link to={`product-details/${item?._id}`}>
+              <img
+                className={`md:h-[320px] w-[264px] mx-auto md:w-[300px] rounded-lg h-auto duration-300 transition-all ease-in-out ${
+                  hoveredCart === "block" && " scale-110 "
+                }`}
+                src={item?.images?.ImageURL1}
+                alt="Shoes"
+              />
+            </Link>
           </figure>
           <div>
             {item?.productQuality == "new" || (
@@ -65,7 +67,7 @@ const ShopHorizontalCard = ({ item }) => {
             <div className={`flex absolute bottom-10 `}>
               <Link
                 onClick={setShowModal}
-                to={`/item-details/${item?._id}`}
+                to={`/product-details/${item?._id}`}
                 className={
                   "p-2 text-lg text-primary bg-white border hover:bg-primary hover:text-neutral"
                 }
@@ -98,9 +100,11 @@ const ShopHorizontalCard = ({ item }) => {
           <span className="capitalize">By: {item?.manufacturerBrand}</span>
         </div>
         <h2 class="card-title pb-2 capitalize">
-          {item?.productName.length >= 35
-            ? `${item?.productName.slice(0, 35)} ...`
-            : item?.productName}
+          <Link to={`/product-details/${item?._id}`}>
+            {item?.productName.length >= 35
+              ? `${item?.productName.slice(0, 35)} ...`
+              : item?.productName}
+          </Link>
         </h2>
         <div>
           <p className="hidden md:block pb-2">

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
+import useAddCartProduct from "../../Hooks/useAddCartProduct";
 import ScrollBtn from "../../SharedPages/ScrollBtn";
 import { shopAllProducts } from "./Shop";
 import ShopVerticalCard from "./ShopVerticalCard";
@@ -8,8 +9,8 @@ import ShopVerticalCard from "./ShopVerticalCard";
 const ShopVertical = () => {
   const { pathname } = useLocation();
   const [pageCount, setPageCount] = useState(0);
-  // const [handleAddToCartProduct] = useAddProduct();
-  const [handleAddToCartProduct] = useState();
+  const [handleAddToCartProduct] = useAddCartProduct();
+
   const [products, , setReload, page, setPage, size] = useContext(shopAllProducts);
 
   useEffect(() => {

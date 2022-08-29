@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { BsSuitHeart } from "react-icons/bs";
 import { IoEyeOutline } from "react-icons/io5";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -21,8 +22,8 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
 
   const handleAddToCart = (item) => {
     handleAddToCartProduct(item);
-    // window.location.reload();
-    // toast.success("Add To Cart", { id: "addToCart" });
+    console.log("hello");
+    toast.success("Add To Cart", { id: "addToCart" });
   };
   return (
     <>
@@ -33,7 +34,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
       >
         <div className="relative">
           <div>
-            <Link to={"/shop"} className="p-0">
+            <Link to={`/product-details/${item?._id}`} className="p-0">
               <figure class="m-3 max-w-[280px] border-b border-gray-200  max-h-[251px] overflow-hidden">
                 <img
                   className={`rounded w-[280px] h-[252px] duration-300 transition-all ease-in-out  ${
@@ -101,7 +102,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
           <div>
             <span className="capitalize">By: {item?.manufacturerBrand}</span>
           </div>
-          <Link to={"/"}>
+          <Link to={`/product-details/${item?._id}`}>
             <h2 title={item?.productName} class="card-title pb-2 capitalize">
               {item?.productName.length >= 35
                 ? `${item?.productName.slice(0, 35)} ...`
@@ -117,7 +118,10 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
             )}
           </div>
           <div class="card-actions  ">
-            <button class=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
+            <button
+              onClick={() => handleAddToCart(item)}
+              class=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2"
+            >
               <MdAddShoppingCart /> Add to cart
             </button>
           </div>

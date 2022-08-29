@@ -19,74 +19,76 @@ const Home1 = () => {
   const img1 = [banner1, banner2];
   const img2 = [banner3, banner4];
   return (
-    <main>
-      {/*------- Banner Slider section start -------*/}
-      <section className="container mx-auto mt-10">
-        <div className="lg:ml-[260px] xl:ml-[320px] mx-5">
-          <BannerSlider />
-        </div>
-      </section>
-      {/*------- Banner Slider section start -------*/}
+    <>
+      <main>
+        {/*------- Banner Slider section start -------*/}
+        <section className="container mx-auto mt-10">
+          <div className="lg:ml-[260px] xl:ml-[320px] mx-5">
+            <BannerSlider />
+          </div>
+        </section>
+        {/*------- Banner Slider section start -------*/}
 
-      {/*category features start*/}
-      <section className="container mx-auto mt-20">
-        <Features></Features>
-      </section>
-      {/* category features  end */}
-      {/*Banner start*/}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <ProductBanner img={img1}></ProductBanner>
-        </div>
-      </section>
-      {/* Banner  end */}
-      {/*------ Deals Of The Day start ------*/}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <DealsOfTheDay></DealsOfTheDay>
-        </div>
-      </section>
-      {/*------ Deals Of The Day end --------*/}
-      {/*------ Best Selling products start ------*/}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <BestSellingProducts></BestSellingProducts>
-        </div>
-      </section>
-      {/*------ Best Selling products end --------*/}
-      {/*Banner start*/}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <ProductBanner img={img2}></ProductBanner>
-        </div>
-      </section>
-      {/* Banner  end */}
-      {/*------ products of your choice start ------*/}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <ProductsOfYourChoice></ProductsOfYourChoice>
-        </div>
-      </section>
-      {/*------ products of your choice end --------*/}
-      {/*------- icons  free online money start----- */}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <FreeOnlineMoney></FreeOnlineMoney>
-        </div>
-      </section>
-      {/*------- icons  free online money end ------*/}
-      {/*------ Top Trending Recently products start ------*/}
-      <section className="container mx-auto mt-20">
-        <div className="lg:mx-0 mx-5">
-          <TopTrendingRecently></TopTrendingRecently>
-        </div>
-      </section>
-      {/*------ Top Trending Recently products end --------*/}
-      {/*------ Newsletters start ------*/}
-      <section className="max-w-[100%] w-full mt-20">
-        <Newsletters></Newsletters>
-      </section>
-      {/*------ Newsletters end -------*/}
+        {/*category features start*/}
+        <section className="container mx-auto mt-20">
+          <Features></Features>
+        </section>
+        {/* category features  end */}
+        {/*Banner start*/}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <ProductBanner img={img1}></ProductBanner>
+          </div>
+        </section>
+        {/* Banner  end */}
+        {/*------ Deals Of The Day start ------*/}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <DealsOfTheDay></DealsOfTheDay>
+          </div>
+        </section>
+        {/*------ Deals Of The Day end --------*/}
+        {/*------ Best Selling products start ------*/}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <BestSellingProducts></BestSellingProducts>
+          </div>
+        </section>
+        {/*------ Best Selling products end --------*/}
+        {/*Banner start*/}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <ProductBanner img={img2}></ProductBanner>
+          </div>
+        </section>
+        {/* Banner  end */}
+        {/*------ products of your choice start ------*/}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <ProductsOfYourChoice></ProductsOfYourChoice>
+          </div>
+        </section>
+        {/*------ products of your choice end --------*/}
+        {/*------- icons  free online money start----- */}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <FreeOnlineMoney></FreeOnlineMoney>
+          </div>
+        </section>
+        {/*------- icons  free online money end ------*/}
+        {/*------ Top Trending Recently products start ------*/}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <TopTrendingRecently></TopTrendingRecently>
+          </div>
+        </section>
+        {/*------ Top Trending Recently products end --------*/}
+        {/*------ Newsletters start ------*/}
+        <section className="max-w-[100%] w-full mt-20">
+          <Newsletters></Newsletters>
+        </section>
+        {/*------ Newsletters end -------*/}
+      </main>
       {/*------ footer start ------*/}
       <footer className=" mt-20">
         <div className="lg:mx-0 mx-5">
@@ -94,7 +96,7 @@ const Home1 = () => {
         </div>
       </footer>
       {/*------ footer end -------*/}
-    </main>
+    </>
   );
 };
 

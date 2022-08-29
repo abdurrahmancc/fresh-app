@@ -112,7 +112,11 @@ const BlogDetails = () => {
             <div className="col-span-3">
               <div className="border-b border-dashed border-gray-300">
                 <figure>
-                  <img className="w-full h-auto" src={data?.data?.images?.ImageURL1} alt="" />
+                  <img
+                    className="w-full h-auto rounded-xl"
+                    src={data?.data?.images?.ImageURL1}
+                    alt=""
+                  />
                 </figure>
                 <div>
                   <h4 className="text-2xl mt-8 font-bold">Blog Image Post</h4>

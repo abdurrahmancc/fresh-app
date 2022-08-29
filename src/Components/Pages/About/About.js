@@ -256,7 +256,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/*------ Newsletters start ------*/}
+
       {/*------- icons  free online money start----- */}
       <section className="container mx-auto mt-20">
         <div className="lg:mx-0 mx-5">
