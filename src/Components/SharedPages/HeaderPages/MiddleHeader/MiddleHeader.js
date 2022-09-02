@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../../../assets/logo/logo_white.png";
+import logo from "../../../../assets/logo/logo.png";
 import { Link } from "react-router-dom";
 import { BsArrowLeftRight, BsHeadphones } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
@@ -17,7 +17,7 @@ const MiddleHeader = () => {
   ];
 
   return (
-    <div className="bg-success hidden sm:block">
+    <div className=" hidden sm:block">
       <div className="container mx-auto">
         <div className="z-20 relative ">
           <div className="navbar  py-7">
@@ -29,17 +29,17 @@ const MiddleHeader = () => {
               <div className="lg:flex items-center gap-2 hidden">
                 <div>
                   <span>
-                    <BsHeadphones className="text-5xl text-neutral" />
+                    <BsHeadphones className="text-5xl text-gray-600" />
                   </span>
                 </div>
-                <div className="flex flex-col text-neutral">
+                <div className="flex flex-col text-black">
                   <span className="text-lg">33-434-5455</span>
                   <span className="text-xs">Free Call Support</span>
                 </div>
               </div>
             </div>
             {/*----- category search from start ------*/}
-            <div className="navbar-center h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
+            <div className="navbar-center border h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
               <div className="w-full  ">
                 <form action="" className="flex justify-center w-full  relative pl-4 ">
                   <div className="inline-block  mt-1 ml-[-10px] max-w-[100px] md:max-w-[190px]  relative w-full">
@@ -58,12 +58,12 @@ const MiddleHeader = () => {
                     <span className="sr-only">Search</span>
                     <button
                       type="submit"
-                      className="absolute btn bg-[#3d9657] hover:bg-[#46a362] inset-y-0 right-[6px] rounded   flex items-center px-3"
+                      className="absolute btn bg-[#76A713] duration-500 hover:bg-[#6a9d04] inset-y-0 right-[6px] rounded transition-all  flex items-center px-3"
                     >
                       <BiSearchAlt className="text-2xl text-neutral" />
                     </button>
                     <input
-                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-12   rounded-md py-2 pl-6 pr-9 shadow-sm focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
+                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-12  rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
                       placeholder="Search for items..."
                       type="text"
                       name="search"
@@ -80,7 +80,7 @@ const MiddleHeader = () => {
                     <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-neutral">
                       <BsArrowLeftRight className="text-lg" />
                     </Link>
-                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white indicator-item top-2 right-1 text-[0.6875rem]">
                       <span>44</span>
                     </div>
                   </div>
@@ -90,7 +90,7 @@ const MiddleHeader = () => {
                     <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-neutral">
                       <FiHeart className="text-lg" />
                     </Link>
-                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white  indicator-item top-2 right-1 text-[0.6875rem]">
                       <span>44</span>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ const MiddleHeader = () => {
                     <Link to={"/shopping-cart"} className="md:p-3 p-2  rounded-full bg-neutral">
                       <MdAddShoppingCart className="text-lg " />
                     </Link>
-                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white  indicator-item top-2 right-1 text-[0.6875rem]">
                       <span>44</span>
                     </div>
                   </div>

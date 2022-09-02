@@ -39,8 +39,8 @@ const BottomHeader = () => {
           to={"/home"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 py-[17px] text-lg text-success hover:bg-accent focus:bg-accent  font-semibold  border-primary px-0 rounded-none activeNavbar"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary  font-semibold px-0 rounded-none activeNavbar"
+              : "text-lg px-0 text-white py-[17px] font-semibold hover:bg-primary focus:bg-primary"
           }
         >
           HOME
@@ -52,12 +52,12 @@ const BottomHeader = () => {
           to={"/shop"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
+              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
           }
         >
           SHOP
-          <AiOutlineCaretDown />
+          <AiOutlineCaretDown className="text-sm" />
         </NavLink>
         <ul className="menu bg-base-100 z-50 w-44 shadow">
           <li>
@@ -102,10 +102,10 @@ const BottomHeader = () => {
       <li tabIndex="0">
         <a
           href="#"
-          className="text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+          className="text-lg px-0 gap-1 py-[17px] text-white font-semibold hover:bg-primary focus:bg-primary"
         >
           PAGES
-          <AiOutlineCaretDown />
+          <AiOutlineCaretDown className="text-sm" />
         </a>
         <ul className="menu bg-base-100 z-50 w-44 shadow">
           <li>
@@ -163,8 +163,8 @@ const BottomHeader = () => {
           to={"/products"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent  text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
+              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
           }
         >
           PRODUCTS
@@ -176,8 +176,8 @@ const BottomHeader = () => {
           to={"/fresh"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 py-[17px] text-lg hover:bg-accent focus:bg-accent  text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
+              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
           }
         >
           FRESH
@@ -188,8 +188,8 @@ const BottomHeader = () => {
           to={"/mega-menu"}
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 py-[17px] hover:bg-accent focus:bg-accent  text-lg text-success font-semibold  border-primary px-0 rounded-none"
-              : "text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
+              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
+              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
           }
         >
           MEGA MENU
@@ -199,7 +199,7 @@ const BottomHeader = () => {
   );
 
   return (
-    <div className="bg-accent">
+    <div className="bg-primary">
       {/*----- Bottom Header start -----*/}
       <div className="container mx-auto">
         <div className="navbar px-0 max-h-[64px]">
@@ -241,7 +241,7 @@ const BottomHeader = () => {
               </ul>
             </div>
             <div
-              className={`max-w-[292.5px] lg:max-w-[250.5px] xl:max-w-[292.5px] w-screen bg-[#f4a629] h-[64px] hidden lg:block `}
+              className={`max-w-[292.5px] lg:max-w-[250.5px] xl:max-w-[292.5px] w-screen bg-[#5C820F] h-[64px] hidden lg:block `}
             >
               <BottomCategories categoryDown={categoryDown}></BottomCategories>
             </div>
@@ -256,18 +256,18 @@ const BottomHeader = () => {
             <div onClick={() => navigate("/view-cart")} className="hidden lg:block cursor-pointer">
               <Link
                 to={"/"}
-                className="flex items-center font-semibold gap-2 pr-5 border-r border-[#000]"
+                className="flex items-center font-semibold gap-2 pr-5 border-r border-gray-300"
               >
-                <span className="text-2xl">
+                <span className="text-2xl text-white">
                   <ImStarHalf />
                 </span>
-                <span>Best Offer</span>
+                <span className="text-white">Best Offer</span>
               </Link>
             </div>
 
             <div className="dropdown dropdown-hover dropdown-end lg:pr-0 pr-2">
               <label tabIndex="0" className="text m-1">
-                <FaUserAlt className="text-2xl" />
+                <FaUserAlt className="text-2xl text-white" />
               </label>
               <ul
                 tabIndex="0"

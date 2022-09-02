@@ -7,7 +7,7 @@ export const middleCategorySelected = {
   }),
   control: (base, state) => ({
     ...base,
-    background: "#3d9657",
+    background: "#76A713",
     color: "#ffffff",
     height: 48,
     marginTop: -3,
@@ -54,7 +54,7 @@ export const topHeaderSelectLibraryStyle = {
   }),
   control: (base, state) => ({
     ...base,
-    background: "#15673b",
+    background: "#76A713",
     color: "#ffffff",
     border: "none",
     boxShadow: state.isFocused ? null : null,

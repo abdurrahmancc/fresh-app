@@ -5,9 +5,10 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP, FaYoutube } from "re
 import { IoLocationOutline } from "react-icons/io5";
 import { SiMinutemailer } from "react-icons/si";
 import GoogleApp from "../Footer/GoogleApp";
+import "./Footer2.css";
 const Footer2 = () => {
   return (
-    <div className="bg-success">
+    <div className="bg-[#227200]">
       <div className="container mx-auto md:px-0 px-5">
         <footer className="mb-20">
           <GoogleApp />
@@ -105,10 +106,10 @@ const Footer2 = () => {
             <h5 className="text-lg font-bold pb-3 text-white">Newsletter</h5>
             <p className="text-base-200">Get update every week your inbox</p>
             <form action="" className="relative">
-              <SiMinutemailer className="text-accent text-xl absolute xl:right-8  right-3 top-3" />
+              <SiMinutemailer className="text-accent newsletter-icons text-xl absolute  right-3 top-3" />
               <input
                 type="text"
-                className="input w-full rounded-sm newsletter"
+                className="input w-full focus:outline-none rounded-sm newsletter"
                 placeholder="Enter your e-mail"
               />
               <button type="submit" className="btn font-bold px-6 mt-5 btn-accent rounded-full">
