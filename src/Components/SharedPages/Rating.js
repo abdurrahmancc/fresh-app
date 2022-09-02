@@ -4,7 +4,7 @@ import { BsStarFill, BsStarHalf } from "react-icons/bs";
 
 const Rating = () => {
   return (
-    <div class="rating rating-xs ">
+    <div className="rating rating-xs ">
       <span className="text-orange-400">
         <BsStarFill />
       </span>

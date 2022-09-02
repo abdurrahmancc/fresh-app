@@ -95,11 +95,11 @@ const ShopHorizontalCard = ({ item }) => {
         </div>
       </div>
 
-      <div class="card-body md:pl-7 md:pt-3 pt-2 pb-5 items-center md:items-start text-center md:text-start">
+      <div className="card-body md:pl-7 md:pt-3 pt-2 pb-5 items-center md:items-start text-center md:text-start">
         <div>
           <span className="capitalize">By: {item?.manufacturerBrand}</span>
         </div>
-        <h2 class="card-title pb-2 capitalize">
+        <h2 className="card-title pb-2 capitalize">
           <Link to={`/product-details/${item?._id}`}>
             {item?.productName.length >= 35
               ? `${item?.productName.slice(0, 35)} ...`
@@ -121,8 +121,8 @@ const ShopHorizontalCard = ({ item }) => {
             <span className="text-gray-400 line-through capitalize">${item?.regularPrice}</span>
           )}
         </div>
-        <div class="card-actions  ">
-          <button class=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
+        <div className="card-actions  ">
+          <button className=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
             <MdAddShoppingCart /> Add to cart
           </button>
         </div>

@@ -175,15 +175,15 @@ const ShopFilter = ({
                 return (
                   <div
                     key={product?._id}
-                    class={`card relative  hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none ${bordered}`}
+                    className={`card relative  hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none ${bordered}`}
                   >
                     <figure className="w-20">
                       <Link to="/" className="p-0">
                         <img src={product?.img} alt="Album" className="w-20" />
                       </Link>
                     </figure>
-                    <div class="card-body p-3">
-                      <h2 class=" leading-5 font-semibold ">
+                    <div className="card-body p-3">
+                      <h2 className=" leading-5 font-semibold ">
                         <Link to={"/"}>{product?.title}</Link>
                       </h2>
 

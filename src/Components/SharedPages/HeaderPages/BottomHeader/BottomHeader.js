@@ -7,16 +7,31 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import BottomCategories from "./BottomCategories";
 import { AiFillSetting, AiOutlineCaretDown } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
-import { VscThreeBars } from "react-icons/vsc";
+import { VscSettings, VscThreeBars } from "react-icons/vsc";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../Hooks/useAuthState";
+import { signOut } from "firebase/auth";
+import LoginModal from "../../Login/LoginModal";
+import Loading from "../../Loading";
 
 const BottomHeader = () => {
-  const [user, loading] = useState("");
-  const [isUser] = useState("");
+  const [user, loading] = useAuthState(auth);
+  const [isLogin, setIsLogin] = useState(false);
+  const [isUser] = useState(true);
   const [categoryDown] = useState();
   const navigate = useNavigate();
 
-  const handleSignOut = () => {};
+  const handleSignOut = () => {
+    setIsLogin(!isLogin);
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
 
+  console.log(isLogin);
+
+  if (loading) {
+    return <Loading />;
+  }
   const navItems = (
     <>
       <li className="">
@@ -32,7 +47,7 @@ const BottomHeader = () => {
         </NavLink>
       </li>
 
-      <li tabindex="0">
+      <li tabIndex="0">
         <NavLink
           to={"/shop"}
           className={({ isActive }) =>
@@ -44,7 +59,7 @@ const BottomHeader = () => {
           SHOP
           <AiOutlineCaretDown />
         </NavLink>
-        <ul class="menu bg-base-100 z-50 w-44 shadow">
+        <ul className="menu bg-base-100 z-50 w-44 shadow">
           <li>
             <NavLink
               to={"/shop"}
@@ -84,7 +99,7 @@ const BottomHeader = () => {
         </ul>
       </li>
 
-      <li tabindex="0">
+      <li tabIndex="0">
         <a
           href="#"
           className="text-lg px-0 py-[17px] font-semibold hover:bg-accent focus:bg-accent"
@@ -92,7 +107,7 @@ const BottomHeader = () => {
           PAGES
           <AiOutlineCaretDown />
         </a>
-        <ul class="menu bg-base-100 z-50 w-44 shadow">
+        <ul className="menu bg-base-100 z-50 w-44 shadow">
           <li>
             <NavLink
               to={"/about"}
@@ -183,111 +198,28 @@ const BottomHeader = () => {
     </>
   );
 
-  const items = (
-    <>
-      <ul
-        tabindex="0"
-        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-      >
-        <li>
-          <NavLink
-            to={"/products"}
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-                : "text-lg px-0 font-semibold"
-            }
-          >
-            Item 1
-          </NavLink>
-        </li>
-        <li tabindex="0">
-          <NavLink
-            to={"/products"}
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-                : "text-lg px-0 font-semibold"
-            }
-          >
-            Parent
-            <svg
-              class="fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-            </svg>
-          </NavLink>
-          <ul class="menu bg-base-100 w-56">
-            <li>
-              <NavLink
-                to={"/products"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-                    : "text-lg px-0 font-semibold"
-                }
-              >
-                Item 1
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={"/products"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-                    : "text-lg px-0 font-semibold"
-                }
-              >
-                Item 2
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={"/products"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b-2 pb-2 text-lg text-success font-semibold  border-primary px-0 rounded-none"
-                    : "text-lg px-0 font-semibold"
-                }
-              >
-                Item 3
-              </NavLink>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a>Item 3</a>
-        </li>
-      </ul>
-    </>
-  );
   return (
     <div className="bg-accent">
       {/*----- Bottom Header start -----*/}
       <div className="container mx-auto">
-        <div class="navbar px-0 max-h-[64px]">
-          <div class="navbar-start">
-            <div class="dropdown lg:pl-0 pl-2">
-              <label tabindex="0" class=" lg:hidden">
+        <div className="navbar px-0 max-h-[64px]">
+          <div className="navbar-start">
+            <div className="dropdown lg:pl-0 pl-2">
+              <label tabIndex="0" className=" lg:hidden">
                 <VscThreeBars className="text-2xl" />
               </label>
               <ul
-                tabindex="0"
-                class="menu menu-compact dropdown-content mt-5 shadow-xl bg-base-100 rounded-box w-52"
+                tabIndex="0"
+                className="menu menu-compact dropdown-content mt-5 shadow-xl bg-base-100 rounded-box w-52"
               >
                 <li>
                   <a>Item 1</a>
                 </li>
-                <li tabindex="0">
-                  <a class="justify-between">
+                <li tabIndex="0">
+                  <a className="justify-between">
                     Parent
                     <svg
-                      class="fill-current"
+                      className="fill-current"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -296,7 +228,7 @@ const BottomHeader = () => {
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                     </svg>
                   </a>
-                  <ul class="p-2">
+                  <ul className="p-2">
                     <li>
                       <a>Submenu 1</a>
                     </li>
@@ -314,8 +246,10 @@ const BottomHeader = () => {
               <BottomCategories categoryDown={categoryDown}></BottomCategories>
             </div>
           </div>
-          <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal flex justify-center items-center gap-5 ">{navItems}</ul>
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal flex justify-center items-center gap-5 ">
+              {navItems}
+            </ul>
           </div>
           {/* navbar-end */}
           <div className="navbar-end flex items-center xl:gap-8 lg:gap-4 justify-end">
@@ -380,8 +314,8 @@ const BottomHeader = () => {
                 {isUser && (
                   <li className="hover:text-primary">
                     <NavLink to={"/admin-dashboard"}>
-                      <span className="text-sm  ">
-                        <AiFillSetting />
+                      <span className="text-sm font-bold ">
+                        <VscSettings className="rotate-90" />
                       </span>{" "}
                       <span>Dashboard</span>
                     </NavLink>
@@ -394,7 +328,7 @@ const BottomHeader = () => {
                       <MdDarkMode />
                     </span>
                     <span>DarkMode</span>
-                    {/* <Themes></Themes> */}fdf
+                    {/* <Themes></Themes> */}
                   </div>
                 </li>
                 <li className="hover:text-primary">
@@ -406,12 +340,14 @@ const BottomHeader = () => {
                       <span>Sign out</span>
                     </span>
                   ) : (
-                    <NavLink to={"/login"}>
-                      <span className="text-sm  ">
-                        <FiLogIn />
-                      </span>{" "}
-                      <span>Sign In</span>
-                    </NavLink>
+                    <label htmlFor="loginModal" className="">
+                      <span onClick={() => setIsLogin(true)} className="flex items-center gap-3">
+                        <span className="text-sm  ">
+                          <FiLogIn />
+                        </span>{" "}
+                        <span>Sign In</span>
+                      </span>
+                    </label>
                   )}
                 </li>
               </ul>
@@ -420,6 +356,9 @@ const BottomHeader = () => {
         </div>
       </div>
       {/*----- Bottom header end ----*/}
+      {/* login Modal start*/}
+      {isLogin && <LoginModal />}
+      {/* login Modal end*/}
     </div>
   );
 };

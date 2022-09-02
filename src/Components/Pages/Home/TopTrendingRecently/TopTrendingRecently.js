@@ -51,15 +51,15 @@ const TopTrendingRecently = () => {
           {products.map((product) => (
             <div
               key={product?._id}
-              class="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
             >
               <figure className="h-28 w-28">
                 <Link to="/" className="p-0">
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
-              <div class="card-body p-3">
-                <h2 class="card-title leading-5 text-lg">
+              <div className="card-body p-3">
+                <h2 className="card-title leading-5 text-lg">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 
@@ -87,15 +87,15 @@ const TopTrendingRecently = () => {
           {products.map((product) => (
             <div
               key={product?._id}
-              class="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
             >
               <figure className="h-28 w-28">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
-              <div class="card-body p-3">
-                <h2 class="card-title leading-5 text-lg">
+              <div className="card-body p-3">
+                <h2 className="card-title leading-5 text-lg">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 
@@ -123,15 +123,15 @@ const TopTrendingRecently = () => {
           {products.map((product) => (
             <div
               key={product?._id}
-              class="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
             >
               <figure className="h-28 w-28">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
-              <div class="card-body p-3">
-                <h2 class="card-title leading-5 text-lg">
+              <div className="card-body p-3">
+                <h2 className="card-title leading-5 text-lg">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 
@@ -157,15 +157,15 @@ const TopTrendingRecently = () => {
           {products.map((product) => (
             <div
               key={product?._id}
-              class="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
             >
               <figure className="h-28 w-28">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
-              <div class="card-body p-3">
-                <h2 class="card-title leading-5 text-lg">
+              <div className="card-body p-3">
+                <h2 className="card-title leading-5 text-lg">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 

@@ -10,10 +10,10 @@ const center = {
   lat: 39.093746596310886,
   lng: -111.86644557263111,
 };
-
+console.log(process.env.REACT_APP_GOOGLE_MAP_API);
 function GoogleMaps() {
   return (
-    <LoadScript googleMapsApiKey={process.env.REACT_GOOGLE_MAP_API}>
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_API}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
         {/* Child components, such as markers, info windows, etc. */}
         <Marker position={center} />

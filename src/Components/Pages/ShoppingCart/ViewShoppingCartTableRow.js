@@ -41,9 +41,9 @@ const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) =>
 
   return (
     <>
-      <tr key={item?._id} className={"border hover"}>
+      <tr key={item?._id} className={"border-y hover"}>
         <th>{index + 1}</th>
-        <td className="py-6">
+        <td className="py-5">
           <img height={50} width={50} src={item?.images?.ImageURL1} alt="" />
         </td>
         <td title={item?.productName.length >= 25 && item?.productName}>

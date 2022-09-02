@@ -46,7 +46,7 @@ const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
                 <th className="font-bold py-5 text-lg">
                   <span className="px-4">#</span>
                 </th>
-                <th className="font-bold text-start py-5">Image</th>
+                <th className="font-bold text-start py-5 text-lg">Image</th>
                 <th className="font-bold text-start py-5 text-lg">Name</th>
                 <th className="font-bold text-start py-5 text-lg">Price</th>
                 <th className="font-bold text-start py-5 text-lg">Quantity</th>

@@ -15,7 +15,7 @@ const ProductDetailsImages = ({ data }) => {
         {data?.images?.ImageURL1 && (
           <div>
             <figure className="border-2 border-primary">
-              <label for="ItemImageURL1" className="">
+              <label htmlFor="ItemImageURL1" className="">
                 <img width="127px" className=" h-auto" src={data?.images?.ImageURL1} alt="" />
               </label>
             </figure>
@@ -25,7 +25,7 @@ const ProductDetailsImages = ({ data }) => {
         {data?.images?.ImageURL2 && (
           <div>
             <figure className="border-2 border-primary">
-              <label for="ItemImageURL2" className="">
+              <label htmlFor="ItemImageURL2" className="">
                 <img width="127px" className=" h-auto" src={data?.images?.ImageURL2} alt="" />
               </label>
             </figure>
@@ -35,7 +35,7 @@ const ProductDetailsImages = ({ data }) => {
         {data?.images?.ImageURL3 && (
           <div>
             <figure className="border-2 border-primary">
-              <label for="ItemImageURL3" className="">
+              <label htmlFor="ItemImageURL3" className="">
                 <img width="127px" className=" h-auto" src={data?.images?.ImageURL3} alt="" />
               </label>
             </figure>
@@ -45,7 +45,7 @@ const ProductDetailsImages = ({ data }) => {
         {data?.images?.ImageURL4 && (
           <div>
             <figure className="border-2 border-primary">
-              <label for="ItemImageURL4" className="">
+              <label htmlFor="ItemImageURL4" className="">
                 <img width="127px" className=" h-auto" src={data?.images?.ImageURL4} alt="" />
               </label>
             </figure>

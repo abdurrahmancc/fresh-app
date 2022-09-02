@@ -17,12 +17,12 @@ const MiddleHeader = () => {
   ];
 
   return (
-    <div className="bg-success">
+    <div className="bg-success hidden sm:block">
       <div className="container mx-auto">
         <div className="z-20 relative ">
-          <div class="navbar  py-7">
+          <div className="navbar  py-7">
             {/* <div className="container mx-auto"> */}
-            <div class="navbar-start  lg:pr-8 pr-4 flex items-center justify-between">
+            <div className="navbar-start  lg:pr-8 pr-4 flex items-center justify-between">
               <Link to="/" className="max-h-[60px] pl-0">
                 <img className="w-[10vw] lg:w-[100px]  max-w-[150px]" src={logo} alt="logo" />
               </Link>
@@ -39,10 +39,10 @@ const MiddleHeader = () => {
               </div>
             </div>
             {/*----- category search from start ------*/}
-            <div class="navbar-center h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
+            <div className="navbar-center h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
               <div className="w-full  ">
                 <form action="" className="flex justify-center w-full  relative pl-4 ">
-                  <div class="inline-block  mt-1 ml-[-10px] max-w-[100px] md:max-w-[190px]  relative w-full">
+                  <div className="inline-block  mt-1 ml-[-10px] max-w-[100px] md:max-w-[190px]  relative w-full">
                     <Select
                       id="select-component"
                       styles={middleCategorySelected}
@@ -54,16 +54,16 @@ const MiddleHeader = () => {
                   </div>
 
                   <div className=" my-auto z-20 border-[#070707] "></div>
-                  <label class="relative block w-full">
-                    <span class="sr-only">Search</span>
+                  <label className="relative block w-full">
+                    <span className="sr-only">Search</span>
                     <button
                       type="submit"
-                      class="absolute btn bg-[#3d9657] hover:bg-[#46a362] inset-y-0 right-[6px] rounded   flex items-center px-3"
+                      className="absolute btn bg-[#3d9657] hover:bg-[#46a362] inset-y-0 right-[6px] rounded   flex items-center px-3"
                     >
                       <BiSearchAlt className="text-2xl text-neutral" />
                     </button>
                     <input
-                      class="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-12   rounded-md py-2 pl-6 pr-9 shadow-sm focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
+                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-12   rounded-md py-2 pl-6 pr-9 shadow-sm focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
                       placeholder="Search for items..."
                       type="text"
                       name="search"
@@ -73,34 +73,34 @@ const MiddleHeader = () => {
               </div>
             </div>
             {/*----- category search from end ------*/}
-            <div class="navbar-end ">
+            <div className="navbar-end ">
               <ul className="flex items-center lg:pl-0  pl-4 xl:gap-8 md:gap-4 gap-2 justify-end ">
                 <li>
-                  <div class="indicator">
+                  <div className="indicator">
                     <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-neutral">
                       <BsArrowLeftRight className="text-lg" />
                     </Link>
-                    <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
                       <span>44</span>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="indicator">
+                  <div className="indicator">
                     <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-neutral">
                       <FiHeart className="text-lg" />
                     </Link>
-                    <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
                       <span>44</span>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="indicator">
+                  <div className="indicator">
                     <Link to={"/shopping-cart"} className="md:p-3 p-2  rounded-full bg-neutral">
                       <MdAddShoppingCart className="text-lg " />
                     </Link>
-                    <div class="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
+                    <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full badge-warning  indicator-item top-2 right-1 text-[0.6875rem]">
                       <span>44</span>
                     </div>
                   </div>

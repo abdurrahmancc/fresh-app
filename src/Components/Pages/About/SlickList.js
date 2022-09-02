@@ -53,9 +53,9 @@ const SlickList = () => {
       >
         {featuresItems.map((feature) => (
           <SwiperSlide key={feature?._id}>
-            <div class="">
-              <figure class="">
-                <img src={feature?.img} alt={feature?.name} class="" />
+            <div className="">
+              <figure className="">
+                <img src={feature?.img} alt={feature?.name} className="" />
               </figure>
             </div>
           </SwiperSlide>

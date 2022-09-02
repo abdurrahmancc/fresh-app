@@ -27,8 +27,8 @@ const ContactForm = () => {
   return (
     <>
       <>
-        <div class="hero max-w-[1320px] mx-auto">
-          <div class="grid lg:grid-cols-2 grid-cols-1 justify-items-center gap-10">
+        <div className="hero max-w-[1320px] mx-auto">
+          <div className="grid lg:grid-cols-2 grid-cols-1 justify-items-center gap-10">
             <div className="w-full">
               <div className="">
                 <div className=" mb-4">
@@ -132,7 +132,7 @@ const ContactForm = () => {
                 {/* contact form end */}
               </div>
             </div>
-            <img src={callCenter} alt="call center img" class="w-full h-full rounded shadow" />
+            <img src={callCenter} alt="call center img" className="w-full h-full rounded shadow" />
           </div>
         </div>
       </>

@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <div className="">
       <div className="container mx-auto">
-        <footer class="footer md:grid-cols-5 md:justify-items-start  sm:grid-cols-3 text-base-content">
+        <footer className="footer md:grid-cols-5 md:justify-items-start  sm:grid-cols-3 text-base-content">
           <div>
             <img className="md:w-6/12 w-4/12" src={logo} alt="logo" />
             <p className="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -30,78 +30,78 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h5 class="text-lg font-bold pb-3 text-black">Company</h5>
+            <h5 className="text-lg font-bold pb-3 text-black">Company</h5>
             <ul className="flex flex-col gap-3">
               <li>
-                <a class="link link-hover">About Us</a>
+                <a className="link link-hover">About Us</a>
               </li>
               <li>
-                <a class="link link-hover">Contact Us</a>
+                <a className="link link-hover">Contact Us</a>
               </li>
               <li>
-                <a class="link link-hover">Delivery Information</a>
+                <a className="link link-hover">Delivery Information</a>
               </li>
               <li>
-                <a class="link link-hover">Privacy Policy</a>
+                <a className="link link-hover">Privacy Policy</a>
               </li>
               <li>
-                <a class="link link-hover">Terms & Conditions</a>
+                <a className="link link-hover">Terms & Conditions</a>
               </li>
 
               <li>
-                <a class="link link-hover">Support Center</a>
+                <a className="link link-hover">Support Center</a>
               </li>
             </ul>
           </div>
           <div>
-            <h5 class="text-lg font-bold pb-3 text-black">Account</h5>
+            <h5 className="text-lg font-bold pb-3 text-black">Account</h5>
             <ul className="flex flex-col gap-3">
               <li>
-                <a class="link link-hover">Sign In</a>
+                <a className="link link-hover">Sign In</a>
               </li>
               <li>
-                <a class="link link-hover">View Cart</a>
+                <a className="link link-hover">View Cart</a>
               </li>
               <li>
-                <a class="link link-hover">My Wishlist</a>
+                <a className="link link-hover">My Wishlist</a>
               </li>
               <li>
-                <a class="link link-hover">Track My Order</a>
+                <a className="link link-hover">Track My Order</a>
               </li>
               <li>
-                <a class="link link-hover">Help Ticket</a>
+                <a className="link link-hover">Help Ticket</a>
               </li>
               <li>
-                <a class="link link-hover">Shipping Details</a>
+                <a className="link link-hover">Shipping Details</a>
               </li>
             </ul>
           </div>
           <div>
-            <h5 class="text-lg font-bold pb-3 text-black">Categories</h5>
+            <h5 className="text-lg font-bold pb-3 text-black">Categories</h5>
             <ul className="flex flex-col gap-3">
               <li>
-                <a class="link link-hover">Bakery & pastry</a>
+                <a className="link link-hover">Bakery & pastry</a>
               </li>
               <li>
-                <a class="link link-hover">Meats</a>
+                <a className="link link-hover">Meats</a>
               </li>
               <li>
-                <a class="link link-hover">Vegetable</a>
+                <a className="link link-hover">Vegetable</a>
               </li>
               <li>
-                <a class="link link-hover">Custard Powder</a>
+                <a className="link link-hover">Custard Powder</a>
               </li>
               <li>
-                <a class="link link-hover">Farm Raised Fillets</a>
+                <a className="link link-hover">Farm Raised Fillets</a>
               </li>
               <li>
-                <a class="link link-hover">Snacks Item</a>
+                <a className="link link-hover">Snacks Item</a>
               </li>
             </ul>
           </div>
 
           <div className="">
-            <h5 class="text-lg font-bold pb-3 text-black">Install App</h5>
+            <h5 className="text-lg font-bold pb-3 text-black">Install App</h5>
             <p className="">From App Store or Google Play</p>
             <div className="flex items-center gap-2 pb-5 pt-2">
               <a href="" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
@@ -115,16 +115,16 @@ const Footer = () => {
             <img src={paypal} className="w-6/12" alt="Payment Gateways" />
           </div>
         </footer>
-        <footer class=" py-4 border-t  mt-10 flex justify-center md:justify-between">
-          <div class="items-center grid-flow-col ">
+        <footer className=" py-4 border-t  mt-10 flex justify-center md:justify-between">
+          <div className="items-center grid-flow-col ">
             <p className="capitalize text-center md:text-start">
               Copyright &copy; {new Date().getFullYear()}, {""}
               <strong className="text-primary">Fresh</strong>
               {""} - Ecommerce template <br /> All rights reserved
             </p>
           </div>
-          <div class=" hidden  lg:flex items-center gap-10 md:justify-self-center">
-            <div class=" hidden xl:flex justify-center items-center gap-2">
+          <div className=" hidden  lg:flex items-center gap-10 md:justify-self-center">
+            <div className=" hidden xl:flex justify-center items-center gap-2">
               <span>
                 <TbPhoneCall className="text-4xl text-gray-400" />
               </span>
@@ -133,7 +133,7 @@ const Footer = () => {
                 <span className="text-gray-500">working 7:00 - 21:00</span>
               </p>
             </div>
-            <div class=" flex justify-center items-center gap-2">
+            <div className=" flex justify-center items-center gap-2">
               <span>
                 <TbPhoneCall className="text-4xl text-gray-400" />
               </span>

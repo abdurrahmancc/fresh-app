@@ -44,13 +44,13 @@ const ShoppingCart = () => {
                   {cartTableRowInfo}
                 </ViewShoppingCartTable>
                 <div className="flex justify-between pt-8 border-t border-gray-300 mt-5">
-                  <div class="relative ">
+                  <div className="relative max-w-xs w-full">
                     <input
                       type="text"
                       placeholder="Enter Your Coupon"
-                      class="  placeholder:italic w-full max-w-xl placeholder:text-slate-400 border border-primary block  py-3  shadow-sm focus:outline-none input rounded-sm focus:ring-0 sm:text-sm pr-16"
+                      className="  placeholder:italic w-full  placeholder:text-slate-400 border border-primary block  py-3  shadow-sm focus:outline-none input rounded-sm focus:ring-0 sm:text-sm pr-16"
                     />
-                    <button class="btn capitalize rounded-sm outline-none btn-primary py-3 text-white absolute top-0 right-0 ">
+                    <button className="btn capitalize rounded-sm outline-none btn-primary py-3 text-white absolute top-0 right-0 ">
                       Apply
                     </button>
                   </div>

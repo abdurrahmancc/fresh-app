@@ -81,21 +81,21 @@ const BlogSideBar = () => {
           </h4>
           <div className=" border-t border-gray-200">
             <form className="pt-8" onSubmit={handleSubmit(onSubmit)}>
-              <div class="form-control">
-                <div class="relative">
+              <div className="form-control">
+                <div className="relative">
                   <input
                     placeholder="Search..."
                     type="text"
                     name="search"
                     {...register("search")}
-                    class="placeholder:italic w-full placeholder:text-slate-400 block py-7 pl-12  pr-9 shadow-sm focus:outline-none input rounded-lg border border-gray-300 focus:ring-0 sm:text-sm"
+                    className="placeholder:italic w-full placeholder:text-slate-400 block py-7 pl-12  pr-9 shadow-sm focus:outline-none input rounded-lg border border-gray-300 focus:ring-0 sm:text-sm"
                   />
-                  <button class=" absolute right-[7px] p-3 rounded top-[7px] bg-primary">
+                  <button className=" absolute right-[7px] p-3 rounded top-[7px] bg-primary">
                     <BiSearchAlt className="text-xl bg-primary text-white" />
                   </button>
                   <button
                     onClick={() => resetField("search")}
-                    class={`absolute left-[5px] p-[10px] rounded top-[4px] ${
+                    className={`absolute left-[5px] p-[10px] rounded top-[4px] ${
                       inputSearch ? "block" : "hidden"
                     }`}
                   >
@@ -159,15 +159,15 @@ const BlogSideBar = () => {
                 return (
                   <div
                     key={product?._id}
-                    class={`card relative  hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none ${bordered}`}
+                    className={`card relative  hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none ${bordered}`}
                   >
                     <figure className="w-20">
                       <Link to="/" className="p-0">
                         <img src={product?.img} alt="Album" className="w-20" />
                       </Link>
                     </figure>
-                    <div class="card-body p-3">
-                      <h2 class=" leading-5 font-semibold ">
+                    <div className="card-body p-3">
+                      <h2 className=" leading-5 font-semibold ">
                         <Link to={"/"}>{product?.title}</Link>
                       </h2>
 

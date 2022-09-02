@@ -11,21 +11,24 @@ const CartDeleteModal = ({ setCartProducts }) => {
 
   return (
     <>
-      <input type="checkbox" id="CartDeleteModal" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box ">
-          <h3 class="font-bold text-lg text-center pt-5 pb-10">
+      <input type="checkbox" id="CartDeleteModal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center pt-5 pb-10">
             Are you suer want to remove all cart?
           </h3>
 
-          <div class="modal-action gap-5 justify-center">
-            <label for="CartDeleteModal" class="btn rounded btn-sm btn-primary text-neutral">
+          <div className="modal-action gap-5 justify-center">
+            <label
+              htmlFor="CartDeleteModal"
+              className="btn rounded btn-sm btn-primary text-neutral"
+            >
               Cancel
             </label>
             <label
               onClick={() => handleAllCartRemoveA()}
-              for="CartDeleteModal"
-              class="btn btn-sm rounded btn-primary text-neutral"
+              htmlFor="CartDeleteModal"
+              className="btn btn-sm rounded btn-primary text-neutral"
             >
               Delete
             </label>

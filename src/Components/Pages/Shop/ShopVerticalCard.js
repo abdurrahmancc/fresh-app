@@ -35,7 +35,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
         <div className="relative">
           <div>
             <Link to={`/product-details/${item?._id}`} className="p-0">
-              <figure class="m-3 max-w-[280px] border-b border-gray-200  max-h-[251px] overflow-hidden">
+              <figure className="m-3 max-w-[280px] border-b border-gray-200  max-h-[251px] overflow-hidden">
                 <img
                   className={`rounded w-[280px] h-[252px] duration-300 transition-all ease-in-out  ${
                     hoveredCart === "block" && " scale-110 "
@@ -98,12 +98,12 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
             </div>
           </div>
         </div>
-        <div class="card-body pt-2 pb-5 items-center text-center">
+        <div className="card-body pt-2 pb-5 items-center text-center">
           <div>
             <span className="capitalize">By: {item?.manufacturerBrand}</span>
           </div>
           <Link to={`/product-details/${item?._id}`}>
-            <h2 title={item?.productName} class="card-title pb-2 capitalize">
+            <h2 title={item?.productName} className="card-title pb-2 capitalize">
               {item?.productName.length >= 35
                 ? `${item?.productName.slice(0, 35)} ...`
                 : item?.productName}
@@ -117,10 +117,10 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
               <span className="text-gray-400 line-through capitalize">${item?.regularPrice}</span>
             )}
           </div>
-          <div class="card-actions  ">
+          <div className="card-actions  ">
             <button
               onClick={() => handleAddToCart(item)}
-              class=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2"
+              className=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2"
             >
               <MdAddShoppingCart /> Add to cart
             </button>

@@ -11,11 +11,11 @@ const TotalPrice = ({ totalPrice, cartProducts }) => {
   let total = totalPrice + Shipping + tax;
   return (
     <div className="xl:mt-[108px] mt-10 w-full">
-      <div className="w-full border px-8 py-10 ">
+      <div className="w-full border px-8 pt-5 pb-10 ">
         <table className=" w-full">
           <thead>
             <tr>
-              <th className="text-2xl text-start pb-5">Cart totals</th>
+              <th className="text-lg font-bold text-start pb-5">Cart totals</th>
             </tr>
           </thead>
           <tbody>
@@ -37,21 +37,21 @@ const TotalPrice = ({ totalPrice, cartProducts }) => {
             </tr>
           </tbody>
         </table>
-        <div className="mt-7">
+        <div className="mt-7 pb-2">
           <img src={payment_img} className="w-full h-auto" alt="payment logo" />
         </div>
-        <div class="form-control mt-14                    ">
-          <label class="label justify-start gap-3 cursor-pointer">
+        <div className="form-control mt-24">
+          <label className="label justify-start gap-3 cursor-pointer">
             <input
               onClick={() => setIsChecked(!isChecked)}
               type="checkbox"
-              class="checkbox rounded-sm checkbox-xs text-white checkbox-primary"
+              className="checkbox rounded-sm checkbox-xs text-white checkbox-primary"
             />
-            <span class="label-text">I agree with the Terms & conditions</span>
+            <span className="label-text">I agree with the Terms & conditions</span>
           </label>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-6">
           <button
             disabled={!isChecked}
             onClick={() => navigate(`/checkout`)}

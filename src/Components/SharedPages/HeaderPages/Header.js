@@ -7,7 +7,7 @@ import TopHeader from "./TopHeader/TopHeader";
 const Header = () => {
   const { pathname } = useLocation();
   return (
-    <header>
+    <header className={pathname.includes("admin-dashboard") && "hidden"}>
       {pathname.includes("home2") || <TopHeader />}
       <MiddleHeader />
       <BottomHeader />

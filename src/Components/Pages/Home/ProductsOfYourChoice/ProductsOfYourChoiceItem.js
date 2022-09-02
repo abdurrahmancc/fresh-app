@@ -20,11 +20,11 @@ const ProductsOfYourChoiceItem = ({ product }) => {
     <div
       onMouseEnter={showCartHandler}
       onMouseLeave={hideCartHandler}
-      class="card hover:border hover:border-primary max-w-[18.5rem] bg-base-100 shadow border"
+      className="card hover:border hover:border-primary max-w-[18.5rem] bg-base-100 shadow border"
     >
       <div>
         <Link to={"/shop"} className="p-0">
-          <figure class="m-3 max-w-[280px] border-b border-gray-200  max-h-[251px] overflow-hidden">
+          <figure className="m-3 max-w-[280px] border-b border-gray-200  max-h-[251px] overflow-hidden">
             <img
               className={`rounded duration-300 transition-all ease-in-out w-full ${
                 hoveredCart === "block" && " scale-110 "
@@ -85,18 +85,18 @@ const ProductsOfYourChoiceItem = ({ product }) => {
           </Link>
         </div>
       </div>
-      <div class="card-body pt items-center text-center">
+      <div className="card-body pt items-center text-center">
         <div>
           <span className="capitalize">By: {product?.brand}</span>
         </div>
-        <h2 class="card-title capitalize">{product?.title}</h2>
+        <h2 className="card-title capitalize">{product?.title}</h2>
         <Rating />
         <div className="flex gap-2  items-center">
           <span className="text-lg text-primary capitalize font-semibold">${product?.price}</span>
           <span className="text-gray-400 line-through capitalize">${product?.regularPrice}</span>
         </div>
-        <div class="card-actions  ">
-          <button class=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
+        <div className="card-actions  ">
+          <button className=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
             <MdAddShoppingCart /> Add to cart
           </button>
         </div>

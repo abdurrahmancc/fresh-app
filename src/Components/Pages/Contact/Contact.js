@@ -47,11 +47,11 @@ const Contact = () => {
                   deserunt est tenetur nobis vero vel veritatis voluptatem corporis in.
                 </p>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
-                  <div class="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
+                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
                     <IoLocationSharp className="text-5xl mb-5 text-primary w-full" />
 
-                    <div class="card-body p-0 w-full items-center text-center">
-                      <h4 class="card-title pb-2 text-[15px] capitalize font-[Asul]">
+                    <div className="card-body p-0 w-full items-center text-center">
+                      <h4 className="card-title pb-2 text-[15px] capitalize font-[Asul]">
                         Utah 43332 United States
                       </h4>
                       <p className="text-gray-500 pb-4 capitalize">
@@ -60,11 +60,11 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  <div class="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
+                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
                     <FiPhoneCall className="text-5xl mb-5 text-primary w-full" />
 
-                    <div class="card-body p-0 w-full items-center text-center">
-                      <h4 class="card-title pb-2 text-[15px] capitalize font-[Asul]">
+                    <div className="card-body p-0 w-full items-center text-center">
+                      <h4 className="card-title pb-2 text-[15px] capitalize font-[Asul]">
                         Utah 43332 United States
                       </h4>
                       <p className="text-gray-500 pb-4 capitalize">
@@ -73,11 +73,11 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  <div class="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
+                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
                     <AiOutlineMail className="text-5xl mb-5 text-primary w-full" />
 
-                    <div class="card-body p-0 w-full items-center text-center">
-                      <h4 class="card-title pb-2 text-[15px] capitalize font-[Asul]">
+                    <div className="card-body p-0 w-full items-center text-center">
+                      <h4 className="card-title pb-2 text-[15px] capitalize font-[Asul]">
                         Utah 43332 United States
                       </h4>
                       <p className="text-gray-500 pb-4 capitalize">

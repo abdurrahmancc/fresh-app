@@ -5,7 +5,7 @@ import apple from "../../../assets/logo/store.png";
 const GoogleApp = () => {
   return (
     <div className="pt-20 pb-14 border-b border-[#c5f8c51a]">
-      <h5 class="font-bold font-[Asul] pb-3 text-center text-white  text-2xl">Install App</h5>
+      <h5 className="font-bold font-[Asul] pb-3 text-center text-white  text-2xl">Install App</h5>
       <p className="text-center font-[Asul] leading-10 text-3xl font-bold text-white">
         From App Store or Google Play, get <br />
         instant <span className="text-warning">$5.00</span> Cashback

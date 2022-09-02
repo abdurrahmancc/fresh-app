@@ -46,12 +46,12 @@ const FeaturesItems = ({ featuresItems }) => {
       >
         {featuresItems.map((feature) => (
           <SwiperSlide key={feature?._id}>
-            <div class="card bg-base-100 shadow border border-gray-200 hover:border-primary">
-              <figure class="px-10 pt-10">
-                <img src={feature?.img} alt={feature?.name} class="rounded-xl" />
+            <div className="card bg-base-100 shadow border border-gray-200 hover:border-primary">
+              <figure className="px-10 pt-10">
+                <img src={feature?.img} alt={feature?.name} className="rounded-xl" />
               </figure>
-              <div class="card-body items-center text-center">
-                <h2 class="card-title text-[2vw] md:text-[1vw] capitalize">{feature?.name}</h2>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title text-[2vw] md:text-[1vw] capitalize">{feature?.name}</h2>
               </div>
             </div>
           </SwiperSlide>

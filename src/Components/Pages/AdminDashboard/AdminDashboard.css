@@ -1,0 +1,15 @@
+.link{
+    transition: 0.2s cubic-bezier(0.6,-0.28,0.735, 0.045);
+}
+/* .active {
+    border-right: 4px solid white;
+    background: rgb(45, 51, 89);
+  } */
+@media screen and (max-width:1023px) {
+    .sidebar{
+        position: absolute;
+        /* top: 70px; */
+
+    }
+}
+
