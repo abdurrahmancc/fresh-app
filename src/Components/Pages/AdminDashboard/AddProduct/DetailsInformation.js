@@ -39,15 +39,15 @@ const DetailsInformation = ({ register, errors }) => {
               </div>
               {/*---------------------------------- no------------------------------- */}
               <div className="form-control pb-4 w-full">
-                <label htmlFor="addNow" className="label">
-                  <span className="label-text text-xs ">add now</span>
+                <label htmlFor="productBadges" className="label">
+                  <span className="label-text text-xs ">Product Badges</span>
                 </label>
                 <input
-                  id="addNow"
+                  id="productBadges"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("addNow")}
+                  {...register("productBadges")}
                 />
               </div>
             </div>

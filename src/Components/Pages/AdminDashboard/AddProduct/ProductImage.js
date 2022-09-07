@@ -17,8 +17,8 @@ const ProductImage = ({ children }) => {
   } = children;
   console.log(uploadAImage, imageUrl, multipleImageUrl);
   let imgName;
-  if (watch("inputImage")) {
-    imgName = watch("inputImage")[0]?.name;
+  if (watch("uploadImage")) {
+    imgName = watch("uploadImage")[0]?.name;
   }
   //   console.log(imgName);
   return (
@@ -94,7 +94,7 @@ const ProductImage = ({ children }) => {
             {imgName && (
               <p className="text-lg pt-3 flex items-center justify-center">
                 <span>{imgName}</span>
-                <button className="ml-3" onClick={() => reset({ img1: "bill" })}>
+                <button className="ml-3" onClick={() => reset({ uploadImage: "bill" })}>
                   <IoMdCloseCircleOutline />
                 </button>
               </p>

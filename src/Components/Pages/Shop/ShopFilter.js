@@ -96,7 +96,7 @@ const ShopFilter = ({
                         onChange={() => handleChangeChecked(category?.id)}
                         className="checkbox rounded-none checkbox-primary checkbox-xs"
                       />
-                      <span className="label-text capitalize">{category?.label}</span>
+                      <span className="label-text capitalize">{category?.value}</span>
                     </label>
                   </div>
                 ))}

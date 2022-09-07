@@ -28,10 +28,9 @@ const BottomHeader = () => {
     setIsLogin(!isLogin);
     signOut(auth);
     removeCookie(accessTokenName);
-    await axiosPrivet.delete("/login");
   };
 
-  console.log(isLogin);
+  // console.log(isLogin);
 
   if (loading) {
     return <Loading />;

@@ -17,7 +17,8 @@ const ShopCardHorizontal = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axiosPrivet.get("counter");
+      const { data } = await axiosPrivet.get("product/counter");
+      console.log(data);
       const count = data.count;
       const pages = Math.ceil(count / size);
       setPageCount(pages);

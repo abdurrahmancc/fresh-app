@@ -25,6 +25,8 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
     console.log("hello");
     toast.success("Add To Cart", { id: "addToCart" });
   };
+  const searchOfferBadges = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  const offerBadges = searchOfferBadges.find((n) => item?.productBadges.includes(n));
   return (
     <>
       <div
@@ -40,31 +42,37 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
                   className={`rounded w-[280px] h-[252px] duration-300 transition-all ease-in-out  ${
                     hoveredCart === "block" && " scale-110 "
                   }`}
-                  src={item?.images?.ImageURL1}
-                  alt={item?.title}
+                  src={item?.productImages[0]}
+                  alt={item?.productName}
                 />
               </figure>
             </Link>
           </div>
-          <div>
-            {item?.productQuality == "new" || (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
-                {/* {item?.productQuality} */}new
-              </span>
-            )}
-            {item?.productQuality == "hot" && (
+          <div className={`${item?.productBadges || "hidden"}`}>
+            {offerBadges && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-error rounded-br-2xl inline-block text-neutral">
-                {item?.productQuality}
+                {item?.productBadges}
               </span>
             )}
-            {item?.productQuality == "best" && (
+
+            {item?.productBadges.toLowerCase().includes("new") && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
-                {item?.productQuality}
+                {item?.productBadges}
               </span>
             )}
-            {typeof item?.productQuality == "number" && (
+            {item?.productBadges.toLowerCase().includes("hot") && (
+              <span className="absolute px-4 uppercase py-1 top-0 bg-error rounded-br-2xl inline-block text-neutral">
+                {item?.productBadges}
+              </span>
+            )}
+            {item?.productBadges.toLowerCase().includes("sale") && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-warning rounded-br-2xl inline-block text-neutral">
-                {item?.productQuality}%
+                {item?.productBadges}
+              </span>
+            )}
+            {item?.productBadges.toLowerCase() === "best" && (
+              <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
+                {item?.productBadges}
               </span>
             )}
           </div>
@@ -100,7 +108,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
         </div>
         <div className="card-body pt-2 pb-5 items-center text-center">
           <div>
-            <span className="capitalize">By: {item?.manufacturerBrand}</span>
+            <span className="capitalize opacity-75">By: {item?.productCode}</span>
           </div>
           <Link to={`/product-details/${item?._id}`}>
             <h2 title={item?.productName} className="card-title pb-2 capitalize">
@@ -110,7 +118,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
             </h2>
           </Link>
           <Rating />
-          <span>Unit: {item?.unit}</span>
+          <span>Unit: {item?.weight && item?.weight[0]?.split(",")[0]}g</span>
           <div className="flex gap-2  items-center">
             <span className="text-lg text-primary capitalize font-semibold">${item?.price}</span>
             {item?.regularPrice && (
@@ -120,7 +128,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
           <div className="card-actions  ">
             <button
               onClick={() => handleAddToCart(item)}
-              className=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2"
+              className="py-2 px-6 rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2"
             >
               <MdAddShoppingCart /> Add to cart
             </button>

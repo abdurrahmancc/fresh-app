@@ -40,18 +40,21 @@ const Shop = () => {
   ];
 
   const [categories, setCategories] = useState([
-    { id: 1, checked: false, label: "phone" },
-    { id: 4, checked: false, label: "laptop" },
-    { id: 2, checked: false, label: "computer" },
-    { id: 3, checked: false, label: "watch" },
-    { id: 6, checked: false, label: "speaker" },
-    { id: 7, checked: false, label: "headphone" },
-    { id: 8, checked: false, label: "AC" },
-    { id: 9, checked: false, label: "refrigerator" },
-    { id: 10, checked: false, label: "monitor" },
+    { id: 1, checked: false, label: "grocery&Frozen", value: "Grocery & Frozen" },
+    { id: 4, checked: false, label: "freshVegetable", value: "Fresh Vegetable" },
+    { id: 2, checked: false, label: "freshFruits", value: "Fresh Fruits" },
+    { id: 3, checked: false, label: "fruitJuices", value: "Fruit Juices" },
+    { id: 6, checked: false, label: "salads", value: "Salads" },
+    { id: 7, checked: false, label: "freshMeat", value: "Fresh Meat" },
+    { id: 8, checked: false, label: "butter&Egg", value: "Butter & Egg" },
+    { id: 9, checked: false, label: "milkCream", value: "Milk Cream" },
+    { id: 11, checked: false, label: "oil&Vinegars", value: "Oil & Vinegars" },
+    { id: 12, checked: false, label: "bread&Bakery", value: "Bread & Bakery" },
+    { id: 13, checked: false, label: "snacksItem", value: "Snacks Item" },
+    { id: 14, checked: false, label: "meat", value: "Meat" },
   ]);
 
-  console.log(selectedShowOption.value);
+  // console.log(selectedShowOption.value);
   // console.log(size);
   const {
     register,
@@ -68,7 +71,7 @@ const Shop = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axiosPrivet.get("counter");
+      const { data } = await axiosPrivet.get("product/counter");
       setTotalProducts(data?.count);
     })();
   }, []);
@@ -77,7 +80,7 @@ const Shop = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.post(
-          `/all-products/?page=${page}&size=${selectedShowOption?.value}`,
+          `product/all-products/?page=${page}&size=${selectedShowOption?.value}`,
           categoriesChecked
         );
 
@@ -156,7 +159,7 @@ const Shop = () => {
   if (!products) {
     // return <Loading />;
   }
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <>

@@ -17,6 +17,9 @@ const ShopHorizontalCard = ({ item }) => {
   const hideCartHandler = () => {
     setHoveredCart("hidden");
   };
+
+  const searchOfferBadges = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  const offerBadges = searchOfferBadges.find((n) => item?.productBadges.includes(n));
   return (
     <div
       onMouseEnter={showCartHandler}
@@ -36,30 +39,35 @@ const ShopHorizontalCard = ({ item }) => {
                 className={`md:h-[320px] w-[264px] mx-auto md:w-[300px] rounded-lg h-auto duration-300 transition-all ease-in-out ${
                   hoveredCart === "block" && " scale-110 "
                 }`}
-                src={item?.images?.ImageURL1}
-                alt="Shoes"
+                src={item?.productImages[0]}
+                alt={item?.productName}
               />
             </Link>
           </figure>
           <div>
-            {item?.productQuality == "new" || (
+            {item?.productBadges.toLowerCase().includes("new") && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
-                {/* {item?.productQuality} */}new
+                {item?.productBadges}
               </span>
             )}
-            {item?.productQuality == "hot" && (
+            {item?.productBadges.toLowerCase().includes("hot") && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-error rounded-br-2xl inline-block text-neutral">
-                {item?.productQuality}
+                {item?.productBadges}
               </span>
             )}
-            {item?.productQuality == "best" && (
+            {item?.productBadges.toLowerCase().includes("sale") && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
-                {item?.productQuality}
+                {item?.productBadges}
               </span>
             )}
-            {typeof item?.productQuality == "number" && (
+            {item?.productBadges.toLowerCase() === "best" && (
+              <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
+                {item?.productBadges}
+              </span>
+            )}
+            {offerBadges && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-warning rounded-br-2xl inline-block text-neutral">
-                {item?.productQuality}%
+                {item?.productBadges}
               </span>
             )}
           </div>
@@ -97,7 +105,7 @@ const ShopHorizontalCard = ({ item }) => {
 
       <div className="card-body md:pl-7 md:pt-3 pt-2 pb-5 items-center md:items-start text-center md:text-start">
         <div>
-          <span className="capitalize">By: {item?.manufacturerBrand}</span>
+          <span className="capitalize opacity-75">By: {item?.by}</span>
         </div>
         <h2 className="card-title pb-2 capitalize">
           <Link to={`/product-details/${item?._id}`}>
@@ -114,7 +122,7 @@ const ShopHorizontalCard = ({ item }) => {
           </p>
         </div>
         <Rating />
-        <span>Unit: {item?.unit}</span>
+        <span>Unit: {item?.weight && item?.weight[0]?.split(",")[0]}g</span>
         <div className="flex gap-2  items-center">
           <span className="text-lg text-primary capitalize font-semibold">${item?.price}</span>
           {item?.regularPrice && (
@@ -122,7 +130,7 @@ const ShopHorizontalCard = ({ item }) => {
           )}
         </div>
         <div className="card-actions  ">
-          <button className=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
+          <button className="py-2 px-6 rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2">
             <MdAddShoppingCart /> Add to cart
           </button>
         </div>

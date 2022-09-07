@@ -28,22 +28,20 @@ const BasicInformation = ({ register, errors }) => {
           {/* Manufacturer Name */}
           <div className="grid lg:grid-cols-2 lg:gap-2">
             <div className="form-control pb-4">
-              <label htmlFor="manufacturerName" className="label">
-                <span className="label-text text-xs">Manufacturer Name</span>
+              <label htmlFor="by" className="label">
+                <span className="label-text text-xs">By</span>
               </label>
               <input
-                id="manufacturerName"
+                id="by"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("manufacturerName", {
-                  required: { value: true, message: "Manufacturer Name is require" },
+                {...register("by", {
+                  required: { value: true, message: "by Name is require" },
                 })}
               />
-              {errors.manufacturerName?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.manufacturerName?.message}
-                </span>
+              {errors.by?.type === "required" && (
+                <span className="label-text-alt text-red-500 text-xs">{errors.by?.message}</span>
               )}
             </div>
             {/* SKU */}
@@ -161,15 +159,18 @@ const BasicInformation = ({ register, errors }) => {
                 {/* <option disabled selected value="">
                 --Select--
               </option> */}
-                <option value={"monitor"}>Monitor</option>
-                <option value={"laptop"}>Laptop</option>
-                <option value={"computer"}>Computer</option>
-                <option value={"phone"}>Phone</option>
-                <option value={"watch"}>Watch</option>
-                <option value={"speaker"}>Speaker</option>
-                <option value={"headphone"}>Headphone</option>
-                <option value={"AC"}>AC</option>
-                <option value={"refrigerator"}>Refrigerator</option>
+                <option value={"grocery&Frozen"}>Grocery & Frozen</option>
+                <option value={"freshVegetable"}>Fresh Vegetable</option>
+                <option value={"freshFruits"}>Fresh Fruits</option>
+                <option value={"fruitJuices"}>Fruit Juices</option>
+                <option value={"salads"}>Salads</option>
+                <option value={"freshMeat"}>Fresh Meat</option>
+                <option value={"butter&Egg"}>Butter & Egg</option>
+                <option value={"milkCream"}>Milk Cream</option>
+                <option value={"oil&Vinegars"}>Oil & Vinegars</option>
+                <option value={"bread&Bakery"}>Bread & Bakery</option>
+                <option value={"snacksItem"}>Snacks Item</option>
+                <option value={"meat"}>Meat</option>
               </select>
               {errors?.category && (
                 <span className="label-text-alt text-red-500 text-xs">
@@ -189,13 +190,9 @@ const BasicInformation = ({ register, errors }) => {
                   required: { value: true, message: "Category is require" },
                 })}
               >
-                <option disabled selected hidden value="">
-                  --Select--
+                <option selected value={"in stock"}>
+                  in stock
                 </option>
-                {/* <option disabled selected value="">
-                --Select--
-              </option> */}
-                <option value={"in stock"}>in stock</option>
                 <option value={"out of stock"}>out of stock</option>
               </select>
               {errors?.stockStatus && (
@@ -236,13 +233,9 @@ const BasicInformation = ({ register, errors }) => {
                   required: { value: true, message: "Category is require" },
                 })}
               >
-                <option disabled selected hidden value="">
-                  --Select--
+                <option selected value={"N/A"}>
+                  N/A
                 </option>
-                {/* <option disabled selected value="">
-                --Select--
-              </option> */}
-                <option value={"N/A"}>N/A</option>
                 <option value={"Yes"}>Yes</option>
               </select>
               {errors?.dimensions && (

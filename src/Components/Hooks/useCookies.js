@@ -20,7 +20,7 @@ export const getCookie = (cookieName) => {
 
 //remove cookie
 export const removeCookie = async (cookieName) => {
-  const { data } = await axiosPrivet.delete("/login");
-  console.log(data);
+  await axiosPrivet.delete("/login");
+  // console.log(data);
   Cookies.remove(cookieName);
 };

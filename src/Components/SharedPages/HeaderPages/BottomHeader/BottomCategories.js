@@ -18,40 +18,40 @@ const BottomCategories = () => {
           className={`menu bg-base-100 z-50 w-full shadow-lg border-primary mb-1 relative border-[2px] top-0 ease-in-out duration-500 border-t-0 rounded-b-xl font-bold`}
         >
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/computer"}>Computer</Link>
+            <Link to={"/categories/computer"}>Grocery & Frozen</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/laptop"}>Laptop</Link>
+            <Link to={"/categories/laptop"}>Fresh Vegetable</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/monitor"}>monitor</Link>
+            <Link to={"/categories/monitor"}>Fresh Fruits</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/phone"}>Phone</Link>
+            <Link to={"/categories/phone"}>Fruit Juices</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/headphone"}>Headphone</Link>
+            <Link to={"/categories/headphone"}>Salads</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/speaker"}>speaker</Link>
+            <Link to={"/categories/speaker"}>Fresh Meat</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/watch"}>Watch</Link>
+            <Link to={"/categories/watch"}>Butter & Egg</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/refrigerator"}>refrigerator</Link>
+            <Link to={"/categories/refrigerator"}>Milk Cream</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/refrigerator"}>refrigerator</Link>
+            <Link to={"/categories/refrigerator"}>Oil & Vinegars</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/AC"}>AC</Link>
+            <Link to={"/categories/AC"}>Bread & Bakery</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/AC"}>AC</Link>
+            <Link to={"/categories/AC"}>Snacks Item</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <Link to={"/categories/AC"}>AC</Link>
+            <Link to={"/categories/AC"}>Meat</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
             <a className="">More Category</a>

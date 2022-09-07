@@ -43,7 +43,7 @@ const AllOrder = () => {
   );
 
   if (isLoading) {
-    // return <Loading />;
+    return <Loading />;
   }
 
   const onSubmit = async (data) => {

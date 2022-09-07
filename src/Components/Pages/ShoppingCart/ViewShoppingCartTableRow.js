@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
+import { Td, Th, Tr } from "react-super-responsive-table";
 import { addToDb, decreaseToCart, removeFromDb } from "../../Hooks/useFakeDB";
 
 const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) => {
@@ -41,18 +42,18 @@ const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) =>
 
   return (
     <>
-      <tr key={item?._id} className={"border-y hover"}>
-        <th>{index + 1}</th>
-        <td className="py-5">
-          <img height={50} width={50} src={item?.images?.ImageURL1} alt="" />
-        </td>
-        <td title={item?.productName.length >= 25 && item?.productName}>
+      <Tr key={item?._id} className={"border-y"}>
+        <Td className="my-5 sm:my-0 px-4">{index + 1}</Td>
+        <Td className="py-5">
+          <img height={50} width={50} src={item?.productImages[0]} alt="" />
+        </Td>
+        <Td className={"my-5 sm:my-0"} title={item?.productName.length >= 25 && item?.productName}>
           {item?.productName.length >= 25
             ? [item?.productName.slice(0, 25), <br />, item?.productName.slice(26, 50)]
             : item?.productName}
-        </td>
-        <td className="text-lg">$ {item?.price}</td>
-        <td className="text-lg">
+        </Td>
+        <Td className="text-lg">$ {item?.price}</Td>
+        <Td className="text-lg my-5 sm:my-0">
           <div className=" w-32 relative border-gray-300 border">
             <div onClick={() => handleDecrease()} className="absolute top-4 left-2 cursor-pointer">
               <span>
@@ -71,15 +72,15 @@ const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) =>
               className="input focus:outline-primary-focus border-primary px-10 text-xl text-center h-12 rounded-sm bg-base-100 w-full"
             />
           </div>
-        </td>
-        <td className="text-lg">$ {item?.price * value}</td>
-        <td className="text-lg">
+        </Td>
+        <Td className="text-lg">$ {item?.price * value}</Td>
+        <Td className="text-lg my-5 sm:my-0">
           <FaTrashAlt
             onClick={() => handleRemove(item._id)}
-            className={"cursor-pointer text-center mx-auto"}
+            className={"cursor-pointer text-start sm:text-center sm:mx-auto "}
           />
-        </td>
-      </tr>
+        </Td>
+      </Tr>
     </>
   );
 };

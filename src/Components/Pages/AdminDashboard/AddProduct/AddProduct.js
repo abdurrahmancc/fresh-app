@@ -7,6 +7,7 @@ import BasicInformation from "./BasicInformation";
 import DetailsInformation from "./DetailsInformation";
 import { imgUpload } from "../../../api/api";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
+import Breadcrumb from "../../../SharedPages/Breadcrumb";
 
 const AddProduct = () => {
   const [uploadAImage, setUploadAImage] = useState(true);
@@ -21,16 +22,22 @@ const AddProduct = () => {
     formState: { errors },
   } = useForm();
 
-  const selectCategory = watch("category");
+  const selectCategory = watch("uploadImage");
+
+  console.log(selectCategory);
 
   const onSubmit = async (data) => {
     let images = [];
     if (uploadAImage) {
-      const inputImages = data.inputImage[0];
-      const formData = new FormData();
-      formData.append("image", inputImages);
-      const image = await imgUpload(formData);
-      images = [image.data.url];
+      try {
+        const inputImages = data.uploadImage[0];
+        const formData = new FormData();
+        formData.append("image", inputImages);
+        const image = await imgUpload(formData);
+        images = [image.data.url];
+      } catch (error) {
+        toast.error("not uploaded image", { id: "upload_image_error" });
+      }
     } else if (imageUrl) {
       images = [data.img1];
     } else {
@@ -38,7 +45,7 @@ const AddProduct = () => {
     }
     const inputInfo = {
       productName: data.productName,
-      manufacturerName: data.manufacturerName,
+      by: data.by,
       price: data.price,
       regularPrice: data.regularPrice,
       quantity: data.quantity,
@@ -58,21 +65,20 @@ const AddProduct = () => {
       stockStatus: data.stockStatus,
       dimensions: data.dimensions,
       productImages: images,
+      productBadges: data.productBadges,
     };
+    console.log(images);
     if (images[0]) {
       try {
         const { data: result } = await axiosPrivet.post("product/add-product", inputInfo);
         toast.success(result.message, { id: "success-add-product" });
-        console.log(result);
+        // console.log(result);
+        reset();
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         toast.error(error?.response?.data?.errors?.common?.msg, { id: "add-product-error" });
       }
     }
-
-    console.log(inputInfo);
-
-    // reset();
   };
 
   const handleUploadAImage = () => {
@@ -103,15 +109,17 @@ const AddProduct = () => {
     watch,
     reset,
   };
-  console.log(selectCategory);
-  console.log(uploadAImage, imageUrl, multipleImageUrl);
+  // console.log(selectCategory);
+  // console.log(uploadAImage, imageUrl, multipleImageUrl);
   return (
     <>
       <div className="p-10 w-full ">
         <div className="flex justify-between pb-4">
           <h4 className="uppercase text-[1.4vw]   font-bold">add product</h4>
           <div>
-            <div className="text-sm breadcrumbs">{/* <Breadcrumb crumbs={crumbs} /> */}</div>
+            <div className="text-sm breadcrumbs">
+              <Breadcrumb />
+            </div>
           </div>
         </div>
         {/* basic information */}

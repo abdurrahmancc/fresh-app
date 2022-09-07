@@ -18,7 +18,7 @@ const useProducts = () => {
       const storedCart = getShoppingId();
       const savedCart = [];
       const keys = Object.keys(storedCart);
-      const { data } = await axiosPrivet.post("/cart-products", keys);
+      const { data } = await axiosPrivet.post("/product/cart-products", keys);
       if (data) {
         for (const id in storedCart) {
           const addedProduct = data.find((product) => product._id === id);
