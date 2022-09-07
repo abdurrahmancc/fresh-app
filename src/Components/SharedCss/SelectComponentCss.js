@@ -28,6 +28,9 @@ export const middleCategorySelected = {
     ...base,
     color: "#ffffff",
     paddingRight: 10,
+    "&:hover": {
+      color: "#ffffff",
+    },
   }),
   input: (base, state) => ({
     ...base,
@@ -54,8 +57,8 @@ export const topHeaderSelectLibraryStyle = {
   }),
   control: (base, state) => ({
     ...base,
-    background: "#76A713",
-    color: "#ffffff",
+    // background: "#76A713",
+    color: "#000",
     border: "none",
     boxShadow: state.isFocused ? null : null,
   }),
@@ -71,7 +74,7 @@ export const topHeaderSelectLibraryStyle = {
   }),
   dropdownIndicator: (base) => ({
     ...base,
-    color: "#ffffff",
+    color: "#000",
     padding: 0,
   }),
   input: (base, state) => ({
@@ -85,7 +88,7 @@ export const topHeaderSelectLibraryStyle = {
   placeholder: (defaultStyles) => {
     return {
       ...defaultStyles,
-      color: "#ffffff",
+      color: "#000",
     };
   },
 };

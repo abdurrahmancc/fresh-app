@@ -20,23 +20,23 @@ const OrderStatusModal = ({ setStatusModal, statusModal, refetch }) => {
   };
   return (
     <>
-      <input type="checkbox" id="orderStatusModal" class="modal-toggle" />
+      <input type="checkbox" id="orderStatusModal" className="modal-toggle" />
 
-      <div class="modal">
-        <div class="modal-box ">
-          <h3 class="font-bold text-lg text-center">Are you suer want to {statusModal[1]}</h3>
+      <div className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center">Are you suer want to {statusModal[1]}</h3>
           <div className="my-4 text-center">
-            <p class="">Email: {statusModal[0]?.email}</p>
-            <p class="">Id: {statusModal[0]?._id}</p>
+            <p className="">Email: {statusModal[0]?.email}</p>
+            <p className="">Id: {statusModal[0]?._id}</p>
           </div>
-          <div class="modal-action gap-5 justify-center">
-            <label for="orderStatusModal" class="btn btn-sm btn-success text-neutral">
+          <div className="modal-action gap-5 justify-center">
+            <label htmlFor="orderStatusModal" className="btn btn-sm btn-success text-neutral">
               Cancel
             </label>
             <label
               onClick={() => handleStateModal(statusModal[0]?.transactionId)}
-              for="orderStatusModal"
-              class="btn btn-sm btn-success text-neutral"
+              htmlFor="orderStatusModal"
+              className="btn btn-sm btn-success text-neutral"
             >
               {statusModal[1]}
             </label>

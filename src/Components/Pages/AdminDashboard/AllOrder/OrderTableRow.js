@@ -58,7 +58,11 @@ const OrderTableRow = ({ index, order, setOrderDeleteModal, setOrderDetailModal 
                 </div>
               </li>
               <li>
-                <label onClick={() => setOrderDeleteModal(order)} for="userOrderDelete" class="">
+                <label
+                  onClick={() => setOrderDeleteModal(order)}
+                  htmlFor="userOrderDelete"
+                  className=""
+                >
                   <span>
                     <MdDelete className="text-error text-lg" />
                   </span>

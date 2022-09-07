@@ -1,0 +1,99 @@
+.slide a {text-decoration : none; color : #2d2f31;}
+.nav-test {
+  width : 300px; 
+  background: #d9d9d9;
+  margin : 40px auto; 
+}
+
+.side-dropdown{
+    left: 300px;
+}
+
+.nav-test span {
+  padding : 30px;
+  background : #2d2f31; 
+  color : white;
+  font-size : 1.2em;
+  font-variant : small-caps;
+  cursor : pointer;
+  display: block;
+}
+
+.nav-test span::after {
+  float: right;
+  right: 10%;
+  content: "+";
+}
+
+.slide {
+  clear:both;
+  width:100%;
+  height:0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height .4s ease;
+}
+
+.slide li {padding : 20px;}
+
+#touch {position: absolute; opacity: 0; height: 0px;}    
+
+#touch:checked + .slide {height: 300px;} 
+
+
+
+.dropdownMenu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+  }
+  .dropdownMenu:hover {
+    overflow: visible;
+  }
+  .dropdownMenu li {
+    position: relative;
+    float: left;
+    background-color: #17B0FF;
+  }
+ .dropdownMenu li:hover {
+    background-color: #189BDF;
+  }
+ .dropdownMenu a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  /* second level */
+  .dropdownMenu ul {
+    max-height: 0;
+    transition: max-height 2s;
+  }
+  .dropdownMenu li:hover ul {
+    max-height: 999px;
+  }
+  .dropdownMenu ul li {
+    float: none;
+    background-color: #189BDF;
+  }
+  .dropdownMenu ul li:hover {
+    background-color: #1289C7;
+  }
+  
+  /* third level */
+  .dropdownMenu ul ul {
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 100%;
+    transition: width 0.5s;
+  }
+  .dropdownMenu ul li:hover ul {
+    width: 100%;
+  }
+  .dropdownMenu ul ul li {
+    background-color: #DF7F18;
+  }

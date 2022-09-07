@@ -22,23 +22,23 @@ const PaidOrderDeleteModal = ({ children }) => {
   };
   return (
     <>
-      <input type="checkbox" id="paidOrderDelete" class="modal-toggle" />
+      <input type="checkbox" id="paidOrderDelete" className="modal-toggle" />
 
-      <div class="modal">
-        <div class="modal-box ">
-          <h3 class="font-bold text-lg text-center">Are you suer want to delete</h3>
+      <div className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center">Are you suer want to delete</h3>
           <div className="my-4 text-center">
-            <p class="">Email: {paidDeleteModal?.email}</p>
-            <p class="">Id: {paidDeleteModal?._id}</p>
+            <p className="">Email: {paidDeleteModal?.email}</p>
+            <p className="">Id: {paidDeleteModal?._id}</p>
           </div>
-          <div class="modal-action gap-5 justify-center">
-            <label for="paidOrderDelete" class="btn btn-sm btn-success text-neutral">
+          <div className="modal-action gap-5 justify-center">
+            <label htmlFor="paidOrderDelete" className="btn btn-sm btn-success text-neutral">
               Cancel
             </label>
             <label
               onClick={() => handleDeleteOrder(paidDeleteModal?.transactionId)}
-              for="paidOrderDelete"
-              class="btn btn-sm btn-success text-neutral"
+              htmlFor="paidOrderDelete"
+              className="btn btn-sm btn-success text-neutral"
             >
               Delete
             </label>

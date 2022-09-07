@@ -1,26 +1,31 @@
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import axiosPrivet from "../../Hooks/axiosPrivet";
+import auth from "../../Hooks/useAuthState";
 import DeleteUserModal from "../../Pages/AdminDashboard/AllUser/DeleteUserModal";
 import UserRoleConfirmModal from "../../Pages/AdminDashboard/AllUser/UserRoleConfirmModal";
 import Loading from "../../SharedPages/Loading";
 import AdminTableRow from "./AdminTableRow";
 
 const AdminTable = () => {
+  const [user, loading] = useAuthState(auth);
   const [deleteModal, setDeleteModal] = useState(null);
   const [inputRoleId, setInputRoleId] = useState({});
   const { data, isLoading, isError, refetch } = useQuery("allAdmin", () =>
-    axiosPrivet.get("/admin")
+    axiosPrivet.get(`users/admin/${user?.email}`)
   );
 
-  if (isLoading) {
+  if (isLoading || loading) {
     return <Loading />;
   }
 
   if (isError) {
     toast.error(isError?.message, { id: "allUsers" });
   }
+
+  const allAdmin = data?.data?.users.length > 0 ? data?.data?.users : null;
   return (
     <div className="pt-6">
       <div className="overflow-x-auto w-full pb-[6.5rem]">
@@ -28,11 +33,7 @@ const AdminTable = () => {
           {/* <!-- head --> */}
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox rounded-none checkbox-xs" />
-                </label>
-              </th>
+              <th>#</th>
               <th>Name</th>
               <th>Phone / Email</th>
               <th>Address</th>
@@ -43,16 +44,17 @@ const AdminTable = () => {
           </thead>
           <tbody id="order_Table_Row" className="cursor-pointer">
             {/* <!-- row 1 --> */}
-            {data?.data.map((user, index) => (
-              <AdminTableRow
-                key={index}
-                user={user}
-                index={index}
-                refetch={refetch}
-                setDeleteModal={setDeleteModal}
-                setInputRoleId={setInputRoleId}
-              />
-            ))}
+            {allAdmin &&
+              allAdmin.map((user, index) => (
+                <AdminTableRow
+                  key={index}
+                  user={user}
+                  index={index}
+                  refetch={refetch}
+                  setDeleteModal={setDeleteModal}
+                  setInputRoleId={setInputRoleId}
+                />
+              ))}
           </tbody>
           {/* <!-- foot --> */}
         </table>

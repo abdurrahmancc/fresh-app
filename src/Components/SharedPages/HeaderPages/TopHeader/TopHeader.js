@@ -28,33 +28,27 @@ const TopHeader = () => {
 
   return (
     /*----- Top Header start ----*/
-    <div className=" py-1 bg-white border-b-[0.1px] border-[#a7f1bb55]">
+    <div className=" py-1 bg-white border-b-[1px] border-[#e7e7e7]">
       <div className="container mx-auto">
         <div className="flex items-center justify-center  lg:justify-between">
           <div className="hidden lg:block">
             <nav>
               <ul id="vertical-line1" className="flex justify-start items-center gap-5">
                 <li className="">
-                  <Link to="#" className="flex items-center gap-1 pl-0">
-                    <span className="">
-                      <IoLocationOutline />
-                    </span>
+                  <Link to="#" className="flex items-center px-2 gap-1 pl-0">
+                    <IoLocationOutline />
                     <span className="">Location</span>
                   </Link>
                 </li>
                 <li className="">
-                  <span className="flex items-center gap-1 vertical-line">
-                    <span className="">
-                      <GrMail />
-                    </span>
+                  <span className="flex items-center px-2 gap-1 vertical-line">
+                    <GrMail />
                     <span className="">Info@fresh.com</span>
                   </span>
                 </li>
                 <li className="">
-                  <Link to="#" className="flex items-center gap-1 vertical-line13">
-                    <span className="">
-                      <AiOutlineQuestionCircle />
-                    </span>
+                  <Link to="#" className="flex items-center px-2 gap-1 vertical-line13">
+                    <AiOutlineQuestionCircle />
                     <span className="">Free Query</span>
                   </Link>
                 </li>
@@ -68,7 +62,7 @@ const TopHeader = () => {
                 className="flex justify-center lg:justify-end items-center gap-5"
               >
                 <li /* className="pr-5 border-r border-gray-400" */>
-                  <Link to="#" className="flex items-center gap-1">
+                  <Link to="#" className="flex px-2 items-center gap-1">
                     <span className="">
                       <FaShippingFast />
                     </span>
@@ -76,8 +70,8 @@ const TopHeader = () => {
                   </Link>
                 </li>
                 <li /* className="pr-5 border-r border-gray-400" */>
-                  <span className="flex bg-primary px-2 rounded-md items-center gap-1 vertical-line">
-                    <TbWorld className="text-white" />
+                  <span className="flex px-2 rounded-md items-center gap-1 vertical-line">
+                    <TbWorld className="" />
 
                     <span className="">
                       <Select
@@ -92,11 +86,8 @@ const TopHeader = () => {
                   </span>
                 </li>
                 <li>
-                  <Link
-                    to="#"
-                    className="flex bg-primary rounded-md px-2 items-center gap-1 vertical-line"
-                  >
-                    <BsCurrencyDollar className="text-white" />
+                  <Link to="#" className="flex rounded-md px-2 items-center gap-1 vertical-line">
+                    <BsCurrencyDollar className="" />
 
                     <span className="">
                       <Select

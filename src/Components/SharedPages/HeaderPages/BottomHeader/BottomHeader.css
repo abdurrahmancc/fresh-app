@@ -1,0 +1,25 @@
+.border-animate::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 2px;
+    left: 50%;
+    bottom: 6px;
+    background-color: white;
+    transition: all ease-in-out .2s;
+  }
+  .border-animate:hover::after{
+    width: 100%;
+    left: 0;
+  }
+
+  @keyframes oxy-menu-rotx {
+	from {
+		opacity: 0;
+		transform: rotatex(90deg);
+	}
+	to {
+		opacity: 1;
+		transform: rotatex(0deg);
+	}
+}

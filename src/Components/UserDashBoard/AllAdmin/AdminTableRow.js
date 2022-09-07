@@ -76,7 +76,7 @@ const AdminTableRow = ({ user, index, setDeleteModal, refetch, setInputRoleId })
                 </div>
               </li>
               <li>
-                <label for="my-modal" class="">
+                <label htmlFor="my-modal" className="">
                   <span>
                     <MdDelete className="text-error text-lg" />
                   </span>

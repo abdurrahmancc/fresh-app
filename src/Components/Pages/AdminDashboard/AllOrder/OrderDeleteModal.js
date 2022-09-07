@@ -21,23 +21,23 @@ const OrderDeleteModal = ({ orderDeleteModal, refetch, reset, setOrderDeleteModa
   };
   return (
     <>
-      <input type="checkbox" id="userOrderDelete" class="modal-toggle" />
+      <input type="checkbox" id="userOrderDelete" className="modal-toggle" />
 
-      <div class="modal">
-        <div class="modal-box ">
-          <h3 class="font-bold text-lg text-center">Are you suer want to delete</h3>
+      <div className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center">Are you suer want to delete</h3>
           <div className="my-4 text-center">
-            <p class="">Email: {orderDeleteModal?.userEmail}</p>
-            <p class="">Id: {orderDeleteModal?._id}</p>
+            <p className="">Email: {orderDeleteModal?.userEmail}</p>
+            <p className="">Id: {orderDeleteModal?._id}</p>
           </div>
-          <div class="modal-action gap-5 justify-center">
-            <label for="userOrderDelete" class="btn btn-sm btn-success text-neutral">
+          <div className="modal-action gap-5 justify-center">
+            <label htmlFor="userOrderDelete" className="btn btn-sm btn-success text-neutral">
               Cancel
             </label>
             <label
               onClick={() => handleDeleteOrder(orderDeleteModal?._id)}
-              for="userOrderDelete"
-              class="btn btn-sm btn-success text-neutral"
+              htmlFor="userOrderDelete"
+              className="btn btn-sm btn-success text-neutral"
             >
               Delete
             </label>

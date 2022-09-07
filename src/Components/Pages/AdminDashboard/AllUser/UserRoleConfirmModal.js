@@ -7,12 +7,9 @@ const UserRoleConfirmModal = ({ inputRoleId, refetch }) => {
 
   const handleAddUser = async (id) => {
     try {
-      const { data } = await axiosPrivet.post(`makeRole/${id}`, { role: role });
-      if (data?.acknowledged) {
-        // setDeleteModal(null);
-        toast.success("Add Admin", { id: `make${role}` });
-        refetch();
-      }
+      await axiosPrivet.post(`users/makeRole/${id}`, { role: role });
+      toast.success(`Add ${role}`, { id: `make${role}` });
+      refetch();
     } catch (error) {
       toast.error(error?.message, { id: `make${role}Error` });
       console.log(error);
@@ -20,25 +17,28 @@ const UserRoleConfirmModal = ({ inputRoleId, refetch }) => {
   };
   return (
     <>
-      <input type="checkbox" id={`${role}RoleConfirmModal`} class="modal-toggle" />
+      <input type="checkbox" id={`${role}RoleConfirmModal`} className="modal-toggle" />
 
-      <div class="modal">
-        <div class="modal-box ">
-          <h3 class="font-bold text-lg text-center">
+      <div className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center">
             Are you suer want to {`add ${role}`} {user?.displayName}
           </h3>
           <div className="my-4 text-center">
-            <p class="">Email: {user?.email}</p>
-            <p class="">Id: {user?._id}</p>
+            <p className="">Email: {user?.email}</p>
+            <p className="">Id: {user?._id}</p>
           </div>
-          <div class="modal-action gap-5 justify-center">
-            <label for={`${role}RoleConfirmModal`} class="btn btn-sm btn-success text-neutral">
+          <div className="modal-action gap-5 justify-center">
+            <label
+              htmlFor={`${role}RoleConfirmModal`}
+              className="btn btn-sm btn-success text-neutral"
+            >
               Cancel
             </label>
             <label
               onClick={() => handleAddUser(user?._id)}
-              for={`${role}RoleConfirmModal`}
-              class="btn btn-sm btn-success text-neutral"
+              htmlFor={`${role}RoleConfirmModal`}
+              className="btn btn-sm btn-success text-neutral"
             >
               Add {role}
             </label>

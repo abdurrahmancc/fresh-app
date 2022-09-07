@@ -16,9 +16,14 @@ const SearchOrderModal = ({
 
   return (
     <>
-      <input type="checkbox" checked={toggleSearch} id="searchOrderModal" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box w-11/12 max-w-5xl">
+      <input
+        type="checkbox"
+        checked={toggleSearch}
+        id="searchOrderModal"
+        className="modal-toggle"
+      />
+      <div className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
           <div className={`overflow-x-auto w-full ${handleHeight && "pb-[6.5rem] ease-in-out"}`}>
             <table className="table w-full">
               {/* <!-- head --> */}
@@ -86,7 +91,7 @@ const SearchOrderModal = ({
                           </div>
                         </li>
                         <li>
-                          <label for="userOrderDelete" class="">
+                          <label htmlFor="userOrderDelete" className="">
                             <span>
                               <MdDelete className="text-error text-lg" />
                             </span>
@@ -111,8 +116,12 @@ const SearchOrderModal = ({
               </tbody>
             </table>
           </div>
-          <div class="modal-action">
-            <label onClick={() => setToggleSearch(false)} for="searchOrderModal" class="btn">
+          <div className="modal-action">
+            <label
+              onClick={() => setToggleSearch(false)}
+              htmlFor="searchOrderModal"
+              className="btn"
+            >
               Yay!
             </label>
           </div>

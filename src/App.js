@@ -93,7 +93,7 @@ function App() {
             <Route path={"/shop/:id"} element={<Shop />} />
             <Route path={"/products"} element={<Products />} />
             <Route path={"/checkout"} element={<CheckOut />} />
-            <Route path={"/admin-dashboard"} element={<AdminDashboard />} />
+            {/* <Route path={"/admin-dashboard"} element={<AdminDashboard />} /> */}
             <Route path={"/forgot-password"} element={<ForgotPassword />} />
             <Route path={"/reset-password"} element={<ResetPassword />} />
             <Route path={"/checkout/:id"} element={<CheckOut />} />
@@ -112,34 +112,34 @@ function App() {
             <Route path={"/blogs"} element={<Blogs />} />
             <Route path={"/FAQ"} element={<Faq />} />
             <Route path={"/blog-details/:id"} element={<BlogDetails />} />
-            {/* <Route element={<RequireAuth />}>
-                  <Route element={<RequireNotUser />}> */}
-            <Route path="/admin-dashboard" element={<AdminDashboard />}>
-              <Route index element={<DashboardHome />} />
-              <Route path="home-dashboard" element={<DashboardHome />} />
-              <Route path="ecommerce" element={<AdminDashboardSubMenu />} />
-              <Route path="add-product" element={<AddProduct />} />
-              <Route path="add-others" element={<AddOthers />} />
-              <Route path="product-details/:id" element={<ProductDetails />} />
-              {/* <Route element={<RequireAdmin />}> */}
-              <Route path="all-user" element={<AllUsers />} />
-              <Route path="admin" element={<AllAdmin />} />
-              {/* </Route>  */}
-              <Route path="all-order" element={<AllOrder />} />
-              {/* <Route path="all-product" element={<AllProducts />}> */}
-              {/* <Route index element={<AllProducts1 />}></Route> */}
-              {/* <Route path="1" element={<AllProducts1 />}></Route> */}
-              {/* <Route path="2" element={<AllProducts2 />}></Route> */}
+            <Route element={<RequireAuth />}>
+              {/* <Route element={<RequireNotUser />}> */}
+              <Route path="/admin-dashboard" element={<AdminDashboard />}>
+                <Route index element={<DashboardHome />} />
+                <Route path="home-dashboard" element={<DashboardHome />} />
+                <Route path="ecommerce" element={<AdminDashboardSubMenu />} />
+                <Route path="add-product" element={<AddProduct />} />
+                <Route path="add-others" element={<AddOthers />} />
+                <Route path="product-details/:id" element={<ProductDetails />} />
+                {/* <Route element={<RequireAdmin />}> */}
+                <Route path="all-user" element={<AllUsers />} />
+                <Route path="admin" element={<AllAdmin />} />
+                {/* </Route>  */}
+                <Route path="all-order" element={<AllOrder />} />
+                {/* <Route path="all-product" element={<AllProducts />}> */}
+                {/* <Route index element={<AllProducts1 />}></Route> */}
+                {/* <Route path="1" element={<AllProducts1 />}></Route> */}
+                {/* <Route path="2" element={<AllProducts2 />}></Route> */}
+                {/* </Route> */}
+                <Route path="order-pending" element={<PendingOrder />} />
+                <Route path="message" element={<Message />} />
+                <Route path="analytics" element={<Analytics />} />
+                <Route path="file-manager" element={<Analytics />} />
+                <Route path="saved" element={<Saved />} />
+                <Route path="order-paid" element={<PaidOrder />} />
+              </Route>
               {/* </Route> */}
-              <Route path="order-pending" element={<PendingOrder />} />
-              <Route path="message" element={<Message />} />
-              <Route path="analytics" element={<Analytics />} />
-              <Route path="file-manager" element={<Analytics />} />
-              <Route path="saved" element={<Saved />} />
-              <Route path="order-paid" element={<PaidOrder />} />
             </Route>
-            {/* </Route>
-                </Route> */}
             <Route path={"*"} element={<NotFound />} />
           </Routes>
         </ToggleAdminDashboardSideBar.Provider>

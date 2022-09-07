@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import {
   useAuthState,
@@ -11,8 +12,11 @@ import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
+import { accessTokenName, getCookie } from "../../Hooks/useCookies";
 import useToken from "../../Hooks/useToken";
+import Loading from "../Loading";
 
 const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [showPass, setShowPass] = useState(false);
@@ -21,29 +25,23 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [signInWithEmailAndPassword, eUser, eLoading, eError] = useSignInWithEmailAndPassword(auth);
   const location = useLocation();
   const navigate = useNavigate();
+  const [token] = useToken(user || eUser || gUser);
   const from = location.state?.from?.pathname || "/";
-  const [token] = useToken(user || gUser || eUser);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    if (token) {
-      navigate(from, { replace: true });
-    }
-  }, [token]);
-
-  if (loading || eLoading || gLoading) {
-    // return <Loading />;
-  }
   const onSubmit = async (data) => {
-    const email = data.email;
+    const username = data.email;
     const password = data.password;
+    const info = { username, password };
     // console.log(data);
-    await signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(username, password);
+    const { data: result } = await axiosPrivet.post("/login", info);
+    console.log(result);
+    Cookies.set(accessTokenName, result.token);
   };
 
   // console.log(token)
@@ -52,6 +50,21 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     navigate("/forgot-password");
     setIsOpenModal(false);
   };
+
+  const handleSignGoogle = () => {
+    signInWithGoogle();
+  };
+
+  const accessToken = getCookie(accessTokenName);
+  useEffect(() => {
+    if (token || accessToken) {
+      navigate(from, { replace: true });
+    }
+  }, [token, accessToken, from, navigate]);
+
+  if (loading || eLoading || gLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -164,7 +177,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
         </div>
         <div className="flex justify-between flex-col lg:flex-row">
           <button
-            onClick={() => signInWithGoogle()}
+            onClick={() => handleSignGoogle()}
             className="relative  bottom-0 z-50 cursor-pointer text-sm inline-flex items-center capitalize transition ease-in-out duration-300 font-semibold text-center justify-center rounded-md focus:outline-none text-gray-600 bg-gray-100 shadow-sm md:px-2 my-1 sm:my-1 md:my-1 lg:my-0 lg:px-3 py-4 md:py-3.5 lg:py-4 gap-1 hover:text-white hover:bg-blue-600 h-11 md:h-12 w-full mr-2"
           >
             <FaFacebookF />

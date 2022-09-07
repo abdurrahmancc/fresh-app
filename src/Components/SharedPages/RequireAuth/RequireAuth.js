@@ -16,9 +16,10 @@ const RequireAuth = () => {
     localStorage.removeItem("accessToken");
   };
 
-  if (loading || tokenLoading) {
+  if (loading) {
     return <Loading />;
   }
+  // console.log(token);
 
   if (!user) {
     handleSignOut();

@@ -3,6 +3,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
 import { useQuery } from "react-query";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
+import Breadcrumb from "../../../SharedPages/Breadcrumb";
 import Loading from "../../../SharedPages/Loading";
 import PaidOrderDeleteModal from "./PaidOrderDeleteModal";
 import PaidOrderTable from "./PaidOrderTable";
@@ -27,7 +28,9 @@ const PaidOrder = () => {
       <div className="flex justify-between pb-4">
         <h4 className="uppercase text-[1.4vw]   text-neutral font-bold">paid orders</h4>
         <div>
-          <div className="text-sm breadcrumbs">{/* <Breadcrumb crumbs={crumbs} /> */}</div>
+          <div className="text-sm breadcrumbs">
+            <Breadcrumb />
+          </div>
         </div>
       </div>
       <div className="bg-base-100 p-5">

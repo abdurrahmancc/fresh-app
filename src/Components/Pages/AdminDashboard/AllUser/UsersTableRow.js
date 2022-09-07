@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
+import { format } from "date-fns";
 import { MdDelete, MdDetails } from "react-icons/md";
 
 const UsersTableRow = ({ user, index, setDeleteModal, refetch, setInputRoleId }) => {
+  const joiningDate = format(new Date(user?.createdAt), "MMMM d, yyyy h:mm aa");
+  const lastJoined = format(new Date(user?.updatedAt), "MMMM d, yyyy h:mm aa");
+
   return (
     <>
       <tr key={user?._id} className="hover">
@@ -21,7 +25,7 @@ const UsersTableRow = ({ user, index, setDeleteModal, refetch, setInputRoleId })
         <td>{user?.address ? user?.email : "no"}</td>
         <td>
           <div className="flex items-center gap-2">
-            <span className=" text-xs">{user?.role ? user?.role : "user"}</span>
+            <span className=" text-xs">{user?.role}</span>
             <div className="dropdown dropdown-right cursor-pointer">
               <label tabIndex="0" className=" m-1 cursor-pointer">
                 <span>
@@ -54,10 +58,10 @@ const UsersTableRow = ({ user, index, setDeleteModal, refetch, setInputRoleId })
           </div>
         </td>
         <td>
-          <span className="">{user?.joiningDate}</span>
+          <span className="">{joiningDate && joiningDate}</span>
         </td>
         <td>
-          <span className="">{user?.lastLoginDate}</span>
+          <span className="">{lastJoined && lastJoined}</span>
         </td>
         <td>
           <div className="dropdown dropdown-end">
@@ -79,7 +83,7 @@ const UsersTableRow = ({ user, index, setDeleteModal, refetch, setInputRoleId })
                 </div>
               </li>
               <li>
-                <label for="my-modal" class="">
+                <label htmlFor="my-modal" className="">
                   <span>
                     <MdDelete className="text-error text-lg" />
                   </span>

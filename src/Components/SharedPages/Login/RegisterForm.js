@@ -1,3 +1,5 @@
+import axios from "axios";
+import Cookies from "js-cookie";
 import React, { useContext, useEffect, useState } from "react";
 import {
   useAuthState,
@@ -13,7 +15,9 @@ import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock, FaUser } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
+import { accessTokenName } from "../../Hooks/useCookies";
 import useToken from "../../Hooks/useToken";
 import Loading from "../Loading";
 
@@ -28,43 +32,52 @@ const RegisterForm = ({ handleLoginMOdal }) => {
   const [createUserWithEmailAndPassword, cUser, cLoading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
-  const [isCreateUser, setIsCreateUser] = useState(false);
-  const [token] = useToken(cUser || user);
+  const [token] = useToken(user || gUser || cUser);
   const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
+    setError,
     watch,
     formState: { errors },
   } = useForm();
-
-  // if (!token && isCreateUser) {
-  //   window.location.reload();
-  // }
 
   const onSubmit = async (data) => {
     const email = data.email;
     const confirmPassword = data.confirmPassword;
     const password = data.password;
     const displayName = data.name;
+    const info = { displayName, password, email };
     if (password !== confirmPassword) {
       setMatchingPass("Password does not match");
       return;
     }
-    await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName });
-    toast.success("check email and please verify");
-    setIsCreateUser(true);
+    try {
+      const { data: result } = await axiosPrivet.post("/users", info);
+      if (result.token) {
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName });
+        Cookies.set(accessTokenName, result.token);
+        toast.success("check email and please verify");
+      }
+      // console.log(result);
+    } catch (error) {
+      console.log(error);
+      if (error?.response?.data?.errors?.email) {
+        setError("email", { type: "pattern", message: error?.response?.data?.errors?.email?.msg });
+      }
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     if (token) {
-      //   console.log(token);
       navigate(from, { replace: true });
     }
   }, [token]);
+  console.log(token);
 
-  if (updating || loading || cLoading) {
+  if (updating || loading || cLoading || gLoading) {
     return <Loading />;
   }
   return (

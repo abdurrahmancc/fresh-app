@@ -7,13 +7,15 @@ import { BiSearch, BiSearchAlt } from "react-icons/bi";
 import { signOut } from "firebase/auth";
 import auth from "../../Hooks/useAuthState";
 import AdminDashboardThemes from "./AdminDashboardThemes";
+import { accessTokenName, removeCookie } from "../../Hooks/useCookies";
 
 const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen }) => {
   const [openSearch, setOpenSearch] = useState(false);
 
   const handleSignOut = () => {
     signOut(auth);
-    localStorage.removeItem("accessToken");
+    removeCookie(accessTokenName);
+    // localStorage.removeItem("accessToken");
   };
   return (
     <div className="navbar bg-base-200 px-10">

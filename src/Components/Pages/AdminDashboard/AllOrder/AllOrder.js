@@ -9,6 +9,7 @@ import Loading from "../../../SharedPages/Loading";
 import ScrollBtn from "../../../SharedPages/ScrollBtn";
 import OrderTable from "./OrderTable";
 import SearchOrderModal from "./SearchOrderModal";
+import Breadcrumb from "../../../SharedPages/Breadcrumb";
 
 const AllOrder = () => {
   const [page, setPage] = useState(0);
@@ -18,10 +19,7 @@ const AllOrder = () => {
   const [toggleSearch, setToggleSearch] = useState(false);
   const [orderDeleteModal, setOrderDeleteModal] = useState(null);
   const [orderDetailModal, setOrderDetailModal] = useState(null);
-  const crumbs = [
-    { path: "admin-dashboard", name: "admin-dashboard" },
-    { path: "admin-dashboard/all-order", name: "all-order" },
-  ];
+
   const {
     register,
     handleSubmit,
@@ -72,7 +70,9 @@ const AllOrder = () => {
         <div className="flex justify-between pb-4">
           <h4 className="uppercase text-[1.4vw]   text-neutral font-bold">ORDERS</h4>
           <div>
-            <div className="text-sm breadcrumbs">{/* <Breadcrumb crumbs={crumbs} /> */}</div>
+            <div className="text-sm breadcrumbs">
+              <Breadcrumb />
+            </div>
           </div>
         </div>
         <div className="bg-base-100 p-5">

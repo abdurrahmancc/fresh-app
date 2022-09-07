@@ -5,102 +5,103 @@ const DetailsInformation = ({ register, errors }) => {
     <>
       <div className="bg-base-100 p-5 rounded-md">
         <div className="pb-6">
-          <h4 className="capitalize text-xl font-bold ">Computer Features</h4>
+          <h4 className="capitalize text-xl font-bold ">Features</h4>
           <span className="text-xs ">Fill all information below</span>
         </div>
         <div className="grid sm:grid-cols-2 grid-cols-1 gap-10">
           <div>
-            {/* processor */}
+            {/* color */}
             <div className="form-control pb-4">
-              <label htmlFor="Processor" className="label">
-                <span className="label-text text-xs  ">Processor</span>
+              <label htmlFor="colors" className="label">
+                <span className="label-text text-xs  ">Colors</span>
               </label>
               <input
-                id="Processor"
+                id="colors"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("processor")}
+                {...register("colors")}
               />
             </div>
-            {/* MPN Model */}
+            {/* weight */}
             <div className="grid lg:grid-cols-2 lg:gap-2">
               <div className="form-control pb-4 w-full">
-                <label htmlFor="MPN" className="label">
-                  <span className="label-text text-xs ">MPN</span>
+                <label htmlFor="weight" className="label">
+                  <span className="label-text text-xs ">Weight</span>
                 </label>
                 <input
-                  id="MPN"
+                  id="weight"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("MPN")}
+                  {...register("weight")}
                 />
               </div>
+              {/*---------------------------------- no------------------------------- */}
               <div className="form-control pb-4 w-full">
-                <label htmlFor="Model" className="label">
-                  <span className="label-text text-xs ">Model</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add now</span>
                 </label>
                 <input
-                  id="Model"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("model")}
+                  {...register("addNow")}
                 />
               </div>
             </div>
-            {/* Memory storage */}
+            {/* addNow */}
             <div className="grid lg:grid-cols-2 lg:gap-2">
               <div className="form-control pb-4 w-full">
-                <label htmlFor="Memory" className="label">
-                  <span className="label-text text-xs ">Memory / Ram</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="Memory"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("memory")}
+                  {...register("addNow")}
                 />
               </div>
               <div className="form-control pb-4 w-full">
-                <label htmlFor="Storage" className="label">
-                  <span className="label-text text-xs ">Storage</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="Storage"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("storage")}
+                  {...register("addNow")}
                 />
               </div>
             </div>
-            {/* Graphics Chipset */}
+            {/* addNow */}
             <div className="grid lg:grid-cols-2 lg:gap-2">
               <div className="form-control pb-4 w-full">
-                <label htmlFor="Graphics" className="label">
-                  <span className="label-text text-xs ">Graphics</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="Graphics"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("graphics")}
+                  {...register("addNow")}
                 />
               </div>
               <div className="form-control pb-4 w-full">
-                <label htmlFor="PowerSupply" className="label">
-                  <span className="label-text text-xs ">Power Supply</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="Chipset"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("powerSupply")}
+                  {...register("addNow")}
                 />
               </div>
             </div>
@@ -108,55 +109,93 @@ const DetailsInformation = ({ register, errors }) => {
           <div>
             {/* display */}
             <div className="form-control pb-4">
-              <label htmlFor="Motherboard" className="label">
-                <span className="label-text text-xs ">Motherboard</span>
+              <label htmlFor="addNow" className="label">
+                <span className="label-text text-xs ">add Now</span>
               </label>
               <input
-                id="Motherboard"
+                id="addNow"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("motherboard")}
+                {...register("addNow")}
               />
             </div>
             {/* Operating System Battery */}
             <div className="grid lg:grid-cols-2 lg:gap-2">
               <div className="form-control pb-4 w-full">
-                <label htmlFor="cpuCooler" className="label">
-                  <span className="label-text text-xs ">CPU COOLER</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="cpuCooler"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("cpuCooler")}
+                  {...register("addNow")}
                 />
               </div>
               <div className="form-control pb-4 w-full">
-                <label htmlFor="Casing" className="label">
-                  <span className="label-text text-xs ">Casing</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="Casing"
+                  id="addNow"
                   type="text"
                   placeholder=""
                   className="input input-bordered"
-                  {...register("casing")}
+                  {...register("addNow")}
                 />
               </div>
             </div>
             <div className="grid lg:grid-cols-2 lg:gap-2">
               <div className="form-control pb-4 w-full">
-                <label htmlFor="Warranty" className="label">
-                  <span className="label-text text-xs ">Manufacturing Warranty</span>
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
                 </label>
                 <input
-                  id="Warranty"
+                  id="addNow"
                   type="text"
                   placeholder=" "
                   className="input input-bordered"
-                  {...register("warranty")}
+                  {...register("addNow")}
+                />
+              </div>
+              <div className="form-control pb-4 w-full">
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
+                </label>
+                <input
+                  id="addNow"
+                  type="text"
+                  placeholder=" "
+                  className="input input-bordered"
+                  {...register("addNow")}
+                />
+              </div>
+            </div>
+            <div className="grid lg:grid-cols-2 lg:gap-2">
+              <div className="form-control pb-4 w-full">
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
+                </label>
+                <input
+                  id="addNow"
+                  type="text"
+                  placeholder=" "
+                  className="input input-bordered"
+                  {...register("addNow")}
+                />
+              </div>
+              <div className="form-control pb-4 w-full">
+                <label htmlFor="addNow" className="label">
+                  <span className="label-text text-xs ">add Now</span>
+                </label>
+                <input
+                  id="addNow"
+                  type="text"
+                  placeholder=" "
+                  className="input input-bordered"
+                  {...register("addNow")}
                 />
               </div>
             </div>

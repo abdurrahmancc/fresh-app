@@ -96,7 +96,7 @@ const DealsProducts = ({ product }) => {
           <span className="text-gray-400 line-through capitalize">${product?.regularPrice}</span>
         </div>
         <div className="card-actions  ">
-          <button className=" py-2 px-6 bg-[#cef5e2] hover:bg-primary hover:text-neutral capitalize rounded border flex items-center gap-2">
+          <button className="py-2 px-6 rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2">
             <MdAddShoppingCart /> Add to cart
           </button>
         </div>

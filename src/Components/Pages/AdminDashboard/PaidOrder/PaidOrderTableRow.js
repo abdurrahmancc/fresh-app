@@ -58,7 +58,7 @@ const PaidOrderTableRow = ({ paidOrder, index, setPaidDeleteModal, setStatusModa
                 <label
                   htmlFor="orderStatusModal"
                   onClick={() => setStatusModal([paidOrder, "shipping"])}
-                  class=""
+                  className=""
                 >
                   <span>
                     <MdLocalShipping className=" text-lg" />

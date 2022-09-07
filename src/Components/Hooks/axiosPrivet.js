@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const axiosPrivet = axios.create({
-  baseURL: "https://secure-brushlands-00535.herokuapp.com/",
-  // baseURL: "http://localhost:5000/",
+  withCredentials: true,
+  // baseURL: "https://secure-brushlands-00535.herokuapp.com/",
+  baseURL: "http://localhost:5000/api/v1/",
 });
 axiosPrivet.interceptors.request.use(
   function (config) {

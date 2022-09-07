@@ -17,9 +17,9 @@ const OrderDetails = ({ orderDetailModal }) => {
 
   return (
     <>
-      <input type="checkbox" id="orderDetailsModal" class="modal-toggle" />
-      <label for="orderDetailsModal" class="modal cursor-pointer">
-        <label class="modal-box relative p-2" for="">
+      <input type="checkbox" id="orderDetailsModal" className="modal-toggle" />
+      <label htmlFor="orderDetailsModal" className="modal cursor-pointer">
+        <label className="modal-box relative p-2" htmlFor="">
           <div className="w-full bg-base-200 p-5 rounded-2xl">
             <table className=" w-full">
               <thead>

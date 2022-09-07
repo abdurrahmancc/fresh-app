@@ -13,6 +13,9 @@ import auth from "../../../Hooks/useAuthState";
 import { signOut } from "firebase/auth";
 import LoginModal from "../../Login/LoginModal";
 import Loading from "../../Loading";
+import "./BottomHeader.css";
+import { accessTokenName, removeCookie } from "../../../Hooks/useCookies";
+import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const BottomHeader = () => {
   const [user, loading] = useAuthState(auth);
@@ -21,10 +24,11 @@ const BottomHeader = () => {
   const [categoryDown] = useState();
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
+  const handleSignOut = async () => {
     setIsLogin(!isLogin);
     signOut(auth);
-    localStorage.removeItem("accessToken");
+    removeCookie(accessTokenName);
+    await axiosPrivet.delete("/login");
   };
 
   console.log(isLogin);
@@ -34,62 +38,62 @@ const BottomHeader = () => {
   }
   const navItems = (
     <>
-      <li className="">
+      <li className="py-2">
         <NavLink
           to={"/home"}
           className={({ isActive }) =>
             isActive
-              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary  font-semibold px-0 rounded-none activeNavbar"
-              : "text-lg px-0 text-white py-[17px] font-semibold hover:bg-primary focus:bg-primary"
+              ? " border-b-[2px] py-[5px] border-white text-lg hover:bg-primary text-white focus:bg-primary  font-semibold px-0 border-animate rounded-none activeNavbar"
+              : "text-lg px-0 py-[5px] text-white font-semibold hover:bg-primary border-animate focus:bg-primary"
           }
         >
           HOME
         </NavLink>
       </li>
 
-      <li tabIndex="0">
+      <li className="py-2" tabIndex="0">
         <NavLink
           to={"/shop"}
           className={({ isActive }) =>
             isActive
-              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
-              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
+              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
+              : "text-lg text-white py-[5px] gap-1 px-0  font-semibold hover:bg-primary border-animate focus:bg-primary"
           }
         >
           SHOP
           <AiOutlineCaretDown className="text-sm" />
         </NavLink>
         <ul className="menu bg-base-100 z-50 w-44 shadow">
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/shop"}
               className={({ isActive }) =>
                 isActive
-                  ? " text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                  ? " text-lg font-semibold  border-primary px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
               <span className="px-5">Shop default</span>
             </NavLink>
           </li>
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/shop/fullwidth"}
               className={({ isActive }) =>
                 isActive
-                  ? "  text-lg text-success font-semibold px-0 rounded-none"
+                  ? "  text-lg font-semibold px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
               <span className="px-5">Shop wide</span>
             </NavLink>
           </li>
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/shop/2"}
               className={({ isActive }) =>
                 isActive
-                  ? "pb-2 text-lg text-success font-semibold px-0 rounded-none"
+                  ? "pb-2 text-lg font-semibold px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
@@ -99,57 +103,61 @@ const BottomHeader = () => {
         </ul>
       </li>
 
-      <li tabIndex="0">
-        <a
-          href="#"
-          className="text-lg px-0 gap-1 py-[17px] text-white font-semibold hover:bg-primary focus:bg-primary"
+      <li className="py-2" tabIndex="0">
+        <NavLink
+          to={"/about"}
+          className={({ isActive }) =>
+            isActive
+              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary border-animate text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
+              : "text-lg text-white py-[5px] gap-1 px-0  font-semibold hover:bg-primary border-animate focus:bg-primary"
+          }
         >
           PAGES
           <AiOutlineCaretDown className="text-sm" />
-        </a>
+        </NavLink>
         <ul className="menu bg-base-100 z-50 w-44 shadow">
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/about"}
               className={({ isActive }) =>
                 isActive
-                  ? " text-lg text-success font-semibold  border-primary px-0 rounded-none"
+                  ? " text-lg font-semibold  border-primary px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
               <span className="px-5"> About us</span>
             </NavLink>
           </li>
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/contact"}
               className={({ isActive }) =>
                 isActive
-                  ? "  text-lg text-success font-semibold px-0 rounded-none"
+                  ? "  text-lg font-semibold px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
               <span className="px-5">Contact</span>
             </NavLink>
           </li>
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/blogs"}
               className={({ isActive }) =>
                 isActive
-                  ? "pb-2 text-lg text-success font-semibold px-0 rounded-none"
+                  ? "pb-2 text-lg font-semibold px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
               <span className="px-5">Blogs</span>
             </NavLink>
           </li>
-          <li>
+          <li className="hover:text-white hover:bg-primary">
             <NavLink
               to={"/FAQ"}
               className={({ isActive }) =>
                 isActive
-                  ? "pb-2 text-lg text-success font-semibold px-0 rounded-none"
+                  ? "pb-2 text-lg font-semibold px-0 rounded-none"
                   : "text-lg px-0 font-semibold"
               }
             >
@@ -158,38 +166,38 @@ const BottomHeader = () => {
           </li>
         </ul>
       </li>
-      <li>
+      <li className="py-2">
         <NavLink
           to={"/products"}
           className={({ isActive }) =>
             isActive
-              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
-              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
+              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
+              : "text-lg text-white py-[5px] gap-1 px-0 font-semibold hover:bg-primary border-animate focus:bg-primary"
           }
         >
           PRODUCTS
         </NavLink>
       </li>
 
-      <li>
+      <li className="py-2">
         <NavLink
           to={"/fresh"}
           className={({ isActive }) =>
             isActive
-              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
-              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
+              ? "text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
+              : "text-lg text-white gap-1 px-0 font-semibold hover:bg-primary border-animate py-[5px] focus:bg-primary"
           }
         >
           FRESH
         </NavLink>
       </li>
-      <li>
+      <li className="py-2">
         <NavLink
           to={"/mega-menu"}
           className={({ isActive }) =>
             isActive
-              ? "py-[17px] text-lg hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
-              : "text-lg text-white gap-1 px-0 py-[17px] font-semibold hover:bg-primary focus:bg-primary"
+              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
+              : "text-lg text-white gap-1 px-0 font-semibold hover:bg-primary border-animate py-[5px] focus:bg-primary"
           }
         >
           MEGA MENU
@@ -273,80 +281,78 @@ const BottomHeader = () => {
                 tabIndex="0"
                 className="dropdown-content menu mt-[-6px] shadow-xl bg-base-100 rounded-box w-52"
               >
-                <li className="hover:text-primary">
-                  <Link to={"/user-dashboard/my-account"}>
-                    <FaUserAlt className="text-sm " />
+                <li className="hover:text-white hover:bg-primary">
+                  <Link
+                    to={"/user-dashboard/my-account"}
+                    className="flex items-center active:text-white gap-3"
+                  >
+                    <FaUserAlt className="text-lg " />
                     <span> My Account</span>
                   </Link>
                 </li>
-                <li className="hover:text-primary">
-                  <a href="#">
-                    <span className="text-sm ">
-                      <MdLocationOn />
-                    </span>
+                <li className="hover:text-white hover:bg-primary">
+                  <div className="flex items-center active:text-white gap-3">
+                    <MdLocationOn className="text-lg" />
                     <span>Order Tracking</span>
-                  </a>
+                  </div>
                 </li>
-                <li className="hover:text-primary">
-                  <a>
-                    <span className="text-sm ">
-                      <BiNotepad />
-                    </span>{" "}
+                <li className="hover:text-white hover:bg-primary">
+                  <div className="flex items-center active:text-white  gap-3">
+                    <BiNotepad className="text-lg" />
+
                     <span>My Voucher</span>
-                  </a>
+                  </div>
                 </li>
-                <li className="hover:text-primary">
-                  <a>
-                    <span className="text-sm  ">
-                      <BiHeart />
-                    </span>{" "}
+                <li className="hover:text-white hover:bg-primary">
+                  <div className="flex items-center active:text-white gap-3">
+                    <BiHeart className="text-lg" />
                     <span>My Wishlist</span>
-                  </a>
+                  </div>
                 </li>
-                <li className="hover:text-primary">
-                  <a>
-                    <span className="text-sm  ">
-                      <AiFillSetting />
-                    </span>{" "}
+                <li className="hover:text-white hover:bg-primary">
+                  <div className="flex items-center active:text-white gap-3">
+                    <AiFillSetting className="text-lg" />
+
                     <span>Setting</span>
-                  </a>
+                  </div>
                 </li>
                 {isUser && (
-                  <li className="hover:text-primary">
-                    <NavLink to={"/admin-dashboard"}>
-                      <span className="text-sm font-bold ">
-                        <VscSettings className="rotate-90" />
-                      </span>{" "}
+                  <li className="hover:text-white hover:bg-primary">
+                    <NavLink
+                      to={"/admin-dashboard"}
+                      className="flex items-center gap-3 active:text-white"
+                    >
+                      <VscSettings className="rotate-90 text-lg font-bold " />
                       <span>Dashboard</span>
                     </NavLink>
                   </li>
                 )}
 
-                <li className="hover:text-primary ">
-                  <div className="flex justify-items-center">
-                    <span className="text-sm  ">
-                      <MdDarkMode />
-                    </span>
+                <li className="hover:text-white hover:bg-primary">
+                  <div className="flex justify-items-center active:text-white gap-3">
+                    <MdDarkMode className="text-lg" />
                     <span>DarkMode</span>
                     {/* <Themes></Themes> */}
                   </div>
                 </li>
-                <li className="hover:text-primary">
+                <li className="hover:text-white hover:bg-primary">
                   {user ? (
-                    <span onClick={() => handleSignOut()}>
-                      <span className="text-sm  ">
-                        <FiLogOut />
-                      </span>{" "}
+                    <div
+                      className="flex active:text-white items-center gap-3"
+                      onClick={() => handleSignOut()}
+                    >
+                      <FiLogOut className="text-lg" />
                       <span>Sign out</span>
-                    </span>
+                    </div>
                   ) : (
                     <label htmlFor="loginModal" className="">
-                      <span onClick={() => setIsLogin(true)} className="flex items-center gap-3">
-                        <span className="text-sm  ">
-                          <FiLogIn />
-                        </span>{" "}
+                      <div
+                        onClick={() => setIsLogin(true)}
+                        className="flex active:text-white items-center gap-3"
+                      >
+                        <FiLogIn className="text-lg" />
                         <span>Sign In</span>
-                      </span>
+                      </div>
                     </label>
                   )}
                 </li>

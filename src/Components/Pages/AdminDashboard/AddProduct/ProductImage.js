@@ -15,7 +15,7 @@ const ProductImage = ({ children }) => {
     watch,
     reset,
   } = children;
-
+  console.log(uploadAImage, imageUrl, multipleImageUrl);
   let imgName;
   if (watch("inputImage")) {
     imgName = watch("inputImage")[0]?.name;
@@ -71,17 +71,17 @@ const ProductImage = ({ children }) => {
           </div>
         </div>
         {/* upload a image */}
-        {uploadAImage && (
+        {uploadAImage === true && (
           <div>
-            <label htmlFor="inputImage">
-              <div className="w-full h-60 flex justify-center  items-center  border-white border-dashed border-2 rounded-md">
+            <label htmlFor="uploadImage">
+              <div className="w-full h-60 flex justify-center  items-center border-white border-dashed border-2 rounded-md">
                 <div className="text-5xl text-center">
                   <p>
                     <input
-                      id="inputImage"
+                      id="uploadImage"
                       className="hidden"
                       type="file"
-                      {...register("inputImage", {
+                      {...register("uploadImage", {
                         required: { value: true, message: "Image is Require" },
                       })}
                     />
@@ -94,14 +94,14 @@ const ProductImage = ({ children }) => {
             {imgName && (
               <p className="text-lg pt-3 flex items-center justify-center">
                 <span>{imgName}</span>
-                <button className="ml-3" onClick={() => reset({ inputImage: "bill" })}>
+                <button className="ml-3" onClick={() => reset({ img1: "bill" })}>
                   <IoMdCloseCircleOutline />
                 </button>
               </p>
             )}
-            {errors.inputImage?.type === "required" && (
+            {errors.uploadImage?.type === "required" && (
               <span className="label-text-alt text-red-500 text-xs">
-                {errors.inputImage?.message}
+                {errors.uploadImage?.message}
               </span>
             )}
           </div>
@@ -110,22 +110,20 @@ const ProductImage = ({ children }) => {
         {imageUrl && (
           <div className="">
             <div className="form-control pb-4">
-              <label htmlFor="anImageURL" className="label">
+              <label htmlFor="img1" className="label">
                 <span className="label-text text-xs">Image URL</span>
               </label>
               <input
-                id="anImageURL"
+                id="img1"
                 type="text"
                 placeholder=""
                 className="input input-bordered w-full max-w-xl"
-                {...register("anImageURL", {
+                {...register("img1", {
                   required: { value: true, message: "an Image URL is require" },
                 })}
               />
-              {errors.anImageURL?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.anImageURL?.message}
-                </span>
+              {errors.img1?.type === "required" && (
+                <span className="label-text-alt text-red-500 text-xs">{errors.img1?.message}</span>
               )}
             </div>
           </div>
@@ -134,66 +132,62 @@ const ProductImage = ({ children }) => {
         {multipleImageUrl && (
           <div className="grid sm:grid-cols-2 gap-x-10">
             <div className="form-control pb-4">
-              <label htmlFor="firstImageURL" className="label">
+              <label htmlFor="img1" className="label">
                 <span className="label-text text-xs">First Image URL</span>
               </label>
               <input
-                id="firstImageURL"
+                id="img1"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("firstImageURL", {
+                {...register("img1", {
                   required: { value: true, message: "First Image URL is Require" },
                 })}
               />
-              {errors.firstImageURL?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.firstImageURL?.message}
-                </span>
+              {errors.img1?.type === "required" && (
+                <span className="label-text-alt text-red-500 text-xs">{errors.img1?.message}</span>
               )}
             </div>
             {/* Meta Keywords */}
             <div className="form-control pb-4">
-              <label htmlFor="secondImageURL" className="label">
+              <label htmlFor="img2" className="label">
                 <span className="label-text text-xs">Second Image URL</span>
               </label>
               <input
-                id="secondImageURL"
+                id="img2"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("secondImageURL", {
+                {...register("img2", {
                   required: { value: true, message: "Second Image URL is Require" },
                 })}
               />
-              {errors.secondImageURL?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.secondImageURL?.message}
-                </span>
+              {errors.img2?.type === "required" && (
+                <span className="label-text-alt text-red-500 text-xs">{errors.img2?.message}</span>
               )}
             </div>
             <div className="form-control pb-4">
-              <label htmlFor="thirdImageURL" className="label">
+              <label htmlFor="img3" className="label">
                 <span className="label-text text-xs">Third Image URL</span>
               </label>
               <input
-                id="thirdImageURL"
+                id="img3"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("thirdImageURL")}
+                {...register("img3")}
               />
             </div>
             <div className="form-control pb-4">
-              <label htmlFor="fourthImageURL" className="label">
+              <label htmlFor="img4" className="label">
                 <span className="label-text text-xs">Fourth Image URL</span>
               </label>
               <input
-                id="fourthImageURL"
+                id="img4"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("fourthImageURL")}
+                {...register("img4")}
               />
             </div>
           </div>
