@@ -18,8 +18,8 @@ const DetailsInformation = ({ register, errors }) => {
               <input
                 id="colors"
                 type="text"
-                placeholder=""
-                className="input input-bordered"
+                placeholder="Ex: red, green, white, blue"
+                className="input input-bordered placeholder:opacity-70"
                 {...register("colors")}
               />
             </div>
@@ -32,8 +32,8 @@ const DetailsInformation = ({ register, errors }) => {
                 <input
                   id="weight"
                   type="text"
-                  placeholder=""
-                  className="input input-bordered"
+                  placeholder="Ex: 50, 75, 100, 150"
+                  className="input input-bordered placeholder:opacity-70"
                   {...register("weight")}
                 />
               </div>

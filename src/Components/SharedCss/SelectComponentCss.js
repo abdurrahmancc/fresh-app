@@ -52,7 +52,7 @@ export const middleCategorySelected = {
 export const topHeaderSelectLibraryStyle = {
   singleValue: (provided) => ({
     ...provided,
-    color: "#ffffff",
+    color: "#000",
     //   width: 55,
   }),
   control: (base, state) => ({

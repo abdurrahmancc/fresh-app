@@ -1,0 +1,8 @@
+@media screen and (max-width: 40em){
+   #compareTable .responsiveTable td.pivoted {
+        border: 2px !important;
+        padding-left: 0 !important;
+        text-align: center !important;
+    }
+  
+}

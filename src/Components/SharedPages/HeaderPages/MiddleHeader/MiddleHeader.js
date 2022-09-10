@@ -77,7 +77,10 @@ const MiddleHeader = () => {
               <ul className="flex items-center lg:pl-0  pl-4 xl:gap-8 md:gap-4 gap-2 justify-end ">
                 <li>
                   <div className="indicator">
-                    <Link to={"/"} className="lg:p-3 p-2 rounded-full bg-primary text-white">
+                    <Link
+                      to={"/shop-compare"}
+                      className="lg:p-3 p-2 rounded-full bg-primary text-white"
+                    >
                       <BsArrowLeftRight className="text-lg" />
                     </Link>
                     <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white indicator-item top-2 right-1 text-[0.6875rem]">

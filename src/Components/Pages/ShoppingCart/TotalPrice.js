@@ -21,11 +21,11 @@ const TotalPrice = ({ totalPrice, cartProducts }) => {
           <tbody>
             <tr className="border-t border-slate-300">
               <td className=" pb-4 pt-8 text-lg font-semibold">Subtotal</td>
-              <td className=" text-lg text-end">$ {totalPrice}</td>
+              <td className=" text-lg text-end">$ {totalPrice.toFixed(2)}</td>
             </tr>
             <tr className="">
               <td className=" py-4 text-lg font-semibold">Shipping</td>
-              <td className=" text-lg text-end">$ {Shipping}</td>
+              <td className=" text-lg text-end">$ {Shipping.toFixed(2)}</td>
             </tr>
             <tr className="">
               <td className=" pt-4 pb-10 text-lg font-semibold">VAT 5%</td>

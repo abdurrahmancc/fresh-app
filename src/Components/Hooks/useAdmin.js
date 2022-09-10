@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   const [adminLoading, setAdminLoading] = useState(true);
 
   useEffect(() => {
-    const email = user?.email;
+    const email = user?.email || user?.user?.email;
     (async () => {
       if (email) {
         try {

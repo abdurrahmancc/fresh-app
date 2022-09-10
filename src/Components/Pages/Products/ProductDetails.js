@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineTwitter } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
+import { BsShuffle } from "react-icons/bs";
+import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaRegHeart } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
@@ -11,27 +13,24 @@ import Loading from "../../SharedPages/Loading";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import DealsOfTheDay from "../Home/DealsOfTheDay/DealsOfTheDay";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
+import ProductDescription from "./ProductDescription";
 import ProductDetailsImages from "./ProductDetailsImages";
+import ProductInformation from "./ProductInformation";
+import ProductReviews from "./ProductReviews";
 import ProductsDetailsTitle from "./ProductsDetailsTitle";
 
 const ProductDetails = () => {
-  const [showDescription, setShowDescription] = useState(true);
+  const [activeInfo, setActiveInfo] = useState("description");
   const [showReviews, setShowReviews] = useState(false);
   const [value, setValue] = useState(1);
   const navigate = useNavigate();
   const { id } = useParams();
   // const [handleAddToCartProduct] = useAddProduct();
 
-  const crumbs = [
-    { path: "home", name: "home" },
-    { path: "shop", name: "shop" },
-    { path: `item-details/${id}`, name: "details" },
-  ];
-
   const { data, isLoading } = useQuery("itemsDetails", () =>
-    axiosPrivet.get(`product-details/${id}`)
+    axiosPrivet.get(`product/product-details/${id}`)
   );
-  // console.log(data);
+  console.log(data);
 
   if (isLoading) {
     return <Loading />;
@@ -55,14 +54,9 @@ const ProductDetails = () => {
     setValue(increaseValue);
   };
 
-  // handle Description
-  const handleDescription = () => {
-    setShowDescription(true);
-    setShowReviews(false);
-  };
-  const handleReviews = () => {
-    setShowDescription(false);
-    setShowReviews(true);
+  // handle active info
+  const handleActiveInfo = (value) => {
+    setActiveInfo(value);
   };
 
   const handleAddToCart = () => {
@@ -81,82 +75,107 @@ const ProductDetails = () => {
           </div>
         </section>
         {/* Breadcrumb end */}
-        <section className="container mx-auto min-h-screen py-10">
-          <div className="grid lg:grid-cols-5  gap-10">
-            <div className="lg:col-span-2 mt-10">
+        <section className="container mx-auto min-h-screen py-10 px-5 lg:px-0">
+          <div className="grid lg:grid-cols-2 gap-10">
+            <div>
               <ProductDetailsImages data={data?.data} />
             </div>
-            <div className="lg:col-span-3">
-              <div>
-                <ProductsDetailsTitle data={data} />
+            <div>
+              <ProductsDetailsTitle data={data} />
+              <hr className="mt-5 border-gray-300" />
+              <div className="flex flex-wrap md:flex-nowrap py-10 gap-5 md:gap-10 lg:gap-5 xl:gap-10 justify-center">
+                <div className=" w-36 z-10 relative border-primary border">
+                  <div onClick={handleDecrease} className="absolute top-4 left-2 cursor-pointer">
+                    <span>
+                      <BiMinus className="text-lg" />
+                    </span>
+                  </div>
+                  <div onClick={handleIncrease} className="absolute top-4 right-2 cursor-pointer">
+                    <span>
+                      <AiOutlinePlus className="text-lg" />
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    value={value}
+                    onChange={(e) => handleOnChange(e.target.value)}
+                    className="focus:outline-none px-10 text-xl text-center h-12 rounded-sm bg-base-100 w-full"
+                  />
+                </div>
                 <div>
-                  <h4 className="text-xl mt-10">Key Features</h4>
-                  {/* <div>
-                  {data?.data?.category.toLowerCase() === "laptop" && (
-                    <LaptopFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "phone" && (
-                    <PhoneFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "watch" && (
-                    <WatchFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "computer" && (
-                    <ComputerFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "speaker" && (
-                    <SpeakerFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "ac" && <ACFeatures data={data?.data} />}
-                  {data?.data?.category.toLowerCase() === "headphone" && (
-                    <HeadphoneFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "refrigerator" && (
-                    <RefrigeratorFeatures data={data?.data} />
-                  )}
-                  {data?.data?.category.toLowerCase() === "monitor" && (
-                    <MonitorFeatures data={data?.data} />
-                  )}
-                </div> */}
+                  <button
+                    onClick={() => navigate(`/checkout/${id}/?info=${value}`)}
+                    className="btn btn-primary rounded-sm text-neutral"
+                  >
+                    proceed To checkOut
+                  </button>
                 </div>
-                <hr className="mt-5 border-gray-700" />
-                <div className="flex py-10 gap-10">
-                  <div className=" w-36 relative border-gray-300 border">
-                    <div onClick={handleDecrease} className="absolute top-4 left-2 cursor-pointer">
-                      <span>
-                        <BiMinus className="text-lg" />
-                      </span>
-                    </div>
-                    <div onClick={handleIncrease} className="absolute top-4 right-2 cursor-pointer">
-                      <span>
-                        <AiOutlinePlus className="text-lg" />
-                      </span>
-                    </div>
-                    <input
-                      type="text"
-                      value={value}
-                      onChange={(e) => handleOnChange(e.target.value)}
-                      className="focus:outline-none px-10 text-xl text-center h-12 rounded-sm bg-base-100 w-full"
-                    />
-                  </div>
-                  <div>
-                    <button
-                      onClick={() => navigate(`/checkout/${id}/?info=${value}`)}
-                      className="btn btn-primary px-10 rounded-sm text-neutral"
-                    >
-                      proceed To checkOut
-                    </button>
-                  </div>
-                  <div>
-                    <button
-                      onClick={handleAddToCart}
-                      className="btn btn-primary px-10 rounded-sm text-neutral"
-                    >
-                      add to cart
-                    </button>
-                  </div>
+                <div>
+                  <button
+                    onClick={handleAddToCart}
+                    className="btn btn-primary rounded-sm text-neutral"
+                  >
+                    add to cart
+                  </button>
                 </div>
-                <hr className="border-gray-700" />
+                <div>
+                  <button
+                    // onClick={handleAddToCart}
+                    title="Compare"
+                    className="btn btn-primary rounded-sm text-neutral"
+                  >
+                    <BsShuffle className="text-xl" />
+                  </button>
+                </div>
+                <div>
+                  <button
+                    // onClick={handleAddToCart}
+                    title="Add to wishlist"
+                    className="btn btn-primary  rounded-sm text-neutral"
+                  >
+                    <FaRegHeart className="text-xl" />
+                  </button>
+                </div>
+              </div>
+              <hr className="border-gray-300" />
+              <div className="mt-5">
+                <div className="pb-[5px]">
+                  <span className="font-semibold pr-2">SKU:</span>{" "}
+                  <span className="hover:text-primary">{data?.data?.SKU}</span>
+                </div>
+                <div className="pb-[5px]">
+                  <span className="font-semibold pr-2">Category:</span>{" "}
+                  <span className="hover:text-primary">{data?.data?.category}</span>
+                </div>
+                <div className="pb-[5px]">
+                  <span className="font-semibold pr-2">Tags:</span>{" "}
+                  <span className="hover:text-primary">{data?.data?.metaData?.metaKeyword}</span>
+                </div>
+                <div className="flex items-center gap-5 pt-5">
+                  <span className="font-semibold pr-2">Share:</span>
+                  <ul className="flex items-center gap-2">
+                    <li>
+                      <a href="https://facebook.com/">
+                        <FaFacebookF className="hover:text-primary opacity-70 hover:opacity-100" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/">
+                        <AiOutlineTwitter className="hover:text-primary opacity-70 hover:opacity-100" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/">
+                        <FaLinkedinIn className="hover:text-primary opacity-70 hover:opacity-100" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.pinterest.com/">
+                        <FaPinterestP className="hover:text-primary opacity-70 hover:opacity-100" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -165,27 +184,41 @@ const ProductDetails = () => {
             <div className="flex justify-between border-b pt-10  border-gray-200">
               <div className="flex flex-row gap-2 ">
                 <h4
-                  onClick={handleDescription}
-                  className="text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t"
+                  onClick={() => handleActiveInfo("description")}
+                  className={` ${
+                    activeInfo === "description"
+                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t"
+                      : " text-[2vw] md:text-lg cursor-pointer hover:bg-primary relative  md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 transition-all ease-in-out duration-500 bg-gray-200 hover:text-neutral px-4 rounded-t"
+                  }`}
                 >
                   Description
                 </h4>
                 <h4
-                  onClick={handleReviews}
-                  className="text-[2vw] md:text-lg cursor-pointer  hover:bg-primary relative  md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 ease-in-out duration-300 text-gray-500 bg-gray-300 hover:text-neutral px-4 rounded-t"
+                  onClick={() => handleActiveInfo("information")}
+                  className={`${
+                    activeInfo === "information"
+                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t transition-all ease-in-out duration-500"
+                      : "text-[2vw] md:text-lg cursor-pointer  hover:bg-primary relative md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 transition-all ease-in-out duration-500  bg-gray-200 hover:text-neutral px-4 rounded-t"
+                  }`}
+                >
+                  Additional information
+                </h4>
+                <h4
+                  onClick={() => handleActiveInfo("reviews")}
+                  className={`${
+                    activeInfo === "reviews"
+                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t transition-all ease-in-out duration-500"
+                      : "text-[2vw] md:text-lg cursor-pointer  hover:bg-primary relative  md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 transition-all ease-in-out duration-500  bg-gray-200 hover:text-neutral px-4 rounded-t"
+                  }`}
                 >
                   Reviews
                 </h4>
               </div>
             </div>
             <div className="my-10">
-              {showDescription && (
-                <div>
-                  <h4 className="text-[1.3vw]">{data?.data?.productName}</h4>
-                  <p className="mt-5 text-[1vw]">{data?.data?.productDescription}</p>
-                </div>
-              )}
-              {showReviews && <div className="text-[1.3vw]">reviews</div>}
+              {activeInfo === "description" && <ProductDescription data={data?.data} />}
+              {activeInfo === "information" && <ProductInformation data={data?.data} />}
+              {activeInfo === "reviews" && <ProductReviews data={data?.data} />}
             </div>
           </div>
         </section>

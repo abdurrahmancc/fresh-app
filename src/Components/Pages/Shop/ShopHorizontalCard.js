@@ -44,7 +44,10 @@ const ShopHorizontalCard = ({ item }) => {
               />
             </Link>
           </figure>
-          <div>
+          <div className={`${item?.productBadges || "hidden"}`}>
+            <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
+              {item?.productBadges}
+            </span>
             {item?.productBadges.toLowerCase().includes("new") && (
               <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
                 {item?.productBadges}
@@ -56,7 +59,7 @@ const ShopHorizontalCard = ({ item }) => {
               </span>
             )}
             {item?.productBadges.toLowerCase().includes("sale") && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
+              <span className="absolute px-4 uppercase py-1 top-0 bg-warning rounded-br-2xl inline-block text-neutral">
                 {item?.productBadges}
               </span>
             )}
@@ -66,7 +69,7 @@ const ShopHorizontalCard = ({ item }) => {
               </span>
             )}
             {offerBadges && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-warning rounded-br-2xl inline-block text-neutral">
+              <span className="absolute px-4 uppercase py-1 top-0 bg-error rounded-br-2xl inline-block text-neutral">
                 {item?.productBadges}
               </span>
             )}

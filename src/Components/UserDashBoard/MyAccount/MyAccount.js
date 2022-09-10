@@ -18,9 +18,13 @@ const MyAccount = () => {
   const [userNumber, setUserNumber] = useState("");
   const [photoURL, setPhotoURL] = useState(false);
 
-  const { data, isLoading, refetch } = useQuery(["profileDetails", user], () =>
-    axiosPrivet.get(`profileDetails/${user?.email}`)
-  );
+  // const { data, isLoading, refetch } = useQuery(["profileDetails", user], () =>
+  //   axiosPrivet.get(`profileDetails/${user?.email}`)
+  // );
+
+  const isLoading = "";
+  const refetch = "";
+  const data = "";
 
   const handleUserName = () => {
     setUpdateUserName(true);

@@ -5,6 +5,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { MdAddShoppingCart } from "react-icons/md";
 import { TbArrowsRightLeft } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
+import Badges from "../../SharedPages/Badges";
 import Rating from "../../SharedPages/Rating";
 
 const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
@@ -25,8 +26,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
     console.log("hello");
     toast.success("Add To Cart", { id: "addToCart" });
   };
-  const searchOfferBadges = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const offerBadges = searchOfferBadges.find((n) => item?.productBadges.includes(n));
+
   return (
     <>
       <div
@@ -48,34 +48,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
               </figure>
             </Link>
           </div>
-          <div className={`${item?.productBadges || "hidden"}`}>
-            {offerBadges && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-error rounded-br-2xl inline-block text-neutral">
-                {item?.productBadges}
-              </span>
-            )}
-
-            {item?.productBadges.toLowerCase().includes("new") && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
-                {item?.productBadges}
-              </span>
-            )}
-            {item?.productBadges.toLowerCase().includes("hot") && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-error rounded-br-2xl inline-block text-neutral">
-                {item?.productBadges}
-              </span>
-            )}
-            {item?.productBadges.toLowerCase().includes("sale") && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-warning rounded-br-2xl inline-block text-neutral">
-                {item?.productBadges}
-              </span>
-            )}
-            {item?.productBadges.toLowerCase() === "best" && (
-              <span className="absolute px-4 uppercase py-1 top-0 bg-primary rounded-br-2xl inline-block text-neutral">
-                {item?.productBadges}
-              </span>
-            )}
-          </div>
+          <Badges item={item} className={"rounded-br-2xl absolute top-0"} />
           <div className={`relative flex justify-center ${hoveredCart}`}>
             <div className={`flex absolute bottom-10 `}>
               <Link
@@ -119,7 +92,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
           </Link>
           <Rating />
           <span>Unit: {item?.weight && item?.weight[0]?.split(",")[0]}g</span>
-          <div className="flex gap-2  items-center">
+          <div className="flex gap-2  items-center pt-">
             <span className="text-lg text-primary capitalize font-semibold">${item?.price}</span>
             {item?.regularPrice && (
               <span className="text-gray-400 line-through capitalize">${item?.regularPrice}</span>

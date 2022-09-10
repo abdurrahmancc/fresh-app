@@ -44,6 +44,7 @@ import Analytics from "./Components/Pages/AdminDashboard/Analytics/Analytics";
 import Saved from "./Components/Pages/AdminDashboard/Saved/Saved";
 import Test from "./Components/Pages/Test/Test";
 import RequireAdmin from "./Components/SharedPages/RequireAdmin/RequireAdmin";
+import Compare from "./Components/Pages/compare/Compare";
 export const CartQuantity = createContext("cartQuantity");
 export const ToggleAdminDashboardSideBar = createContext("sideBar");
 
@@ -110,6 +111,7 @@ function App() {
             <Route path={"/contact"} element={<Contact />} />
             <Route path={"/shopping-cart"} element={<ShoppingCart />} />
             <Route path={"/product-details/:id"} element={<ProductDetails />} />
+            <Route path={"/shop-compare"} element={<Compare />} />
             <Route path={"/blogs"} element={<Blogs />} />
             <Route path={"/FAQ"} element={<Faq />} />
             <Route path={"/blog-details/:id"} element={<BlogDetails />} />

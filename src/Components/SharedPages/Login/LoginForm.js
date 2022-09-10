@@ -7,6 +7,7 @@ import {
   useUpdatePassword,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from "react-icons/ai";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock } from "react-icons/fa";
@@ -25,7 +26,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [signInWithEmailAndPassword, eUser, eLoading, eError] = useSignInWithEmailAndPassword(auth);
   const location = useLocation();
   const navigate = useNavigate();
-  const [token] = useToken(user || eUser || gUser);
+  const [token, tokenLoading] = useToken(user || gUser || eUser);
   const from = location.state?.from?.pathname || "/";
   const {
     register,
@@ -38,10 +39,13 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     const password = data.password;
     const info = { username, password };
     // console.log(data);
-    await signInWithEmailAndPassword(username, password);
-    const { data: result } = await axiosPrivet.post("/login", info);
-    console.log(result);
-    Cookies.set(accessTokenName, result.token);
+    try {
+      await signInWithEmailAndPassword(username, password);
+      const { data: result } = await axiosPrivet.post("/login", info);
+      Cookies.set(accessTokenName, result.token);
+    } catch (error) {
+      toast.error("login fail! please try again");
+    }
   };
 
   // console.log(token)
@@ -55,14 +59,13 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     signInWithGoogle();
   };
 
-  const accessToken = getCookie(accessTokenName);
   useEffect(() => {
-    if (token || accessToken) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [token, accessToken, from, navigate]);
+  }, [token, from, navigate]);
 
-  if (loading || eLoading || gLoading) {
+  if (loading || eLoading || gLoading || tokenLoading) {
     return <Loading />;
   }
 

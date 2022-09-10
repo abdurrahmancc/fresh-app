@@ -1,57 +1,61 @@
 import React from "react";
+import { useRef } from "react";
+import { useState } from "react";
 import ProductsImagesModal from "./ProductsImagesModal";
+import "./ProductDetails.css";
+import { useEffect } from "react";
 
 const ProductDetailsImages = ({ data }) => {
+  const [img, setImg] = useState(null);
+
+  useEffect(() => {
+    setImg(data?.productImages[0]);
+  }, [data?.productImages]);
+  const hoverHandler = (image, i) => {
+    setImg(image);
+    refs.current[i].classList.add("active-image");
+    for (var j = 0; j < data?.productImages.length; j++) {
+      if (i !== j) {
+        refs.current[j].classList.remove("active-image");
+      }
+    }
+  };
+  const refs = useRef([]);
+  refs.current = [];
+  const addRefs = (el) => {
+    if (el && !refs.current.includes(el)) {
+      refs.current.push(el);
+    }
+  };
   return (
     <>
       <div className="flex justify-center">
-        {data?.images?.ImageURL1 && (
-          <figure className="">
-            <img width="540px" className=" h-auto" src={data?.images?.ImageURL1} alt="" />
+        {data?.productImages[0] && (
+          <figure className="shadow">
+            <img width="540px" className=" h-auto" src={img} alt="" />
           </figure>
         )}
       </div>
       <div className="mt-10 flex justify-center max-w-[540px] mx-auto gap-x-4">
-        {data?.images?.ImageURL1 && (
-          <div>
-            <figure className="border-2 border-primary">
-              <label htmlFor="ItemImageURL1" className="">
-                <img width="127px" className=" h-auto" src={data?.images?.ImageURL1} alt="" />
+        {data?.productImages.map((image, i) => (
+          <div
+            className={
+              i === 0
+                ? "w-[127px] h-auto cursor-pointer border active-image"
+                : "w-[127px] h-auto cursor-pointer border border-gray-300"
+            }
+            key={i}
+            onMouseOver={() => hoverHandler(image, i)}
+            ref={addRefs}
+          >
+            <figure className="">
+              <label htmlFor={`image${i}`} className="">
+                <img width="127px" className=" h-auto" src={image} alt="" />
               </label>
             </figure>
-            <ProductsImagesModal modal={"ItemImageURL1"} img={data?.images?.ImageURL1} />
+            <ProductsImagesModal modal={`image${i}`} img={image} />
           </div>
-        )}
-        {data?.images?.ImageURL2 && (
-          <div>
-            <figure className="border-2 border-primary">
-              <label htmlFor="ItemImageURL2" className="">
-                <img width="127px" className=" h-auto" src={data?.images?.ImageURL2} alt="" />
-              </label>
-            </figure>
-            <ProductsImagesModal modal={"ItemImageURL2"} img={data?.images?.ImageURL2} />
-          </div>
-        )}
-        {data?.images?.ImageURL3 && (
-          <div>
-            <figure className="border-2 border-primary">
-              <label htmlFor="ItemImageURL3" className="">
-                <img width="127px" className=" h-auto" src={data?.images?.ImageURL3} alt="" />
-              </label>
-            </figure>
-            <ProductsImagesModal modal={"ItemImageURL3"} img={data?.images?.ImageURL3} />
-          </div>
-        )}
-        {data?.images?.ImageURL4 && (
-          <div>
-            <figure className="border-2 border-primary">
-              <label htmlFor="ItemImageURL4" className="">
-                <img width="127px" className=" h-auto" src={data?.images?.ImageURL4} alt="" />
-              </label>
-            </figure>
-            <ProductsImagesModal modal={"ItemImageURL4"} img={data?.images?.ImageURL4} />
-          </div>
-        )}
+        ))}
       </div>
     </>
   );

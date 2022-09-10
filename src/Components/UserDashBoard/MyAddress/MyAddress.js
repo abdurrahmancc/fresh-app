@@ -10,10 +10,12 @@ import PresentAddress from "./PresentAddress";
 
 const MyAddress = () => {
   const [user, loading] = useAuthState(auth);
-  const { data, isLoading, refetch } = useQuery(["profileDetails", user], () =>
-    axiosPrivet.get(`profileDetails/${user?.email}`)
-  );
+  // const { data, isLoading, refetch } = useQuery(["profileDetails", user], () =>
+  //   axiosPrivet.get(`profileDetails/${user?.email}`)
+  // );
 
+  const data = "";
+  const isLoading = "";
   console.log(data);
 
   if (loading || isLoading) {
@@ -33,8 +35,8 @@ const MyAddress = () => {
         </div>
         <div className="p-10">
           <div>
-            <PresentAddress data={data?.data} refetch={refetch} user={user} />
-            <PermanentAddress data={data?.data} refetch={refetch} user={user} />
+            {/* <PresentAddress data={data?.data} refetch={refetch} user={user} />
+            <PermanentAddress data={data?.data} refetch={refetch} user={user} /> */}
           </div>
         </div>
       </div>
