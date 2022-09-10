@@ -138,7 +138,9 @@ const ShopHorizontalCard = ({ item }) => {
           </button>
         </div>
         <div>
-          <span className="text-error capitalize">{item?.quantity ? "in stock" : "stock out"}</span>
+          <span className="text-error capitalize">
+            {item?.stockStatus.includes("in stock") ? item?.stockStatus : "out stock"}
+          </span>
         </div>
       </div>
     </div>

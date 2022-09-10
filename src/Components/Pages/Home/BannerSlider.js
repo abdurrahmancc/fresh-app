@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay, Navigation } from "swiper";
 import { Link, useLocation } from "react-router-dom";
-// import "./Banner.css";
+import "./BannerSlider.css";
 
 const BannerSlider = () => {
   const { pathname } = useLocation();
@@ -20,7 +20,7 @@ const BannerSlider = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 10000,
+          delay: 100000,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -46,7 +46,8 @@ const BannerSlider = () => {
                     sale top 20% off
                   </span>
                   <h1 className="text-[3.5vw] lg:pt-2 pt-5 md:leading-10 lg:leading-[50px] xl:leading-[80px] capitalize font-bold text-neutral">
-                    get fresh organic <br /> food everyday
+                    <span className="banner-title">get fresh organic</span> <br />{" "}
+                    <span className="banner-title-2">food everyday</span>
                   </h1>
                   <p className="text-neutral text-sm md:pb-10 pb-5 pt-5 md:text-xl">
                     making grocery food errands worth your while

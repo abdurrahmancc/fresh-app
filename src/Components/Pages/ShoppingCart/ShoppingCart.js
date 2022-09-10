@@ -67,7 +67,7 @@ const ShoppingCart = () => {
             </div>
           ) : (
             <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
-              <h4 className="text-4xl font-bold">There are 0 products in your cart</h4>
+              <h4 className="md:text-4xl text-xl font-bold">There are 0 products in your cart</h4>
               <h4>
                 <button
                   onClick={() => window.history.back()}

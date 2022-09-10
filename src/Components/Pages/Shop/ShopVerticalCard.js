@@ -23,7 +23,6 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
 
   const handleAddToCart = (item) => {
     handleAddToCartProduct(item);
-    console.log("hello");
     toast.success("Add To Cart", { id: "addToCart" });
   };
 
@@ -108,7 +107,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
           </div>
           <div>
             <span className="text-error capitalize">
-              {item?.quantity ? "in stock" : "stock out"}
+              {item?.stockStatus.includes("in stock") ? item?.stockStatus : "out stock"}
             </span>
           </div>
         </div>

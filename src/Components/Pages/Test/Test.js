@@ -181,6 +181,13 @@ const Test = () => {
   return (
     <div className="Apps bg-black">
       <h1>CSS Dropdown Menu</h1>
+      <div>
+        <h1 className="">
+          <span className="banner-titles">Get Fresh Organic</span>
+          <br />
+          <span className="banner-title-2">Food Everyday</span>
+        </h1>
+      </div>
       <ul className="dropdownMenu">
         <li>
           <a href="#">Dropdown</a>

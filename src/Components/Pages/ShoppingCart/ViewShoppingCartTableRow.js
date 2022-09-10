@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
-import { Td, Th, Tr } from "react-super-responsive-table";
+import { Td, Tr } from "react-super-responsive-table";
 import { addToDb, decreaseToCart, removeFromDb } from "../../Hooks/useFakeDB";
 
 const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) => {
@@ -37,7 +37,6 @@ const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) =>
     const rest = cartProducts.filter((item) => item._id !== id);
     setCartProducts(rest);
     removeFromDb(id);
-    // window.location.reload();
   };
 
   return (

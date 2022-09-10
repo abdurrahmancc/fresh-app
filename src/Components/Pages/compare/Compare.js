@@ -37,261 +37,307 @@ const Compare = () => {
         </section>
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-20">
-          <div id="compareTable" className="w-full">
-            <Table>
-              <Tbody>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Image
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => (
-                      <Td className={"border"}>
-                        <div
-                          key={product?._id}
-                          className={"border-t sm:border-none border-gray-300"}
-                        >
-                          <figure>
-                            <img className="mx-auto" src={product?.productImages[0]} alt="" />
-                          </figure>
-                        </div>
-                      </Td>
-                    ))}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Name
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => (
-                      <Td className={"border"}>
-                        <div
-                          key={product?._id}
-                          className={"border-t sm:border-none border-gray-300"}
-                        >
-                          <h5 className="text-center sm:text-[1.2vw] lg:text-lg xl:text-xl font-semibold py-5">
-                            {product?.productName}
-                          </h5>
-                        </div>
-                      </Td>
-                    ))}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Rating
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => (
-                      <Td className={"border"}>
-                        <div
-                          key={product?._id}
-                          className={"border-t sm:border-none border-gray-300"}
-                        >
-                          <div className="text-center sm:text-[1.2vw] lg:text-lg xl:text-xl font-semibold py-5 flex gap-2 justify-center">
-                            <div className="rating lg:rating-xs ">
-                              <span className="text-orange-400">
-                                <BsStarFill className="sm:text-[10px] lg:text-sm" />
-                              </span>
-                              <span className="text-orange-400">
-                                <BsStarFill className="sm:text-[10px] lg:text-sm" />
-                              </span>
-                              <span className="text-orange-400">
-                                <BsStarFill className="sm:text-[10px] lg:text-sm" />
-                              </span>
-                              <span className="text-orange-400">
-                                <BsStarFill className="sm:text-[10px] lg:text-sm " />
-                              </span>
-                              <span className="text-orange-400">
-                                <BsStarHalf className="sm:text-[10px] lg:text-sm" />
-                              </span>
-                            </div>{" "}
-                            <span className="text-sm">(432)</span>
-                          </div>
-                        </div>
-                      </Td>
-                    ))}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Stock status
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => (
-                      <Td className={"border"}>
-                        <div
-                          key={product?._id}
-                          className={"border-t sm:border-none border-gray-300"}
-                        >
-                          <div className="text-center sm:text-[1.2vw] lg:text-lg font-semibold py-5">
-                            <span
-                              className={`rounded-sm sm:text-[1.2vw] lg:text-lg  px-3 py-1 ${
-                                product?.stockStatus.includes("in stock")
-                                  ? "text-[#3BB788] bg-[#DEF9EC]"
-                                  : "bg-[#FDE0E9] text-[#F74B88]"
-                              }`}
-                            >
-                              {" "}
-                              {product?.stockStatus}
-                            </span>
-                          </div>
-                        </div>
-                      </Td>
-                    ))}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Weight
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => {
-                      const weight = product?.weight[0] ? product?.weight[0].split(",") : null;
-                      const isLast = weight[weight.length - 1];
-                      return (
+          {cartProducts?.length >= 1 ? (
+            <div id="compareTable" className="w-full">
+              <Table>
+                <Tbody>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Image
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
                             className={"border-t sm:border-none border-gray-300"}
                           >
-                            <div className="text-center sm:text-[1.2vw] lg:text-sm  py-5 flex gap-x-2 justify-center">
-                              {weight.map((w) => (
-                                <span className={`${isLast === w ? "" : "after:content-[',']"}`}>
-                                  {w}g
+                            <figure>
+                              <img
+                                className="mx-auto"
+                                src={product?.productImages[0]}
+                                alt="compare_image"
+                              />
+                            </figure>
+                          </div>
+                        </Td>
+                      ))}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Name
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => (
+                        <Td className={"border"}>
+                          <div
+                            key={product?._id}
+                            className={"border-t sm:border-none border-gray-300"}
+                          >
+                            <h5 className="text-center sm:text-[1.2vw] lg:text-lg xl:text-xl font-semibold py-5">
+                              {product?.productName}
+                            </h5>
+                          </div>
+                        </Td>
+                      ))}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Price
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => (
+                        <Td className={"border"}>
+                          <div
+                            key={product?._id}
+                            className={"border-t sm:border-none border-gray-300"}
+                          >
+                            <h5 className="text-center  lg:text-lg xl:text-xl font-semibold py-5 flex items-baseline gap-1 justify-center">
+                              <span className="sm:text-[1.2vw]">${product?.price}</span>
+                              <span className="text-lg line-through opacity-70">
+                                ${product?.regularPrice}
+                              </span>
+                            </h5>
+                          </div>
+                        </Td>
+                      ))}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Rating
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => (
+                        <Td className={"border"}>
+                          <div
+                            key={product?._id}
+                            className={"border-t sm:border-none border-gray-300"}
+                          >
+                            <div className="text-center sm:text-[1.2vw] lg:text-lg xl:text-xl font-semibold py-5 flex gap-2 justify-center">
+                              <div className="rating lg:rating-xs ">
+                                <span className="text-orange-400">
+                                  <BsStarFill className="sm:text-[10px] lg:text-sm" />
                                 </span>
-                              ))}
+                                <span className="text-orange-400">
+                                  <BsStarFill className="sm:text-[10px] lg:text-sm" />
+                                </span>
+                                <span className="text-orange-400">
+                                  <BsStarFill className="sm:text-[10px] lg:text-sm" />
+                                </span>
+                                <span className="text-orange-400">
+                                  <BsStarFill className="sm:text-[10px] lg:text-sm " />
+                                </span>
+                                <span className="text-orange-400">
+                                  <BsStarHalf className="sm:text-[10px] lg:text-sm" />
+                                </span>
+                              </div>{" "}
+                              <span className="text-sm">(432)</span>
                             </div>
                           </div>
                         </Td>
-                      );
-                    })}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Dimensions
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => {
-                      return (
+                      ))}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Stock status
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
                             className={"border-t sm:border-none border-gray-300"}
                           >
-                            <div className="text-center sm:text-[1.2vw] lg:text-sm font-semibold py-5 flex gap-x-2 justify-center">
-                              <span>{product?.dimensions}</span>
-                            </div>
-                          </div>
-                        </Td>
-                      );
-                    })}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Description
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => {
-                      return (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
-                            <div className="text-center sm:text-[1.2vw] lg:text-sm py-5 flex gap-x-2 justify-center px-2">
-                              <span className="opacity-80">
-                                {product?.productDescription.slice(0, 200)}...
+                            <div className="text-center sm:text-[1.2vw] lg:text-lg font-semibold py-5">
+                              <span
+                                className={`rounded-sm capitalize sm:text-[1.2vw] lg:text-lg  px-3 py-1 ${
+                                  product?.stockStatus.includes("in stock")
+                                    ? "text-[#3BB788] bg-[#DEF9EC]"
+                                    : "bg-[#FDE0E9] text-[#F74B88]"
+                                }`}
+                              >
+                                {product?.stockStatus.includes("in stock")
+                                  ? product?.stockStatus
+                                  : "out stock"}
                               </span>
                             </div>
                           </div>
                         </Td>
-                      );
-                    })}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Add to cart
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => {
-                      return (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
-                            <div className="py-5">
-                              <button className="py-2 mx-auto px-6 lg:py-2 lg:px-6 sm:px-3 sm:py-1  sm:text-[1.5vw] lg:text-sm rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2">
-                                <MdAddShoppingCart />{" "}
-                                <span className="sm:hidden lg:block">Add to cart</span>
-                              </button>
-                            </div>
-                          </div>
-                        </Td>
-                      );
-                    })}
-                </Tr>
-                <Tr className={"border"}>
-                  <Td
-                    className={
-                      "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
-                    }
-                  >
-                    Action
-                  </Td>
-                  {cartProducts &&
-                    cartProducts.map((product) => {
-                      return (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
+                      ))}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Weight
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => {
+                        const weight = product?.weight[0] ? product?.weight[0].split(",") : null;
+                        const isLast = weight[weight.length - 1];
+                        return (
+                          <Td className={"border"}>
                             <div
-                              onClick={() => handleRemove(product?._id)}
-                              className="py-5 text-center cursor-pointer flex items-center gap-2 justify-center"
+                              key={product?._id}
+                              className={"border-t sm:border-none border-gray-300"}
                             >
-                              <MdDelete className="text-gray-500" />
-                              <span>Remove</span>
+                              <div className="text-center sm:text-[1.2vw] lg:text-sm  py-5 flex gap-x-2 justify-center">
+                                {weight.map((w) => (
+                                  <span className={`${isLast === w ? "" : "after:content-[',']"}`}>
+                                    {w}g
+                                  </span>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        </Td>
-                      );
-                    })}
-                </Tr>
-              </Tbody>
-            </Table>
-          </div>
+                          </Td>
+                        );
+                      })}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Dimensions
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => {
+                        return (
+                          <Td className={"border"}>
+                            <div
+                              key={product?._id}
+                              className={"border-t sm:border-none border-gray-300"}
+                            >
+                              <div className="text-center sm:text-[1.2vw] lg:text-sm font-semibold py-5 flex gap-x-2 justify-center">
+                                <span>{product?.dimensions}</span>
+                              </div>
+                            </div>
+                          </Td>
+                        );
+                      })}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Description
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => {
+                        return (
+                          <Td className={"border"}>
+                            <div
+                              key={product?._id}
+                              className={"border-t sm:border-none border-gray-300"}
+                            >
+                              <div className="text-center sm:text-[1.2vw] lg:text-sm py-5 flex gap-x-2 justify-center px-2">
+                                <span className="opacity-80">
+                                  {product?.productDescription.slice(0, 200)}...
+                                </span>
+                              </div>
+                            </div>
+                          </Td>
+                        );
+                      })}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Add to cart
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => {
+                        return (
+                          <Td className={"border"}>
+                            <div
+                              key={product?._id}
+                              className={"border-t sm:border-none border-gray-300"}
+                            >
+                              <div className="py-5">
+                                <button className="py-2 mx-auto px-6 lg:py-2 lg:px-6 sm:px-3 sm:py-1  sm:text-[1.5vw] lg:text-sm rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2">
+                                  <MdAddShoppingCart />{" "}
+                                  <span className="sm:hidden lg:block">Add to cart</span>
+                                </button>
+                              </div>
+                            </div>
+                          </Td>
+                        );
+                      })}
+                  </Tr>
+                  <Tr className={"border"}>
+                    <Td
+                      className={
+                        "lg:min-w-[150px] card-border sm:min-w-[100px] py-2 font-semibold capitalize text-center"
+                      }
+                    >
+                      Action
+                    </Td>
+                    {cartProducts &&
+                      cartProducts.map((product) => {
+                        return (
+                          <Td className={"border"}>
+                            <div
+                              key={product?._id}
+                              className={"border-t sm:border-none border-gray-300"}
+                            >
+                              <div
+                                onClick={() => handleRemove(product?._id)}
+                                className="py-5 text-center cursor-pointer flex items-center gap-2 justify-center"
+                              >
+                                <MdDelete className="text-gray-500" />
+                                <span>Remove</span>
+                              </div>
+                            </div>
+                          </Td>
+                        );
+                      })}
+                  </Tr>
+                </Tbody>
+              </Table>
+            </div>
+          ) : (
+            <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
+              <h4 className="md:text-4xl text-xl font-bold">
+                There are 0 products in your compare
+              </h4>
+              <h4>
+                <button
+                  onClick={() => window.history.back()}
+                  className="btn btn-primary text-neutral"
+                >
+                  Return to Back Page
+                </button>
+              </h4>
+            </div>
+          )}
         </section>
         {/*------ Newsletters start ------*/}
         <section className="max-w-[100%] w-full mt-20">

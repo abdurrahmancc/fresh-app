@@ -7,37 +7,8 @@ import CartDeleteModal from "./CartDeleteModal";
 import ViewShoppingCartTableRow from "./ViewShoppingCartTableRow";
 
 const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
-  const handleRemoveAll = () => {
-    // deleteShoppingCart();
-    // setCartProducts("");
-  };
-  const handleAllCartRemoveA = () => {
-    deleteShoppingCart();
-    toast.success("deleted", { id: "deleteAllCart" });
-    setCartProducts("");
-  };
-
   return (
     <>
-      <div className="mb-8">
-        <h4 className="text-4xl font-bold pb-2">Your Cart</h4>
-        <div>
-          <div className="flex justify-between">
-            <h4 className="text-xl text-gray-500 font-semibold">
-              There are <span className="text-primary">{cartProducts?.length}</span> products in
-              your cart
-            </h4>
-            <label htmlFor="CartDeleteModal">
-              <h4
-                onClick={handleRemoveAll}
-                className="text-lg flex items-center gap-2 text-gray-500 capitalize font-semibold cursor-pointer"
-              >
-                <FaTrashAlt /> Clear cart
-              </h4>
-            </label>
-          </div>
-        </div>
-      </div>
       {cartProducts?.length >= 1 && (
         <div className="border rounded-sm max-w-full">
           <Table className="w-full">
@@ -50,7 +21,10 @@ const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
                 <Th className="font-bold text-start py-5 text-lg">Price</Th>
                 <Th className="font-bold text-start py-5 text-lg">Quantity</Th>
                 <Th className="font-bold text-start py-5 text-lg">Subtotal</Th>
-                <Th className="font-bold text-center py-5 text-lg">Remove</Th>
+                <Th className="font-bold text-center py-5 text-lg">
+                  {" "}
+                  <label htmlFor="CartDeleteModal">Remove All</label>
+                </Th>
               </Tr>
             </Thead>
             <Tbody>

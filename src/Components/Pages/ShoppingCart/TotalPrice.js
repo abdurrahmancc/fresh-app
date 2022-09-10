@@ -10,7 +10,7 @@ const TotalPrice = ({ totalPrice, cartProducts }) => {
   const tax = totalPrice * 0.05;
   let total = totalPrice + Shipping + tax;
   return (
-    <div className="xl:mt-[108px] mt-10 w-full">
+    <div className="w-full">
       <div className="w-full border px-8 pt-5 pb-10 ">
         <table className=" w-full">
           <thead>

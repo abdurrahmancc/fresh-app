@@ -145,3 +145,395 @@
     flex: 0 0 33.5%;
   }
 }
+
+
+.banner-titles , .banner-title-2{
+  /* font-size: 60px; */
+  white-space: nowrap;
+  position: relative;
+  color: transparent;
+}
+
+.banner-title::before{
+  content: 'Get Fresh Organic';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  animation: typing-1 10s linear infinite;
+}
+
+.banner-title-2::before{
+  content: 'Food Everyday';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  animation: typing-2 10s linear infinite;
+}
+
+@keyframes typing-1 {
+  0% {
+      content: 'G|';
+  }
+
+  2% {
+      content: 'Ge|';
+  }
+
+  4% {
+      content: 'Get|';
+  }
+
+  6% {
+      content: 'Get F|';
+  }
+
+  8% {
+      content: 'Get Fr|';
+  }
+
+  10% {
+      content: 'Get Fre|';
+  }
+
+  12% {
+      content: 'Get Fres|';
+  }
+
+  14% {
+      content: 'Get Fresh|';
+  }
+
+  16% {
+      content: 'Get Fresh O|';
+  }
+
+  18% {
+      content: 'Get Fresh Or|';
+  }
+
+  20% {
+      content: 'Get Fresh Org|';
+  }
+
+  22% {
+      content: 'Get Fresh Orga |';
+  }
+
+  24% {
+      content: 'Get Fresh Organ|';
+  }
+
+  26% {
+      content: 'Get Fresh Organi|';
+  }
+  28% {
+      content: 'Get Fresh Organic|';
+  }
+  30% {
+      content: 'Get Fresh Organic';
+  }
+  32% {
+      content: 'Get Fresh Organic';
+  }
+  34% {
+      content: 'Get Fresh Organic';
+  }
+  36% {
+      content: 'Get Fresh Organic';
+  }
+  38% {
+      content: 'Get Fresh Organic';
+  }
+  40% {
+      content: 'Get Fresh Organic';
+  }
+  42% {
+      content: 'Get Fresh Organic';
+  }
+  44% {
+      content: 'Get Fresh Organic';
+  }
+  46% {
+      content: 'Get Fresh Organic';
+  }
+  48% {
+      content: 'Get Fresh Organic';
+  }
+  50% {
+      content: 'Get Fresh Organic';
+  }
+  52% {
+      content: 'Get Fresh Organic';
+  }
+  54% {
+      content: 'Get Fresh Organic';
+  }
+  56% {
+      content: 'Get Fresh Organic';
+  }
+  58% {
+      content: 'Get Fresh Organic';
+  }
+  60% {
+      content: 'Get Fresh Organic';
+  }
+  62% {
+      content: 'Get Fresh Organic';
+  }
+  64% {
+      content: 'Get Fresh Organic';
+  }
+  66% {
+      content: 'Get Fresh Organic';
+  }
+  68% {
+      content: 'Get Fresh Organic';
+  }
+  70% {
+      content: 'Get Fresh Organic';
+  }
+  72% {
+      content: 'Get Fresh Organic';
+  }
+  74% {
+      content: 'Get Fresh Organic';
+  }
+  76% {
+      content: 'Get Fresh Organic';
+  }
+  78% {
+      content: 'Get Fresh Organic';
+  }
+  79% {
+      content: 'Get Fresh Organic';
+  }
+  80% {
+      content: 'Get Fresh Organic';
+  }
+  81% {
+      content: 'Get Fresh Organic';
+  }
+  82% {
+      content: 'Get Fresh Organic';
+  }
+  83% {
+      content: 'Get Fresh Organic';
+  }
+  84% {
+      content: 'Get Fresh Organi|';
+  }
+  85% {
+      content: 'Get Fresh Organ|';
+  }
+  86% {
+      content: 'Get Fresh Orga|';
+  }
+  87% {
+      content: 'Get Fresh Org|';
+  }
+  88% {
+      content: 'Get Fresh Or|';
+  }
+  89% {
+      content: 'Get Fresh O|';
+  }
+  90% {
+      content: 'Get Fresh|';
+  }
+  91% {
+      content: 'Get Fres|';
+  }
+  92% {
+      content: 'Get Fre|';
+  }
+  93% {
+      content: 'Get Fr|';
+  }
+  94% {
+      content: 'Get F|';
+  }
+  95% {
+      content: 'Get|';
+  }
+  96% {
+      content: 'Ge|';
+  }
+  97% {
+      content: 'G|';
+  }
+  98% {
+      content: '';
+  }
+  99% {
+      content: '';
+  }
+  100% {
+      content: '';
+  }
+}
+
+@keyframes typing-2 {
+  0% {
+      content: '';
+  }
+  2% {
+      content: '';
+  }
+  4% {
+      content: '';
+  }
+  6% {
+      content: '';
+  }
+  8% {
+      content: '';
+  }
+  10% {
+      content: '';
+  }
+  12% {
+      content: '';
+  }
+  14% {
+      content: '';
+  }
+  16% {
+      content: '';
+  }
+  18% {
+      content: '';
+  }
+  20% {
+      content: '';
+  }
+  22% {
+      content: '';
+  }
+  24% {
+      content: '';
+  }
+  26% {
+      content: '';
+  }
+  28% {
+      content: '';
+  }
+
+  30% {
+      content: 'F|';
+  }
+
+  32% {
+      content: 'Fo|';
+  }
+
+  34% {
+      content: 'Foo|';
+  }
+
+  36% {
+      content: 'Food|';
+  }
+  38% {
+      content: 'Food E|';
+  }
+
+  40% {
+      content: 'Food Ev|';
+  }
+
+  42% {
+      content: 'Food Eve|';
+  }
+
+  44% {
+      content: 'Food Ever|';
+  }
+
+  46% {
+      content: 'Food Every|';
+  }
+
+  48% {
+      content: 'Food Everyd|';
+  }
+
+  50% {
+      content: 'Food Everyda|';
+  }
+
+  52% {
+      content: 'Food Everyday|';
+  }
+  54% {
+      content: 'Food Everyday';
+  }
+  56% {
+      content: 'Food Everyday';
+  }
+  58% {
+      content: 'Food Everyday';
+  }
+  60% {
+      content: 'Food Everyday';
+  }
+  62% {
+      content: 'Food Everyday';
+  }
+  64% {
+      content: 'Food Everyday';
+  }
+  66% {
+      content: 'Food Everyday';
+  }
+  68% {
+      content: 'Food Everyday';
+  }
+  70% {
+      content: 'Food Everyday';
+  }
+  72% {
+      content: 'Food Everyday';
+  }
+  74% {
+      content: 'Food Everyda|';
+  }
+  75% {
+      content: 'Food Everyd|';
+  }
+  76% {
+      content: 'Food Every|';
+  }
+  77% {
+      content: 'Food Ever|';
+  }
+  78% {
+      content: 'Food Eve|';
+  }
+  79% {
+      content: 'Food Ev|';
+  }
+  80% {
+      content: 'Food E|';
+  }
+  81% {
+      content: 'Food|';
+  }
+  82% {
+      content: 'Foo|';
+  }
+  83% {
+      content: 'Fo|';
+  }
+  84% {
+      content: 'F|';
+  }
+  85% {
+      content: '';
+  }
+  100% {
+      content: '';
+  }
+}

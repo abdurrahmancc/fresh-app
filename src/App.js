@@ -45,6 +45,7 @@ import Saved from "./Components/Pages/AdminDashboard/Saved/Saved";
 import Test from "./Components/Pages/Test/Test";
 import RequireAdmin from "./Components/SharedPages/RequireAdmin/RequireAdmin";
 import Compare from "./Components/Pages/compare/Compare";
+import Wishlist from "./Components/Pages/wishlist/Wishlist";
 export const CartQuantity = createContext("cartQuantity");
 export const ToggleAdminDashboardSideBar = createContext("sideBar");
 
@@ -79,6 +80,7 @@ function App() {
             <Route path={"/home"} element={<Home1 />} />
             <Route path={"/home2"} element={<Home2 />} />
             <Route path={"/about"} element={<About />} />
+            <Route path={"/wishlist"} element={<Wishlist />} />
             <Route path={"/shop"} element={<Shop />} />
             <Route path={"/login"} element={<Login />} />
             <Route path={"/register"} element={<Register />} />
