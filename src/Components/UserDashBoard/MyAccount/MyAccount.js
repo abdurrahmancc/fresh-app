@@ -8,6 +8,7 @@ import { imgUpload } from "../../api/api";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import Loading from "../../SharedPages/Loading";
+import { format } from "date-fns";
 
 const MyAccount = () => {
   const [user, loading] = useAuthState(auth);
@@ -18,107 +19,120 @@ const MyAccount = () => {
   const [userNumber, setUserNumber] = useState("");
   const [photoURL, setPhotoURL] = useState(false);
 
-  // const { data, isLoading, refetch } = useQuery(["profileDetails", user], () =>
-  //   axiosPrivet.get(`profileDetails/${user?.email}`)
-  // );
+  const { data, isLoading, refetch } = useQuery(["getProfileDetails", user], () =>
+    axiosPrivet.get(`users/my-profile-details/${user?.email}`)
+  );
 
-  const isLoading = "";
-  const refetch = "";
-  const data = "";
-
+  /* ----------- handle User Name --------------- */
   const handleUserName = () => {
     setUpdateUserName(true);
     setUserName(data?.data?.displayName && data?.data?.displayName);
   };
 
+  /* -------------- handle Update UserName ---------------- */
   const handleUpdateUserName = async () => {
-    await updateProfile({ displayName: userName });
-    if (updatingError) {
-      toast.error(updatingError?.message);
-      return;
-    }
-    const { data } = await axiosPrivet.put(`updateUserName/${user?.email}`, {
-      displayName: userName,
-    });
-    if (data?.acknowledged) {
+    try {
+      await updateProfile({ displayName: userName });
+      if (updatingError) {
+        toast.error(updatingError?.message);
+        return;
+      }
+      await axiosPrivet.put(`users/update/userName/${user?.email}`, {
+        displayName: userName,
+      });
       setUpdateUserName(false);
       toast.success("Updated UserName", { id: "updateUserName" });
+      refetch();
+    } catch (error) {
+      toast.error(error.message, { id: "updateUserName-error" });
       refetch();
     }
   };
 
+  /* ----------- handle User Number ------------ */
   const handleUserNumber = () => {
     setUpdateUserNumber(true);
     setUserNumber(data?.data?.displayNumber && data?.data?.displayNumber);
   };
 
+  /* --------- handle Update User Number --------- */
   const handleUpdateUserNumber = async () => {
-    await updateProfile({ phoneNumber: userNumber });
-    if (updatingError) {
-      toast.error(updatingError?.message);
-      return;
-    }
-    const { data } = await axiosPrivet.put(`updateUserNumber/${user?.email}`, {
-      phoneNumber: userNumber,
-    });
-    if (data?.acknowledged) {
-      setUpdateUserNumber(false);
-      toast.success("Updated UserNumber", { id: "updateUserNumber" });
-      refetch();
-    }
-  };
-
-  // const handleUpdatePhoto = async () => {
-  //   setPhotoURL(true);
-  //   // reset();
-  // };
-
-  const handleUpdatePhoto = async (data) => {
-    console.log(data);
-    const inputImages = data[0];
-    const formData = new FormData();
-    formData.append("image", inputImages);
-    const image = await imgUpload(formData);
-    if (image?.data?.url) {
-      await updateProfile({ photoURL: image?.data?.url });
+    try {
+      await updateProfile({ phoneNumber: userNumber });
       if (updatingError) {
         toast.error(updatingError?.message);
         return;
       }
-      const { data: result } = await axiosPrivet.put(`updateUserImage/${user?.email}`, {
-        photoURL: image?.data?.url,
+      await axiosPrivet.put(`users/update/Number/${user?.email}`, {
+        phoneNumber: userNumber,
       });
-      if (result?.acknowledged) {
-        // setUpdateUserName(false);
+      setUpdateUserNumber(false);
+      toast.success("Updated UserNumber", { id: "updateUserNumber" });
+      refetch();
+    } catch (error) {
+      toast.error(error.message, { id: "updateUserNumber-error" });
+      refetch();
+    }
+  };
+
+  /* ------------ handle Update Photo ------------- */
+  const handleUpdatePhoto = async (data) => {
+    try {
+      const inputImages = data[0];
+      const formData = new FormData();
+      formData.append("image", inputImages);
+      const image = await imgUpload(formData);
+      if (image?.data?.url) {
+        await updateProfile({ photoURL: image?.data?.url });
+        if (updatingError) {
+          toast.error(updatingError?.message);
+          return;
+        }
+        await axiosPrivet.put(`users/update/photoURL/${user?.email}`, {
+          photoURL: image?.data?.url,
+        });
+        setUpdateUserName(false);
         toast.success("Updated Image", { id: "updateUserImage" });
         refetch();
       }
+    } catch (error) {
+      toast.error(error.message, { id: "updateUserImage-error" });
+      refetch();
     }
-    console.log(image);
   };
 
+  /* ------------ handle loading -------------- */
   if (loading || isLoading || updating) {
     return <Loading />;
   }
 
+  /*---------- joined date ----------*/
+  let joiningDate;
+  if (data?.data?.createdAt) {
+    joiningDate = format(new Date(data?.data?.createdAt), "MMMM d, yyyy h:mm aa");
+  }
+
   return (
-    <div className=" w-full">
-      <div className="m-5 dashboardBodyShadow rounded-lg">
-        <div className="flex justify-between items-center w-full px-10 py-5 border-b">
-          <h4 className="text-2xl font-bold">My Profile</h4>
-          <div className="flex justify-between items-center gap-2 cursor-pointer">
+    <div className="w-full">
+      <div className="m-5  dashboardBodyShadow lg:min-h-[80vh] rounded-lg">
+        <div className="flex bg-primary rounded-t-lg justify-between items-center w-full px-10 py-5 border-b">
+          <h4 className="text-3xl text-white font-semibold">My Profile</h4>
+          <div className="flex justify-between text-white items-center gap-2 cursor-pointer">
             <span> Edit</span>
             <span>
               <FaEdit />
             </span>
           </div>
         </div>
-        <div className="lg:py-10 p-10">
-          <div className="grid lg:grid-cols-5 grid-cols-1">
+        <div className="lg:py-10 p-10 xl:pl-0">
+          <div className="grid lg:grid-cols-5 lg:gap-10 xl:gap-0 grid-cols-1">
             <div className="col-span-2 w-full">
               <div className="avatar justify-center w-full">
                 <div className="w-44 h-44 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={data?.data?.photoURL ? data?.data?.photoURL : emptyUser} />
+                  <img
+                    src={data?.data?.photoURL ? data?.data?.photoURL : emptyUser}
+                    alt="my images"
+                  />
                 </div>
               </div>
               <div className="text-center mt-2">
@@ -129,9 +143,7 @@ const MyAccount = () => {
                       id="updatePhoto"
                       type="file"
                       className="hidden"
-                      // {...register("inputImage")}
                     />
-
                     <h5 className=" px-5 py-2 inline-block text-center mx-auto bg-primary rounded-full text-neutral capitalize font-normal">
                       Upload Photo
                     </h5>
@@ -139,14 +151,10 @@ const MyAccount = () => {
                 </label>
               </div>
             </div>
-            <div className="col-span-3 flex flex-col gap-5 mt-10 lg:mt-0">
-              <div className="leading-6">
-                <h4>User ID:</h4>
-                <p className="text-lg">{data?.data?._id}</p>
-              </div>
+            <div className="col-span-3 flex flex-col gap-y-8 mt-10 lg:mt-0">
               <div className="flex justify-between ">
-                <div className="leading-6">
-                  <h4>Full name:</h4>
+                <div className="leading-6 xl:flex xl:gap-x-28 items-center">
+                  <h4>Name:</h4>
                   {updateUserName ? (
                     <div>
                       <input
@@ -157,7 +165,7 @@ const MyAccount = () => {
                       />
                     </div>
                   ) : (
-                    <p className="text-lg">
+                    <p className="text-lg text-primary font-semibold">
                       {data?.data?.displayName ? data?.data?.displayName : "Update Your Name"}
                     </p>
                   )}
@@ -189,14 +197,18 @@ const MyAccount = () => {
                   </div>
                 )}
               </div>
-              <div className="leading-6">
+              <div className="leading-6 xl:flex xl:gap-x-14 items-center">
                 <h4>Email Address:</h4>
                 <p className="text-lg">
-                  {data?.data?.email ? data?.data?.email : "Update Your Email Address"}
+                  {data?.data?.email ? (
+                    <span className="text-primary font-semibold">{data?.data?.email}</span>
+                  ) : (
+                    <span className="text-error">Update Your Email Address</span>
+                  )}
                 </p>
               </div>
               <div className="flex justify-between ">
-                <div className="leading-6">
+                <div className="leading-6 xl:flex xl:gap-x-12 items-center">
                   <h4>Phone Number:</h4>
                   {updateUserNumber ? (
                     <div>
@@ -209,9 +221,13 @@ const MyAccount = () => {
                     </div>
                   ) : (
                     <p className="text-lg">
-                      {data?.data?.phoneNumber
-                        ? data?.data?.phoneNumber
-                        : "Update Your Phone Number"}
+                      {data?.data?.phoneNumber ? (
+                        <span className="text-primary font-semibold">
+                          {data?.data?.phoneNumber}
+                        </span>
+                      ) : (
+                        <span className="text-error"> Update Your Phone Number</span>
+                      )}
                     </p>
                   )}
                 </div>
@@ -241,6 +257,34 @@ const MyAccount = () => {
                     </span>
                   </div>
                 )}
+              </div>
+
+              <div className="flex justify-between ">
+                <div className="leading-6 xl:flex xl:gap-x-28 items-center">
+                  <h4>Joined:</h4>
+                  <p className="text-lg text-primary font-semibold">{joiningDate && joiningDate}</p>
+                </div>
+              </div>
+              <div className="flex justify-between ">
+                <div className="leading-6 xl:flex xl:gap-x-14 items-center">
+                  <h4>Device Activity:</h4>
+                  <p className="text-lg text-primary font-semibold flex gap-2">
+                    {data?.data?.loginDevices &&
+                      data?.data?.loginDevices.map((device, i) => {
+                        return (
+                          <span key={i}>
+                            ({i + 1}) {device?.browser?.name}
+                          </span>
+                        );
+                      })}
+                  </p>
+                </div>
+              </div>
+              <div className="flex justify-between ">
+                <div className="leading-6 xl:flex xl:gap-x-32 items-center">
+                  <h4>Role:</h4>
+                  <p className="text-lg text-primary font-semibold">{data?.data?.role}</p>
+                </div>
               </div>
             </div>
           </div>

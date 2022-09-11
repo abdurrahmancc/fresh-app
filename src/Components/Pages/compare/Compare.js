@@ -5,25 +5,26 @@ import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./compare.css";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { MdAddShoppingCart, MdDelete } from "react-icons/md";
-import { removeFromDb } from "../../Hooks/useFakeDB";
+import { compareListRemoveFromDb, removeFromDb } from "../../Hooks/useFakeDB";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
+import useCompareProducts from "../../Hooks/useCompareProducts";
 
 const Compare = () => {
-  const [cartProducts, setCartProducts] = useProducts();
+  const [compareProducts, setCompareProducts] = useCompareProducts();
 
-  if (cartProducts.length > 4) {
-    cartProducts.length = 4;
+  if (compareProducts.length > 4) {
+    compareProducts.length = 4;
   }
 
   const handleRemove = (id) => {
-    const rest = cartProducts.filter((item) => item._id !== id);
-    setCartProducts(rest);
-    removeFromDb(id);
+    const rest = compareProducts.filter((item) => item._id !== id);
+    setCompareProducts(rest);
+    compareListRemoveFromDb(id);
   };
 
-  console.log(cartProducts);
+  console.log(compareProducts);
   return (
     <>
       <main>
@@ -37,7 +38,7 @@ const Compare = () => {
         </section>
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-20">
-          {cartProducts?.length >= 1 ? (
+          {compareProducts?.length >= 1 ? (
             <div id="compareTable" className="w-full">
               <Table>
                 <Tbody>
@@ -49,8 +50,8 @@ const Compare = () => {
                     >
                       Image
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => (
+                    {compareProducts &&
+                      compareProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
@@ -75,8 +76,8 @@ const Compare = () => {
                     >
                       Name
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => (
+                    {compareProducts &&
+                      compareProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
@@ -97,8 +98,8 @@ const Compare = () => {
                     >
                       Price
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => (
+                    {compareProducts &&
+                      compareProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
@@ -122,8 +123,8 @@ const Compare = () => {
                     >
                       Rating
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => (
+                    {compareProducts &&
+                      compareProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
@@ -161,8 +162,8 @@ const Compare = () => {
                     >
                       Stock status
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => (
+                    {compareProducts &&
+                      compareProducts.map((product) => (
                         <Td className={"border"}>
                           <div
                             key={product?._id}
@@ -193,8 +194,8 @@ const Compare = () => {
                     >
                       Weight
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => {
+                    {compareProducts &&
+                      compareProducts.map((product) => {
                         const weight = product?.weight[0] ? product?.weight[0].split(",") : null;
                         const isLast = weight[weight.length - 1];
                         return (
@@ -223,8 +224,8 @@ const Compare = () => {
                     >
                       Dimensions
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => {
+                    {compareProducts &&
+                      compareProducts.map((product) => {
                         return (
                           <Td className={"border"}>
                             <div
@@ -247,8 +248,8 @@ const Compare = () => {
                     >
                       Description
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => {
+                    {compareProducts &&
+                      compareProducts.map((product) => {
                         return (
                           <Td className={"border"}>
                             <div
@@ -273,8 +274,8 @@ const Compare = () => {
                     >
                       Add to cart
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => {
+                    {compareProducts &&
+                      compareProducts.map((product) => {
                         return (
                           <Td className={"border"}>
                             <div
@@ -300,8 +301,8 @@ const Compare = () => {
                     >
                       Action
                     </Td>
-                    {cartProducts &&
-                      cartProducts.map((product) => {
+                    {compareProducts &&
+                      compareProducts.map((product) => {
                         return (
                           <Td className={"border"}>
                             <div

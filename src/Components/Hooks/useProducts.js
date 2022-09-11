@@ -4,14 +4,6 @@ import { getShoppingId } from "./useFakeDB";
 
 const useProducts = () => {
   const [cartProducts, setCartProducts] = useState([]);
-  const [load, setLoad] = useState(false);
-  // const { data, isLoading, refetch } = useQuery(["cartProducts", keys, load], () =>
-  //   axiosPrivet.post("/cart-products", keys)
-  // );
-
-  if (load) {
-    // window.location.reload();
-  }
 
   useEffect(() => {
     (async () => {
@@ -33,6 +25,6 @@ const useProducts = () => {
     })();
   }, []);
 
-  return [cartProducts, setCartProducts, setLoad];
+  return [cartProducts, setCartProducts];
 };
 export default useProducts;

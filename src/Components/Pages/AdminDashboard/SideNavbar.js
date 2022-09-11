@@ -15,7 +15,6 @@ const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen
   const handleSignOut = () => {
     signOut(auth);
     removeCookie(accessTokenName);
-    // localStorage.removeItem("accessToken");
   };
   return (
     <div className="navbar bg-base-200 px-10">

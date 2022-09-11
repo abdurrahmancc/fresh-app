@@ -98,12 +98,13 @@ export const shopProduct = {
   singleValue: (provided) => ({
     ...provided,
     color: "#000000",
+    padding: 0,
   }),
   control: (base, state) => ({
     ...base,
     background: "#ffffff",
     color: "#000000",
-    width: "60px",
+    width: "70px",
     padding: "0px 0px 0px 5px",
     "&:active": {
       border: "1px solid #000000",
@@ -123,7 +124,7 @@ export const shopProduct = {
   dropdownIndicator: (base) => ({
     ...base,
     color: "#000000",
-    padding: "0px 5px ",
+    padding: "0px 2px 0px 0px ",
   }),
   input: (base, state) => ({
     ...base,
@@ -146,6 +147,7 @@ export const sortByProduct = {
   singleValue: (provided) => ({
     ...provided,
     color: "#000000",
+    padding: "0px 0px 0px 5px",
   }),
   control: (base, state) => ({
     ...base,

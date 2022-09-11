@@ -47,10 +47,14 @@ import RequireAdmin from "./Components/SharedPages/RequireAdmin/RequireAdmin";
 import Compare from "./Components/Pages/compare/Compare";
 import Wishlist from "./Components/Pages/wishlist/Wishlist";
 export const CartQuantity = createContext("cartQuantity");
+export const WishlistQuantity = createContext("wishlistQuantity");
+export const CompareQuantity = createContext("compareQuantity");
 export const ToggleAdminDashboardSideBar = createContext("sideBar");
 
 function App() {
   const [cartQuantity, setCartQuantity] = useState([]);
+  const [wishlistQuantity, setWishlistQuantity] = useState([]);
+  const [compareQuantity, setCompareQuantity] = useState([]);
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const [dark, setDark] = useState(false);
   const [themes, setThemes] = useState("");
@@ -69,80 +73,84 @@ function App() {
     <>
       <Toaster />
       <CartQuantity.Provider value={[cartQuantity, setCartQuantity]}>
-        <ToggleAdminDashboardSideBar.Provider
-          value={[toggleSideBar, setToggleSideBar, dark, setDark, handleOpen]}
-        >
-          <Header />
-          <Routes>
-            <Route path={"/"} element={<Home1 />} />
-            <Route path={"/table"} element={<Tables />} />
-            <Route path={"/test"} element={<Test />} />
-            <Route path={"/home"} element={<Home1 />} />
-            <Route path={"/home2"} element={<Home2 />} />
-            <Route path={"/about"} element={<About />} />
-            <Route path={"/wishlist"} element={<Wishlist />} />
-            <Route path={"/shop"} element={<Shop />} />
-            <Route path={"/login"} element={<Login />} />
-            <Route path={"/register"} element={<Register />} />
-            <Route path="/shop" element={<Shop />}>
-              <Route index element={<ShopVertical />}></Route>
-              <Route path="1" element={<ShopVertical />}></Route>
-              <Route path="2" element={<ShopCardHorizontal />}></Route>
-            </Route>
-            <Route path="/shop/fullwidth" element={<Shop />}>
-              <Route index element={<ShopVertical />}></Route>
-              <Route path="1" element={<ShopVertical />}></Route>
-              <Route path="2" element={<ShopCardHorizontal />}></Route>
-            </Route>
-            <Route path={"/shop/:id"} element={<Shop />} />
-            <Route path={"/products"} element={<Products />} />
-            <Route path={"/checkout"} element={<CheckOut />} />
-            {/* <Route path={"/admin-dashboard"} element={<AdminDashboard />} /> */}
-            <Route path={"/forgot-password"} element={<ForgotPassword />} />
-            <Route path={"/reset-password"} element={<ResetPassword />} />
-            <Route path={"/checkout/:id"} element={<CheckOut />} />
-            <Route element={<RequireAuth />}>
-              <Route path="/user-dashboard" element={<UserDashboard />}>
-                <Route index element={<MyOrder />} />
-                <Route path="my-account" element={<MyAccount />} />
-                <Route path="my-address" element={<MyAddress />} />
-                <Route path="payment/:id" element={<Payment />} />
-                <Route path="my-order" element={<MyOrder />} />
-              </Route>
-            </Route>
-            <Route path={"/contact"} element={<Contact />} />
-            <Route path={"/shopping-cart"} element={<ShoppingCart />} />
-            <Route path={"/product-details/:id"} element={<ProductDetails />} />
-            <Route path={"/shop-compare"} element={<Compare />} />
-            <Route path={"/blogs"} element={<Blogs />} />
-            <Route path={"/FAQ"} element={<Faq />} />
-            <Route path={"/blog-details/:id"} element={<BlogDetails />} />
-            <Route element={<RequireAuth />}>
-              <Route element={<RequireAdmin />}>
-                <Route path="/admin-dashboard" element={<AdminDashboard />}>
-                  <Route index element={<DashboardHome />} />
-                  <Route path="home-dashboard" element={<DashboardHome />} />
-                  <Route path="ecommerce" element={<AdminDashboardSubMenu />} />
-                  <Route path="add-product" element={<AddProduct />} />
-                  <Route path="add-others" element={<AddOthers />} />
-                  <Route path="product-details/:id" element={<ProductDetails />} />
-                  {/* <Route element={<RequireAdmin />}> */}
-                  <Route path="all-user" element={<AllUsers />} />
-                  <Route path="admin" element={<AllAdmin />} />
-                  {/* </Route>  */}
-                  <Route path="all-order" element={<AllOrder />} />
-                  <Route path="order-pending" element={<PendingOrder />} />
-                  <Route path="message" element={<Message />} />
-                  <Route path="analytics" element={<Analytics />} />
-                  <Route path="file-manager" element={<Analytics />} />
-                  <Route path="saved" element={<Saved />} />
-                  <Route path="order-paid" element={<PaidOrder />} />
+        <WishlistQuantity.Provider value={[wishlistQuantity, setWishlistQuantity]}>
+          <CompareQuantity.Provider value={[compareQuantity, setCompareQuantity]}>
+            <ToggleAdminDashboardSideBar.Provider
+              value={[toggleSideBar, setToggleSideBar, dark, setDark, handleOpen]}
+            >
+              <Header />
+              <Routes>
+                <Route path={"/"} element={<Home1 />} />
+                <Route path={"/table"} element={<Tables />} />
+                <Route path={"/test"} element={<Test />} />
+                <Route path={"/home"} element={<Home1 />} />
+                <Route path={"/home2"} element={<Home2 />} />
+                <Route path={"/about"} element={<About />} />
+                <Route path={"/wishlist"} element={<Wishlist />} />
+                <Route path={"/shop"} element={<Shop />} />
+                <Route path={"/login"} element={<Login />} />
+                <Route path={"/register"} element={<Register />} />
+                <Route path="/shop" element={<Shop />}>
+                  <Route index element={<ShopVertical />}></Route>
+                  <Route path="1" element={<ShopVertical />}></Route>
+                  <Route path="2" element={<ShopCardHorizontal />}></Route>
                 </Route>
-              </Route>
-            </Route>
-            <Route path={"*"} element={<NotFound />} />
-          </Routes>
-        </ToggleAdminDashboardSideBar.Provider>
+                <Route path="/shop/fullwidth" element={<Shop />}>
+                  <Route index element={<ShopVertical />}></Route>
+                  <Route path="1" element={<ShopVertical />}></Route>
+                  <Route path="2" element={<ShopCardHorizontal />}></Route>
+                </Route>
+                <Route path={"/shop/:id"} element={<Shop />} />
+                <Route path={"/products"} element={<Products />} />
+                <Route path={"/checkout"} element={<CheckOut />} />
+                {/* <Route path={"/admin-dashboard"} element={<AdminDashboard />} /> */}
+                <Route path={"/forgot-password"} element={<ForgotPassword />} />
+                <Route path={"/reset-password"} element={<ResetPassword />} />
+                <Route path={"/checkout/:id"} element={<CheckOut />} />
+                <Route element={<RequireAuth />}>
+                  <Route path="/user-dashboard" element={<UserDashboard />}>
+                    <Route index element={<MyOrder />} />
+                    <Route path="my-account" element={<MyAccount />} />
+                    <Route path="my-address" element={<MyAddress />} />
+                    <Route path="payment/:id" element={<Payment />} />
+                    <Route path="my-order" element={<MyOrder />} />
+                  </Route>
+                </Route>
+                <Route path={"/contact"} element={<Contact />} />
+                <Route path={"/shopping-cart"} element={<ShoppingCart />} />
+                <Route path={"/product-details/:id"} element={<ProductDetails />} />
+                <Route path={"/shop-compare"} element={<Compare />} />
+                <Route path={"/blogs"} element={<Blogs />} />
+                <Route path={"/FAQ"} element={<Faq />} />
+                <Route path={"/blog-details/:id"} element={<BlogDetails />} />
+                <Route element={<RequireAuth />}>
+                  <Route element={<RequireAdmin />}>
+                    <Route path="/admin-dashboard" element={<AdminDashboard />}>
+                      <Route index element={<DashboardHome />} />
+                      <Route path="home-dashboard" element={<DashboardHome />} />
+                      <Route path="ecommerce" element={<AdminDashboardSubMenu />} />
+                      <Route path="add-product" element={<AddProduct />} />
+                      <Route path="add-others" element={<AddOthers />} />
+                      <Route path="product-details/:id" element={<ProductDetails />} />
+                      {/* <Route element={<RequireAdmin />}> */}
+                      <Route path="all-user" element={<AllUsers />} />
+                      <Route path="admin" element={<AllAdmin />} />
+                      {/* </Route>  */}
+                      <Route path="all-order" element={<AllOrder />} />
+                      <Route path="order-pending" element={<PendingOrder />} />
+                      <Route path="message" element={<Message />} />
+                      <Route path="analytics" element={<Analytics />} />
+                      <Route path="file-manager" element={<Analytics />} />
+                      <Route path="saved" element={<Saved />} />
+                      <Route path="order-paid" element={<PaidOrder />} />
+                    </Route>
+                  </Route>
+                </Route>
+                <Route path={"*"} element={<NotFound />} />
+              </Routes>
+            </ToggleAdminDashboardSideBar.Provider>
+          </CompareQuantity.Provider>
+        </WishlistQuantity.Provider>
       </CartQuantity.Provider>
     </>
   );

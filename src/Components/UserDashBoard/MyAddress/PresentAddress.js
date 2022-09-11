@@ -8,6 +8,7 @@ const PresentAddress = ({ data, refetch, user }) => {
   const [presentCountry, setPresentCountry] = useState("");
   const [presentDistrict, setPresentDistrict] = useState("");
   const [presentStreetAddress, setPresentStreetAddress] = useState("");
+  const [presentZipCode, setPresentZipCode] = useState("");
   const [presentAddress, setPresentAddress] = useState(false);
 
   const { register, handleSubmit, reset, watch } = useForm();
@@ -16,26 +17,42 @@ const PresentAddress = ({ data, refetch, user }) => {
 
   const handlePresentAddress = () => {
     setPresentAddress(true);
-    setPresentCountry(data?.presentCountry && data?.presentCountry);
-    setPresentDistrict(data?.presentDistrict && data?.presentDistrict);
-    setPresentStreetAddress(data?.presentStreetAddress && data?.presentStreetAddress);
+    setPresentCountry(data?.country && data?.country);
+    setPresentDistrict(data?.district && data?.district);
+    setPresentStreetAddress(data?.streetAddress && data?.streetAddress);
+    setPresentZipCode(data?.zipCode && data?.zipCode);
   };
+
   const onSubmit = async (data) => {
-    if (user?.email) {
-      const { data: result } = await axiosPrivet.patch(`presentAddress/${user?.email}`, data);
-      if (result?.acknowledged) {
-        toast.success("Update Permanent Address", { id: "updatePresentAddress" });
-        reset();
-        refetch();
-        setPresentAddress(false);
+    const info = {
+      country: data.presentCountry,
+      district: data.presentDistrict,
+      streetAddress: data.presentStreetAddress,
+      zipCode: data.presentZipCode,
+    };
+    try {
+      if (user?.email) {
+        const { data: result } = await axiosPrivet.patch(
+          `users/update/presentAddress/${user?.email}`,
+          { info }
+        );
+        if (result) {
+          toast.success("Update Permanent Address", { id: "updatePresentAddress" });
+          reset();
+          refetch();
+          setPresentAddress(false);
+        }
       }
+    } catch (error) {
+      toast.error(error.message, { id: "updatePermanentAddress-error" });
+      refetch();
     }
   };
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-between items-center w-full">
-          <h4 className="text-xl font-bold mb-3 text-primary">Present Address</h4>
+          <h4 className="text-2xl font-semibold mb-5 text-primary">Present Address</h4>
           {presentAddress ? (
             <div className="flex gap-2 items-center">
               <button
@@ -66,7 +83,7 @@ const PresentAddress = ({ data, refetch, user }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10">
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentCountry">Your Country</label>
+            <label htmlFor="presentCountry">Your Country:</label>
             {presentAddress && (
               <input
                 type="text"
@@ -77,8 +94,8 @@ const PresentAddress = ({ data, refetch, user }) => {
             )}
             {presentAddress || (
               <div>
-                {data?.presentCountry ? (
-                  <span className="text-lg">{data?.presentCountry}</span>
+                {data?.country ? (
+                  <span className="text-lg text-primary font-semibold">{data?.country}</span>
                 ) : (
                   <span className="text-error">{"Update Your Country"}</span>
                 )}
@@ -86,7 +103,7 @@ const PresentAddress = ({ data, refetch, user }) => {
             )}
           </div>
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentDistrict">District</label>
+            <label htmlFor="presentDistrict">District:</label>
             {presentAddress && (
               <input
                 type="text"
@@ -97,8 +114,8 @@ const PresentAddress = ({ data, refetch, user }) => {
             )}
             {presentAddress || (
               <div>
-                {data?.presentDistrict ? (
-                  <span className="text-lg">{data?.presentDistrict}</span>
+                {data?.district ? (
+                  <span className="text-lg text-primary font-semibold">{data?.district}</span>
                 ) : (
                   <span className="text-error">{"Update Your District"}</span>
                 )}
@@ -106,7 +123,7 @@ const PresentAddress = ({ data, refetch, user }) => {
             )}
           </div>
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentStreetAddress">Street Address</label>
+            <label htmlFor="presentStreetAddress">Street Address:</label>
             {presentAddress && (
               <input
                 type="text"
@@ -117,8 +134,28 @@ const PresentAddress = ({ data, refetch, user }) => {
             )}
             {presentAddress || (
               <div>
-                {data?.presentStreetAddress ? (
-                  <span className="text-lg">{data?.presentStreetAddress}</span>
+                {data?.streetAddress ? (
+                  <span className="text-lg text-primary font-semibold">{data?.streetAddress}</span>
+                ) : (
+                  <span className="text-error">{"Update Your Street Address"}</span>
+                )}
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col leading-7">
+            <label htmlFor="presentZipCode">Zip Code:</label>
+            {presentAddress && (
+              <input
+                type="text"
+                defaultValue={presentZipCode}
+                className="input input-bordered max-w-sm"
+                {...register("presentZipCode")}
+              />
+            )}
+            {presentAddress || (
+              <div>
+                {data?.zipCode ? (
+                  <span className="text-lg text-primary font-semibold">{data?.zipCode}</span>
                 ) : (
                   <span className="text-error">{"Update Your Street Address"}</span>
                 )}

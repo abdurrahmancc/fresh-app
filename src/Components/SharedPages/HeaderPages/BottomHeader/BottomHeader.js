@@ -63,41 +63,35 @@ const BottomHeader = () => {
           <AiOutlineCaretDown className="text-sm" />
         </NavLink>
         <ul className="menu bg-base-100 z-50 w-44 shadow">
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/shop"}
-              className={({ isActive }) =>
-                isActive
-                  ? " text-lg font-semibold  border-primary px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5">Shop default</span>
-            </NavLink>
+            </Link>
           </li>
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/shop/fullwidth"}
-              className={({ isActive }) =>
-                isActive
-                  ? "  text-lg font-semibold px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5">Shop wide</span>
-            </NavLink>
+            </Link>
           </li>
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/shop/2"}
-              className={({ isActive }) =>
-                isActive
-                  ? "pb-2 text-lg font-semibold px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5">Product list</span>
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </li>
@@ -115,53 +109,45 @@ const BottomHeader = () => {
           <AiOutlineCaretDown className="text-sm" />
         </NavLink>
         <ul className="menu bg-base-100 z-50 w-44 shadow">
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/about"}
-              className={({ isActive }) =>
-                isActive
-                  ? " text-lg font-semibold  border-primary px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5"> About us</span>
-            </NavLink>
+            </Link>
           </li>
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/contact"}
-              className={({ isActive }) =>
-                isActive
-                  ? "  text-lg font-semibold px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5">Contact</span>
-            </NavLink>
+            </Link>
           </li>
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/blogs"}
-              className={({ isActive }) =>
-                isActive
-                  ? "pb-2 text-lg font-semibold px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5">Blogs</span>
-            </NavLink>
+            </Link>
           </li>
-          <li className="hover:text-white hover:bg-primary">
-            <NavLink
+          <li>
+            <Link
               to={"/FAQ"}
-              className={({ isActive }) =>
-                isActive
-                  ? "pb-2 text-lg font-semibold px-0 rounded-none"
-                  : "text-lg px-0 font-semibold"
+              className={
+                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
               }
             >
               <span className="px-5">FAQ</span>
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </li>
@@ -280,46 +266,45 @@ const BottomHeader = () => {
                 tabIndex="0"
                 className="dropdown-content menu mt-[-6px] shadow-xl bg-base-100 rounded-box w-52"
               >
-                <li className="hover:text-white hover:bg-primary">
+                <li>
                   <Link
                     to={"/user-dashboard/my-account"}
-                    className="flex items-center active:text-white gap-3"
+                    className="flex hover:text-white hover:bg-primary duration-500 ease-in-out items-center active:text-white gap-3"
                   >
                     <FaUserAlt className="text-lg " />
                     <span> My Account</span>
                   </Link>
                 </li>
-                <li className="hover:text-white hover:bg-primary">
-                  <div className="flex items-center active:text-white gap-3">
+                <li>
+                  <div className="flex hover:text-white hover:bg-primary duration-500 ease-in-out items-center active:text-white gap-3">
                     <MdLocationOn className="text-lg" />
                     <span>Order Tracking</span>
                   </div>
                 </li>
-                <li className="hover:text-white hover:bg-primary">
-                  <div className="flex items-center active:text-white  gap-3">
+                <li>
+                  <div className="flex hover:text-white hover:bg-primary duration-500 ease-in-out items-center active:text-white  gap-3">
                     <BiNotepad className="text-lg" />
-
                     <span>My Voucher</span>
                   </div>
                 </li>
-                <li className="hover:text-white hover:bg-primary">
-                  <div className="flex items-center active:text-white gap-3">
+                <li>
+                  <div className="flex hover:text-white hover:bg-primary duration-500 items-center active:text-white gap-3">
                     <BiHeart className="text-lg" />
                     <span>My Wishlist</span>
                   </div>
                 </li>
-                <li className="hover:text-white hover:bg-primary">
-                  <div className="flex items-center active:text-white gap-3">
+                <li>
+                  <div className="flex hover:text-white hover:bg-primary duration-500 items-center active:text-white gap-3">
                     <AiFillSetting className="text-lg" />
 
                     <span>Setting</span>
                   </div>
                 </li>
                 {isUser && (
-                  <li className="hover:text-white hover:bg-primary">
+                  <li>
                     <NavLink
                       to={"/admin-dashboard"}
-                      className="flex items-center gap-3 active:text-white"
+                      className="flex hover:text-white hover:bg-primary duration-500 items-center gap-3 active:text-white"
                     >
                       <VscSettings className="rotate-90 text-lg font-bold " />
                       <span>Dashboard</span>
@@ -327,17 +312,17 @@ const BottomHeader = () => {
                   </li>
                 )}
 
-                <li className="hover:text-white hover:bg-primary">
-                  <div className="flex justify-items-center active:text-white gap-3">
+                <li>
+                  <div className="flex hover:text-white hover:bg-primary duration-500 justify-items-center active:text-white gap-3">
                     <MdDarkMode className="text-lg" />
                     <span>DarkMode</span>
                     {/* <Themes></Themes> */}
                   </div>
                 </li>
-                <li className="hover:text-white hover:bg-primary">
+                <li>
                   {user ? (
                     <div
-                      className="flex active:text-white items-center gap-3"
+                      className="flex hover:text-white hover:bg-primary duration-500 active:text-white items-center gap-3"
                       onClick={() => handleSignOut()}
                     >
                       <FiLogOut className="text-lg" />

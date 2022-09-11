@@ -20,7 +20,7 @@ const DealsProducts = ({ product }) => {
     <div
       onMouseEnter={showCartHandler}
       onMouseLeave={hideCartHandler}
-      className="card hover:border hover:border-primary max-w-[18.5rem] bg-base-100 shadow border"
+      className="card hover:border ease-in-out transition duration-500 product-card-shadow hover:border-primary max-w-[18.5rem] bg-base-100 shadow border"
     >
       <div>
         <Link to={"/shop"} className="p-0">

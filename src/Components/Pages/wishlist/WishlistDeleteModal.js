@@ -1,11 +1,11 @@
 import React from "react";
 import toast from "react-hot-toast";
-import { deleteShoppingCart } from "../../Hooks/useFakeDB";
+import { deleteAllWishlist } from "../../Hooks/useFakeDB";
 
 const WishlistDeleteModal = ({ setWishProducts }) => {
   const handleAllCartRemoveA = () => {
-    deleteShoppingCart();
-    toast.success("deleted", { id: "deleteAllCart" });
+    deleteAllWishlist();
+    toast.success("deleted", { id: "deleteAllWishlist" });
     setWishProducts("");
   };
   return (

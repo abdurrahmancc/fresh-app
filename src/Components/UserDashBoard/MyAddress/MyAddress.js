@@ -10,12 +10,10 @@ import PresentAddress from "./PresentAddress";
 
 const MyAddress = () => {
   const [user, loading] = useAuthState(auth);
-  // const { data, isLoading, refetch } = useQuery(["profileDetails", user], () =>
-  //   axiosPrivet.get(`profileDetails/${user?.email}`)
-  // );
+  const { data, isLoading, refetch } = useQuery(["myAddress", user], () =>
+    axiosPrivet.get(`users/my-profile-details/${user?.email}`)
+  );
 
-  const data = "";
-  const isLoading = "";
   console.log(data);
 
   if (loading || isLoading) {
@@ -23,9 +21,9 @@ const MyAddress = () => {
   }
   return (
     <div className=" w-full">
-      <div className="m-5 dashboardBodyShadow rounded-lg ">
+      <div className="m-5 dashboardBodyShadow lg:min-h-[80vh] rounded-lg ">
         <div className="flex justify-between items-center w-full px-10 py-5 border-b">
-          <h4 className="text-2xl font-bold">My Profile</h4>
+          <h4 className="text-3xl font-semibold">My Profile</h4>
           <div className="flex justify-between items-center gap-2 cursor-pointer">
             <span> Edit</span>
             <span>
@@ -35,8 +33,8 @@ const MyAddress = () => {
         </div>
         <div className="p-10">
           <div>
-            {/* <PresentAddress data={data?.data} refetch={refetch} user={user} />
-            <PermanentAddress data={data?.data} refetch={refetch} user={user} /> */}
+            <PresentAddress data={data?.data?.presentAddress} refetch={refetch} user={user} />
+            <PermanentAddress data={data?.data?.permanentAddress} refetch={refetch} user={user} />
           </div>
         </div>
       </div>

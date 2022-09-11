@@ -10,6 +10,14 @@
 
   }
 
+
+  /*-------------- product card shadow---------- */
+  .product-card-shadow:hover{
+    box-shadow:1px 1px 10px 1px #C9C9C9;
+    -webkit-box-shadow:1px 1px 10px 1px #C9C9C9;
+    -moz-box-shadow:1px 1px 10px 1px #C9C9C9;
+  }
+
 #select-component .css-1s2u09g-control{
     border: none;
     border-width: 0px;

@@ -33,8 +33,8 @@ const UserDashboard = () => {
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-5">
           <div className="flex lg:flex-row flex-col">
-            <div className=" lg:min-h-[80vh]">
-              <ul className="menu lg:w-[290px] h-full m-5 rounded-lg overflow-y-auto dashboardBodyShadow bg-white text-base-content">
+            <div className=" ">
+              <ul className="menu lg:w-[290px] min-h-[80vh]  m-5 rounded-lg overflow-y-auto dashboardBodyShadow bg-white text-base-content">
                 {/* <!-- Sidebar content here --> */}
                 <li className="bg-primary mb-4">
                   <div className="p-10 flex flex-col">
@@ -47,7 +47,7 @@ const UserDashboard = () => {
                         />
                       </div>
                     </div>
-                    <h5 className="text-neutral font-bold text-xl">{user?.displayName}</h5>
+                    <h5 className="text-neutral font-semibold text-xl">{user?.displayName}</h5>
                   </div>
                 </li>
                 <li>
@@ -55,8 +55,8 @@ const UserDashboard = () => {
                     to={"/user-dashboard/my-account"}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-lg text-neutral bg-primary px-10 rounded-none"
-                        : "text-lg px-10 rounded-none"
+                        ? "text-lg text-neutral duration-500 ease-in-out transition bg-primary px-10 rounded-none"
+                        : "text-lg px-10 hover:bg-primary hover:text-white duration-500 ease-in-out transition rounded-none"
                     }
                   >
                     <BiUser />
@@ -68,8 +68,8 @@ const UserDashboard = () => {
                     to={"/user-dashboard/my-order"}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-lg text-neutral bg-primary px-10 rounded-none"
-                        : "text-lg px-10 rounded-none"
+                        ? "text-lg text-neutral duration-500 ease-in-out transition bg-primary px-10 rounded-none"
+                        : "text-lg px-10 hover:bg-primary hover:text-white duration-500 ease-in-out transition rounded-none"
                     }
                   >
                     <span>
@@ -83,8 +83,8 @@ const UserDashboard = () => {
                     to={"/user-dashboard/my-address"}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-lg text-neutral bg-primary px-10 rounded-none"
-                        : "text-lg px-10 rounded-none"
+                        ? "text-lg text-neutral duration-500 ease-in-out transition bg-primary px-10 rounded-none"
+                        : "text-lg px-10 hover:bg-primary hover:text-white duration-500 ease-in-out transition rounded-none"
                     }
                   >
                     <span>

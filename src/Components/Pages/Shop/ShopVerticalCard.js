@@ -8,8 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Badges from "../../SharedPages/Badges";
 import Rating from "../../SharedPages/Rating";
 
-const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
-  const navigate = useNavigate();
+const ShopVerticalCard = ({
+  item,
+  handleAddToCartProduct,
+  handleAddToWishlistProduct,
+  handleAddToCompareProduct,
+}) => {
   const [hoveredCart, setHoveredCart] = useState("hidden");
   const [showModal, setShowModal] = useState("");
 
@@ -23,7 +27,14 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
 
   const handleAddToCart = (item) => {
     handleAddToCartProduct(item);
-    toast.success("Add To Cart", { id: "addToCart" });
+  };
+
+  const handleAddToWishlist = (item) => {
+    handleAddToWishlistProduct(item);
+  };
+
+  const handleAddToCompareList = (item) => {
+    handleAddToCompareProduct(item);
   };
 
   return (
@@ -31,7 +42,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
       <div
         onMouseEnter={showCartHandler}
         onMouseLeave={hideCartHandler}
-        className="card max-w-[290px] hover:z-10 w-full mx-auto  shadow border border-gray-300 "
+        className="card max-w-[290px] hover:border ease-in-out transition duration-500 hover:border-primary product-card-shadow hover:z-10 w-full mx-auto  shadow border border-gray-300 "
       >
         <div className="relative">
           <div>
@@ -60,21 +71,22 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
                 <IoEyeOutline />
               </Link>
               <Link
-                to={"/"}
+                onClick={() => handleAddToCompareList(item)}
+                to="/shop-compare"
                 className={
                   "p-2 text-lg text-primary bg-white border hover:bg-primary hover:text-neutral"
                 }
               >
                 <TbArrowsRightLeft />
               </Link>
-              <Link
-                to={"/"}
+              <button
+                onClick={() => handleAddToWishlist(item)}
                 className={
                   "p-2 text-lg text-primary bg-white border hover:bg-primary hover:text-neutral"
                 }
               >
                 <BsSuitHeart className="" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -91,7 +103,7 @@ const ShopVerticalCard = ({ item, handleAddToCartProduct }) => {
           </Link>
           <Rating />
           <span>Unit: {item?.weight && item?.weight[0]?.split(",")[0]}g</span>
-          <div className="flex gap-2  items-center pt-">
+          <div className="flex gap-1 items-center">
             <span className="text-lg text-primary capitalize font-semibold">${item?.price}</span>
             {item?.regularPrice && (
               <span className="text-gray-400 line-through capitalize">${item?.regularPrice}</span>

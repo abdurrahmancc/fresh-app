@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import useAddCartProduct from "../../Hooks/useAddCartProduct";
+import useAddCompareProduct from "../../Hooks/useAddCompareProduct";
+import useAddWishlistProduct from "../../Hooks/useAddWishlistProduct";
 import ScrollBtn from "../../SharedPages/ScrollBtn";
 import { shopAllProducts } from "./Shop";
 import ShopVerticalCard from "./ShopVerticalCard";
@@ -10,15 +12,21 @@ const ShopVertical = () => {
   const { pathname } = useLocation();
   const [pageCount, setPageCount] = useState(0);
   const [handleAddToCartProduct] = useAddCartProduct();
+  const [handleAddToWishlistProduct] = useAddWishlistProduct();
+  const [handleAddToCompareProduct] = useAddCompareProduct();
 
   const [products, , setReload, page, setPage, size] = useContext(shopAllProducts);
 
   useEffect(() => {
     (async () => {
-      const { data } = await axiosPrivet.get("counter");
-      const count = data.count;
-      const pages = Math.ceil(count / size);
-      setPageCount(pages);
+      try {
+        const { data } = await axiosPrivet.get("counter");
+        const count = data.count;
+        const pages = Math.ceil(count / size);
+        setPageCount(pages);
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, [size]);
   return (
@@ -36,7 +44,9 @@ const ShopVertical = () => {
               <ShopVerticalCard
                 key={item?._id}
                 item={item}
+                handleAddToWishlistProduct={handleAddToWishlistProduct}
                 handleAddToCartProduct={handleAddToCartProduct}
+                handleAddToCompareProduct={handleAddToCompareProduct}
               />
             ))}
         </div>

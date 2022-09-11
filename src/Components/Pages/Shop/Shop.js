@@ -23,7 +23,6 @@ const Shop = () => {
   const [minPrice, setMinPrice] = useState(100);
   const [maxPrice, setMaxPrice] = useState(90000);
   const [page, setPage] = useState(0);
-  // const [size, setSize] = useState(selectedShowOption.value);
 
   const sortOptions = [
     { value: "popularity", label: "popularity" },
@@ -54,8 +53,6 @@ const Shop = () => {
     { id: 14, checked: false, label: "meat", value: "Meat" },
   ]);
 
-  // console.log(selectedShowOption.value);
-  // console.log(size);
   const {
     register,
     handleSubmit,
@@ -65,9 +62,7 @@ const Shop = () => {
   } = useForm();
   const inputSearch = watch("search");
 
-  const categoriesChecked = categories
-    .filter((item) => item.checked)
-    .map((item) => item.label.toLowerCase());
+  const categoriesChecked = categories.filter((item) => item.checked);
 
   useEffect(() => {
     (async () => {
@@ -97,7 +92,6 @@ const Shop = () => {
   }, [reload, page, selectedShowOption?.value, categoriesChecked.length]);
 
   // filter categories
-
   const handleChangeChecked = (id) => {
     const categoriesStateList = categories;
     const changeCheckedList = categoriesStateList.map((item) =>
@@ -124,7 +118,6 @@ const Shop = () => {
       );
 
       if (filterProduct.length) {
-        // setProducts(filterProduct);
         filterAllProducts = filterProduct;
       }
     }
@@ -159,7 +152,8 @@ const Shop = () => {
   if (!products) {
     // return <Loading />;
   }
-  // console.log(pathname);
+
+  console.log(products);
 
   return (
     <>

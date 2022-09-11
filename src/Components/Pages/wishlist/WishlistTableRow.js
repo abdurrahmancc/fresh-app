@@ -10,7 +10,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Td, Tr } from "react-super-responsive-table";
 import useAddCartProduct from "../../Hooks/useAddCartProduct";
-import { removeFromDb } from "../../Hooks/useFakeDB";
+import { removeFromDb, WishlistRemoveFromDb } from "../../Hooks/useFakeDB";
 
 const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
   const [handleAddToCartProduct] = useAddCartProduct();
@@ -19,7 +19,7 @@ const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
     try {
       const rest = wishProducts.filter((item) => item._id !== id);
       setWishProducts(rest);
-      removeFromDb(id);
+      WishlistRemoveFromDb(id);
     } catch (error) {
       toast.error(error.message, { id: "removeWish" });
     }
@@ -70,7 +70,7 @@ const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
         </Td>
         <Td className="text-xl font-semibold">${item?.price}</Td>
         <Td className="text-lg my-5 sm:my-0">
-          <div className=" sm:text-[1.2vw] lg:text-lg font-semibold py-5">
+          <div className=" text-center sm:text-[1.2vw] lg:text-lg font-semibold py-5">
             <span
               className={`rounded-sm capitalize sm:text-[1.2vw] lg:text-lg   py-1 ${
                 item?.stockStatus.includes("in stock")

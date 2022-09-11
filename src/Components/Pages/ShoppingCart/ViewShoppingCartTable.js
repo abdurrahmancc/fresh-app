@@ -23,7 +23,9 @@ const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
                 <Th className="font-bold text-start py-5 text-lg">Subtotal</Th>
                 <Th className="font-bold text-center py-5 text-lg">
                   {" "}
-                  <label htmlFor="CartDeleteModal">Remove All</label>
+                  <label htmlFor="CartDeleteModal" className="cursor-pointer">
+                    Remove All
+                  </label>
                 </Th>
               </Tr>
             </Thead>

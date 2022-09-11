@@ -30,7 +30,7 @@ const CheckoutTable = ({ cartProducts, onSubmit }) => {
                 <tr className="border border-slate-300">
                   <td className="pl-5 py-2">
                     <div className="flex gap-3 items-center text-gray-500">
-                      <img height={50} width={50} src={item?.images?.ImageURL1} alt="" />
+                      <img height={50} width={50} src={item?.productImages[0]} alt="" />
                       <span title={item?.productName.length >= 25 && item?.productName}>
                         {item?.productName.length >= 25
                           ? [

@@ -2,6 +2,7 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { Table, Tbody, Th, Thead, Tr } from "react-super-responsive-table";
 import useProducts from "../../Hooks/useProducts";
+import useWishlistProducts from "../../Hooks/useWishlistProducts";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
@@ -9,7 +10,7 @@ import WishlistDeleteModal from "./WishlistDeleteModal";
 import WishlistTableRow from "./WishlistTableRow";
 
 const Wishlist = () => {
-  const [wishProducts, setWishProducts] = useProducts();
+  const [wishProducts, setWishProducts] = useWishlistProducts();
 
   return (
     <>
@@ -34,7 +35,7 @@ const Wishlist = () => {
                     <Th className="font-bold text-start py-5 text-lg">Image</Th>
                     <Th className="font-bold text-start py-5 text-lg">Name</Th>
                     <Th className="font-bold text-start py-5 text-lg">Price</Th>
-                    <Th className="font-bold text-start py-5 text-lg">Stock Status</Th>
+                    <Th className="font-bold text-center py-5 text-lg ">Stock Status</Th>
                     <Th className="font-bold text-center py-5 text-lg">Action</Th>
                     <Th className="font-bold text-center py-5 text-lg">
                       <label htmlFor="wishlistDeleteModal">Remove All </label>
