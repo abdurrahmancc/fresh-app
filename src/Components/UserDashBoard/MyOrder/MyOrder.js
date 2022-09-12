@@ -15,7 +15,7 @@ const MyOrder = () => {
   const [myOrderModal, setMyOrderModal] = useState(null);
 
   const { data, isLoading } = useQuery("userOrders", () =>
-    axiosPrivet.get(`userOrder/${user?.email}`)
+    axiosPrivet.get(`order/userOrder/${user?.email}`)
   );
 
   if (loading || isLoading) {
@@ -27,12 +27,16 @@ const MyOrder = () => {
     <>
       {data?.data.length >= 1 ? (
         <div className="w-full">
-          <div className="m-5 dashboardBodyShadow rounded-lg">
-            <div className={`flex justify-between px-10 py-5 ${isLast ? "" : "border-b"}`}>
-              <h4 className="uppercase text-2xl font-bold">My Orders</h4>
+          <div className="m-5 dashboardBodyShadow rounded-lg lg:min-h-[80vh]">
+            <div
+              className={`flex bg-primary rounded-t-lg justify-between px-10 py-5 ${
+                isLast ? "" : "border-b"
+              }`}
+            >
+              <h4 className="text-3xl text-white font-semibold">My Orders</h4>
             </div>
-            <div className="px-10 pb-10">
-              <div className=" border">
+            <div className="p-10 ">
+              <div className="shadow-md border">
                 <Table className=" w-full">
                   {/* <!-- head --> */}
                   <Thead className="bg-primary">
@@ -44,7 +48,7 @@ const MyOrder = () => {
                       <Th className="font-bold text-start py-5 text-lg">Payment </Th>
                       <Th className="font-bold text-start py-5 text-lg">Status</Th>
                       <Th className="font-bold text-start py-5 text-lg">Transaction</Th>
-                      <Th className="font-bold text-start py-5 text-lg">Details</Th>
+                      <Th className="font-bold text-center py-5 text-lg">Details</Th>
                     </Tr>
                   </Thead>
                   <Tbody id="order_Table_Row" className="cursor-pointer rounded-none">

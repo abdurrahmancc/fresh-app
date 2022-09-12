@@ -114,7 +114,7 @@ const MyAccount = () => {
 
   return (
     <div className="w-full">
-      <div className="m-5  dashboardBodyShadow lg:min-h-[80vh] rounded-lg">
+      <div className="m-5 dashboardBodyShadow lg:min-h-[80vh] rounded-lg">
         <div className="flex bg-primary rounded-t-lg justify-between items-center w-full px-10 py-5 border-b">
           <h4 className="text-3xl text-white font-semibold">My Profile</h4>
           <div className="flex justify-between text-white items-center gap-2 cursor-pointer">
@@ -165,8 +165,14 @@ const MyAccount = () => {
                       />
                     </div>
                   ) : (
-                    <p className="text-lg text-primary font-semibold">
-                      {data?.data?.displayName ? data?.data?.displayName : "Update Your Name"}
+                    <p className="text-lg ">
+                      {data?.data?.displayName ? (
+                        <span className="text-primary font-semibold">
+                          {data?.data?.displayName}
+                        </span>
+                      ) : (
+                        <span className="text-error">Update Your Name</span>
+                      )}
                     </p>
                   )}
                 </div>

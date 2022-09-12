@@ -14,7 +14,7 @@ import { signOut } from "firebase/auth";
 import LoginModal from "../../Login/LoginModal";
 import Loading from "../../Loading";
 import "./BottomHeader.css";
-import { accessTokenName, removeCookie } from "../../../Hooks/useCookies";
+import { accessToken, removeCookie } from "../../../Hooks/useCookies";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const BottomHeader = () => {
@@ -27,7 +27,7 @@ const BottomHeader = () => {
   const handleSignOut = async () => {
     setIsLogin(!isLogin);
     signOut(auth);
-    removeCookie(accessTokenName);
+    removeCookie(accessToken);
   };
 
   // console.log(isLogin);

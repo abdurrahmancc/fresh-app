@@ -1,4 +1,5 @@
 import React from "react";
+import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table";
 
 const MyOrderDetailsModal = ({ myOrderModal }) => {
   let totalPrice;
@@ -13,6 +14,8 @@ const MyOrderDetailsModal = ({ myOrderModal }) => {
   Shipping = myOrderModal.length * Shipping;
   const tax = totalPrice * 0.05;
   let total = totalPrice + Shipping + tax;
+
+  console.log(myOrderModal);
   return (
     <>
       {/* <!-- The button to open modal --> */}
@@ -21,24 +24,24 @@ const MyOrderDetailsModal = ({ myOrderModal }) => {
       <input type="checkbox" id="myOrderDetails" className="modal-toggle" />
       <label htmlFor="myOrderDetails" className="modal cursor-pointer">
         <label className="modal-box relative p-2" htmlFor="">
-          <div className="w-full bg-base-200 p-5 rounded-2xl">
-            <table className=" w-full">
-              <thead>
-                <tr className="text-center relative left-7">
-                  <th className="text-2xl w-full pb-5 ">Details</th>
-                </tr>
-              </thead>
-              <tbody>
+          <div className="w-full p-5 rounded-2xl">
+            <Table className=" w-full">
+              <Thead>
+                <Tr className="text-center relative left-7">
+                  <Th className="text-2xl w-full pb-5 ">Details</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
                 {myOrderModal &&
                   myOrderModal.map((item) => (
-                    <tr className="border border-slate-300">
-                      <td className=" py-2">
+                    <Tr className="border border-slate-300">
+                      <Td className=" py-2">
                         <div className="flex gap-3 items-center text-gray-500">
                           <img
                             className="pl-2"
                             height={50}
                             width={50}
-                            src={item?.images?.ImageURL1}
+                            src={item?.productImages[0]}
                             alt=""
                           />
                           <span
@@ -52,35 +55,37 @@ const MyOrderDetailsModal = ({ myOrderModal }) => {
                                 ]
                               : item?.productName}
                           </span>
-                          <span className="flex gap-3 font-bold ">
+                          <span className="flex gap-3 font-semibold ">
                             <span>X</span>
                             <span>{item?.quantity}</span>
                           </span>
                         </div>
-                      </td>
-                      <td className="pr-5 text-lg text-gray-500 text-end">
-                        $ {item?.price * item?.quantity}
-                      </td>
-                    </tr>
+                      </Td>
+                      <Td className="pr-5 text-lg text-gray-500 text-end">
+                        ${item?.price * item?.quantity}
+                      </Td>
+                    </Tr>
                   ))}
-                <tr className="border-x border-slate-300">
-                  <td className="pl-5 py-2  font-bold">Subtotal</td>
-                  <td className="pr-5 text-lg text-end">${totalPrice}</td>
-                </tr>
-                <tr className="border-x border-slate-300 ">
-                  <td className="pl-5 py-2 font-bold">Shipping</td>
-                  <td className="pr-5 text-lg text-end">${Shipping}</td>
-                </tr>
-                <tr className="border-x border-slate-300 ">
-                  <td className="pl-5 py-2 font-bold">VAT 5%</td>
-                  <td className="pr-5 text-lg text-end">${tax.toFixed(2)}</td>
-                </tr>
-                <tr className="border border-slate-300 ">
-                  <td className="pl-5 py-2 text-2xl font-bold">Total</td>
-                  <td className="pr-5 text-lg font-bold text-end ">${total.toFixed(2)}</td>
-                </tr>
-              </tbody>
-            </table>
+                <Tr className="border-x border-slate-300">
+                  <Td className="pl-5 py-2  font-bold">Subtotal</Td>
+                  <Td className="pr-5 text-lg text-end">${totalPrice.toFixed(2)}</Td>
+                </Tr>
+                <Tr className="border-x border-slate-300 ">
+                  <Td className="pl-5 py-2 font-bold">Shipping</Td>
+                  <Td className="pr-5 text-lg text-end">${Shipping.toFixed(2)}</Td>
+                </Tr>
+                <Tr className="border-x border-slate-300 ">
+                  <Td className="pl-5 py-2 font-bold">VAT 5%</Td>
+                  <Td className="pr-5 text-lg text-end">${tax.toFixed(2)}</Td>
+                </Tr>
+                <Tr className="border border-slate-300 ">
+                  <Td className="pl-5 py-2 text-2xl font-bold">Total</Td>
+                  <Td className="pr-5 text-primary text-lg font-bold text-end ">
+                    ${total.toFixed(2)}
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
           </div>
         </label>
       </label>

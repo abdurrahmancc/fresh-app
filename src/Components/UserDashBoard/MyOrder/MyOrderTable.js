@@ -1,9 +1,17 @@
+import { format } from "date-fns";
 import React from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-const MyOrderTable = ({ order, index, setMyOrderModal, Td, Tr, Th }) => {
+const MyOrderTable = ({ order, index, setMyOrderModal, Td, Tr }) => {
   const navigate = useNavigate();
+  let orderDate;
+  if (order?.createdAt) {
+    orderDate = format(new Date(order?.createdAt), "PP");
+  }
+
+  const totalPrice = order?.totalPrice ? parseFloat(order?.totalPrice) : null;
+
   return (
     <>
       <Tr className="hover:bg-gray-100 border-b border-gray-300">
@@ -11,9 +19,9 @@ const MyOrderTable = ({ order, index, setMyOrderModal, Td, Tr, Th }) => {
         <Td>
           <span title={order?._id}>{order?._id.slice(0, 10)}...</span>
         </Td>
-        <Td>{order?.timeDate}</Td>
-        <Td>${order?.totalPrice}</Td>
-        <Td className=" ">
+        <Td>{orderDate && orderDate}</Td>
+        <Td>${totalPrice && totalPrice.toFixed(2)}</Td>
+        <Td>
           {order?.totalPrice && !order?.paid && (
             <span
               onClick={() => navigate(`/user-dashboard/payment/${order?._id}`)}

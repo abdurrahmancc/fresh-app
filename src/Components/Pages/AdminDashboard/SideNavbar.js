@@ -7,14 +7,14 @@ import { BiSearch, BiSearchAlt } from "react-icons/bi";
 import { signOut } from "firebase/auth";
 import auth from "../../Hooks/useAuthState";
 import AdminDashboardThemes from "./AdminDashboardThemes";
-import { accessTokenName, removeCookie } from "../../Hooks/useCookies";
+import { accessToken, removeCookie } from "../../Hooks/useCookies";
 
 const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen }) => {
   const [openSearch, setOpenSearch] = useState(false);
 
   const handleSignOut = () => {
     signOut(auth);
-    removeCookie(accessTokenName);
+    removeCookie(accessToken);
   };
   return (
     <div className="navbar bg-base-200 px-10">

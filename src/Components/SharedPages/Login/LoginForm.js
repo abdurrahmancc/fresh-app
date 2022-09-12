@@ -15,7 +15,7 @@ import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
-import { accessTokenName, getCookie } from "../../Hooks/useCookies";
+import { accessToken, getCookie } from "../../Hooks/useCookies";
 import useToken from "../../Hooks/useToken";
 import Loading from "../Loading";
 
@@ -42,7 +42,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     try {
       await signInWithEmailAndPassword(username, password);
       const { data: result } = await axiosPrivet.post("/login", info);
-      Cookies.set(accessTokenName, result.token);
+      Cookies.set(accessToken, result.token);
     } catch (error) {
       toast.error("login fail! please try again");
     }

@@ -17,7 +17,7 @@ import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
-import { accessTokenName } from "../../Hooks/useCookies";
+import { accessToken } from "../../Hooks/useCookies";
 import useToken from "../../Hooks/useToken";
 import Loading from "../Loading";
 
@@ -57,7 +57,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
       if (result.token) {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName });
-        Cookies.set(accessTokenName, result.token);
+        Cookies.set(accessToken, result.token);
         toast.success("check email and please verify");
       }
       // console.log(result);

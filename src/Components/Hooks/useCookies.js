@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import axiosPrivet from "./axiosPrivet";
 
-export const accessTokenName = "client_accessToken";
+export const accessToken = "client_accessToken";
 
 // set cookie
 export const setCookie = (cookieName, value) => {
@@ -20,7 +20,6 @@ export const getCookie = (cookieName) => {
 
 //remove cookie
 export const removeCookie = async (cookieName) => {
-  await axiosPrivet.delete("/login");
-  // console.log(data);
+  await axiosPrivet.delete("login");
   Cookies.remove(cookieName);
 };

@@ -4,18 +4,18 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axiosPrivet from "./axiosPrivet";
 import auth from "./useAuthState";
-import { accessTokenName, getCookie } from "./useCookies";
+import { accessToken, getCookie } from "./useCookies";
 
 const useToken = (user) => {
   const [tokenLoading, setTokenLoading] = useState(false);
   const [token, setToken] = useState(false);
-  const accessToken = getCookie(accessTokenName);
+  // const accesstoken = getCookie(accessToken);
   const email = user?.email || user?.user?.email;
 
   // useEffect(() => {
   //   (async () => {
   //     if (email) {
-  //       const cookieToken = getCookie(accessTokenName);
+  //       const cookieToken = getCookie(accessToken);
   //       setToken(cookieToken);
   //     } else {
   //       setTokenLoading(false);

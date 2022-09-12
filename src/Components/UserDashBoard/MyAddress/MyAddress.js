@@ -22,9 +22,9 @@ const MyAddress = () => {
   return (
     <div className=" w-full">
       <div className="m-5 dashboardBodyShadow lg:min-h-[80vh] rounded-lg ">
-        <div className="flex justify-between items-center w-full px-10 py-5 border-b">
-          <h4 className="text-3xl font-semibold">My Profile</h4>
-          <div className="flex justify-between items-center gap-2 cursor-pointer">
+        <div className="flex bg-primary rounded-t-lg justify-between items-center w-full px-10 py-5 border-b">
+          <h4 className="text-3xl text-white font-semibold">My Profile</h4>
+          <div className="flex text-white justify-between items-center gap-2 cursor-pointer">
             <span> Edit</span>
             <span>
               <FaEdit />

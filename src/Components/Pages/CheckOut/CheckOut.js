@@ -13,24 +13,19 @@ import BillingDetailsForm from "./BillingDetailsForm";
 import CheckoutTable from "./CheckoutTable";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import CheckOutCreateAccount from "./CheckOutCreateAccount";
+import Loading from "../../SharedPages/Loading";
 
 const CheckOut = () => {
   const [cartProducts, setCartProducts] = useProducts();
   const [user, loading] = useAuthState(auth);
   const [product, setProduct] = useState([]);
-  const [fullDate] = useState(new Date());
-  const timeDate = format(fullDate, "MMMM d, yyyy h:mm aa");
-  const date = format(fullDate, "MMMM d, yyyy");
-  const formattedDate = format(fullDate, "PP");
   const { id } = useParams();
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    watch,
     reset,
-    setError,
     formState: { errors },
   } = useForm();
 
@@ -49,9 +44,9 @@ const CheckOut = () => {
     })();
   }, [id]);
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   let totalPrice;
   let Shipping = 15;
@@ -78,13 +73,8 @@ const CheckOut = () => {
     } else {
       itemInfo = cartProducts;
     }
-
-    data.date = date;
-    data.timeDate = timeDate;
     data.userEmail = user?.email;
     data.photoURL = user?.photoURL;
-    data.dateAndCountry = fullDate;
-    data.formattedDate = formattedDate;
     data.orderInfo = itemInfo;
     data.totalPrice = total;
 
@@ -118,7 +108,7 @@ const CheckOut = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-10 gap-y-10">
               <div className="">
-                <h5 className="bg-primary text-lg font-bold pl-5 py-2 text-neutral">
+                <h5 className="bg-primary text-lg font-semibold pl-5 py-3 text-neutral">
                   BILLING DETAILS
                 </h5>
                 <div className="mt-10">
@@ -126,7 +116,9 @@ const CheckOut = () => {
                 </div>
               </div>
               <div className="">
-                <h5 className="bg-primary  text-lg font-bold pl-5 py-2 text-neutral">YOUR ORDER</h5>
+                <h5 className="bg-primary  text-lg font-semibold pl-5 py-3 text-neutral">
+                  YOUR ORDER
+                </h5>
                 <div className="mt-10">
                   {id ? (
                     <CheckoutTable cartProducts={product} onSubmit={onSubmit} />

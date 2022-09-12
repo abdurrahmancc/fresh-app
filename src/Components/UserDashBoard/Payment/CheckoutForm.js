@@ -5,6 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Hooks/useAuthState";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import Loading from "../../SharedPages/Loading";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ id, price, userEmail, firstName }) => {
   const [user, loading] = useAuthState(auth);
@@ -16,11 +18,12 @@ const CheckoutForm = ({ id, price, userEmail, firstName }) => {
   const [processing, setProcessing] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
   const [transactionId, setTransactionId] = useState("");
 
   useEffect(() => {
     (async () => {
-      const { data } = await axiosPrivet.post("create-payment-intent", { price: price });
+      const { data } = await axiosPrivet.post("payment/create-payment-intent", { price: price });
       if (data.clientSecret) {
         setClientSecret(data?.clientSecret);
       }
@@ -30,6 +33,11 @@ const CheckoutForm = ({ id, price, userEmail, firstName }) => {
   if (loading) {
     return <Loading />;
   }
+
+  if (!id) {
+    navigate("/");
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -80,9 +88,10 @@ const CheckoutForm = ({ id, price, userEmail, firstName }) => {
         email: user?.email,
       };
 
-      const { data } = await axiosPrivet.patch(`order/${id}`, payment);
-      console.log(data);
+      await axiosPrivet.patch(`payment/${id}`, payment);
       setProcessing(false);
+      toast.success("Payment Success", { id: "payment-success" });
+      navigate("user-dashboard/my-order");
     }
   };
   return (
@@ -104,19 +113,21 @@ const CheckoutForm = ({ id, price, userEmail, firstName }) => {
             },
           }}
         />
+
         <button
-          className="btn btn-primary btn-sm text-neutral mt-5"
+          className="btn px-4 rounded btn-primary btn-sm text-neutral mt-[21px]"
           type="submit"
           disabled={!stripe || !clientSecret || success}
         >
           Pay
         </button>
       </form>
+      {processing && <p className="text-success label-text-alt font-semibold">Loading...</p>}
       {cardError && <p className="text-red-500 label-text-alt"> {cardError}</p>}
       {success && (
         <div>
           <p>{success}</p>
-          <p className="text-success label-text-alt font-bold">{transactionId}</p>
+          <p className="text-success label-text-alt font-semibold">{transactionId}</p>
         </div>
       )}
     </>

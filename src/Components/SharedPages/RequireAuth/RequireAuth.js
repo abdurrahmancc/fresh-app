@@ -3,7 +3,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useLocation, Outlet, Navigate } from "react-router-dom";
 import auth from "../../Hooks/useAuthState";
-import { accessTokenName, removeCookie } from "../../Hooks/useCookies";
+import { accessToken, removeCookie } from "../../Hooks/useCookies";
 import useToken from "../../Hooks/useToken";
 import Loading from "../Loading";
 
@@ -14,7 +14,7 @@ const RequireAuth = () => {
 
   const handleSignOut = () => {
     signOut(auth);
-    removeCookie(accessTokenName);
+    removeCookie(accessToken);
   };
 
   if (loading) {
