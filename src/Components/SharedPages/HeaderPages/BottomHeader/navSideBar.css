@@ -1,0 +1,45 @@
+/* #navToggle{
+    position: relative;
+    top: 0px;
+    right: 60px;
+    height: 60px;
+    width: 60px;
+    background-color: #17B0FF;
+    cursor: pointer;
+    text-align: center;
+} */
+#navToggle::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    width: 28px;
+    height: 2px;
+    background: #fff ;
+    transform: translateY(5px);
+    transition: 0.2s; 
+}
+#navToggle::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background: #fff ;
+    transform: translateY(-5px);
+    transition: 0.2s;
+}
+
+
+#sidebarSubMenu span{
+    font-size: 15px;
+    line-height: 35px;
+    color: #444;
+}
+#sidebarSubMenu .Collapsible__trigger{
+    font-size: 15px;
+    padding: 0;
+    line-height: 35px;
+    font-weight: 700;
+}
+

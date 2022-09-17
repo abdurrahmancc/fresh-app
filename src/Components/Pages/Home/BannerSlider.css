@@ -1,3 +1,24 @@
+@media screen and (min-width: 1550px ) {
+    .banner-Slider-3 {
+        margin-left: 384px;
+    }
+}
+@media screen and (max-width: 500px ) {
+    .banner-Slider-3 {
+        margin-left: 100px;
+    }
+    .banner-Slider-title-3 {
+        font-size: 24px;
+    }
+    .banner-Slider-title-2 {
+        font-size: 24px;
+    }
+    .banner-Slider-3 .short-description{
+        display: none;
+    }
+   
+}
+
 
 .banner-title , .banner-title-2{
     /* font-size: 60px; */
@@ -5,13 +26,13 @@
     position: relative;
     color: transparent;
   }
-  
+
   .banner-title::before{
     content: 'Get Fresh Organic';
     position: absolute;
     top: 0;
     left: 0;
-    color: white;
+    color: black;
     animation: typing-1 10s linear infinite;
   }
   
@@ -20,7 +41,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    color: white;
+    color: black;
     animation: typing-2 10s linear infinite;
   }
   

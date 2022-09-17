@@ -111,12 +111,14 @@ const Shop = () => {
     const categoriesChecked = categories
       .filter((item) => item.checked)
       .map((item) => item.label.toLowerCase());
-
+    console.log(categoriesChecked);
     if (categoriesChecked.length) {
-      filterProduct = filterAllProducts.filter((item) =>
-        categoriesChecked.includes(item.category.toLowerCase())
-      );
-
+      // filterProduct = filterAllProducts.filter((item) =>
+      //   categoriesChecked.includes(item.category.toLowerCase())
+      /*   filterProduct = filterAllProducts.filter((item) =>
+        categoriesChecked.map((c) => item.category.includes(c))
+      ); */
+      console.log(filterProduct);
       if (filterProduct.length) {
         filterAllProducts = filterProduct;
       }

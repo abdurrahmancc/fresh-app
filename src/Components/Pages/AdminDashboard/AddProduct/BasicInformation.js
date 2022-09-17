@@ -1,6 +1,19 @@
 import React from "react";
+import { useState } from "react";
+import Select from "react-select";
+import { categoryOptions, dimensionsOptions, stockStatusOptions } from "./dashboardSelectorOptions";
+import { selectCategoryStyle, selectStockStatusStyle } from "./selectorStyle";
 
-const BasicInformation = ({ register, errors }) => {
+const BasicInformation = ({
+  register,
+  errors,
+  selectedCategory,
+  setSelectedCategory,
+  setSelectedDimensions,
+  setSelectedStockStatus,
+}) => {
+  const [data, setData] = useState(null);
+  console.log(data);
   return (
     <>
       <div className="grid sm:grid-cols-2 grid-cols-1 gap-10">
@@ -25,8 +38,9 @@ const BasicInformation = ({ register, errors }) => {
               </span>
             )}
           </div>
-          {/* Manufacturer Name */}
+          {/* Manufacturer  */}
           <div className="grid lg:grid-cols-2 lg:gap-2">
+            {/* by */}
             <div className="form-control pb-4">
               <label htmlFor="by" className="label">
                 <span className="label-text text-xs">By</span>
@@ -44,22 +58,22 @@ const BasicInformation = ({ register, errors }) => {
                 <span className="label-text-alt text-red-500 text-xs">{errors.by?.message}</span>
               )}
             </div>
-            {/* SKU */}
+            {/* Manufacturer Brand */}
             <div className="form-control pb-4">
-              <label htmlFor="SKU" className="label">
-                <span className="label-text text-xs">SKU</span>
+              <label htmlFor="brand" className="label">
+                <span className="label-text text-xs"> Brand</span>
               </label>
               <input
-                id="SKU"
+                id="brand"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("SKU", {
-                  required: { value: true, message: "Manufacturer Name is require" },
+                {...register("brand", {
+                  required: { value: true, message: " Brand name is require" },
                 })}
               />
-              {errors.SKU?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">{errors.SKU?.message}</span>
+              {errors.brand?.type === "required" && (
+                <span className="label-text-alt text-red-500 text-xs">{errors.brand?.message}</span>
               )}
             </div>
           </div>
@@ -138,111 +152,136 @@ const BasicInformation = ({ register, errors }) => {
               )}
             </div>
           </div>
-        </div>
-        <div>
           <div className="grid lg:grid-cols-2 lg:gap-2">
-            {/* Category */}
-            <div className="form-control pb-4 ">
-              <label htmlFor="category" className="label">
-                <span className="label-text text-xs">Category</span>
-              </label>
-              <select
-                id="category"
-                className="select select-bordered w-full"
-                {...register("category", {
-                  required: { value: true, message: "Category is require" },
-                })}
-              >
-                <option disabled selected hidden value="">
-                  --Select--
-                </option>
-                {/* <option disabled selected value="">
-                --Select--
-              </option> */}
-                <option value={"grocery&Frozen"}>Grocery & Frozen</option>
-                <option value={"freshVegetable"}>Fresh Vegetable</option>
-                <option value={"freshFruits"}>Fresh Fruits</option>
-                <option value={"fruitJuices"}>Fruit Juices</option>
-                <option value={"salads"}>Salads</option>
-                <option value={"freshMeat"}>Fresh Meat</option>
-                <option value={"butter&Egg"}>Butter & Egg</option>
-                <option value={"milkCream"}>Milk Cream</option>
-                <option value={"oil&Vinegars"}>Oil & Vinegars</option>
-                <option value={"bread&Bakery"}>Bread & Bakery</option>
-                <option value={"snacksItem"}>Snacks Item</option>
-                <option value={"meat"}>Meat</option>
-              </select>
-              {errors?.category && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.category?.message}
-                </span>
-              )}
-            </div>
-            {/* stock Status */}
-            <div className="form-control pb-4 ">
-              <label htmlFor="stockStatus" className="label">
-                <span className="label-text text-xs">Stock Status</span>
-              </label>
-              <select
-                id="stockStatus"
-                className="select select-bordered w-full"
-                {...register("stockStatus", {
-                  required: { value: true, message: "Category is require" },
-                })}
-              >
-                <option selected value={"in stock"}>
-                  in stock
-                </option>
-                <option value={"out of stock"}>out of stock</option>
-              </select>
-              {errors?.stockStatus && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.stockStatus?.message}
-                </span>
-              )}
-            </div>
-          </div>
-          <div className="grid lg:grid-cols-2 lg:gap-2">
-            {/* Manufacturer Brand */}
+            {/* SKU */}
             <div className="form-control pb-4">
-              <label htmlFor="brand" className="label">
-                <span className="label-text text-xs"> Brand</span>
+              <label htmlFor="SKU" className="label">
+                <span className="label-text text-xs">SKU</span>
               </label>
               <input
-                id="brand"
+                id="SKU"
                 type="text"
                 placeholder=""
                 className="input input-bordered"
-                {...register("brand", {
-                  required: { value: true, message: " Brand name is require" },
+                {...register("SKU", {
+                  required: { value: true, message: "Manufacturer Name is require" },
                 })}
               />
-              {errors.brand?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">{errors.brand?.message}</span>
+              {errors.SKU?.type === "required" && (
+                <span className="label-text-alt text-red-500 text-xs">{errors.SKU?.message}</span>
               )}
             </div>
-            {/* dimensions */}
-            <div className="form-control pb-4 ">
-              <label htmlFor="dimensions" className="label">
-                <span className="label-text text-xs">dimensions</span>
+            {/* Product Badges */}
+            <div className="form-control pb-4 w-full">
+              <label htmlFor="productBadges" className="label">
+                <span className="label-text text-xs ">Product Badges</span>
               </label>
-              <select
-                id="dimensions"
-                className="select select-bordered w-full"
-                {...register("dimensions", {
-                  required: { value: true, message: "Category is require" },
+              <input
+                id="productBadges"
+                type="text"
+                placeholder=""
+                className="input input-bordered"
+                {...register("productBadges")}
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="form-control pb-4">
+            <label htmlFor="brand" className="label">
+              <span className="label-text text-xs">Category</span>
+            </label>
+            <Select
+              closeMenuOnSelect={false}
+              // defaultValue={[options[0], options[1]]}
+              isMulti
+              value={selectedCategory}
+              onChange={setSelectedCategory}
+              options={categoryOptions}
+              styles={selectCategoryStyle}
+              // placeholder={"Select Categories"} or
+              placeholder={<div className="text-sm">--Select category--</div>}
+              theme={(theme) => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                  ...theme.colors,
+                  primary25: "#556EE6" /* options hover background color */,
+                  neutral50: "none" /* placeholder text color */,
+                  neutral80: "none" /* input & selected text color */,
+                  neutral0: "#2A3041" /* menu background color */,
+                  neutral20: "#8F9BBB" /* remove & dropdownIndicator color */,
+                  // primary75: "black",
+                  danger: "gray" /* hover remove color */,
+                  // neutral5: "red",
+                  // primary: "red",
+                  // neutral30: "red",
+                  neutral60: "none" /* focus remove & dropdownIndicator color */,
+                  // neutral90: "red",
+                  primary50: "none" /* option active background color */,
+                  dangerLight: "none" /* remove color */,
+                  neutral10: "none" /* selected background color */,
+                  neutral40: "gray" /* hover remove & dropdownIndicator color */,
+                  neutral70: "red",
+                },
+              })}
+            />
+          </div>
+          <div className="grid lg:grid-cols-2 lg:gap-2">
+            <div className="form-control pb-4">
+              <label htmlFor="stockStatus" className="label">
+                <span className="label-text text-xs">Stock Status</span>
+              </label>
+              <Select
+                closeMenuOnSelect={true}
+                defaultValue={stockStatusOptions[0]}
+                onChange={setData}
+                options={stockStatusOptions}
+                styles={selectStockStatusStyle}
+                theme={(theme) => ({
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                    ...theme.colors,
+                    primary25: "#556EE6" /* options hover background color */,
+                    neutral50: "none" /* placeholder text color */,
+                    neutral80: "none" /* input & selected text color */,
+                    neutral0: "#2A3041" /* menu background color */,
+                    neutral20: "#8F9BBB" /* remove & dropdownIndicator color */,
+                    primary: "white" /* selected background color */,
+                    primary50: "none" /* option active background color */,
+                    neutral40: "gray" /* hover remove & dropdownIndicator color */,
+                  },
                 })}
-              >
-                <option selected value={"N/A"}>
-                  N/A
-                </option>
-                <option value={"Yes"}>Yes</option>
-              </select>
-              {errors?.dimensions && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.dimensions?.message}
-                </span>
-              )}
+              />
+            </div>
+            {/* dimensions */}
+            <div className="form-control pb-4">
+              <label htmlFor="stockStatus" className="label">
+                <span className="label-text text-xs">Dimensions</span>
+              </label>
+              <Select
+                closeMenuOnSelect={true}
+                defaultValue={dimensionsOptions[0]}
+                onChange={setSelectedDimensions}
+                options={dimensionsOptions}
+                styles={selectStockStatusStyle}
+                theme={(theme) => ({
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                    ...theme.colors,
+                    primary25: "#556EE6" /* options hover background color */,
+                    neutral50: "none" /* placeholder text color */,
+                    neutral80: "none" /* input & selected text color */,
+                    neutral0: "#2A3041" /* menu background color */,
+                    neutral20: "#8F9BBB" /* remove & dropdownIndicator color */,
+                    primary: "white" /* selected background color */,
+                    primary50: "none" /* option active background color */,
+                    neutral40: "gray" /* hover remove & dropdownIndicator color */,
+                  },
+                })}
+              />
             </div>
           </div>
           {/* Product Description */}
@@ -252,7 +291,7 @@ const BasicInformation = ({ register, errors }) => {
             </label>
             <textarea
               id="productDescription"
-              className="textarea textarea-bordered h-[150px]"
+              className="textarea textarea-bordered h-[240px]"
               placeholder=""
               {...register("productDescription", {
                 required: { value: true, message: "Product Description is require" },

@@ -8,24 +8,65 @@ import DetailsInformation from "./DetailsInformation";
 import { imgUpload } from "../../../api/api";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 import Breadcrumb from "../../../SharedPages/Breadcrumb";
+import { dimensionsOptions, stockStatusOptions } from "./dashboardSelectorOptions";
 
 const AddProduct = () => {
   const [uploadAImage, setUploadAImage] = useState(true);
   const [imageUrl, setImageUrl] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedStockStatus, setSelectedStockStatus] = useState(stockStatusOptions[0]);
+  const [selectedDimensions, setSelectedDimensions] = useState(dimensionsOptions[0]);
+  const [selectedColors, setSelectedColors] = useState(null);
+  const [selectedWeight, setSelectedWeight] = useState(null);
   const [multipleImageUrl, setMultipleImageUrl] = useState(false);
+
   const {
     register,
     handleSubmit,
     watch,
     reset,
-    setError,
     formState: { errors },
   } = useForm();
 
-  const selectCategory = watch("uploadImage");
+  // const selectCategory = watch("uploadImage");
 
-  console.log(selectCategory);
+  /* selected Category values*/
+  let categories = [];
+  if (selectedCategory) {
+    for (let category of selectedCategory) {
+      categories = [...categories, category.value];
+    }
+  }
 
+  /* selected Dimensions  values*/
+  let dimensions;
+  if (selectedDimensions) {
+    dimensions = selectedDimensions.value;
+  }
+
+  /* selected Stock status  values*/
+  let stockStatus;
+  if (selectedStockStatus) {
+    stockStatus = selectedStockStatus.value;
+  }
+
+  /* selected colors  values*/
+  let colors = [];
+  if (selectedColors) {
+    for (let color of selectedColors) {
+      colors = [...colors, color.value];
+    }
+  }
+
+  /* selected weight  values*/
+  let weight = [];
+  if (selectedWeight) {
+    for (let selectWeight of selectedWeight) {
+      weight = [...weight, selectWeight.value];
+    }
+  }
+
+  /* submit product */
   const onSubmit = async (data) => {
     let images = [];
     if (uploadAImage) {
@@ -51,29 +92,34 @@ const AddProduct = () => {
       quantity: data.quantity,
       productCode: data.productCode,
       SKU: data.SKU,
-      category: data.category,
+      category: categories,
       brand: data.brand,
       productDescription: data.productDescription,
       reviewQuantity: data.reviewQuantity,
-      colors: [data.colors],
-      weight: [data.weight],
+      colors: colors,
+      weight: weight,
       metaData: {
         metaKeyword: data.metaKeywords,
         metaTitle: data.metaTitle,
         metaDescription: data.metaDescription,
       },
-      stockStatus: data.stockStatus,
-      dimensions: data.dimensions,
+      stockStatus: stockStatus,
+      dimensions: dimensions,
       productImages: images,
       productBadges: data.productBadges,
     };
-    console.log(images);
+    // console.log(images);
+
     if (images[0]) {
       try {
         const { data: result } = await axiosPrivet.post("product/add-product", inputInfo);
         toast.success(result.message, { id: "success-add-product" });
-        // console.log(result);
         reset();
+        setSelectedWeight([]);
+        setSelectedColors([]);
+        setSelectedDimensions([]);
+        setSelectedStockStatus([]);
+        setSelectedCategory([]);
       } catch (error) {
         // console.log(error);
         toast.error(error?.response?.data?.errors?.common?.msg, { id: "add-product-error" });
@@ -109,8 +155,7 @@ const AddProduct = () => {
     watch,
     reset,
   };
-  // console.log(selectCategory);
-  // console.log(uploadAImage, imageUrl, multipleImageUrl);
+
   return (
     <>
       <div className="p-10 w-full ">
@@ -130,11 +175,24 @@ const AddProduct = () => {
                 <h4 className="capitalize text-xl font-bold ">basic information</h4>
                 <span className="text-xs ">Fill all information below</span>
               </div>
-              <BasicInformation register={register} errors={errors} />
+              <BasicInformation
+                register={register}
+                errors={errors}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                setSelectedStockStatus={setSelectedStockStatus}
+                setSelectedDimensions={setSelectedDimensions}
+              />
             </div>
             {/* Computer component */}
             <div className="pt-5">
-              <DetailsInformation register={register} errors={errors} />
+              <DetailsInformation
+                register={register}
+                selectedColors={selectedColors}
+                selectedWeight={selectedWeight}
+                setSelectedColors={setSelectedColors}
+                setSelectedWeight={setSelectedWeight}
+              />
             </div>
             {/* Product Images */}
             <div className="py-5">

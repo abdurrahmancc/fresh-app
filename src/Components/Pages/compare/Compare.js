@@ -172,12 +172,12 @@ const Compare = () => {
                             <div className="text-center sm:text-[1.2vw] lg:text-lg font-semibold py-5">
                               <span
                                 className={`rounded-sm capitalize sm:text-[1.2vw] lg:text-lg  px-3 py-1 ${
-                                  product?.stockStatus.includes("in stock")
+                                  product.stockStatus && product?.stockStatus.includes("in stock")
                                     ? "text-[#3BB788] bg-[#DEF9EC]"
                                     : "bg-[#FDE0E9] text-[#F74B88]"
                                 }`}
                               >
-                                {product?.stockStatus.includes("in stock")
+                                {product.stockStatus && product?.stockStatus.includes("in stock")
                                   ? product?.stockStatus
                                   : "out stock"}
                               </span>

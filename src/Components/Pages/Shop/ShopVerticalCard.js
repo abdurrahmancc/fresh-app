@@ -91,9 +91,6 @@ const ShopVerticalCard = ({
           </div>
         </div>
         <div className="card-body pt-2 pb-5 items-center text-center">
-          <div>
-            <span className="capitalize opacity-75">By: {item?.productCode}</span>
-          </div>
           <Link to={`/product-details/${item?._id}`}>
             <h2 title={item?.productName} className="card-title pb-2 capitalize">
               {item?.productName.length >= 35
@@ -116,11 +113,6 @@ const ShopVerticalCard = ({
             >
               <MdAddShoppingCart /> Add to cart
             </button>
-          </div>
-          <div>
-            <span className="text-error capitalize">
-              {item?.stockStatus.includes("in stock") ? item?.stockStatus : "out stock"}
-            </span>
           </div>
         </div>
       </div>

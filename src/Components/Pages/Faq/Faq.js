@@ -168,11 +168,7 @@ const Faq = () => {
               <Collapsible
                 className="w-full"
                 open={true}
-                trigger={[
-                  `1. Lorem ipsum dolor sit amet?
-`,
-                  <BsChevronDown />,
-                ]}
+                trigger={[`1. Lorem ipsum dolor sit amet?`, <BsChevronDown />]}
               >
                 <div className="p-5 border-t border-gray-200">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis impedit ea ullam

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
 import { GrMail } from "react-icons/gr";
-import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaShippingFast } from "react-icons/fa";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { TbWorld } from "react-icons/tb";
@@ -34,22 +34,22 @@ const TopHeader = () => {
           <div className="hidden lg:block">
             <nav>
               <ul id="vertical-line1" className="flex justify-start items-center gap-5">
-                <li className="">
+                <li>
                   <Link to="#" className="flex items-center px-2 gap-1 pl-0">
                     <IoLocationOutline />
-                    <span className="">Location</span>
+                    <span>Location</span>
                   </Link>
                 </li>
-                <li className="">
+                <li>
                   <span className="flex items-center px-2 gap-1 vertical-line">
-                    <GrMail />
-                    <span className="">Info@fresh.com</span>
+                    <AiOutlineMail />
+                    <span>Info@fresh.com</span>
                   </span>
                 </li>
-                <li className="">
+                <li>
                   <Link to="#" className="flex items-center px-2 gap-1 vertical-line13">
                     <AiOutlineQuestionCircle />
-                    <span className="">Free Query</span>
+                    <span>Free Query</span>
                   </Link>
                 </li>
               </ul>
@@ -63,17 +63,17 @@ const TopHeader = () => {
               >
                 <li /* className="pr-5 border-r border-gray-400" */>
                   <Link to="#" className="flex px-2 items-center gap-1">
-                    <span className="">
-                      <FaShippingFast />
+                    <span>
+                      <FaShippingFast className="opacity-80" />
                     </span>
-                    <span className=""> Order Tracking</span>
+                    <span> Order Tracking</span>
                   </Link>
                 </li>
                 <li /* className="pr-5 border-r border-gray-400" */>
                   <span className="flex px-2 rounded-md items-center gap-1 vertical-line">
-                    <TbWorld className="" />
+                    <TbWorld className="opacity-80" />
 
-                    <span className="">
+                    <span>
                       <Select
                         styles={topHeaderSelectLibraryStyle}
                         id="top-header-select-component"
@@ -86,10 +86,10 @@ const TopHeader = () => {
                   </span>
                 </li>
                 <li>
-                  <Link to="#" className="flex rounded-md px-2 items-center gap-1 vertical-line">
-                    <BsCurrencyDollar className="" />
+                  <Link to="#" className="flex rounded-md px-2 items-center  vertical-line">
+                    <BsCurrencyDollar />
 
-                    <span className="">
+                    <span>
                       <Select
                         styles={topHeaderSelectLibraryStyle}
                         id="top-header-select-component"

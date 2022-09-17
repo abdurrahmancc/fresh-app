@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "../../../../assets/logo/logo.png";
+import logo from "../../../../assets/logo/logo-1.png";
 import { Link } from "react-router-dom";
-import { BsArrowLeftRight, BsHeadphones } from "react-icons/bs";
+import { BsArrowLeftRight } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
 import { MdAddShoppingCart } from "react-icons/md";
 import Select from "react-select";
@@ -11,9 +11,18 @@ import { BiSearchAlt } from "react-icons/bi";
 const MiddleHeader = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "chocolate", label: "Grocery & Frozen" },
+    { value: "strawberry", label: "Fresh Vegetable" },
+    { value: "vanilla", label: "Fresh Fruits" },
+    { value: "vanilla", label: "Fruit Juices" },
+    { value: "vanilla", label: "Salads" },
+    { value: "vanilla", label: "Fresh Meat" },
+    { value: "vanilla", label: "Butter & Egg" },
+    { value: "vanilla", label: "Milk Cream" },
+    { value: "vanilla", label: "Oil & Vinegars" },
+    { value: "vanilla", label: "Bread & Bakery" },
+    { value: "vanilla", label: "Snacks Item" },
+    { value: "vanilla", label: "Meat" },
   ];
 
   return (
@@ -26,17 +35,6 @@ const MiddleHeader = () => {
               <Link to="/" className="max-h-[60px] pl-0">
                 <img className="w-[10vw] lg:w-[100px]  max-w-[150px]" src={logo} alt="logo" />
               </Link>
-              <div className="lg:flex items-center gap-2 hidden">
-                <div>
-                  <span>
-                    <BsHeadphones className="text-5xl text-gray-600" />
-                  </span>
-                </div>
-                <div className="flex flex-col text-black">
-                  <span className="text-lg">33-434-5455</span>
-                  <span className="text-xs">Free Call Support</span>
-                </div>
-              </div>
             </div>
             {/*----- category search from start ------*/}
             <div className="navbar-center border h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
@@ -63,7 +61,7 @@ const MiddleHeader = () => {
                       <BiSearchAlt className="text-2xl text-neutral" />
                     </button>
                     <input
-                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-12  rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
+                      className="placeholder:italic placeholder:text-slate-500 block bg-white w-full h-12  rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
                       placeholder="Search for items..."
                       type="text"
                       name="search"
@@ -76,7 +74,7 @@ const MiddleHeader = () => {
             <div className="navbar-end ">
               <ul className="flex items-center lg:pl-0  pl-4 xl:gap-8 md:gap-4 gap-2 justify-end ">
                 <li>
-                  <div className="indicator">
+                  <div title="compare" className="indicator">
                     <Link
                       to={"/shop-compare"}
                       className="lg:p-3 p-2 rounded-full bg-primary text-white"
@@ -89,7 +87,7 @@ const MiddleHeader = () => {
                   </div>
                 </li>
                 <li>
-                  <div className="indicator">
+                  <div title="wishlist" className="indicator">
                     <Link
                       to={"/wishlist"}
                       className="lg:p-3 p-2 rounded-full bg-primary text-white"
@@ -102,7 +100,7 @@ const MiddleHeader = () => {
                   </div>
                 </li>
                 <li>
-                  <div className="indicator">
+                  <div title="cart" className="indicator">
                     <Link
                       to={"/shopping-cart"}
                       className="lg:p-3 p-2  rounded-full bg-primary text-white"

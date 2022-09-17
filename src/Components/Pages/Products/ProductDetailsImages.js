@@ -9,7 +9,9 @@ const ProductDetailsImages = ({ data }) => {
   const [img, setImg] = useState(null);
 
   useEffect(() => {
-    setImg(data?.productImages[0]);
+    if (data?.productImages) {
+      setImg(data?.productImages[0]);
+    }
   }, [data?.productImages]);
   const hoverHandler = (image, i) => {
     setImg(image);
@@ -30,32 +32,33 @@ const ProductDetailsImages = ({ data }) => {
   return (
     <>
       <div className="flex justify-center">
-        {data?.productImages[0] && (
+        {data?.productImages && data?.productImages[0] && (
           <figure className="shadow">
             <img width="540px" className=" h-auto" src={img} alt="" />
           </figure>
         )}
       </div>
       <div className="mt-10 flex justify-center max-w-[540px] mx-auto gap-x-4">
-        {data?.productImages.map((image, i) => (
-          <div
-            className={
-              i === 0
-                ? "w-[127px] h-auto cursor-pointer border active-image"
-                : "w-[127px] h-auto cursor-pointer border border-gray-300"
-            }
-            key={i}
-            onMouseOver={() => hoverHandler(image, i)}
-            ref={addRefs}
-          >
-            <figure className="">
-              <label htmlFor={`image${i}`} className="">
-                <img width="127px" className=" h-auto" src={image} alt="" />
-              </label>
-            </figure>
-            <ProductsImagesModal modal={`image${i}`} img={image} />
-          </div>
-        ))}
+        {data?.productImages &&
+          data?.productImages.map((image, i) => (
+            <div
+              className={
+                i === 0
+                  ? "w-[127px] h-auto cursor-pointer border active-image"
+                  : "w-[127px] h-auto cursor-pointer border border-gray-300"
+              }
+              key={i}
+              onMouseOver={() => hoverHandler(image, i)}
+              ref={addRefs}
+            >
+              <figure className="">
+                <label htmlFor={`image${i}`} className="">
+                  <img width="127px" className=" h-auto" src={image} alt="" />
+                </label>
+              </figure>
+              <ProductsImagesModal modal={`image${i}`} img={image} />
+            </div>
+          ))}
       </div>
     </>
   );

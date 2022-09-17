@@ -1,0 +1,25 @@
+
+.category-subMenu-slide {
+  clear:both;
+  width:100%;
+  height:0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height .4s ease;
+}
+
+#touch-category {position: absolute; opacity: 0; height: 0px;}    
+
+#touch-category:checked + .category-subMenu-slide {height: 636px;} 
+
+
+#header-categories-dropdown ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+#header-categories-dropdown ul:hover {
+    overflow: visible;
+  }

@@ -1,3 +1,12 @@
+.sub-menu-animate{
+  left: 0;
+  transition: left .2s linear
+}
+.sub-menu-animate:hover{
+  left: 10px;
+}
+
+
 .border-animate::after{
     content: '';
     position: absolute;

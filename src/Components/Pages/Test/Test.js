@@ -14,6 +14,10 @@ import img5 from "../../../assets/products_img/naturalNutsMix.png";
 import img6 from "../../../assets/about-img/happy-img.png";
 import SpacedSpan from "./SpacedSpan";
 import ReactSlick from "react-slick";
+import { async } from "@firebase/util";
+import axiosPrivet from "../../Hooks/axiosPrivet";
+import BottomHeaderCategories from "../../SharedPages/HeaderPages/BottomHeader/BottomHeaderCategories";
+import SideMenu from "./SideMenu";
 // import chroma from "chroma-js";
 
 const options = [
@@ -177,64 +181,69 @@ const Test = () => {
       refs.current.push(el);
     }
   };
+  const handleApi = async () => {
+    const { data } = await axiosPrivet.get("product/counter");
+    console.log("data", data);
+  };
 
   return (
-    <div className="Apps bg-black">
+    <div className="Apps">
       <h1>CSS Dropdown Menu</h1>
+      <button onClick={handleApi} className="btn btn-primary">
+        api
+      </button>
       <div>
-        <h1 className="">
-          <span className="banner-titles">Get Fresh Organic</span>
-          <br />
-          <span className="banner-title-2">Food Everyday</span>
-        </h1>
+        <SideMenu />
       </div>
-      <ul className="dropdownMenu">
-        <li>
-          <a href="#">Dropdown</a>
-          <ul>
-            <li>
-              <a href="#">Secondary</a>
-            </li>
-            <li>
-              <a href="#">Secondary</a>
-            </li>
-            <li>
-              <a href="#">Slider</a>
-              <ul>
-                <li>
-                  <a href="#">Tertiary</a>
-                </li>
-                <li>
-                  <a href="#">Tertiary</a>
-                </li>
-                <li>
-                  <a href="#">Tertiary</a>
-                </li>
-                <li>
-                  <a href="#">Tertiary</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Secondary</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <nav className="nav-test">
+      <div id="dropdown-style">
+        <ul className="">
+          <li>
+            <a href="#">Dropdown</a>
+            <ul>
+              <li>
+                <a href="#">Secondary</a>
+              </li>
+              <li>
+                <a href="#">Secondary</a>
+              </li>
+              <li>
+                <a href="#">Slider</a>
+                <ul>
+                  <li>
+                    <a href="#">Tertiary</a>
+                  </li>
+                  <li>
+                    <a href="#">Tertiary</a>
+                  </li>
+                  <li>
+                    <a href="#">Tertiary</a>
+                  </li>
+                  <li>
+                    <a href="#">Tertiary</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Secondary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      {/* <nav id="category-dropdown" className="nav-test">
         <label htmlFor="touch">
           <span>titre</span>
         </label>
         <input type="checkbox" id="touch" />
-        <ul className="slide">
+        <ul className="slide ">
           <li className="hover:bg-primary">
-            <div className="dropdown dropdown-right dropdown-hover">
+            <div className="dropdown hover:overflow-visible dropdown-right dropdown-hover">
               <label tabindex="0" className="btn m-1">
                 Hover
               </label>
               <ul
                 tabindex="0"
-                className="dropdown-content hover:overflow-x-visible side-dropdown menu p-2 shadow bg-base-100 rounded-box w-52"
+                className="dropdown-content  side-dropdown menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
                   <a>Item 1</a>
@@ -254,7 +263,9 @@ const Test = () => {
           </li>
           <li className="hover:bg-primary"></li>
         </ul>
-      </nav>
+      </nav> */}
+      <BottomHeaderCategories />
+
       <h1>Select Fruits</h1>
       <pre>{JSON.stringify(selected)}</pre>
       <MultiSelect

@@ -15,13 +15,15 @@ import LoginModal from "../../Login/LoginModal";
 import Loading from "../../Loading";
 import "./BottomHeader.css";
 import { accessToken, removeCookie } from "../../../Hooks/useCookies";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
+import logo from "../../../../assets/logo/logo_white.png";
+import BottomHeaderCategories from "./BottomHeaderCategories";
+import NavSideBar from "./NavSideBar";
 
 const BottomHeader = () => {
   const [user, loading] = useAuthState(auth);
   const [isLogin, setIsLogin] = useState(false);
   const [isUser] = useState(true);
-  const [categoryDown] = useState();
+  const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -30,67 +32,87 @@ const BottomHeader = () => {
     removeCookie(accessToken);
   };
 
-  // console.log(isLogin);
-
   if (loading) {
     return <Loading />;
   }
   const navItems = (
     <>
-      <li className="py-2">
+      <li className="py-2" tabIndex="0">
         <NavLink
           to={"/home"}
           className={({ isActive }) =>
             isActive
-              ? " border-b-[2px] py-[5px] border-white text-lg hover:bg-primary text-white focus:bg-primary  font-semibold px-0 border-animate rounded-none activeNavbar"
-              : "text-lg px-0 py-[5px] text-white font-semibold hover:bg-primary border-animate focus:bg-primary"
+              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
+              : "text-[16px] lg:text-white py-[5px] gap-1 px-0  font-bold hover:bg-primary border-animate focus:bg-primary"
           }
         >
-          HOME
+          Home
+          <AiOutlineCaretDown className="text-sm" />
         </NavLink>
+        <ul className="menu py-5 rounded-lg bg-base-100 overflow-hidden z-50 w-[270px]  shadow-xl">
+          <li>
+            <Link
+              to={"/home"}
+              className={
+                "sub-menu-animate py-[10px] relative text-[15px] bg-white px-0 font-semibold hover:text-primary"
+              }
+            >
+              <span className="px-8 capitalize">Home 1</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/home2"}
+              className={
+                "sub-menu-animate relative py-[10px] text-[15px] bg-white px-0 font-semibold  hover:text-primary"
+              }
+            >
+              <span className="px-8 capitalize">Home 2</span>
+            </Link>
+          </li>
+        </ul>
       </li>
-
       <li className="py-2" tabIndex="0">
         <NavLink
           to={"/shop"}
           className={({ isActive }) =>
             isActive
-              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
-              : "text-lg text-white py-[5px] gap-1 px-0  font-semibold hover:bg-primary border-animate focus:bg-primary"
+              ? " text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
+              : "text-[16px] lg:text-white py-[5px] gap-1 px-0  font-bold hover:bg-primary border-animate focus:bg-primary"
           }
         >
-          SHOP
+          Shop
           <AiOutlineCaretDown className="text-sm" />
         </NavLink>
-        <ul className="menu bg-base-100 z-50 w-44 shadow">
+        <ul className="menu py-5 rounded-lg bg-base-100 overflow-hidden z-50 w-[270px] shadow-xl">
           <li>
             <Link
               to={"/shop"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate text-[15px] py-[10px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5">Shop default</span>
+              <span className="px-8">Shop default</span>
             </Link>
           </li>
           <li>
             <Link
               to={"/shop/fullwidth"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate py-[10px] text-[15px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5">Shop wide</span>
+              <span className="px-8">Shop wide</span>
             </Link>
           </li>
           <li>
             <Link
               to={"/shop/2"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate py-[10px] text-[15px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5">Product list</span>
+              <span className="px-8">Product list</span>
             </Link>
           </li>
         </ul>
@@ -101,52 +123,52 @@ const BottomHeader = () => {
           to={"/about"}
           className={({ isActive }) =>
             isActive
-              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary border-animate text-white focus:bg-primary gap-1 font-semibold px-0 rounded-none activeNavbar"
-              : "text-lg text-white py-[5px] gap-1 px-0  font-semibold hover:bg-primary border-animate focus:bg-primary"
+              ? "text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
+              : "text-[16px] lg:text-white py-[5px] gap-1 px-0  font-bold hover:bg-primary border-animate focus:bg-primary"
           }
         >
-          PAGES
+          Pages
           <AiOutlineCaretDown className="text-sm" />
         </NavLink>
-        <ul className="menu bg-base-100 z-50 w-44 shadow">
+        <ul className="menu py-5 rounded-lg bg-base-100 overflow-hidden z-50 w-[270px] shadow-xl">
           <li>
             <Link
               to={"/about"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate py-[10px] text-[15px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5"> About us</span>
+              <span className="px-8"> About us</span>
             </Link>
           </li>
           <li>
             <Link
               to={"/contact"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate py-[10px] text-[15px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5">Contact</span>
+              <span className="px-8">Contact</span>
             </Link>
           </li>
           <li>
             <Link
               to={"/blogs"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate py-[10px] text-[15px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5">Blogs</span>
+              <span className="px-8">Blogs</span>
             </Link>
           </li>
           <li>
             <Link
               to={"/FAQ"}
               className={
-                "text-lg px-0 font-semibold ease-in-out transition duration-500 hover:bg-primary hover:text-white"
+                "sub-menu-animate py-[10px] text-[15px] relative bg-white px-0 font-semibold hover:text-primary"
               }
             >
-              <span className="px-5">FAQ</span>
+              <span className="px-8">FAQ</span>
             </Link>
           </li>
         </ul>
@@ -156,11 +178,11 @@ const BottomHeader = () => {
           to={"/products"}
           className={({ isActive }) =>
             isActive
-              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
-              : "text-lg text-white py-[5px] gap-1 px-0 font-semibold hover:bg-primary border-animate focus:bg-primary"
+              ? " text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
+              : "text-[16px] lg:text-white py-[5px] gap-1 px-0 font-bold hover:bg-primary border-animate focus:bg-primary"
           }
         >
-          PRODUCTS
+          Products
         </NavLink>
       </li>
 
@@ -169,11 +191,11 @@ const BottomHeader = () => {
           to={"/fresh"}
           className={({ isActive }) =>
             isActive
-              ? "text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
-              : "text-lg text-white gap-1 px-0 font-semibold hover:bg-primary border-animate py-[5px] focus:bg-primary"
+              ? "text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
+              : "text-[16px] lg:text-white gap-1 px-0 font-bold hover:bg-primary border-animate py-[5px] focus:bg-primary"
           }
         >
-          FRESH
+          Fresh
         </NavLink>
       </li>
       <li className="py-2">
@@ -181,68 +203,38 @@ const BottomHeader = () => {
           to={"/mega-menu"}
           className={({ isActive }) =>
             isActive
-              ? " text-lg border-b-[2px] py-[5px] border-white hover:bg-primary text-white focus:bg-primary gap-1 font-semibold px-0 border-animate rounded-none activeNavbar"
-              : "text-lg text-white gap-1 px-0 font-semibold hover:bg-primary border-animate py-[5px] focus:bg-primary"
+              ? "text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
+              : "text-[16px] lg:text-white gap-1 px-0 font-bold hover:bg-primary border-animate py-[5px] focus:bg-primary"
           }
         >
-          MEGA MENU
+          Mega Menu
         </NavLink>
       </li>
     </>
   );
-
+  console.log(toggle);
   return (
     <div className="bg-primary">
       {/*----- Bottom Header start -----*/}
       <div className="container mx-auto">
         <div className="navbar px-0 max-h-[64px]">
           <div className="navbar-start">
-            <div className="dropdown lg:pl-0 pl-2">
-              <label tabIndex="0" className=" lg:hidden">
-                <VscThreeBars className="text-2xl" />
-              </label>
-              <ul
-                tabIndex="0"
-                className="menu menu-compact dropdown-content mt-5 shadow-xl bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li tabIndex="0">
-                  <a className="justify-between">
-                    Parent
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                    </svg>
-                  </a>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </li>
-                {navItems}
-              </ul>
+            <div className="dropdown lg:pl-0 pl-2 lg:hidden">
+              <span id={"navToggle"} onClick={() => setToggle(!toggle)}></span>
             </div>
-            <div
-              className={`max-w-[292.5px] lg:max-w-[250.5px] xl:max-w-[292.5px] w-screen bg-[#5C820F] h-[64px] hidden lg:block `}
-            >
-              <BottomCategories categoryDown={categoryDown}></BottomCategories>
+            <div>
+              <BottomHeaderCategories />
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal flex justify-center items-center gap-5 ">
               {navItems}
             </ul>
+          </div>
+          <div className="navbar-center lg:hidden">
+            <Link to={"/"}>
+              <img src={logo} className={"h-10"} alt="fresh_logo" />
+            </Link>
           </div>
           {/* navbar-end */}
           <div className="navbar-end flex items-center xl:gap-8 lg:gap-4 justify-end">
@@ -254,7 +246,7 @@ const BottomHeader = () => {
                 <span className="text-2xl text-white">
                   <ImStarHalf />
                 </span>
-                <span className="text-white">Best Offer</span>
+                <span className="text-white text-[16px] font-bold">Best Offer</span>
               </Link>
             </div>
 
@@ -320,30 +312,27 @@ const BottomHeader = () => {
                   </div>
                 </li>
                 <li>
-                  {user ? (
-                    <div
-                      className="flex hover:text-white hover:bg-primary duration-500 active:text-white items-center gap-3"
-                      onClick={() => handleSignOut()}
-                    >
-                      <FiLogOut className="text-lg" />
-                      <span>Sign out</span>
-                    </div>
-                  ) : (
-                    <label htmlFor="loginModal" className="">
-                      <div
-                        onClick={() => setIsLogin(true)}
-                        className="flex active:text-white items-center gap-3"
-                      >
-                        <FiLogIn className="text-lg" />
-                        <span>Sign In</span>
+                  <div className="hover:text-white hover:bg-primary duration-500 active:text-white">
+                    {user ? (
+                      <div className="flex items-center gap-3" onClick={() => handleSignOut()}>
+                        <FiLogOut className="text-lg" />
+                        <span>Sign out</span>
                       </div>
-                    </label>
-                  )}
+                    ) : (
+                      <label htmlFor="loginModal" className="">
+                        <div onClick={() => setIsLogin(true)} className="flex items-center gap-3">
+                          <FiLogIn className="text-lg" />
+                          <span>Sign In</span>
+                        </div>
+                      </label>
+                    )}
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
         </div>
+        <NavSideBar toggle={toggle} setToggle={setToggle} />
       </div>
       {/*----- Bottom header end ----*/}
       {/* login Modal start*/}

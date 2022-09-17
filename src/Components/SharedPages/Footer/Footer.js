@@ -10,21 +10,19 @@ import { SiMinutemailer } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <div className="">
+    <div>
       <div className="container mx-auto">
         <footer className="footer md:grid-cols-5 md:justify-items-start  sm:grid-cols-3 text-base-content">
           <div>
             <img className="md:w-6/12 w-4/12" src={logo} alt="logo" />
             <p className="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <ul className="flex flex-col gap-y-3">
-              <li className="">
+              <li className="flex gap-2">
                 <IoLocationOutline className="inline-block text-xl text-primary" />
-                <strong> Address: </strong>
                 <span>2855 Stevens Creek BLVD, Utah 43332 United States.</span>
               </li>
-              <li className="">
+              <li className="flex gap-2">
                 <SiMinutemailer className="inline-block text-xl text-primary" />
-                <strong> E-mail: </strong>
                 <span>sale@fresh.com</span>
               </li>
             </ul>
@@ -33,23 +31,35 @@ const Footer = () => {
             <h5 className="text-lg font-bold pb-3 text-black">Company</h5>
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="link link-hover">About Us</a>
+                <a href="/" className="link link-hover">
+                  About Us
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Contact Us</a>
+                <a href="/" className="link link-hover">
+                  Contact Us
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Delivery Information</a>
+                <a href="/" className="link link-hover">
+                  Delivery Information
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Privacy Policy</a>
+                <a href="/" className="link link-hover">
+                  Privacy Policy
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Terms & Conditions</a>
+                <a href="/" className="link link-hover">
+                  Terms & Conditions
+                </a>
               </li>
 
               <li>
-                <a className="link link-hover">Support Center</a>
+                <a href="/" className="link link-hover">
+                  Support Center
+                </a>
               </li>
             </ul>
           </div>
@@ -57,22 +67,34 @@ const Footer = () => {
             <h5 className="text-lg font-bold pb-3 text-black">Account</h5>
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="link link-hover">Sign In</a>
+                <a href="/" className="link link-hover">
+                  Sign In
+                </a>
               </li>
               <li>
-                <a className="link link-hover">View Cart</a>
+                <a href="/" className="link link-hover">
+                  View Cart
+                </a>
               </li>
               <li>
-                <a className="link link-hover">My Wishlist</a>
+                <a href="/" className="link link-hover">
+                  My Wishlist
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Track My Order</a>
+                <a href="/" className="link link-hover">
+                  Track My Order
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Help Ticket</a>
+                <a href="/" className="link link-hover">
+                  Help Ticket
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Shipping Details</a>
+                <a href="/" className="link link-hover">
+                  Shipping Details
+                </a>
               </li>
             </ul>
           </div>
@@ -80,34 +102,45 @@ const Footer = () => {
             <h5 className="text-lg font-bold pb-3 text-black">Categories</h5>
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="link link-hover">Bakery & pastry</a>
+                <a href="/" className="link link-hover">
+                  Bakery & pastry
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Meats</a>
+                <a href="/" className="link link-hover">
+                  Meats
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Vegetable</a>
+                <a href="/" className="link link-hover">
+                  Vegetable
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Custard Powder</a>
+                <a href="/" className="link link-hover">
+                  Custard Powder
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Farm Raised Fillets</a>
+                <a href="/" className="link link-hover">
+                  Farm Raised Fillets
+                </a>
               </li>
               <li>
-                <a className="link link-hover">Snacks Item</a>
+                <a href="/" className="link link-hover">
+                  Snacks Item
+                </a>
               </li>
             </ul>
           </div>
-
-          <div className="">
+          <div>
             <h5 className="text-lg font-bold pb-3 text-black">Install App</h5>
-            <p className="">From App Store or Google Play</p>
+            <p>From App Store or Google Play</p>
             <div className="flex items-center gap-2 pb-5 pt-2">
-              <a href="" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
+              <a href="/" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
                 <img src={apple} alt="apple store logo" />
               </a>
-              <a href="" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
+              <a href="/" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
                 <img src={googlePlay} alt="google play logo" />
               </a>
             </div>
@@ -123,56 +156,36 @@ const Footer = () => {
               {""} - Ecommerce template <br /> All rights reserved
             </p>
           </div>
-          <div className=" hidden  lg:flex items-center gap-10 md:justify-self-center">
-            <div className=" hidden xl:flex justify-center items-center gap-2">
-              <span>
-                <TbPhoneCall className="text-4xl text-gray-400" />
-              </span>
-              <p className="flex flex-col">
-                <span className="text-2xl text-primary font-semibold">2342-0434</span>
-                <span className="text-gray-500">working 7:00 - 21:00</span>
-              </p>
-            </div>
-            <div className=" flex justify-center items-center gap-2">
-              <span>
-                <TbPhoneCall className="text-4xl text-gray-400" />
-              </span>
-              <p className="flex flex-col">
-                <span className="text-2xl text-primary font-semibold">2342-0434</span>
-                <span className="text-gray-500">working 7:00 - 21:00</span>
-              </p>
-            </div>
-          </div>
           <div className="hidden md:flex flex-col">
             <div className="flex gap-3 items-center">
               <h5 className="font-semibold">Follow Us</h5>
               <div className="flex text-primary  gap-1">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/"
                   className="text-lg p-1 rounded-full bg-primary text-neutral hover:bg-blue-500"
                 >
                   <FaFacebookF />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.twitter.com/"
                   className="text-lg p-1  rounded-full bg-primary text-neutral hover:bg-neutral hover:text-blue-400"
                 >
                   <FaTwitter />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/"
                   className="text-lg  p-1 border rounded-full bg-primary text-neutral hover:text-red-500 hover:bg-neutral"
                 >
                   <FaInstagram />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.pinterest.com/"
                   className="text-lg  p-1  rounded-full bg-primary text-neutral hover:bg-red-600 hover:text-neutral"
                 >
                   <FaPinterestP />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/"
                   className="text-lg  p-1  rounded-full bg-primary text-neutral hover:bg-red-500"
                 >
                   <FaYoutube />
