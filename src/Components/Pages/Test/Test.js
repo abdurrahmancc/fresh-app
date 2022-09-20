@@ -12,12 +12,10 @@ import img3 from "../../../assets/products_img/dryShrimp.png";
 import img4 from "../../../assets/products_img/greenPeasPacket.png";
 import img5 from "../../../assets/products_img/naturalNutsMix.png";
 import img6 from "../../../assets/about-img/happy-img.png";
-import SpacedSpan from "./SpacedSpan";
-import ReactSlick from "react-slick";
-import { async } from "@firebase/util";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import BottomHeaderCategories from "../../SharedPages/HeaderPages/BottomHeader/BottomHeaderCategories";
 import SideMenu from "./SideMenu";
+import ReactStars from "react-rating-stars-component";
 // import chroma from "chroma-js";
 
 const options = [
@@ -186,8 +184,67 @@ const Test = () => {
     console.log("data", data);
   };
 
+  const firstExample = {
+    size: 16,
+    edit: true,
+    onChange: (newValue) => {
+      console.log(`Example 1: new value is ${newValue}`);
+    },
+  };
+
+  const secondExample = {
+    size: 50,
+    count: 10,
+    color: "black",
+    activeColor: "red",
+    value: 7.5,
+    a11y: true,
+    isHalf: true,
+    emptyIcon: <i className="far fa-star" />,
+    halfIcon: <i className="fa fa-star-half-alt" />,
+    filledIcon: <i className="fa fa-star" />,
+    onChange: (newValue) => {
+      console.log(`Example 2: new value is ${newValue}`);
+    },
+  };
+
+  const thirdExample = {
+    size: 40,
+    count: 7,
+    isHalf: false,
+    value: 4,
+    color: "blue",
+    activeColor: "red",
+    onChange: (newValue) => {
+      console.log(`Example 3: new value is ${newValue}`);
+    },
+  };
+
+  const fourthExample = {
+    size: 60,
+    isHalf: true,
+    char: "",
+    value: 3.5,
+    onChange: (newValue) => {
+      console.log(`Example 4: new value is ${newValue}`);
+    },
+  };
+
   return (
     <div className="Apps">
+      <div className="h-[20vh] ">
+        <div className="App">
+          <h1>react-rating-stars-component</h1>
+          <h4>Readonly rating stars</h4>.
+          <ReactStars {...firstExample} />
+          <h4>Your own icons with half rating and a11y</h4>
+          <ReactStars {...secondExample} />
+          <h4>Full stars rating only, a11y and other colors</h4>
+          <ReactStars {...thirdExample} />
+          <h4>Char with half rating and a11y</h4>
+          <ReactStars {...fourthExample} />
+        </div>
+      </div>
       <h1>CSS Dropdown Menu</h1>
       <button onClick={handleApi} className="btn btn-primary">
         api
@@ -238,11 +295,11 @@ const Test = () => {
         <ul className="slide ">
           <li className="hover:bg-primary">
             <div className="dropdown hover:overflow-visible dropdown-right dropdown-hover">
-              <label tabindex="0" className="btn m-1">
+              <label tabIndex="0" className="btn m-1">
                 Hover
               </label>
               <ul
-                tabindex="0"
+                tabIndex="0"
                 className="dropdown-content  side-dropdown menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>

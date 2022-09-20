@@ -15,7 +15,7 @@ const ShopVertical = () => {
   const [handleAddToWishlistProduct] = useAddWishlistProduct();
   const [handleAddToCompareProduct] = useAddCompareProduct();
 
-  const [products, , setReload, page, setPage, size] = useContext(shopAllProducts);
+  const [products, setReload, page, setPage, size] = useContext(shopAllProducts);
 
   useEffect(() => {
     (async () => {
@@ -29,6 +29,7 @@ const ShopVertical = () => {
       }
     })();
   }, [size]);
+  console.log("vartival", products);
   return (
     <>
       {products.length ? (

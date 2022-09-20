@@ -24,7 +24,7 @@ const Wishlist = () => {
           </div>
         </section>
         {/* Breadcrumb end */}
-        <section className="container mx-auto mt-20">
+        <section className="container mx-auto mt-20 min-h-[calc(100vh-820px)]  h-[60vh]">
           {wishProducts?.length >= 1 ? (
             <div className="border rounded-sm max-w-full">
               <Table className="w-full">
@@ -58,14 +58,14 @@ const Wishlist = () => {
               </Table>
             </div>
           ) : (
-            <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
+            <div className=" h-full flex flex-col justify-center gap-y-10 items-center">
               <h4 className="md:text-4xl text-xl font-bold">
                 There are 0 products in your wishlist
               </h4>
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className="btn btn-primary text-neutral"
+                  className=" py-4 rounded font-semibold bg-[#6a9a0c] px-5 btn-animate  text-neutral"
                 >
                   Return to Back Page
                 </button>

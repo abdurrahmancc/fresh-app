@@ -12,6 +12,20 @@ import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
 export const shopAllProducts = createContext("products");
 
+const sortOptions = [
+  { value: "popularity", label: "popularity" },
+  { value: "averageRating", label: "average Rating" },
+  { value: "latest", label: "latest" },
+  { value: "lowToHight", label: "low To Hight" },
+  { value: "hightToLow", label: "hight To Low" },
+];
+const showOption = [
+  { value: 5, label: "5" },
+  { value: 10, label: "10" },
+  { value: 20, label: "20" },
+  { value: 30, label: "30" },
+];
+
 const Shop = () => {
   const { pathname } = useLocation();
   const [selectedSortOption, setSelectedSortOption] = useState("popularity");
@@ -20,24 +34,9 @@ const Shop = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [reload, setReload] = useState(true);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [minPrice, setMinPrice] = useState(100);
-  const [maxPrice, setMaxPrice] = useState(90000);
+  const [minPrice, setMinPrice] = useState(20);
+  const [maxPrice, setMaxPrice] = useState(100);
   const [page, setPage] = useState(0);
-
-  const sortOptions = [
-    { value: "popularity", label: "popularity" },
-    { value: "averageRating", label: "average Rating" },
-    { value: "latest", label: "latest" },
-    { value: "lowToHight", label: "low To Hight" },
-    { value: "hightToLow", label: "hight To Low" },
-  ];
-  const showOption = [
-    { value: 5, label: "5" },
-    { value: 10, label: "10" },
-    { value: 20, label: "20" },
-    { value: 30, label: "30" },
-  ];
-
   const [categories, setCategories] = useState([
     { id: 1, checked: false, label: "grocery&Frozen", value: "Grocery & Frozen" },
     { id: 4, checked: false, label: "freshVegetable", value: "Fresh Vegetable" },
@@ -50,7 +49,7 @@ const Shop = () => {
     { id: 11, checked: false, label: "oil&Vinegars", value: "Oil & Vinegars" },
     { id: 12, checked: false, label: "bread&Bakery", value: "Bread & Bakery" },
     { id: 13, checked: false, label: "snacksItem", value: "Snacks Item" },
-    { id: 14, checked: false, label: "meat", value: "Meat" },
+    { id: 14, checked: false, label: "fish", value: "Fish" },
   ]);
 
   const {
@@ -89,7 +88,7 @@ const Shop = () => {
         console.log(error.message);
       }
     })();
-  }, [reload, page, selectedShowOption?.value, categoriesChecked.length]);
+  }, [reload, page, selectedShowOption?.value]);
 
   // filter categories
   const handleChangeChecked = (id) => {
@@ -108,22 +107,19 @@ const Shop = () => {
     let filterProduct;
 
     // filter categories
-    const categoriesChecked = categories
-      .filter((item) => item.checked)
-      .map((item) => item.label.toLowerCase());
+    const categoriesChecked = categories.filter((item) => item.checked).map((item) => item.label);
     console.log(categoriesChecked);
     if (categoriesChecked.length) {
-      // filterProduct = filterAllProducts.filter((item) =>
-      //   categoriesChecked.includes(item.category.toLowerCase())
-      /*   filterProduct = filterAllProducts.filter((item) =>
-        categoriesChecked.map((c) => item.category.includes(c))
-      ); */
-      console.log(filterProduct);
+      filterProduct = products.filter((prod) => {
+        for (let oneKeyword of categoriesChecked) {
+          if (prod.category.includes(oneKeyword)) return true;
+        }
+      });
       if (filterProduct.length) {
+        console.log("product", filterProduct);
         filterAllProducts = filterProduct;
       }
     }
-
     // Search Filter
     if (inputSearch) {
       filterAllProducts = allProducts.filter(
@@ -132,7 +128,7 @@ const Shop = () => {
     }
 
     // filter price
-    if (minPrice !== 100 || maxPrice !== 90000) {
+    if (minPrice !== 1 || maxPrice !== 200) {
       priceFilter = filterAllProducts.filter(
         (item) => item.price >= minPrice && item.price <= maxPrice
       );
@@ -155,7 +151,7 @@ const Shop = () => {
     // return <Loading />;
   }
 
-  console.log(products);
+  console.log("panda", products);
 
   return (
     <>
@@ -172,7 +168,7 @@ const Shop = () => {
         {/* filter body start*/}
         <section className="container mx-auto mt-20">
           <shopAllProducts.Provider
-            value={[products, setProducts, setReload, page, setPage, selectedShowOption?.value]}
+            value={[products, setReload, page, setPage, selectedShowOption?.value]}
           >
             <div className=" w-full">
               <div className="grid  gap-8 lg:grid-cols-5">

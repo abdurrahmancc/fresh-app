@@ -41,23 +41,29 @@ const BannerSlider = () => {
           >
             <div className="xl:pl-20 ml-10 md:pl-16 py-20 h-full flex flex-col justify-center">
               <div>
-                <span className="bg-error text-[2vw] md:text-sm text-neutral rounded px-4 uppercase py-2">
-                  sale top 20% off
-                </span>
-                <h1 className="text-[3.5vw]  pt-5 md:leading-10 lg:leading-[50px] xl:leading-[80px] capitalize font-bold text-black">
+                <Fade bottom>
+                  <span className="bg-error text-[15px] text-neutral rounded px-4 uppercase py-2">
+                    sale top 20% off
+                  </span>
+                </Fade>
+                <h1 className="xl:text-[52px] md:text-[40px] sm:text-[32px] text-[28px] pt-7 leading-[32px] sm:leading-[36px] md:leading-[44px] xl:leading-[55px] capitalize font-bold text-black">
                   <span className="banner-title text-black">get fresh organic</span> <br />{" "}
                   <span className="banner-title-2 text-black">food everyday</span>
                 </h1>
-                <p className="text-[#797979] text-sm md:pb-10 pb-5 pt-5 md:text-xl">
-                  making grocery food errands <br className="sm:hidden md:block xl:hidden" /> worth
-                  your while
-                </p>
-                <Link
-                  to="/shop"
-                  className="md:px-6 px-4 text-[2vw] md:text-lg py-2 md:py-4 btn-animate bg-[#67950b] ease-in-out transition duration-500 text-neutral rounded font-semibold "
-                >
-                  Buy Product
-                </Link>
+                <Fade bottom>
+                  <p className="text-[#797979] md:pb-8 pb-5 pt-6 text-[18px]">
+                    making grocery food errands <br className="sm:hidden md:block xl:hidden" />{" "}
+                    worth your while
+                  </p>
+                </Fade>
+                <Fade bottom delay={300}>
+                  <Link
+                    to="/shop"
+                    className="lg:w-[148px] w-[132px] block px-4 text-lg lg:text-[20px] py-3 lg:py-[14px] btn-animate bg-[#67950b] ease-in-out transition duration-500 text-neutral rounded font-semibold"
+                  >
+                    Buy Product
+                  </Link>
+                </Fade>
               </div>
             </div>
           </div>
@@ -77,7 +83,7 @@ const BannerSlider = () => {
             <div className="py-20 banner-Slider-2 h-full flex flex-col justify-center">
               <div>
                 <Fade bottom>
-                  <h1 className="xl:text-[52px] md:text-[40px] sm:text-[32px] banner-Slider-title-2 text-[28px] leading-[32px] sm:leading-[36px] md:leading-[44px] xl:leading-[55px] capitalize text-center pt-5 font-bold text-black">
+                  <h1 className="xl:text-[52px] md:text-[40px] sm:text-[32px] text-[28px] banner-Slider-title-2 leading-[32px] sm:leading-[36px] md:leading-[44px] xl:leading-[55px] capitalize text-center pt-5 font-bold text-black">
                     The integrity of living <br /> systems is health.
                   </h1>
                 </Fade>
@@ -138,6 +144,41 @@ const BannerSlider = () => {
         <SwiperSlide>
           <div
             style={{
+              backgroundImage: `url(${img4})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+            className={`w-full h-[420px] lg:h-[600px] ${
+              pathname === "/home2" ? "xl:h-[800px]" : "xl:h-[600px]"
+            }  rounded-xl`}
+          >
+            <div className="xl:pl-20 ml-10 md:pl-16 py-20 h-full flex flex-col justify-center">
+              <div>
+                <span className="bg-error text-[15px] text-neutral rounded px-4 uppercase py-2">
+                  sale top 20% off
+                </span>
+                <h1 className="xl:text-[52px] md:text-[40px] sm:text-[32px] text-[28px] pt-7 leading-[32px] sm:leading-[36px] md:leading-[44px] xl:leading-[55px] capitalize font-bold text-black">
+                  <span className="banner-title text-black">get fresh organic</span> <br />{" "}
+                  <span className="banner-title-2 text-black">food everyday</span>
+                </h1>
+                <p className="text-[#797979] md:pb-8 pb-5 pt-6 text-[18px]">
+                  making grocery food errands <br className="sm:hidden md:block xl:hidden" /> worth
+                  your while
+                </p>
+                <Link
+                  to="/shop"
+                  className="lg:w-[148px] w-[132px] block px-4 text-lg lg:text-[20px] py-3 lg:py-[14px] btn-animate bg-[#67950b] ease-in-out transition duration-500 text-neutral rounded font-semibold"
+                >
+                  Buy Product
+                </Link>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
+            style={{
               backgroundImage: `url(${img5})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
@@ -167,41 +208,6 @@ const BannerSlider = () => {
                     Buy Product
                   </Link>
                 </Fade>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${img4})`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-            }}
-            className={`w-full h-[420px] lg:h-[600px] ${
-              pathname === "/home2" ? "xl:h-[800px]" : "xl:h-[600px]"
-            }  rounded-xl`}
-          >
-            <div className="xl:pl-20 ml-10 md:pl-16 py-20 h-full flex flex-col justify-center">
-              <div>
-                <span className="bg-error text-[2vw] md:text-sm text-neutral rounded px-4 uppercase py-2">
-                  sale top 20% off
-                </span>
-                <h1 className="text-[3.5vw]  pt-5 md:leading-10 lg:leading-[50px] xl:leading-[80px] capitalize font-bold text-black">
-                  <span className="banner-title text-black">get fresh organic</span> <br />{" "}
-                  <span className="banner-title-2 text-black">food everyday</span>
-                </h1>
-                <p className="text-[#797979] text-sm md:pb-10 pb-5 pt-5 md:text-xl">
-                  making grocery food errands <br className="sm:hidden md:block xl:hidden" /> worth
-                  your while
-                </p>
-                <Link
-                  to="/shop"
-                  className="md:px-6 px-4 text-[2vw] md:text-lg py-2 md:py-4 btn-animate bg-[#67950b] ease-in-out transition duration-500 text-neutral rounded font-semibold "
-                >
-                  Buy Product
-                </Link>
               </div>
             </div>
           </div>

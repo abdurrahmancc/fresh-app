@@ -1,62 +1,40 @@
 import React from "react";
-import { Autoplay, FreeMode } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useState } from "react";
 
-const FeaturesItems = ({ featuresItems }) => {
+const FeaturesItems = ({ feature }) => {
+  const [hoveredCart, setHoveredCart] = useState(false);
+
+  const showCartHandler = () => {
+    setHoveredCart(true);
+  };
+
+  const hideCartHandler = () => {
+    setHoveredCart(false);
+  };
   return (
     <>
-      <Swiper
-        breakpoints={{
-          // when window width is >= 768px
-          1550: {
-            width: 1536,
-            slidesPerView: 6,
-          },
-          1050: {
-            width: 1050,
-            slidesPerView: 5,
-          },
-          750: {
-            width: 750,
-            slidesPerView: 4,
-          },
-          500: {
-            width: 500,
-            slidesPerView: 2,
-          },
-          300: {
-            width: 300,
-            slidesPerView: 2,
-          },
-        }}
-        slidesPerView={5}
-        spaceBetween={30}
-        slidesPerGroup={1}
-        loop={true}
-        freeMode={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, FreeMode]}
-        className="mySwiper"
+      <div
+        onMouseEnter={showCartHandler}
+        onMouseLeave={hideCartHandler}
+        className="card bg-base-100 shadow border border-gray-200 hover:border-primary transition duration-300 ease-linear"
       >
-        {featuresItems.map((feature) => (
-          <SwiperSlide key={feature?._id}>
-            <div className="card bg-base-100 shadow border border-gray-200 hover:border-primary">
-              <figure className="px-10 pt-10">
-                <img src={feature?.img} alt={feature?.name} className="rounded-xl" />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title text-[2vw] md:text-[1vw] capitalize">{feature?.name}</h2>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <figure className="px-10 pt-7">
+          <img src={feature?.img} alt={feature?.name} className="rounded-xl" />
+        </figure>
+        <div className="card-body pt-3 pb-5 items-center text-center">
+          <h2
+            className={`card-title transition duration-300 ease-linear text-lg lg:text-xl md:text-[15px] capitalize ${
+              hoveredCart && "text-primary"
+            }`}
+          >
+            {feature?.name}
+          </h2>
+          <p className="lg:text-[15px] text-[12px] ">{feature?.quantity} items</p>
+        </div>
+      </div>
     </>
   );
 };

@@ -9,9 +9,7 @@ const useCompareProducts = () => {
     (async () => {
       const storedCompareList = getCompareListId();
       const savedCompareList = [];
-      console.log(storedCompareList);
       const keys = Object.keys(storedCompareList);
-      console.log(keys);
       const { data } = await axiosPrivet.post("/product/compare-List/products", keys);
       if (data) {
         for (const id in storedCompareList) {

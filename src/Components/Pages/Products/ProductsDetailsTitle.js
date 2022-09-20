@@ -6,7 +6,7 @@ import Rating from "../../SharedPages/Rating";
 
 const ProductsDetailsTitle = ({ data }) => {
   const [activeWeight, setActiveWeight] = useState(null);
-  const weight = data?.data?.weight[0] ? data?.data?.weight[0].split(",") : null;
+  const weight = data?.weight[0] ? data?.weight[0].split(",") : null;
 
   useEffect(() => {
     if (weight) {
@@ -17,55 +17,64 @@ const ProductsDetailsTitle = ({ data }) => {
   const handleWeight = (index) => {
     setActiveWeight(index);
   };
-  console.log(activeWeight);
 
   return (
     <>
       <div className="relative">
-        <Badges item={data?.data} className={"rounded-sm"} />
+        <Badges item={data && data} className={"rounded-sm"} />
         <h4 className="lg:text-[40px] text-3xl mt-[10px] mb-[15px]">
-          <strong className="">{data?.data?.productName}</strong>
+          <strong className="">{data?.productName}</strong>
         </h4>
         <div className=" flex items-center gap-3 pb-[15px]">
           <Rating /> <span className="opacity-75">({2} Reviews)</span>
         </div>
         <div className="pt-[10px] pb-6 flex items-end gap-3">
-          <span className="font-bold text-3xl">${data?.data?.price}</span>
+          <span className="font-bold text-3xl">${data?.price}</span>
           <span className="font-semibold text-xl line-through opacity-70">
-            ${data?.data?.regularPrice}
+            ${data?.regularPrice}
           </span>
         </div>
         <div>
           <p className="pb-6">
-            {data?.data?.productDescription.length >= 308
-              ? data?.data?.productDescription.slice(0, 308)
-              : data?.data?.productDescription}
+            {data?.productDescription.length >= 308
+              ? data?.productDescription.slice(0, 308)
+              : data?.productDescription}
           </p>
         </div>
-        {data?.data?.colors && (
+        {data?.colors && (
           <div className="flex items-center pb-[15px] md:gap-20 gap-10">
             <label className="text-xl font-semibold">Colors</label>
             <ul className="flex items-center gap-2">
               <li className="flex items-center">
-                <input type="radio" name="radio-1" class="radio radio-primary" checked />
-              </li>
-              <li className="flex items-center">
-                <input type="radio" name="radio-2" class="radio checked:bg-black " checked />
-              </li>
-              <li className="flex items-center">
                 <input
-                  type="radio"
-                  name="radio-3"
-                  class="radio checked:bg-yellow-500 checked:border-yellow-500"
                   checked
+                  type="radio"
+                  // name="radio-1"
+                  class="radio checked:bg-primary border-primary"
                 />
               </li>
               <li className="flex items-center">
                 <input
-                  type="radio"
-                  name="radio-4"
-                  class="radio checked:bg-red-500 checked:border-red-500"
                   checked
+                  type="radio"
+                  // name="radio-2"
+                  class="radio  border-black checked:bg-black"
+                />
+              </li>
+              <li className="flex items-center">
+                <input
+                  checked
+                  type="radio"
+                  // name="radio-3"
+                  class="radio checked:bg-yellow-500 border-yellow-500"
+                />
+              </li>
+              <li className="flex items-center">
+                <input
+                  checked
+                  type="radio"
+                  // name="radio-4"
+                  class="radio checked:bg-red-500 border-red-500"
                 />
               </li>
             </ul>
@@ -75,9 +84,9 @@ const ProductsDetailsTitle = ({ data }) => {
           <div className="flex items-center gap-8 md:gap-[72px] pb-[15px]">
             <label className="text-xl font-semibold">Weight</label>
             <ul className="flex items-center gap-2">
-              {weight.map((data, i) => (
+              {weight.map((data) => (
                 <li
-                  key={i}
+                  key={data._id}
                   onClick={() => handleWeight(data)}
                   className={`flex cursor-pointer items-center border transition-all duration-500 hover:text-white hover:bg-primary border-primary px-3 py-[2px] rounded-sm ${
                     activeWeight === data && "bg-primary text-white"

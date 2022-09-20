@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Collapsible from "react-collapsible";
 import { BsChevronDown } from "react-icons/bs";
 import logo from "../../../../assets/logo/logo-1.png";
 import { Link } from "react-router-dom";
 import "./navSideBar.css";
-import { AiFillCloseCircle } from "react-icons/ai";
-import { IoIosClose, IoMdClose } from "react-icons/io";
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
-import { VscThreeBars } from "react-icons/vsc";
+import { IoMdClose } from "react-icons/io";
 
 const NavSideBar = ({ toggle, setToggle }) => {
   const {

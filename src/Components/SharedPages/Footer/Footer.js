@@ -137,10 +137,10 @@ const Footer = () => {
             <h5 className="text-lg font-bold pb-3 text-black">Install App</h5>
             <p>From App Store or Google Play</p>
             <div className="flex items-center gap-2 pb-5 pt-2">
-              <a href="/" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
+              <a href="/" className="relative hover:top-[-4px] top-0 ease-linear duration-200 ">
                 <img src={apple} alt="apple store logo" />
               </a>
-              <a href="/" className="relative hover:top-[-4px] top-0 ease-in-out duration-200 ">
+              <a href="/" className="relative hover:top-[-4px] top-0 ease-linear  duration-200 ">
                 <img src={googlePlay} alt="google play logo" />
               </a>
             </div>

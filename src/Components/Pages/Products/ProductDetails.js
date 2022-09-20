@@ -21,7 +21,6 @@ import ProductsDetailsTitle from "./ProductsDetailsTitle";
 
 const ProductDetails = () => {
   const [activeInfo, setActiveInfo] = useState("description");
-  const [showReviews, setShowReviews] = useState(false);
   const [value, setValue] = useState(1);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -81,7 +80,7 @@ const ProductDetails = () => {
               <ProductDetailsImages data={data?.data} />
             </div>
             <div>
-              <ProductsDetailsTitle data={data} />
+              <ProductsDetailsTitle data={data?.data} />
               <hr className="mt-5 border-gray-300" />
               <div className="flex flex-wrap md:flex-nowrap py-10 gap-5 md:gap-10 lg:gap-5 xl:gap-10 justify-center">
                 <div className=" w-36 z-10 relative border-primary border">
@@ -144,12 +143,8 @@ const ProductDetails = () => {
                   <span className="hover:text-primary">{data?.data?.SKU}</span>
                 </div>
                 <div className="pb-[5px]">
-                  <span className="font-semibold pr-2">Category:</span>{" "}
-                  <span className="hover:text-primary">{data?.data?.category}</span>
-                </div>
-                <div className="pb-[5px]">
                   <span className="font-semibold pr-2">Tags:</span>{" "}
-                  <span className="hover:text-primary">{data?.data?.metaData?.metaKeyword}</span>
+                  <span>{data?.data?.metaData?.metaKeyword}</span>
                 </div>
                 <div className="flex items-center gap-5 pt-5">
                   <span className="font-semibold pr-2">Share:</span>
@@ -187,7 +182,7 @@ const ProductDetails = () => {
                   onClick={() => handleActiveInfo("description")}
                   className={` ${
                     activeInfo === "description"
-                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t"
+                      ? "text-[2vw] transition-all ease-linear duration-500 cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t"
                       : " text-[2vw] md:text-lg cursor-pointer hover:bg-primary relative  md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 transition-all ease-in-out duration-500 bg-gray-200 hover:text-neutral px-4 rounded-t"
                   }`}
                 >
@@ -197,7 +192,7 @@ const ProductDetails = () => {
                   onClick={() => handleActiveInfo("information")}
                   className={`${
                     activeInfo === "information"
-                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t transition-all ease-in-out duration-500"
+                      ? "text-[2vw] transition-all ease-linear duration-500 cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t"
                       : "text-[2vw] md:text-lg cursor-pointer  hover:bg-primary relative md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 transition-all ease-in-out duration-500  bg-gray-200 hover:text-neutral px-4 rounded-t"
                   }`}
                 >
@@ -207,7 +202,7 @@ const ProductDetails = () => {
                   onClick={() => handleActiveInfo("reviews")}
                   className={`${
                     activeInfo === "reviews"
-                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t transition-all ease-in-out duration-500"
+                      ? "text-[2vw] cursor-pointer md:text-lg bg-primary py-2 text-neutral px-4 rounded-t transition-all ease-linear duration-500"
                       : "text-[2vw] md:text-lg cursor-pointer  hover:bg-primary relative  md:top-2 py-2 md:py-1 h-9 hover:h-11 hover:top-0 hover:py-2 transition-all ease-in-out duration-500  bg-gray-200 hover:text-neutral px-4 rounded-t"
                   }`}
                 >

@@ -44,18 +44,19 @@ const TopTrendingRecently = () => {
   return (
     <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-7">
       <div className="">
-        <h3 className="lg:text-2xl pb-5 mb-7 border-b-2 text-xl capitalize font-bold">
-          Top Selling
-        </h3>
+        <div className="border-b-2 mb-7 ">
+          <h3 className="lg:text-2xl  text-xl capitalize font-bold">Top Selling</h3>
+          <div className=" w-32 border-b-2 opacity-75 pb-3 border-primary"></div>
+        </div>
         <div className="grid  grid-rows-3 gap-y-5">
           {products.map((product) => (
             <div
               key={product?._id}
-              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="h-28 w-28">
+              <figure className="max-h-[80px] max-w-[80px] w-full">
                 <Link to="/" className="p-0">
-                  <img src={product?.img} alt="Album" className="w-full h-full" />
+                  <img src={product?.img} alt="Album" className="w-full h-full " />
                 </Link>
               </figure>
               <div className="card-body p-3">
@@ -79,17 +80,17 @@ const TopTrendingRecently = () => {
         </div>
       </div>
       <div className="">
-        <h3 className="lg:text-2xl pb-5 mb-7 border-b-2 text-xl capitalize font-bold">
-          Trending Products
-        </h3>
-
+        <div className="border-b-2 mb-7 ">
+          <h3 className="lg:text-2xl  text-xl capitalize font-bold">Trending Products</h3>
+          <div className=" w-32 border-b-2 opacity-75 pb-3 border-primary"></div>
+        </div>
         <div className="grid  grid-rows-3 gap-y-5">
           {products.map((product) => (
             <div
               key={product?._id}
-              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="h-28 w-28">
+              <figure className="max-h-[80px] max-w-[80px] w-full">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
@@ -115,17 +116,17 @@ const TopTrendingRecently = () => {
         </div>
       </div>
       <div className="">
-        <h3 className="lg:text-2xl pb-5 mb-7 border-b-2 text-xl capitalize font-bold">
-          Top Selling
-        </h3>
-
+        <div className="border-b-2 mb-7 ">
+          <h3 className="lg:text-2xl  text-xl capitalize font-bold">Top Selling</h3>
+          <div className=" w-32 border-b-2 opacity-75 pb-3 border-primary"></div>
+        </div>
         <div className="grid  grid-rows-3 gap-y-5">
           {products.map((product) => (
             <div
               key={product?._id}
-              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="h-28 w-28">
+              <figure className="max-h-[80px] max-w-[80px] w-full">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
@@ -151,15 +152,17 @@ const TopTrendingRecently = () => {
         </div>
       </div>
       <div className="">
-        <h3 className="lg:text-2xl pb-5 mb-7 border-b-2 text-xl capitalize font-bold">Top Rated</h3>
-
+        <div className="border-b-2 mb-7 ">
+          <h3 className="lg:text-2xl  text-xl capitalize font-bold">Top Rated</h3>
+          <div className=" w-32 border-b-2 opacity-75 pb-3 border-primary"></div>
+        </div>
         <div className="grid  grid-rows-3 gap-y-5">
           {products.map((product) => (
             <div
               key={product?._id}
-              className="card relative hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none"
+              className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="h-28 w-28">
+              <figure className="max-h-[80px] max-w-[80px] w-full">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>

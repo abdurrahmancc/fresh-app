@@ -18,6 +18,7 @@ import ShoppingCart from "./Components/Pages/ShoppingCart/ShoppingCart";
 import { createContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import CheckOut from "./Components/Pages/CheckOut/CheckOut";
+import { useSelector } from "react-redux";
 import RequireAuth from "./Components/SharedPages/RequireAuth/RequireAuth";
 import UserDashboard from "./Components/UserDashBoard/UserDashboard";
 import MyOrder from "./Components/UserDashBoard/MyOrder/MyOrder";
@@ -57,18 +58,14 @@ function App() {
   const [compareQuantity, setCompareQuantity] = useState([]);
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const [dark, setDark] = useState(false);
-  const [themes, setThemes] = useState("");
-
-  const theme = localStorage.getItem("themes");
-  useEffect(() => {
-    setThemes(theme);
-  }, [theme]);
 
   const handleOpen = () => {
     if (toggleSideBar) {
       setToggleSideBar(!toggleSideBar);
     }
   };
+  const count = useSelector((state) => console.log(state));
+  console.log(wishlistQuantity, cartQuantity);
   return (
     <>
       <Toaster />

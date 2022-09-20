@@ -12,7 +12,7 @@ import { shopAllProducts } from "./Shop";
 import ShopHorizontalCard from "./ShopHorizontalCard";
 
 const ShopCardHorizontal = () => {
-  const [products, , , page, setPage, size] = useContext(shopAllProducts);
+  const [products, page, setPage, size] = useContext(shopAllProducts);
   const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const ShopCardHorizontal = () => {
         </div>
       )}
       <div className="flex justify-center mt-10">
-        {[...Array(pageCount).keys()].map((number, index) => (
+        {[...Array(pageCount || 5).keys()].map((number, index) => (
           <button
             key={index}
             className={`btn border border-primary rounded-none ${page === number && "bg-primary"}`}

@@ -5,7 +5,7 @@ import user2 from "../../../assets/about-img/user-2.png";
 import user3 from "../../../assets/about-img/user-3.png";
 import Rating from "../../SharedPages/Rating";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import ReactStars from "react-rating-stars-component";
 
 const ProductReviews = () => {
   const reviews = [
@@ -46,6 +46,23 @@ const ProductReviews = () => {
 
   const onSubmit = (data) => {};
 
+  const rating = {
+    size: 28,
+    edit: true,
+    activeColor: "#ffb33e",
+    isHalf: true,
+    onChange: (newValue) => {
+      console.log(`Example 1: new value is ${newValue}`);
+    },
+  };
+
+  const demo = {
+    size: 20,
+    edit: false,
+    activeColor: "#ffb33e",
+    value: 5,
+  };
+
   return (
     <div className="max-w-[1250px] w-full mx-auto">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
@@ -62,7 +79,7 @@ const ProductReviews = () => {
                     <h4 className="card-title pb-0">{review?.userName}</h4>
                     <time className="text-xs font-semibold text-primary pb-2">{review?.date}</time>
                   </div>
-                  <Rating />
+                  <ReactStars {...demo} />
                 </div>
                 <p>{review?.comment}</p>
               </div>
@@ -72,8 +89,9 @@ const ProductReviews = () => {
         <div className="shadow-sm border p-10">
           <h4 className="font-semibold text-2xl pb-8">Add a review</h4>
           <div className="form-control w-full pb-6">
-            <span className="pb-2 opacity-80">Your rating *</span>
-            <Rating />
+            <span className=" opacity-80">Your rating *</span>
+
+            <ReactStars {...rating} />
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <span className="opacity-80">Your review *</span>
@@ -140,33 +158,6 @@ const ProductReviews = () => {
                 )}
               </div>
             </div>
-            <div className="form-control w-full">
-              <span className="pb-2 opacity-80">Website *</span>
-              <input
-                type="text"
-                placeholder="Website URL"
-                className="input rounded-sm input-bordered w-full "
-                {...register("website", {
-                  required: { value: true, message: "Website URL is Require" },
-                  pattern: {
-                    value:
-                      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
-                    message: "Provide a valid Website URL",
-                  },
-                })}
-              />
-              {errors.website?.type === "pattern" && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.website?.message}
-                </span>
-              )}
-              {errors.website?.type === "required" && (
-                <span className="label-text-alt text-red-500 text-xs">
-                  {errors.website?.message}
-                </span>
-              )}
-            </div>
-
             <button type="submit" className="btn  rounded-sm  btn-primary px-10 text-neutral mt-6">
               Submit
             </button>

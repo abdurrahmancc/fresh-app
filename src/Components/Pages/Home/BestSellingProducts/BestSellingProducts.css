@@ -1,0 +1,25 @@
+@media screen and (min-width:1280px) and (max-width: 1536px) {
+    .best-Selling-products{
+        column-gap: 20px;
+    }
+    .best-selling-banner-img{
+        max-height: 448px;
+    }
+}
+@media screen and (min-width:1024px) and (max-width: 1280px) {
+    
+    .best-selling-banner-img{
+        max-height: 434px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .best-selling-banner-img{
+        height: 471px;
+    }
+}
+@media screen and (min-width: 1534px) {
+    .best-selling-banner-img{
+        height: 460px;
+    }
+}

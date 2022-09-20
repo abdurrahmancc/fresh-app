@@ -11,14 +11,17 @@ import { Link } from "react-router-dom";
 import { Td, Tr } from "react-super-responsive-table";
 import useAddCartProduct from "../../Hooks/useAddCartProduct";
 import { removeFromDb, WishlistRemoveFromDb } from "../../Hooks/useFakeDB";
+import { useDispatch } from "react-redux";
+import { increment } from "../../Redux/features/wishlistCounterSlice";
 
 const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
   const [handleAddToCartProduct] = useAddCartProduct();
-
+  const dispatch = useDispatch();
   const handleRemove = (id) => {
     try {
       const rest = wishProducts.filter((item) => item._id !== id);
       setWishProducts(rest);
+      dispatch(increment(rest));
       WishlistRemoveFromDb(id);
     } catch (error) {
       toast.error(error.message, { id: "removeWish" });

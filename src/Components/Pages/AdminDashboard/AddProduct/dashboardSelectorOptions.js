@@ -10,7 +10,7 @@ export const categoryOptions = [
   { label: "Oil & Vinegars", value: "oil&Vinegars" },
   { label: "Bread & Bakery", value: "bread&Bakery" },
   { label: "Snacks Item", value: "snacksItem" },
-  { label: "Meat", value: "meat" },
+  { label: "Fish", value: "fish" },
 ];
 
 export const stockStatusOptions = [
