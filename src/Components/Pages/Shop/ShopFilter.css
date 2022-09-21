@@ -1,14 +1,71 @@
-.multi-range-slider .bar-inner{
-    background-color: #99f0d0;
-}
-.multi-range-slider{
-    /* border: none; */
+/*--------------------------------------------
+       shop price range component style start
+---------------------------------------------*/
+#multiRangeSlider .multi-range-slider .bar-inner{
+    background-color: #87c50a;
     box-shadow: none;
+    border: none;
 }
 
-.dropDownFilter .Collapsible__trigger{
+#multiRangeSlider .multi-range-slider .bar-right{
+    background-color: #ffffff;
+    border-radius: 0;
+    box-shadow: inset 0px 0px 3px #a29f9f;
+
+}
+#multiRangeSlider .multi-range-slider .bar-left{
+    background-color: #ffffff;
+    border-radius: 0;
+    box-shadow: inset 0px 0px 3px #a29f9f;
+}
+#multiRangeSlider .multi-range-slider .thumb::before {
+    content: "";
+    background-color: #79a919;
+   border: #2e4400;
+   box-shadow: none;
+}
+
+#multiRangeSlider .multi-range-slider{
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+/*--------------------------------------------
+       shop price range component style end
+---------------------------------------------*/
+
+/*-------------------------------------------
+       shop collapsible component style start
+---------------------------------------------*/
+.shopDropDownFilter .dropDown-trigger{
+ margin-top: 8px;
+}
+
+.shopDropDownFilter span{
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopDropDownFilter .Collapsible__trigger{
     font-size: 20px;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
     line-height: 28px;
     font-weight: bold;
 }
+
+.shopDropDownFilter .Collapsible__trigger.is-open svg {
+    transform: rotate(180deg);
+  }
+
+#shop-category-filter .Collapsible__trigger.is-closed h4 {
+    border-bottom: 0;
+}
+
+#shop-brands-filter .Collapsible__trigger.is-closed h4 {
+    border-bottom: 0;
+}
+
+/*--------------------------------------------
+       shop collapsible component style end
+---------------------------------------------*/

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCompareList } from "../Redux/features/compareCounterSlice";
 import axiosPrivet from "./axiosPrivet";
 import { getCompareListId } from "./useFakeDB";
 
 const useCompareProducts = () => {
   const [compareProducts, setCompareProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
@@ -20,6 +23,7 @@ const useCompareProducts = () => {
             savedCompareList.push(addedProduct);
           }
         }
+        dispatch(setCompareList(data));
         setCompareProducts(savedCompareList);
       }
     })();

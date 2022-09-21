@@ -89,7 +89,7 @@ const DealsOfTheDay = () => {
           </div>
 
           <div className="lg:col-span-4">
-            <div className="grid xl:grid-cols-5  md:grid-cols-3 lg:grid-cols-4  sm:grid-cols-2 grid-cols-1 justify-items-center gap-x-5 gap-y-10">
+            <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3  sm:grid-cols-2 grid-cols-1 justify-items-center gap-x-5 gap-y-10">
               {products &&
                 products.map((product) => <DealsProducts key={product?._id} product={product} />)}
             </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
-import { ImArrowLeft2 } from "react-icons/im";
 const NotFound = () => {
   const navigate = useNavigate();
 
@@ -25,7 +24,7 @@ const NotFound = () => {
               onClick={() => navigate(-1)}
               className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
             >
-              <ImArrowLeft2 className="" /> Previous Page
+              Return to back page
             </button>
           </div>
         </section>

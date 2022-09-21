@@ -1,13 +1,10 @@
-import { useContext } from "react";
-import { WishlistQuantity } from "../../App";
 import { wishlistAddToDb } from "./useFakeDB";
 import useWishlistProducts from "./useWishlistProducts";
 import { useDispatch } from "react-redux";
-import { increment } from "../Redux/features/wishlistCounterSlice";
+import { setWishList } from "../Redux/features/wishlistCounterSlice";
 
 const useAddWishlistProduct = () => {
   const [wishlistProducts, setWishlistProducts] = useWishlistProducts([]);
-  const [wishlistQuantity, setWishlistQuantity] = useContext(WishlistQuantity);
   const dispatch = useDispatch();
 
   const handleAddToWishlistProduct = (selectProduct) => {
@@ -25,8 +22,7 @@ const useAddWishlistProduct = () => {
       }
       setWishlistProducts(newWishlist);
       wishlistAddToDb(selectProduct._id);
-      dispatch(increment(newWishlist));
-      setWishlistQuantity(newWishlist);
+      dispatch(setWishList(newWishlist));
     } catch (error) {
       console.log(error.message);
     }

@@ -55,7 +55,7 @@ const ProductsOfYourChoiceCard = ({ product }) => {
         </Link>
       </div>
       {product?.productBadges && (
-        <Badges item={product} className={"rounded-br-2xl absolute top-0"} />
+        <Badges item={product} className={"rounded-br-2xl rounded-tl-2xl absolute top-0"} />
       )}
       <div
         className={`relative duration-300 transition-all ease-in-out flex justify-center  ${

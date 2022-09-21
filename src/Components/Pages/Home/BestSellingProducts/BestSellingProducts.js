@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
-import sideBanner from "../../../../assets/banner_img/side-banner-1.png";
+import sideBanner from "../../../../assets/banner_img/side-banner-6.png";
 import "./BestSellingProducts.css";
 import { useQuery } from "react-query";
 import axiosPrivet from "../../../Hooks/axiosPrivet";

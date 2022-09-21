@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axiosPrivet from "./axiosPrivet";
 import { getWishlistId } from "./useFakeDB";
 import { useDispatch } from "react-redux";
-import { increment } from "../Redux/features/wishlistCounterSlice";
+import { setWishList } from "../Redux/features/wishlistCounterSlice";
 
 const useWishlistProducts = () => {
   const [wishlistProducts, setWishlistProducts] = useState([]);
@@ -23,7 +23,7 @@ const useWishlistProducts = () => {
             savedWishlist.push(addedProduct);
           }
         }
-        dispatch(increment(savedWishlist));
+        dispatch(setWishList(savedWishlist));
         setWishlistProducts(savedWishlist);
       }
     })();

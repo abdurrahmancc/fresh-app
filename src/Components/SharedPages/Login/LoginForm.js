@@ -4,18 +4,17 @@ import {
   useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
-  useUpdatePassword,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
-import { accessToken, getCookie } from "../../Hooks/useCookies";
+import { accessToken } from "../../Hooks/useCookies";
 import useToken from "../../Hooks/useToken";
 import Loading from "../Loading";
 
@@ -34,21 +33,20 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     formState: { errors },
   } = useForm();
 
+  /*---------------- submit form start --------------*/
   const onSubmit = async (data) => {
     const username = data.email;
     const password = data.password;
     const info = { username, password };
-    // console.log(data);
     try {
-      await signInWithEmailAndPassword(username, password);
       const { data: result } = await axiosPrivet.post("/login", info);
+      await signInWithEmailAndPassword(username, password);
       Cookies.set(accessToken, result.token);
     } catch (error) {
       toast.error("login fail! please try again");
     }
   };
-
-  // console.log(token)
+  /*---------------- submit form end --------------*/
 
   const handleForgotPassword = () => {
     navigate("/forgot-password");

@@ -1,11 +1,10 @@
 import React from "react";
-import { FaTrashAlt } from "react-icons/fa";
 import { Table, Tbody, Th, Thead, Tr } from "react-super-responsive-table";
-import useProducts from "../../Hooks/useProducts";
 import useWishlistProducts from "../../Hooks/useWishlistProducts";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
+import FreeOnlineMoney from "../Home/FreeOnlineMoney";
 import WishlistDeleteModal from "./WishlistDeleteModal";
 import WishlistTableRow from "./WishlistTableRow";
 
@@ -15,7 +14,7 @@ const Wishlist = () => {
   return (
     <>
       <main>
-        {/* Breadcrumb start */}
+        {/*---------- Breadcrumb start ---------*/}
         <section className=" bg-slate-100">
           <div className="container mx-auto">
             <div className="py-8 breadcrumbs">
@@ -23,8 +22,8 @@ const Wishlist = () => {
             </div>
           </div>
         </section>
-        {/* Breadcrumb end */}
-        <section className="container mx-auto mt-20 min-h-[calc(100vh-820px)]  h-[60vh]">
+        {/*----------- Breadcrumb end ------------*/}
+        <section className="container mx-auto mt-20 min-h-[calc(100vh-820px)] ">
           {wishProducts?.length >= 1 ? (
             <div className="border rounded-sm max-w-full">
               <Table className="w-full">
@@ -58,22 +57,29 @@ const Wishlist = () => {
               </Table>
             </div>
           ) : (
-            <div className=" h-full flex flex-col justify-center gap-y-10 items-center">
+            <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
               <h4 className="md:text-4xl text-xl font-bold">
                 There are 0 products in your wishlist
               </h4>
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className=" py-4 rounded font-semibold bg-[#6a9a0c] px-5 btn-animate  text-neutral"
+                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
                 >
-                  Return to Back Page
+                  Return to back page
                 </button>
               </h4>
             </div>
           )}
           <WishlistDeleteModal setWishProducts={setWishProducts} />
         </section>
+        {/*------- icons  free online money start----- */}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <FreeOnlineMoney></FreeOnlineMoney>
+          </div>
+        </section>
+        {/*------- icons  free online money end ------*/}
         {/*------ Newsletters start ------*/}
         <section className="max-w-[100%] w-full mt-20">
           <Newsletters></Newsletters>

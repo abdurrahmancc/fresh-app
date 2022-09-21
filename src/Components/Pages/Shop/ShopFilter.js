@@ -9,6 +9,7 @@ import product3 from "../../../assets/products_img/dryShrimp.png";
 import product4 from "../../../assets/products_img/greenPeasPacket.png";
 import Rating from "../../SharedPages/Rating";
 import { Link } from "react-router-dom";
+import { filterBrands } from "./shopCategories";
 const products = [
   {
     _id: "1",
@@ -63,6 +64,7 @@ const ShopFilter = ({
   maxValue,
   set_maxValue,
 }) => {
+  const [toggleCategory, setToggleCategory] = useState(true);
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
@@ -72,17 +74,18 @@ const ShopFilter = ({
   return (
     <>
       <div className="">
-        {/* Categories */}
+        {/*------------- filter Categories start ------------*/}
         <div className=" shadow border border-gray-100">
-          {/* <h4 className="text-xl font-bold p-5 bg-base-100">Categories</h4> */}
-          <div className="mt-2 dropDownFilter">
+          <div id="shop-category-filter" className="shopDropDownFilter">
             <Collapsible
+              onClick={() => setToggleCategory(false)}
               className="w-full"
-              open={true}
+              open={toggleCategory}
               trigger={[
-                `Product Categories
-`,
-                <BsChevronDown />,
+                <h4 className="inline-block border-b-2 pb-5 border-b-primary">
+                  Product Categories
+                </h4>,
+                <BsChevronDown className="dropDown-trigger" />,
               ]}
             >
               <div className="p-5 border-t border-gray-200">
@@ -104,18 +107,23 @@ const ShopFilter = ({
             </Collapsible>
           </div>
         </div>
+        {/*------------- filter Categories end ------------*/}
+        {/*------------ filter Price Range start ----------*/}
         <div className=" my-8 shadow border border-gray-100">
-          <h4 className="text-xl font-bold p-5 border-b border-gray-200">Price Range</h4>
+          <div className="border-b px-5 pt-5 border-gray-200">
+            <h4 className="text-xl pb-5 inline-block font-bold border-b-2 border-b-primary">
+              Price Range
+            </h4>
+          </div>
           <div className="p-5">
             <div className="flex flex-col space-y-2 ">
-              <div className="pt-5">
+              <div id="multiRangeSlider">
                 <MultiRangeSlider
-                  // baseClassName="multi-range-slider-black border-none"
                   min={5}
                   max={200}
                   step={5}
                   ruler={false}
-                  label={true}
+                  label={false}
                   preventWheel={false}
                   minValue={minValue}
                   maxValue={maxValue}
@@ -127,7 +135,7 @@ const ShopFilter = ({
               <div className="flex justify-between pt-4">
                 <div className="border border-gray-300 ">
                   <input
-                    className="input border-none text-center block h-8   focus:outline-none bg-none rounded-none max-w-[8rem]  w-full text-[1vw]"
+                    className="input border-none text-center block h-8   focus:outline-none bg-none rounded-none max-w-[8rem] w-full text-[1vw]"
                     value={minValue}
                     onChange={(e) => set_minValue(e.target.value)}
                   />
@@ -143,13 +151,20 @@ const ShopFilter = ({
             </div>
           </div>
         </div>
-        <div className=" shadow  border border-gray-100">
-          {/* <h4 className="text-xl font-bold p-5 bg-base-100">Categories</h4> */}
-          <div className="mt-2 dropDownFilter">
-            <Collapsible className="w-full" open={true} trigger={[`Brands`, <BsChevronDown />]}>
+        {/*------------ filter Price Range end ----------*/}
+        {/*------------ filter brand start ----------*/}
+        <div className=" shadow border border-gray-100">
+          <div id="shop-brands-filter" className="shopDropDownFilter">
+            <Collapsible
+              className="w-full"
+              open={true}
+              trigger={[
+                <h4 className="inline-block border-b-2 pb-5 border-b-primary">Brands</h4>,
+                <BsChevronDown className="dropDown-trigger" />,
+              ]}
+            >
               <div className="p-5 border-t border-gray-200">
-                {/* Apple */}
-                {categories.map((category) => (
+                {filterBrands.map((category) => (
                   <div className="form-control">
                     <label className="label justify-start gap-2 cursor-pointer">
                       <input
@@ -158,7 +173,7 @@ const ShopFilter = ({
                         onChange={() => handleChangeChecked(category?.id)}
                         className="checkbox rounded-none checkbox-primary checkbox-xs"
                       />
-                      <span className="label-text capitalize">{category?.label}</span>
+                      <span className="label-text capitalize">{category?.value}</span>
                     </label>
                   </div>
                 ))}
@@ -166,36 +181,43 @@ const ShopFilter = ({
             </Collapsible>
           </div>
         </div>
+        {/*------------ filter Brand end ----------*/}
+        {/*------------ New products start ----------*/}
         <div className=" shadow  mt-8 border border-gray-100">
-          <h4 className="text-xl font-bold p-5 border-b border-gray-200">New products</h4>
-          <div className="p-5">
+          <div className="border-b px-5 pt-5 border-gray-200">
+            <h4 className="text-xl pb-5 inline-block font-bold border-b-2 border-b-primary">
+              New products
+            </h4>
+          </div>
+          <div className="px-5 pt-5">
             <div className="grid grid-rows-4">
               {products.map((product) => {
                 const bordered = isLast?._id === product?._id ? "" : "border-b ";
                 return (
-                  <div
-                    key={product?._id}
-                    className={`card relative  hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none ${bordered}`}
-                  >
-                    <figure className="w-20">
-                      <Link to="/" className="p-0">
-                        <img src={product?.img} alt="Album" className="w-20" />
-                      </Link>
-                    </figure>
-                    <div className="card-body p-3">
-                      <h2 className=" leading-5 font-semibold ">
-                        <Link to={"/"}>{product?.title}</Link>
-                      </h2>
+                  <div key={product?._id} className={`${bordered}`}>
+                    <div
+                      className={`card relative  hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-non`}
+                    >
+                      <figure className="w-20">
+                        <Link to="/" className="p-0">
+                          <img src={product?.img} alt="Album" className="w-20" />
+                        </Link>
+                      </figure>
+                      <div className="card-body p-3">
+                        <h4 className=" leading-5 font-semibold ">
+                          <Link to={"/"}>{product?.title}</Link>
+                        </h4>
 
-                      <Rating />
+                        <Rating />
 
-                      <div className="flex gap-2  items-center">
-                        <span className="text-lg text-primary capitalize font-semibold">
-                          ${product?.price}
-                        </span>
-                        <span className="text-gray-400 line-through capitalize">
-                          ${product?.regularPrice}
-                        </span>
+                        <div className="flex gap-2  items-center">
+                          <span className="text-lg text-primary capitalize font-semibold">
+                            ${product?.price}
+                          </span>
+                          <span className="text-gray-400 line-through capitalize">
+                            ${product?.regularPrice}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -204,6 +226,7 @@ const ShopFilter = ({
             </div>
           </div>
         </div>
+        {/*------------ New products end ----------*/}
       </div>
     </>
   );

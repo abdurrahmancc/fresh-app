@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import useAddCartProduct from "../../Hooks/useAddCartProduct";
 import { AiOutlinePlus, AiOutlineTwitter } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
-import { BsShuffle } from "react-icons/bs";
-import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaRegHeart } from "react-icons/fa";
-import { useNavigate, useParams } from "react-router-dom";
+import { FaFacebookF, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 import ProductsDetailsTitle from "../../Pages/Products/ProductsDetailsTitle";
 
 const QuickVIewProductModal = ({ product }) => {
-  const navigate = useNavigate();
+  const [handleAddToCartProduct] = useAddCartProduct();
   const [value, setValue] = useState(1);
 
   const handleOnChange = (data) => {
@@ -30,15 +28,15 @@ const QuickVIewProductModal = ({ product }) => {
     setValue(increaseValue);
   };
 
-  const handleAddToCart = () => {
-    toast.success("Add To Cart", { id: "addToCart" });
+  const handleAddToCart = (product) => {
+    handleAddToCartProduct(product);
   };
   return (
     <>
       {/* product modal */}
       <input type="checkbox" id="quick-view-product" className="modal-toggle" />
       <label htmlFor="quick-view-product" className="modal cursor-pointer">
-        <label className="modal-box rounded-sm h-[480px] w-[960px] max-w-5xl relative" for="">
+        <label className="modal-box rounded-sm h-[480px] w-[960px] max-w-5xl relative">
           <div className="grid grid-cols-2 gap-5 h-full">
             <div className="h-full">
               <figure>
@@ -74,7 +72,7 @@ const QuickVIewProductModal = ({ product }) => {
                   </div>
                   <div>
                     <button
-                      onClick={handleAddToCart}
+                      onClick={() => handleAddToCart(product)}
                       className="btn btn-animate btn-primary rounded-sm text-neutral"
                     >
                       add to cart

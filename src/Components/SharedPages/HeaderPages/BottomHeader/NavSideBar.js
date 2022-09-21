@@ -26,7 +26,9 @@ const NavSideBar = ({ toggle, setToggle }) => {
         e.target.id !== "mobile-top" &&
         e.target.id !== "mobile-sidebar-Toggle" &&
         e.target.id !== "sidebarSubMenu" &&
-        e.target.id !== "collapsible-Titles" &&
+        e.target.id !== "mobile-collapsible-pates" &&
+        e.target.id !== "mobile-collapsible-home" &&
+        e.target.id !== "mobile-collapsible-shop" &&
         e.target.id !== "mobile-menu"
       ) {
         setToggle(false);
@@ -88,7 +90,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                     className="w-full"
                     trigger={
                       <span
-                        id="collapsible-Titles"
+                        id="mobile-collapsible-home"
                         className="flex items-center justify-between w-full"
                       >
                         {[`Home`, <BsChevronDown id="sidebarSubMenuItems" />]}
@@ -130,7 +132,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                     className="w-full"
                     trigger={
                       <span
-                        id="collapsible-Titles"
+                        id="mobile-collapsible-shop"
                         className="flex items-center justify-between w-full"
                       >
                         {[`Shop`, <BsChevronDown id="sidebarSubMenuItems" />]}
@@ -172,7 +174,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                     className="w-full"
                     trigger={
                       <span
-                        id="collapsible-Titles"
+                        id="mobile-collapsible-pates"
                         className="flex items-center justify-between w-full"
                       >
                         {[`Pages`, <BsChevronDown id="sidebarSubMenuItems" />]}
@@ -225,7 +227,9 @@ const NavSideBar = ({ toggle, setToggle }) => {
                 </div>
               </li>
               <li className="inline-block list-none w-full">
-                <a className="tracking-[2px] text-[1em]">Item 1</a>
+                <a href="/" className="tracking-[2px] text-[1em]">
+                  Item 1
+                </a>
               </li>
             </ul>
           </div>

@@ -50,7 +50,7 @@ const ProductsDetailsTitle = ({ data }) => {
                   checked
                   type="radio"
                   // name="radio-1"
-                  class="radio checked:bg-primary border-primary"
+                  className="radio checked:bg-primary border-primary"
                 />
               </li>
               <li className="flex items-center">
@@ -58,7 +58,7 @@ const ProductsDetailsTitle = ({ data }) => {
                   checked
                   type="radio"
                   // name="radio-2"
-                  class="radio  border-black checked:bg-black"
+                  className="radio  border-black checked:bg-black"
                 />
               </li>
               <li className="flex items-center">
@@ -66,7 +66,7 @@ const ProductsDetailsTitle = ({ data }) => {
                   checked
                   type="radio"
                   // name="radio-3"
-                  class="radio checked:bg-yellow-500 border-yellow-500"
+                  className="radio checked:bg-yellow-500 border-yellow-500"
                 />
               </li>
               <li className="flex items-center">
@@ -74,7 +74,7 @@ const ProductsDetailsTitle = ({ data }) => {
                   checked
                   type="radio"
                   // name="radio-4"
-                  class="radio checked:bg-red-500 border-red-500"
+                  className="radio checked:bg-red-500 border-red-500"
                 />
               </li>
             </ul>
@@ -84,9 +84,9 @@ const ProductsDetailsTitle = ({ data }) => {
           <div className="flex items-center gap-8 md:gap-[72px] pb-[15px]">
             <label className="text-xl font-semibold">Weight</label>
             <ul className="flex items-center gap-2">
-              {weight.map((data) => (
+              {weight.map((data, i) => (
                 <li
-                  key={data._id}
+                  key={i}
                   onClick={() => handleWeight(data)}
                   className={`flex cursor-pointer items-center border transition-all duration-500 hover:text-white hover:bg-primary border-primary px-3 py-[2px] rounded-sm ${
                     activeWeight === data && "bg-primary text-white"

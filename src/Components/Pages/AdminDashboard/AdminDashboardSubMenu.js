@@ -6,7 +6,7 @@ import { BsChevronDown } from "react-icons/bs";
 const AdminDashboardSubMenu = ({ route, isOpen }) => {
   return (
     <div className="bg-inherit w-full ">
-      <div className="w-full">
+      <div id="admin-dashboard-Collapsible" className="w-full">
         <Collapsible className="w-full" trigger={[`${route?.name}`, <BsChevronDown />]}>
           <ul className="w-full mt-2 ">
             {route?.subItems.map((subItem, i) => (

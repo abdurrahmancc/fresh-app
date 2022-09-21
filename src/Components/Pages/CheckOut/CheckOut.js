@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { useAuthState } from "react-firebase-hooks/auth";
-import useProducts from "../../Hooks/useProducts";
+import useProducts from "../../Hooks/useCartProducts";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import BillingDetailsForm from "./BillingDetailsForm";

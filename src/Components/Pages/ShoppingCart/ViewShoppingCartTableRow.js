@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { Td, Tr } from "react-super-responsive-table";
 import { addToDb, decreaseToCart, removeFromDb } from "../../Hooks/useFakeDB";
+import { setCartList } from "../../Redux/features/shoppingCartCounterSlice";
 
 const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) => {
   const [value, setValue] = useState();
   const [cartProducts] = children;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setValue(item?.quantity);
@@ -37,6 +40,7 @@ const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) =>
     const rest = cartProducts.filter((item) => item._id !== id);
     setCartProducts(rest);
     removeFromDb(id);
+    dispatch(setCartList(rest));
   };
 
   return (

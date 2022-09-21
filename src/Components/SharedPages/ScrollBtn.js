@@ -7,7 +7,6 @@ const ScrollBtn = () => {
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
-      // console.log(scrolled);
       setVisible(true);
     } else if (scrolled <= 300) {
       setVisible(false);
@@ -25,7 +24,7 @@ const ScrollBtn = () => {
   return (
     <>
       <button
-        className=" cursor-pointer fixed bottom-14 right-2 text-[2rem]"
+        className="cursor-pointer animate-bounce fixed bottom-14 right-2 text-[2rem]"
         onClick={scrollToTop}
         style={{ display: visible ? "inline" : "none" }}
       >

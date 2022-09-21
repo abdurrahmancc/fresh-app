@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { CompareQuantity } from "../../App";
+import { useDispatch } from "react-redux";
+import { setCompareList } from "../Redux/features/compareCounterSlice";
 import useCompareProducts from "./useCompareProducts";
 import { compareListAddToDb } from "./useFakeDB";
 
 const useAddCompareProduct = () => {
   const [compareProducts, setCompareProducts] = useCompareProducts([]);
-  const [compareQuantity, setCompareQuantity] = useContext(CompareQuantity);
+  const dispatch = useDispatch();
 
   const handleAddToCompareProduct = (selectProduct) => {
     let newCompareList = [];
@@ -20,7 +20,7 @@ const useAddCompareProduct = () => {
     }
     setCompareProducts(newCompareList);
     compareListAddToDb(selectProduct._id);
-    setCompareQuantity(newCompareList);
+    dispatch(setCompareList(newCompareList));
   };
 
   return [handleAddToCompareProduct, compareProducts];

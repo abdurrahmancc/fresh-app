@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import { FaTrashAlt } from "react-icons/fa";
+import React from "react";
 import { Table, Tbody, Th, Thead, Tr } from "react-super-responsive-table";
-import { deleteShoppingCart } from "../../Hooks/useFakeDB";
 import CartDeleteModal from "./CartDeleteModal";
 import ViewShoppingCartTableRow from "./ViewShoppingCartTableRow";
 

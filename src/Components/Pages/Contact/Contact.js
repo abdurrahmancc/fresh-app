@@ -34,7 +34,7 @@ const Contact = () => {
         <section className="container mx-auto mt-20">
           <GoogleMaps />
         </section>
-        {/*------- contact form start ------*/}
+        {/*------- get In Touch start ------*/}
         <section className="mt-20">
           <div className="py-20">
             <div className="container mx-auto">
@@ -44,7 +44,8 @@ const Contact = () => {
                 </h2>
                 <p className="pb-10 text-center">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dignissimos
-                  deserunt est tenetur nobis vero vel veritatis voluptatem corporis in.
+                  deserunt <br className="md:block hidden" /> est tenetur nobis vero vel veritatis
+                  voluptatem corporis in.
                 </p>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
                   <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
@@ -91,24 +92,26 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        {/*-------------- get In Touch end -------------*/}
+        {/*-------------- contact form start ----------- */}
         <section section className="container mx-auto mt-20">
           <ContactForm></ContactForm>
         </section>
-
-        {/*------- contact form end ------*/}
-        {/*------ Newsletters start ------*/}
-        <section className="max-w-[100%] w-full mt-20">
+        {/*-------------- contact form end ----------- */}
+        {/*--------------  contact form end -----------*/}
+        {/*-------------- Newsletters start -----------*/}
+        <section className="max-w-[100%] w-full mt-40">
           <Newsletters></Newsletters>
         </section>
-        {/*------ Newsletters end -------*/}
+        {/*----------------- Newsletters end -----------*/}
       </main>
-      {/*------ footer start ------*/}
+      {/*------------------- footer start --------------*/}
       <footer className=" mt-20">
         <div className="lg:mx-0 mx-5">
           <Footer></Footer>
         </div>
       </footer>
-      {/*------ footer end -------*/}
+      {/*------------------- footer end ----------------*/}
     </>
   );
 };

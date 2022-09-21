@@ -1,18 +1,23 @@
 import React from "react";
 import { Table, Tbody, Td, Tr } from "react-super-responsive-table";
-import useProducts from "../../Hooks/useProducts";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./compare.css";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { MdAddShoppingCart, MdDelete } from "react-icons/md";
-import { compareListRemoveFromDb, removeFromDb } from "../../Hooks/useFakeDB";
+import { compareListRemoveFromDb } from "../../Hooks/useFakeDB";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
 import useCompareProducts from "../../Hooks/useCompareProducts";
+import { useDispatch } from "react-redux";
+import { setCompareList } from "../../Redux/features/compareCounterSlice";
+import FreeOnlineMoney from "../Home/FreeOnlineMoney";
+import useAddCartProduct from "../../Hooks/useAddCartProduct";
 
 const Compare = () => {
   const [compareProducts, setCompareProducts] = useCompareProducts();
+  const [handleAddToCartProduct] = useAddCartProduct();
+  const dispatch = useDispatch();
 
   if (compareProducts.length > 4) {
     compareProducts.length = 4;
@@ -20,11 +25,16 @@ const Compare = () => {
 
   const handleRemove = (id) => {
     const rest = compareProducts.filter((item) => item._id !== id);
+
     setCompareProducts(rest);
     compareListRemoveFromDb(id);
+    dispatch(setCompareList(rest));
   };
 
-  console.log(compareProducts);
+  const handleAddToCart = (item) => {
+    handleAddToCartProduct(item);
+  };
+
   return (
     <>
       <main>
@@ -283,7 +293,10 @@ const Compare = () => {
                               className={"border-t sm:border-none border-gray-300"}
                             >
                               <div className="py-5">
-                                <button className="py-2 mx-auto px-6 lg:py-2 lg:px-6 sm:px-3 sm:py-1  sm:text-[1.5vw] lg:text-sm rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2">
+                                <button
+                                  onClick={() => handleAddToCart(product)}
+                                  className="py-2 mx-auto px-6 lg:py-2 lg:px-6 sm:px-3 sm:py-1  sm:text-[1.5vw] lg:text-sm rounded-full border-primary btn-animate hover:text-white capitalize border flex items-center gap-2"
+                                >
                                   <MdAddShoppingCart />{" "}
                                   <span className="sm:hidden lg:block">Add to cart</span>
                                 </button>
@@ -332,14 +345,21 @@ const Compare = () => {
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className="btn btn-primary text-neutral"
+                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
                 >
-                  Return to Back Page
+                  Return to back page
                 </button>
               </h4>
             </div>
           )}
         </section>
+        {/*------- icons  free online money start----- */}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <FreeOnlineMoney></FreeOnlineMoney>
+          </div>
+        </section>
+        {/*------- icons  free online money end ------*/}
         {/*------ Newsletters start ------*/}
         <section className="max-w-[100%] w-full mt-20">
           <Newsletters></Newsletters>

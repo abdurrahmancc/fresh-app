@@ -10,8 +10,9 @@ import Select from "react-select";
 import { shopProduct, sortByProduct } from "../../SharedCss/SelectComponentCss";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
+import { filterCategories } from "./shopCategories";
+import Loading from "../../SharedPages/Loading";
 export const shopAllProducts = createContext("products");
-
 const sortOptions = [
   { value: "popularity", label: "popularity" },
   { value: "averageRating", label: "average Rating" },
@@ -34,23 +35,10 @@ const Shop = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [reload, setReload] = useState(true);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [minPrice, setMinPrice] = useState(20);
-  const [maxPrice, setMaxPrice] = useState(100);
+  const [minPrice, setMinPrice] = useState(60);
+  const [maxPrice, setMaxPrice] = useState(130);
   const [page, setPage] = useState(0);
-  const [categories, setCategories] = useState([
-    { id: 1, checked: false, label: "grocery&Frozen", value: "Grocery & Frozen" },
-    { id: 4, checked: false, label: "freshVegetable", value: "Fresh Vegetable" },
-    { id: 2, checked: false, label: "freshFruits", value: "Fresh Fruits" },
-    { id: 3, checked: false, label: "fruitJuices", value: "Fruit Juices" },
-    { id: 6, checked: false, label: "salads", value: "Salads" },
-    { id: 7, checked: false, label: "freshMeat", value: "Fresh Meat" },
-    { id: 8, checked: false, label: "butter&Egg", value: "Butter & Egg" },
-    { id: 9, checked: false, label: "milkCream", value: "Milk Cream" },
-    { id: 11, checked: false, label: "oil&Vinegars", value: "Oil & Vinegars" },
-    { id: 12, checked: false, label: "bread&Bakery", value: "Bread & Bakery" },
-    { id: 13, checked: false, label: "snacksItem", value: "Snacks Item" },
-    { id: 14, checked: false, label: "fish", value: "Fish" },
-  ]);
+  const [categories, setCategories] = useState(filterCategories);
 
   const {
     register,
@@ -82,7 +70,6 @@ const Shop = () => {
           setAllProducts(data);
           setProducts(data);
           setReload(true);
-          console.log(data);
         }
       } catch (error) {
         console.log(error.message);
@@ -108,7 +95,7 @@ const Shop = () => {
 
     // filter categories
     const categoriesChecked = categories.filter((item) => item.checked).map((item) => item.label);
-    console.log(categoriesChecked);
+
     if (categoriesChecked.length) {
       filterProduct = products.filter((prod) => {
         for (let oneKeyword of categoriesChecked) {
@@ -116,7 +103,6 @@ const Shop = () => {
         }
       });
       if (filterProduct.length) {
-        console.log("product", filterProduct);
         filterAllProducts = filterProduct;
       }
     }
@@ -148,10 +134,8 @@ const Shop = () => {
   }, [categories, minPrice, maxPrice, inputSearch]);
 
   if (!products) {
-    // return <Loading />;
+    return <Loading />;
   }
-
-  console.log("panda", products);
 
   return (
     <>

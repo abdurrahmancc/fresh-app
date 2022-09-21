@@ -7,23 +7,28 @@ import { MdAddShoppingCart } from "react-icons/md";
 import Select from "react-select";
 import { middleCategorySelected } from "../../../SharedCss/SelectComponentCss";
 import { BiSearchAlt } from "react-icons/bi";
+import { useSelector } from "react-redux";
+
+const options = [
+  { value: "chocolate", label: "Grocery & Frozen" },
+  { value: "strawberry", label: "Fresh Vegetable" },
+  { value: "vanilla", label: "Fresh Fruits" },
+  { value: "vanilla", label: "Fruit Juices" },
+  { value: "vanilla", label: "Salads" },
+  { value: "vanilla", label: "Fresh Meat" },
+  { value: "vanilla", label: "Butter & Egg" },
+  { value: "vanilla", label: "Milk Cream" },
+  { value: "vanilla", label: "Oil & Vinegars" },
+  { value: "vanilla", label: "Bread & Bakery" },
+  { value: "vanilla", label: "Snacks Item" },
+  { value: "vanilla", label: "Meat" },
+];
 
 const MiddleHeader = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const options = [
-    { value: "chocolate", label: "Grocery & Frozen" },
-    { value: "strawberry", label: "Fresh Vegetable" },
-    { value: "vanilla", label: "Fresh Fruits" },
-    { value: "vanilla", label: "Fruit Juices" },
-    { value: "vanilla", label: "Salads" },
-    { value: "vanilla", label: "Fresh Meat" },
-    { value: "vanilla", label: "Butter & Egg" },
-    { value: "vanilla", label: "Milk Cream" },
-    { value: "vanilla", label: "Oil & Vinegars" },
-    { value: "vanilla", label: "Bread & Bakery" },
-    { value: "vanilla", label: "Snacks Item" },
-    { value: "vanilla", label: "Meat" },
-  ];
+  const { wishlistCounter, shoppingCartsCounter, compareListCounter } = useSelector(
+    (state) => state
+  );
 
   return (
     <div className=" hidden sm:block">
@@ -82,7 +87,7 @@ const MiddleHeader = () => {
                       <BsArrowLeftRight className="text-lg" />
                     </Link>
                     <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white indicator-item top-2 right-1 text-[0.6875rem]">
-                      <span>44</span>
+                      <span>{compareListCounter.compareList.length}</span>
                     </div>
                   </div>
                 </li>
@@ -95,7 +100,7 @@ const MiddleHeader = () => {
                       <FiHeart className="text-lg" />
                     </Link>
                     <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white  indicator-item top-2 right-1 text-[0.6875rem]">
-                      <span>44</span>
+                      <span>{wishlistCounter.wishlist.length}</span>
                     </div>
                   </div>
                 </li>
@@ -108,7 +113,7 @@ const MiddleHeader = () => {
                       <MdAddShoppingCart className="text-lg " />
                     </Link>
                     <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white  indicator-item top-2 right-1 text-[0.6875rem]">
-                      <span>44</span>
+                      <span>{shoppingCartsCounter.shoppingCart.length}</span>
                     </div>
                   </div>
                 </li>

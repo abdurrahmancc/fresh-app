@@ -58,7 +58,7 @@ const DealsProducts = ({ product }) => {
           </Link>
         </div>
         {product?.productBadges && (
-          <Badges item={product} className={"rounded-br-2xl absolute top-0"} />
+          <Badges item={product} className={"rounded-br-2xl rounded-tl-2xl absolute top-0"} />
         )}
         <div
           className={`relative duration-300 transition-all ease-in-out flex justify-center  ${
@@ -67,13 +67,13 @@ const DealsProducts = ({ product }) => {
         >
           <div className={`flex gap-1 absolute bottom-10 `}>
             {/* quick view product */}
-            {/* <!-- The button to open modal --> */}
 
             <button
               className={
                 "duration-300 transition-all ease-linear text-lg text-primary bg-[#F2F2F2] hover:bg-primary hover:text-neutral"
               }
             >
+              {/* <!-- The button to open modal --> */}
               <label htmlFor="quick-view-product" className="p-2 block">
                 <IoEyeOutline />
               </label>

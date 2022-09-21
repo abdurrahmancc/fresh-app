@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCartList } from "../Redux/features/shoppingCartCounterSlice";
 import axiosPrivet from "./axiosPrivet";
 import { getShoppingId } from "./useFakeDB";
 
-const useProducts = () => {
+const useCartProducts = () => {
   const [cartProducts, setCartProducts] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
       const storedCart = getShoppingId();
@@ -21,10 +23,11 @@ const useProducts = () => {
           }
         }
         setCartProducts(savedCart);
+        dispatch(setCartList(data));
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   return [cartProducts, setCartProducts];
 };
-export default useProducts;
+export default useCartProducts;

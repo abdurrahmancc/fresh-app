@@ -68,7 +68,7 @@ const Features = () => {
           className="mySwiper"
         >
           {featuresItems.map((feature) => (
-            <SwiperSlide key={feature?._id}>
+            <SwiperSlide key={feature?.id}>
               <FeaturesItems feature={feature} />
             </SwiperSlide>
           ))}

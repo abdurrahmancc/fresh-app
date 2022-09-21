@@ -1,28 +1,25 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import toast from "react-hot-toast";
-import { AiOutlinePlus } from "react-icons/ai";
-import { BiMinus } from "react-icons/bi";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Td, Tr } from "react-super-responsive-table";
 import useAddCartProduct from "../../Hooks/useAddCartProduct";
-import { removeFromDb, WishlistRemoveFromDb } from "../../Hooks/useFakeDB";
+import { WishlistRemoveFromDb } from "../../Hooks/useFakeDB";
 import { useDispatch } from "react-redux";
-import { increment } from "../../Redux/features/wishlistCounterSlice";
+import { setWishList } from "../../Redux/features/wishlistCounterSlice";
 
 const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
   const [handleAddToCartProduct] = useAddCartProduct();
   const dispatch = useDispatch();
+
   const handleRemove = (id) => {
     try {
       const rest = wishProducts.filter((item) => item._id !== id);
       setWishProducts(rest);
-      dispatch(increment(rest));
       WishlistRemoveFromDb(id);
+      dispatch(setWishList(rest));
     } catch (error) {
       toast.error(error.message, { id: "removeWish" });
     }

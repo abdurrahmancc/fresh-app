@@ -1,7 +1,6 @@
 import React from "react";
 import { FiRefreshCw } from "react-icons/fi";
-import { GrUpdate } from "react-icons/gr";
-import useProducts from "../../Hooks/useProducts";
+import useProducts from "../../Hooks/useCartProducts";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
@@ -71,9 +70,9 @@ const ShoppingCart = () => {
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className="btn btn-primary text-neutral"
+                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
                 >
-                  Return to Back Page
+                  Return to back page
                 </button>
               </h4>
             </div>

@@ -4,10 +4,9 @@ import { FaUserAlt } from "react-icons/fa";
 import { MdDarkMode, MdLocationOn } from "react-icons/md";
 import { BiHeart, BiNotepad } from "react-icons/bi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import BottomCategories from "./BottomCategories";
 import { AiFillSetting, AiOutlineCaretDown } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
-import { VscSettings, VscThreeBars } from "react-icons/vsc";
+import { VscSettings } from "react-icons/vsc";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Hooks/useAuthState";
 import { signOut } from "firebase/auth";
@@ -175,44 +174,44 @@ const BottomHeader = () => {
       </li>
       <li className="py-2">
         <NavLink
-          to={"/products"}
+          to={"/about"}
           className={({ isActive }) =>
             isActive
               ? " text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
               : "text-[16px] lg:text-white py-[5px] gap-1 px-0 font-bold hover:bg-primary border-animate focus:bg-primary"
           }
         >
-          Products
+          About
         </NavLink>
       </li>
 
       <li className="py-2">
         <NavLink
-          to={"/fresh"}
+          to={"/contact"}
           className={({ isActive }) =>
             isActive
               ? "text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
               : "text-[16px] lg:text-white gap-1 px-0 font-bold hover:bg-primary border-animate py-[5px] focus:bg-primary"
           }
         >
-          Fresh
+          Contact
         </NavLink>
       </li>
       <li className="py-2">
         <NavLink
-          to={"/mega-menu"}
+          to={"/blogs"}
           className={({ isActive }) =>
             isActive
               ? "text-[16px] border-b-[2px] py-[5px] border-white hover:bg-primary lg:text-white focus:bg-primary gap-1 font-bold px-0 rounded-none activeNavbar"
               : "text-[16px] lg:text-white gap-1 px-0 font-bold hover:bg-primary border-animate py-[5px] focus:bg-primary"
           }
         >
-          Mega Menu
+          Blogs
         </NavLink>
       </li>
     </>
   );
-  console.log(toggle);
+
   return (
     <div className="bg-primary">
       {/*----- Bottom Header start -----*/}

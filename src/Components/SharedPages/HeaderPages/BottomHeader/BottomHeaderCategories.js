@@ -83,10 +83,14 @@ const BottomHeaderCategories = () => {
                 className="dropdown-content overflow-hidden text-[#333] side-dropdown menu shadow bg-base-100  w-52"
               >
                 <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-                  <a className="pl-8 font-semibold">Item 1</a>
+                  <a href="/" className="pl-8 font-semibold">
+                    Item 1
+                  </a>
                 </li>
                 <li className="hover:bg-primary border-gray-200 hover:text-neutral capitalize">
-                  <a className="pl-8 font-semibold">Item 2</a>
+                  <a href="/" className="pl-8 font-semibold">
+                    Item 2
+                  </a>
                 </li>
               </ul>
             </div>
