@@ -1,6 +1,5 @@
 import React from "react";
 import toast from "react-hot-toast";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const DeleteUserModal = ({ deleteModal, setDeleteModal, refetch }) => {
   const handleDeleteUser = async (id) => {

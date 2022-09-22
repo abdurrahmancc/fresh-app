@@ -4,7 +4,6 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { useQuery } from "react-query";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 import Breadcrumb from "../../../SharedPages/Breadcrumb";
-import Loading from "../../../SharedPages/Loading";
 import PaidOrderDeleteModal from "./PaidOrderDeleteModal";
 import PaidOrderTable from "./PaidOrderTable";
 

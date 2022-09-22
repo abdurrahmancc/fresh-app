@@ -7,11 +7,13 @@ import OthersBasicInfo from "./OthersBasicInfo";
 import ProductImage from "../AddProduct/ProductImage";
 import ScrollBtn from "../../../SharedPages/ScrollBtn";
 import Breadcrumb from "../../../SharedPages/Breadcrumb";
+import Loading from "../../../SharedPages/Loading";
 
 const AddOthers = () => {
   const [uploadAImage, setUploadAImage] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [imageUrl, setImageUrl] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [multipleImageUrl, setMultipleImageUrl] = useState(false);
   const {
     register,
@@ -20,8 +22,9 @@ const AddOthers = () => {
     reset,
     formState: { errors },
   } = useForm();
-  console.log(selectedCategory);
+
   const onSubmit = async (data) => {
+    setIsLoading(true);
     let image;
     if (uploadAImage) {
       const inputImages = data.uploadImage[0];
@@ -52,8 +55,10 @@ const AddOthers = () => {
           toast.success("success", { id: "success-add" });
           reset();
         }
+        setIsLoading(false);
       } catch (error) {
         toast.error(error?.response?.data?.errors?.common?.msg, { id: "add-blog-error" });
+        setIsLoading(false);
       }
     }
   };
@@ -87,6 +92,9 @@ const AddOthers = () => {
     reset,
   };
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <div className="p-10 w-full">

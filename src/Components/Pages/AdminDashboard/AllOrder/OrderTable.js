@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import OrderDeleteModal from "./OrderDeleteModal";
 import OrderDetails from "./OrderDetails";
 import "./OrderTable.css";

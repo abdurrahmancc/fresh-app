@@ -1,6 +1,5 @@
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BiAnalyse } from "react-icons/bi";
-import { BsCartCheck } from "react-icons/bs";
 import { FaHome, FaUser } from "react-icons/fa";
 import { MdAddShoppingCart, MdMessage, MdStorefront } from "react-icons/md";
 

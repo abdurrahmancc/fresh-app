@@ -29,9 +29,7 @@ const ContactForm = () => {
   return (
     <>
       <div className="pb-10">
-        <h2 className="lg:text-4xl text-[4vw] text-center  font-bold capitalize font-[Asul]">
-          contact us
-        </h2>
+        <h2 className="lg:text-4xl text-[4vw] text-center  font-bold capitalize ">contact us</h2>
         <p className="text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dignissimos deserunt{" "}
           <br className="md:block hidden" />

@@ -39,7 +39,7 @@ const About = () => {
               <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 ">
                 <img src={banner} className="rounded-lg shadow-xl mx-auto" alt="banner" />
                 <div className="">
-                  <h2 className="lg:text-4xl text-[4vw] font-bold text-center lg:text-start capitalize font-[Asul] pb-8">
+                  <h2 className="lg:text-4xl text-[4vw] font-bold text-center lg:text-start capitalize  pb-8">
                     Welcome to Fresh
                   </h2>
                   <p className="pb-6">
@@ -73,7 +73,7 @@ const About = () => {
           <div className="py-20 bg-[#f4f1ed]">
             <div className="container mx-auto">
               <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center pb-10 font-bold capitalize font-[Asul]">
+                <h2 className="lg:text-4xl text-[4vw] text-center pb-10 font-bold capitalize ">
                   You can easily purchase our products <br /> within your price range.
                 </h2>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-20">
@@ -81,7 +81,7 @@ const About = () => {
                     <figure>
                       <img src={location} className="w-20 mx-auto" alt="address-icon" />
                     </figure>
-                    <h3 className="text-xl font-bold font-[Asul] py-3 capitalize text-center">
+                    <h3 className="text-xl font-bold  py-3 capitalize text-center">
                       Address Details
                     </h3>
                     <p className="text-center">
@@ -93,7 +93,7 @@ const About = () => {
                     <figure>
                       <img src={product} className="w-20 mx-auto " alt="products-icon" />
                     </figure>
-                    <h3 className="text-xl font-bold font-[Asul] capitalize text-center py-3">
+                    <h3 className="text-xl font-bold  capitalize text-center py-3">
                       Choose product
                     </h3>
                     <p className="text-center">
@@ -105,7 +105,7 @@ const About = () => {
                     <figure>
                       <img src={happy} className="w-20 mx-auto" alt="enjoy-icon" />
                     </figure>
-                    <h3 className="text-xl font-bold font-[Asul] capitalize text-center py-3">
+                    <h3 className="text-xl font-bold  capitalize text-center py-3">
                       enjoy products
                     </h3>
                     <p className="text-center">
@@ -126,10 +126,10 @@ const About = () => {
               <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 items-center">
                 <img src={solution} className="rounded-lg shadow-lg" alt="banner" />
                 <div className="">
-                  <span className="text-2xl lg:text-start text-center block font-[Asul] text-gray-500 lg:inline">
+                  <span className="text-2xl lg:text-start text-center block  text-gray-500 lg:inline">
                     Our performance
                   </span>
-                  <h2 className="lg:text-5xl text-center lg:text-start text-[4vw] font-bold capitalize font-[Asul] py-8">
+                  <h2 className="lg:text-5xl text-center lg:text-start text-[4vw] font-bold capitalize  py-8">
                     Your Partner for e-commerce grocery solution
                   </h2>
                   <p className="pb-6">
@@ -154,7 +154,7 @@ const About = () => {
           <div className="py-20 bg-[#f4f1ed]">
             <div className="container mx-auto">
               <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center pb-20 font-bold capitalize font-[Asul]">
+                <h2 className="lg:text-4xl text-[4vw] text-center pb-20 font-bold capitalize ">
                   our professional and dedicated <br /> expert team leader
                 </h2>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
@@ -163,7 +163,7 @@ const About = () => {
                       <img src={user1} className="rounded-[50%]" alt="user_photo" />
                     </figure>
                     <div className="card-body  w-full items-center text-center">
-                      <h2 className="card-title capitalize pt-2 font-[Asul]">Williams</h2>
+                      <h2 className="card-title capitalize pt-2 ">Williams</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                       <p className="pt-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
@@ -176,7 +176,7 @@ const About = () => {
                       <img src={user3} className="rounded-[50%]" alt="user_photo" />
                     </figure>
                     <div className="card-body items-center text-center">
-                      <h2 className="card-title capitalize pt-2 font-[Asul]">Charlotte</h2>
+                      <h2 className="card-title capitalize pt-2 ">Charlotte</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                       <p className="pt-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
@@ -189,7 +189,7 @@ const About = () => {
                       <img src={user2} className="rounded-[50%]" alt="user_photo" />
                     </figure>
                     <div className="card-body items-center text-center">
-                      <h2 className="card-title capitalize pt-2 font-[Asul]">rodriguez</h2>
+                      <h2 className="card-title capitalize pt-2 ">rodriguez</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                       <p className="pt-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
@@ -208,7 +208,7 @@ const About = () => {
           <div className="py-20">
             <div className="container mx-auto">
               <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center pb-20 font-bold capitalize font-[Asul]">
+                <h2 className="lg:text-4xl text-[4vw] text-center pb-20 font-bold capitalize ">
                   Our Happy clients
                 </h2>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
@@ -222,7 +222,7 @@ const About = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
                         laboriosam distinctio soluta, minima dolorum!
                       </p>
-                      <h2 className="card-title capitalize pt-2 font-[Asul]">Williams</h2>
+                      <h2 className="card-title capitalize pt-2 ">Williams</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                     </div>
                   </div>
@@ -237,7 +237,7 @@ const About = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
                         laboriosam distinctio soluta, minima dolorum!
                       </p>
-                      <h2 className="card-title capitalize pt-2 font-[Asul]">Charlotte</h2>
+                      <h2 className="card-title capitalize pt-2 ">Charlotte</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                     </div>
                   </div>
@@ -251,7 +251,7 @@ const About = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
                         laboriosam distinctio soluta, minima dolorum!
                       </p>
-                      <h2 className="card-title capitalize pt-2 font-[Asul]">rodriguez</h2>
+                      <h2 className="card-title capitalize pt-2 ">rodriguez</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                     </div>
                   </div>

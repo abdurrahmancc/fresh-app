@@ -39,19 +39,23 @@ const Shop = () => {
   const [maxPrice, setMaxPrice] = useState(130);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState(filterCategories);
 
   const categoriesChecked = categories.filter((item) => item.checked);
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const { data } = await axiosPrivet.get("product/counter");
         const count = data.count;
         const pages = Math.ceil(count / size.value);
         setPageCount(pages);
         setTotalProducts(data?.count);
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
+        setIsLoading(false);
       }
     })();
   }, [size.value]);
@@ -59,6 +63,7 @@ const Shop = () => {
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const { data } = await axiosPrivet.post(
           `product/all-products/?page=${page}&size=${size?.value}`,
           categoriesChecked
@@ -69,8 +74,10 @@ const Shop = () => {
           setProducts(data);
           setReload(true);
         }
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
+        setIsLoading(false);
       }
     })();
   }, [reload, page, size?.value]);
@@ -120,10 +127,9 @@ const Shop = () => {
     applyFilters();
   }, [categories, minPrice, maxPrice]);
 
-  if (!products) {
+  if (!products || isLoading) {
     return <Loading />;
   }
-  console.log("pageCount", pageCount);
   return (
     <>
       <main>
@@ -138,7 +144,7 @@ const Shop = () => {
         {/* Breadcrumb end */}
         {/* filter body start*/}
         <section className="container mx-auto mt-20">
-          <shopAllProducts.Provider value={[products, setReload, page, setPage, size?.value]}>
+          <shopAllProducts.Provider value={[products]}>
             <div className=" w-full">
               <div className="grid  gap-8 lg:grid-cols-5">
                 <div

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineSetting, AiOutlineUser } from "react-icons/ai";
 import { MdOutlineMessage } from "react-icons/md";
 import { CgLogOff } from "react-icons/cg";

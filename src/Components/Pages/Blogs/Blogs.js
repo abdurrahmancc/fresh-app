@@ -12,8 +12,7 @@ import BlogSideBar from "./BlogSideBar";
 const Blogs = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
-  const [size] = useState(1);
-  const [reload, setReload] = useState(true);
+  const [size] = useState(12);
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -30,12 +29,11 @@ const Blogs = () => {
       try {
         const { data } = await axiosPrivet.get(`/blog/?page=${page}&size=${size}`);
         setBlogs(data?.blogs);
-        setReload(true);
       } catch (error) {
         console.log(error.message);
       }
     })();
-  }, [reload, page, size]);
+  }, [page, size]);
 
   if (!blogs) {
     return <Loading />;
@@ -93,7 +91,7 @@ const Blogs = () => {
                     </div>
                   ))}
               </div>
-              <div className="flex justify-center mt-20 mb-10 btn-group">
+              <div className="flex justify-center mt-10 mb-10 btn-group">
                 <Pagination pageCount={pageCount} setPage={setPage} />
               </div>
             </div>

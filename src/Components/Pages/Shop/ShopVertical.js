@@ -7,21 +7,7 @@ import ShopVerticalCard from "./ShopVerticalCard";
 
 const ShopVertical = () => {
   const { pathname } = useLocation();
-  const [pageCount, setPageCount] = useState(0);
-  const [products, setReload, page, setPage, size] = useContext(shopAllProducts);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axiosPrivet.get("counter");
-        const count = data.count;
-        const pages = Math.ceil(count / size);
-        setPageCount(pages);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [size]);
+  const [products] = useContext(shopAllProducts);
 
   return (
     <>

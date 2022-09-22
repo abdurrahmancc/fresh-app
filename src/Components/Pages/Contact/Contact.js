@@ -40,7 +40,7 @@ const Contact = () => {
           <div className="py-20">
             <div className="container mx-auto">
               <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center  font-bold capitalize font-[Asul]">
+                <h2 className="lg:text-4xl text-[4vw] text-center  font-bold capitalize ">
                   Get In Touch
                 </h2>
                 <p className="pb-10 text-center">
@@ -53,7 +53,7 @@ const Contact = () => {
                     <IoLocationSharp className="text-5xl mb-5 text-primary w-full" />
 
                     <div className="card-body p-0 w-full items-center text-center">
-                      <h4 className="card-title pb-2 text-[15px] capitalize font-[Asul]">
+                      <h4 className="card-title pb-2 text-[15px] capitalize ">
                         Utah 43332 United States
                       </h4>
                       <p className="text-gray-500 pb-4 capitalize">
@@ -66,7 +66,7 @@ const Contact = () => {
                     <FiPhoneCall className="text-5xl mb-5 text-primary w-full" />
 
                     <div className="card-body p-0 w-full items-center text-center">
-                      <h4 className="card-title pb-2 text-[15px] capitalize font-[Asul]">
+                      <h4 className="card-title pb-2 text-[15px] capitalize ">
                         Utah 43332 United States
                       </h4>
                       <p className="text-gray-500 pb-4 capitalize">
@@ -79,7 +79,7 @@ const Contact = () => {
                     <AiOutlineMail className="text-5xl mb-5 text-primary w-full" />
 
                     <div className="card-body p-0 w-full items-center text-center">
-                      <h4 className="card-title pb-2 text-[15px] capitalize font-[Asul]">
+                      <h4 className="card-title pb-2 text-[15px] capitalize ">
                         Utah 43332 United States
                       </h4>
                       <p className="text-gray-500 pb-4 capitalize">

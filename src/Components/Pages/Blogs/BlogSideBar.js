@@ -74,7 +74,7 @@ const BlogSideBar = () => {
   let isLast = products[products.length - 1];
   return (
     <>
-      <div className="flex flex-col gap-y-14 justify-center">
+      <div className="flex flex-col gap-y-12 justify-center">
         <div className=" w-full">
           <h4 className="text-xl font-bold border-b-2 border-primary inline-block ml-5 pb-5">
             Search
@@ -193,7 +193,7 @@ const BlogSideBar = () => {
             popular Tags
           </h4>
           <div className="p-5 border-t border-gray-200">
-            <div className=" pt-4 flex flex-wrap gap-y-5 gap-x-3 ">
+            <div className=" pt-4 pb-2 flex flex-wrap gap-y-5 gap-x-3 ">
               <Link
                 to={"/blogs"}
                 href="shop"

@@ -50,7 +50,7 @@ const Faq = () => {
               <div className="w-full">
                 <div className="">
                   <div className=" mb-4">
-                    <h2 className="capitalize font-[Asul] mb-5 font-bold  text-start text-4xl ">
+                    <h2 className="capitalize  mb-5 font-bold  text-start text-4xl ">
                       if you have any questions feel free to contact us
                     </h2>
                   </div>
@@ -162,9 +162,9 @@ const Faq = () => {
         </section>
         {/*------- contact form end ------*/}
         <section className="container mx-auto mt-40 mb-20">
-          <h2 className="capitalize  font-[Asul] mb-5 font-bold  text-center text-4xl">FAQ</h2>
+          <h2 className="capitalize   mb-5 font-bold  text-center text-4xl">FAQ</h2>
           <div id="faq-Collapsible" className="max-w-[1100px] mt-10 mx-auto">
-            <h3 className="capitalize  font-[Asul] mb-5 font-bold text-xl">order info:</h3>
+            <h3 className="capitalize   mb-5 font-bold text-xl">order info:</h3>
             <div className="bg-[#f6f7f8] border hover:border-primary">
               <Collapsible
                 className="w-full"

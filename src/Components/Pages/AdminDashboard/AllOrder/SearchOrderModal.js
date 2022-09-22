@@ -10,7 +10,6 @@ const SearchOrderModal = ({
   setToggleSearch,
   setOrderDeleteModal,
   setOrderDetailModal,
-  orderDetailModal,
 }) => {
   const [handleHeight, setHandleHeight] = useState(false);
 
