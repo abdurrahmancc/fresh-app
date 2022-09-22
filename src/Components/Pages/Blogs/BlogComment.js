@@ -1,22 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const BlogComment = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
-    setError,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    toast.success("Your request has been pending!");
+    reset();
+  };
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
         <span className="font-bold">Comment *</span>
-        <textarea className="textarea textarea-bordered w-full h-40" placeholder=""></textarea>
+        <textarea className="textarea textarea-bordered w-full h-52" placeholder=""></textarea>
         <div className="flex gap-5 pt-4 pb-6">
           <div className="form-control w-full">
             <input

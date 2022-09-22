@@ -187,6 +187,7 @@ const BasicInformation = ({
           </div>
         </div>
         <div>
+          {/*---------------- category ------------- */}
           <div className="form-control pb-4">
             <label htmlFor="brand" className="label">
               <span className="label-text text-xs">Category</span>

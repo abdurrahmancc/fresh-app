@@ -14,6 +14,7 @@ import banner3 from "../../../assets/product_Banner/product_Banner-3.png";
 import TopTrendingRecently from "../Home/TopTrendingRecently/TopTrendingRecently";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
 
 const Home1 = () => {
   const img1 = [banner1, banner2];
@@ -88,6 +89,9 @@ const Home1 = () => {
           <Newsletters></Newsletters>
         </section>
         {/*------ Newsletters end -------*/}
+        {/*---------- scroll button start ---------*/}
+        <ScrollBtn />
+        {/*---------- scroll button end ---------*/}
       </main>
       {/*------ footer start ------*/}
       <footer className=" mt-20">

@@ -27,6 +27,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const navigate = useNavigate();
   const [token, tokenLoading] = useToken(user || gUser || eUser);
   const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,

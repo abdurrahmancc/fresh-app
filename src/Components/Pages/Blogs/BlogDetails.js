@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { BiSearchAlt } from "react-icons/bi";
-import { IoIosClose } from "react-icons/io";
-import { VscTriangleRight } from "react-icons/vsc";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -9,92 +6,30 @@ import axiosPrivet from "../../Hooks/axiosPrivet";
 import Footer from "../../SharedPages/Footer/Footer";
 import Loading from "../../SharedPages/Loading";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
-import Rating from "../../SharedPages/Rating";
-import { AiOutlineCheck } from "react-icons/ai";
 import { BsFillTagFill } from "react-icons/bs";
 import { FaCalendarAlt, FaThLarge, FaUserAlt } from "react-icons/fa";
 import BlogComment from "./BlogComment";
 import adminLogo from "../../../assets/logo/admin.jpg";
-import product1 from "../../../assets/products_img/CashewNuts.png";
-import product2 from "../../../assets/products_img/driedFishPacket.png";
-import product3 from "../../../assets/products_img/dryShrimp.png";
-import product4 from "../../../assets/products_img/greenPeasPacket.png";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import BlogSideBar from "./BlogSideBar";
+import { format } from "date-fns";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const [error, setError] = useState("");
-  const {
-    register,
-    handleSubmit,
-    watch,
-    resetField,
-    formState: { errors },
-  } = useForm();
-  const inputSearch = watch("search");
 
   const { data, isLoading } = useQuery(
     ["blogDetails", id],
-    async () => await axiosPrivet.get(`/blog-details/${id}`)
+    async () => await axiosPrivet.get(`/blog/${id}`)
   );
 
   if (isLoading) {
     return <Loading />;
   }
 
-  const onSubmit = (data) => {};
-  console.log(data);
-  const tags = data?.data?.data?.metaKeywords.split(", ");
-  console.log(tags);
-
-  const products = [
-    {
-      _id: "1",
-      title: "Cashew Nuts",
-      img: product1,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "new",
-    },
-    {
-      _id: "2",
-      title: "dried Fish Packet",
-      img: product2,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "new",
-    },
-    {
-      _id: "3",
-      title: "Dry Shrimp",
-      img: product3,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: 20,
-    },
-    {
-      _id: "4",
-      title: "green Peas Packet",
-      img: product4,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "hot",
-    },
-  ];
-  let isLast = products[products.length - 1];
+  // let isLast = products[products.length - 1];
+  const blog = data?.data ? data?.data : null;
+  const date = format(new Date(blog?.createdAt), "PP");
+  const tags = blog.metaKeywords.split(", ");
   return (
     <>
       <main>
@@ -112,32 +47,28 @@ const BlogDetails = () => {
             <div className="col-span-3">
               <div className="border-b border-dashed border-gray-300">
                 <figure>
-                  <img
-                    className="w-full h-auto rounded-xl"
-                    src={data?.data?.images?.ImageURL1}
-                    alt=""
-                  />
+                  <img className="w-full h-auto rounded-xl" src={blog?.image} alt="blog_image" />
                 </figure>
                 <div>
-                  <h4 className="text-2xl mt-8 font-bold">Blog Image Post</h4>
+                  <h4 className="text-2xl mt-8 font-bold capitalize">{blog?.title}</h4>
                   <div className="flex items-center gap-5">
                     <div className="flex items-center gap-2 mt-4">
                       <FaCalendarAlt className="text-gray-400" />
-                      <span>{data?.data?.date}</span>
+                      <span>{date}</span>
                     </div>
                     <div className="flex items-center gap-2 mt-4">
                       <FaUserAlt className="text-gray-400" />
-                      <span className="capitalize">Posts by: {data?.data?.data?.role}</span>
+                      <span className="capitalize">Posts by: {blog?.role}</span>
                     </div>
                   </div>
                   <div className="mt-10">
-                    <p className="leading-6">{data?.data?.data?.description1}</p>
+                    <p className="leading-6">{blog?.description1}</p>
                     <blockquote className="ml-20 py-10 ">
                       <p className="p-4 border-l-4 bg-base-200 border-primary">
-                        <em> {data?.data?.data?.blockquote}</em>
+                        <em> {blog?.blockquote}</em>
                       </p>
                     </blockquote>
-                    <p className="leading-6">{data?.data?.data?.description2}</p>
+                    <p className="leading-6">{blog?.description2}</p>
                     <div className="flex gap-1 py-10">
                       {tags &&
                         tags.map((tag, index) => (
@@ -158,23 +89,23 @@ const BlogDetails = () => {
                     <li className=" flex items-center">
                       <BsFillTagFill Fill className="text-[#FF6000] text-lg" />
                       <Link className="pl-2" to={"blog"}>
-                        Branding
+                        NestFood
                       </Link>
                       ,
                       <Link className="pl-1" to={"blog"}>
-                        Electronic
+                        Nestle
                       </Link>
                       ,
                       <Link className="pl-1" to={"blog"}>
-                        Watch
+                        Cargill
                       </Link>
                       ,
                       <Link className="pl-1" to={"blog"}>
-                        Laptop
+                        Kellogg Co
                       </Link>
                       ,
                       <Link className="pl-1" to={"blog"}>
-                        IPad
+                        Golden
                       </Link>
                       ,
                     </li>

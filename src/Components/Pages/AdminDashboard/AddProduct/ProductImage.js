@@ -1,8 +1,10 @@
 import React from "react";
 import { IoMdCloudUpload } from "react-icons/io";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useLocation } from "react-router-dom";
 
 const ProductImage = ({ children }) => {
+  const { pathname } = useLocation();
   const {
     handleUploadAImage,
     uploadAImage,
@@ -55,7 +57,7 @@ const ProductImage = ({ children }) => {
                 />
               </label>
             </div>
-            <div className="form-control">
+            <div className={pathname.includes("add-other") ? "hidden" : "form-control"}>
               <label htmlFor="multipleImage" className="label cursor-pointer gap-1">
                 <span className="label-text">Multiple Image URL</span>
                 <input

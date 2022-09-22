@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { signOut } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -40,13 +39,12 @@ const useToken = (user) => {
             navigate("/login");
             signOut(auth);
           }
-
           setToken(false);
           setTokenLoading(false);
         }
       }
     })();
-  }, [email]);
+  }, [email, navigate]);
 
   return [token, tokenLoading, setTokenLoading];
 };

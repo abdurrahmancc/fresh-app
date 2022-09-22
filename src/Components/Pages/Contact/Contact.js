@@ -17,6 +17,7 @@ import GoogleMaps from "./GoogleMaps";
 import { IoLocationSharp } from "react-icons/io5";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
 
 const Contact = () => {
   return (
@@ -104,6 +105,9 @@ const Contact = () => {
           <Newsletters></Newsletters>
         </section>
         {/*----------------- Newsletters end -----------*/}
+        {/*---------- scroll button start ---------*/}
+        <ScrollBtn />
+        {/*---------- scroll button end ---------*/}
       </main>
       {/*------------------- footer start --------------*/}
       <footer className=" mt-20">

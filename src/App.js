@@ -45,7 +45,7 @@ function App() {
       setToggleSideBar(!toggleSideBar);
     }
   };
-  // const count = useSelector((state) => console.log(state));
+  const count = useSelector((state) => console.log(state));
   return (
     <>
       <Toaster />

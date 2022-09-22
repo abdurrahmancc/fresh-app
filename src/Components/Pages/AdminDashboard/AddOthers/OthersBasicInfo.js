@@ -1,6 +1,9 @@
 import React from "react";
+import Select from "react-select";
+import { categoryOptions } from "../AddProduct/dashboardSelectorOptions";
+import { selectCategoryStyle } from "../AddProduct/selectorStyle";
 
-const OthersBasicInfo = ({ register, errors }) => {
+const OthersBasicInfo = ({ register, errors, selectedCategory, setSelectedCategory }) => {
   return (
     <>
       <div className="grid sm:grid-cols-2 grid-cols-1 gap-10">
@@ -63,39 +66,43 @@ const OthersBasicInfo = ({ register, errors }) => {
         </div>
         <div>
           {/* Category */}
-          <div className="form-control pb-4 ">
-            <label htmlFor="blogCategory" className="label">
+          <div className="form-control pb-4">
+            <label htmlFor="brand" className="label">
               <span className="label-text text-xs">Category</span>
             </label>
-            <select
-              id="blogCategory"
-              className="select select-bordered w-full"
-              {...register("blogCategory", {
-                required: { value: true, message: "Category is require" },
+            <Select
+              closeMenuOnSelect={true}
+              value={selectedCategory}
+              onChange={setSelectedCategory}
+              options={categoryOptions}
+              styles={selectCategoryStyle}
+              // placeholder={"Select Categories"} or
+              placeholder={<div className="text-sm">--Select category--</div>}
+              theme={(theme) => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                  ...theme.colors,
+                  primary25: "#556EE6" /* options hover background color */,
+                  neutral50: "none" /* placeholder text color */,
+                  neutral80: "none" /* input & selected text color */,
+                  neutral0: "#2A3041" /* menu background color */,
+                  neutral20: "#8F9BBB" /* remove & dropdownIndicator color */,
+                  // primary75: "black",
+                  danger: "gray" /* hover remove color */,
+                  // neutral5: "red",
+                  // primary: "red",
+                  // neutral30: "red",
+                  neutral60: "none" /* focus remove & dropdownIndicator color */,
+                  // neutral90: "red",
+                  primary50: "none" /* option active background color */,
+                  dangerLight: "none" /* remove color */,
+                  neutral10: "none" /* selected background color */,
+                  neutral40: "gray" /* hover remove & dropdownIndicator color */,
+                  neutral70: "red",
+                },
               })}
-            >
-              <option disabled selected hidden value="">
-                --Select Category--
-              </option>
-              {/* <option disabled selected value="">
-              --Select--
-            </option> */}
-              <option value={"monitor"}>Monitor</option>
-              <option value={"laptop"}>Laptop</option>
-              <option value={"computer"}>Computer</option>
-              <option value={"phone"}>Phone</option>
-              <option value={"tablet"}>Tablet</option>
-              <option value={"watch"}>Watch</option>
-              <option value={"speaker"}>Speaker</option>
-              <option value={"headphone"}>Headphone</option>
-              <option value={"AC"}>AC</option>
-              <option value={"refrigerator"}>Refrigerator</option>
-            </select>
-            {errors?.blogCategory && (
-              <span className="label-text-alt text-red-500 text-xs">
-                {errors.blogCategory?.message}
-              </span>
-            )}
+            />
           </div>
           {/* Manufacturer Brand */}
           <div className="form-control pb-4">

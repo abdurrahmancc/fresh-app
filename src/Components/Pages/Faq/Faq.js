@@ -8,6 +8,7 @@ import callCenter from "../../../assets/banner_img/contact-img-2.png";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
 import "./faq.css";
 
 const Faq = () => {
@@ -281,6 +282,9 @@ const Faq = () => {
           <Newsletters></Newsletters>
         </section>
         {/*------ Newsletters end -------*/}
+        {/*---------- scroll button start ---------*/}
+        <ScrollBtn />
+        {/*---------- scroll button end ---------*/}
       </main>
       {/*------ footer start ------*/}
       <footer className=" mt-20">

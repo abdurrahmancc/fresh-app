@@ -7,14 +7,15 @@ import { Link } from "react-router-dom";
 import Badges from "../../SharedPages/Badges";
 import QuickVIewProductModal from "../../SharedPages/Modals/QuickVIewProductModal";
 import Rating from "../../SharedPages/Rating";
+import useAddCartProduct from "../../Hooks/useAddCartProduct";
+import useAddCompareProduct from "../../Hooks/useAddCompareProduct";
+import useAddWishlistProduct from "../../Hooks/useAddWishlistProduct";
 
-const ShopVerticalCard = ({
-  item,
-  handleAddToCartProduct,
-  handleAddToWishlistProduct,
-  handleAddToCompareProduct,
-}) => {
+const ShopVerticalCard = ({ item }) => {
   const [hoveredCart, setHoveredCart] = useState("hidden");
+  const [handleAddToCartProduct] = useAddCartProduct();
+  const [handleAddToWishlistProduct] = useAddWishlistProduct();
+  const [handleAddToCompareProduct] = useAddCompareProduct();
 
   const showCartHandler = () => {
     setHoveredCart("block");

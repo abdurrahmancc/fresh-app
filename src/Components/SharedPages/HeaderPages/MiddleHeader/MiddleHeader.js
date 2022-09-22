@@ -7,28 +7,67 @@ import { MdAddShoppingCart } from "react-icons/md";
 import Select from "react-select";
 import { middleCategorySelected } from "../../../SharedCss/SelectComponentCss";
 import { BiSearchAlt } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import axiosPrivet from "../../../Hooks/axiosPrivet";
+import toast from "react-hot-toast";
+import { setSearchProducts } from "../../../Redux/features/searchProductsSlice";
 
 const options = [
-  { value: "chocolate", label: "Grocery & Frozen" },
-  { value: "strawberry", label: "Fresh Vegetable" },
-  { value: "vanilla", label: "Fresh Fruits" },
-  { value: "vanilla", label: "Fruit Juices" },
-  { value: "vanilla", label: "Salads" },
-  { value: "vanilla", label: "Fresh Meat" },
-  { value: "vanilla", label: "Butter & Egg" },
-  { value: "vanilla", label: "Milk Cream" },
-  { value: "vanilla", label: "Oil & Vinegars" },
-  { value: "vanilla", label: "Bread & Bakery" },
-  { value: "vanilla", label: "Snacks Item" },
-  { value: "vanilla", label: "Meat" },
+  { value: "grocery&Frozen", label: "Grocery & Frozen" },
+  { value: "freshVegetable", label: "Fresh Vegetable" },
+  { value: "freshFruits", label: "Fresh Fruits" },
+  { value: "fruitJuices", label: "Fruit Juices" },
+  { value: "salads", label: "Salads" },
+  { value: "freshMeat", label: "Fresh Meat" },
+  { value: "butter&Egg", label: "Butter & Egg" },
+  { value: "milkCream", label: "Milk Cream" },
+  { value: "oil&Vinegars", label: "Oil & Vinegars" },
+  { value: "bread&Bakery", label: "Bread & Bakery" },
+  { value: "snacksItem", label: "Snacks Item" },
+  { value: "fish", label: "Fish" },
 ];
 
 const MiddleHeader = () => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const dispatch = useDispatch();
   const { wishlistCounter, shoppingCartsCounter, compareListCounter } = useSelector(
     (state) => state
   );
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    let info = {};
+    if (selectedOption) {
+      info = {
+        inputData: data.searchItems,
+        category: selectedOption.value,
+      };
+    } else {
+      info = {
+        inputData: data.searchItems,
+      };
+    }
+
+    try {
+      const data = await axiosPrivet.post("product/search", info);
+      console.log(data);
+
+      if (data?.result?.length >= 1 && data?.status === 200) {
+        dispatch(setSearchProducts(data?.result));
+      } else if (data?.status === 204) {
+        dispatch(setSearchProducts([]));
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className=" hidden sm:block">
@@ -44,7 +83,10 @@ const MiddleHeader = () => {
             {/*----- category search from start ------*/}
             <div className="navbar-center border h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
               <div className="w-full  ">
-                <form action="" className="flex justify-center w-full  relative pl-4 ">
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="flex justify-center w-full  relative pl-4 "
+                >
                   <div className="inline-block  mt-1 ml-[-10px] max-w-[100px] md:max-w-[190px]  relative w-full">
                     <Select
                       id="select-component"
@@ -70,6 +112,7 @@ const MiddleHeader = () => {
                       placeholder="Search for items..."
                       type="text"
                       name="search"
+                      {...register("searchItems")}
                     />
                   </label>
                 </form>

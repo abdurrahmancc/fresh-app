@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { FaList } from "react-icons/fa";
 import { MdGridView } from "react-icons/md";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
@@ -12,6 +11,7 @@ import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
 import { filterCategories } from "./shopCategories";
 import Loading from "../../SharedPages/Loading";
+import Pagination from "../../SharedPages/pagination/Pagination";
 export const shopAllProducts = createContext("products");
 const sortOptions = [
   { value: "popularity", label: "popularity" },
@@ -30,7 +30,7 @@ const showOption = [
 const Shop = () => {
   const { pathname } = useLocation();
   const [selectedSortOption, setSelectedSortOption] = useState("popularity");
-  const [selectedShowOption, setSelectedShowOption] = useState({ value: 20, label: "20" });
+  const [size, setSize] = useState({ value: 20, label: "20" });
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [reload, setReload] = useState(true);
@@ -38,31 +38,29 @@ const Shop = () => {
   const [minPrice, setMinPrice] = useState(60);
   const [maxPrice, setMaxPrice] = useState(130);
   const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
   const [categories, setCategories] = useState(filterCategories);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    resetField,
-    formState: { errors },
-  } = useForm();
-  const inputSearch = watch("search");
-
   const categoriesChecked = categories.filter((item) => item.checked);
-
   useEffect(() => {
     (async () => {
-      const { data } = await axiosPrivet.get("product/counter");
-      setTotalProducts(data?.count);
+      try {
+        const { data } = await axiosPrivet.get("product/counter");
+        const count = data.count;
+        const pages = Math.ceil(count / size.value);
+        setPageCount(pages);
+        setTotalProducts(data?.count);
+      } catch (error) {
+        console.log(error.message);
+      }
     })();
-  }, []);
+  }, [size.value]);
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axiosPrivet.post(
-          `product/all-products/?page=${page}&size=${selectedShowOption?.value}`,
+          `product/all-products/?page=${page}&size=${size?.value}`,
           categoriesChecked
         );
 
@@ -75,7 +73,7 @@ const Shop = () => {
         console.log(error.message);
       }
     })();
-  }, [reload, page, selectedShowOption?.value]);
+  }, [reload, page, size?.value]);
 
   // filter categories
   const handleChangeChecked = (id) => {
@@ -106,37 +104,26 @@ const Shop = () => {
         filterAllProducts = filterProduct;
       }
     }
-    // Search Filter
-    if (inputSearch) {
-      filterAllProducts = allProducts.filter(
-        (item) => item?.productName.toLowerCase().search(inputSearch.toLowerCase().trim()) !== -1
-      );
-    }
-
     // filter price
     if (minPrice !== 1 || maxPrice !== 200) {
       priceFilter = filterAllProducts.filter(
         (item) => item.price >= minPrice && item.price <= maxPrice
       );
-
       if (filterProducts.length) {
         filterAllProducts = priceFilter;
       }
     }
-
     setProducts(filterAllProducts);
   };
 
-  const onSubmit = (data) => {};
-
   useEffect(() => {
     applyFilters();
-  }, [categories, minPrice, maxPrice, inputSearch]);
+  }, [categories, minPrice, maxPrice]);
 
   if (!products) {
     return <Loading />;
   }
-
+  console.log("pageCount", pageCount);
   return (
     <>
       <main>
@@ -151,9 +138,7 @@ const Shop = () => {
         {/* Breadcrumb end */}
         {/* filter body start*/}
         <section className="container mx-auto mt-20">
-          <shopAllProducts.Provider
-            value={[products, setReload, page, setPage, selectedShowOption?.value]}
-          >
+          <shopAllProducts.Provider value={[products, setReload, page, setPage, size?.value]}>
             <div className=" w-full">
               <div className="grid  gap-8 lg:grid-cols-5">
                 <div
@@ -180,7 +165,7 @@ const Shop = () => {
                   <div className="flex lg:justify-between items-center justify-center ">
                     <div className="max-w-xs w-full lg:block hidden ">
                       <p>
-                        Showing 1–{selectedShowOption.value} of {totalProducts} results
+                        Showing 1–{size.value} of {totalProducts} results
                       </p>
                     </div>
                     <div className="flex justify-center items-center lg:gap-5 gap-3 ">
@@ -200,8 +185,8 @@ const Shop = () => {
                         <Select
                           styles={shopProduct}
                           id="top-header-select-component"
-                          defaultValue={selectedShowOption}
-                          onChange={setSelectedShowOption}
+                          defaultValue={size}
+                          onChange={setSize}
                           placeholder={"5"}
                           options={showOption}
                         />
@@ -214,8 +199,11 @@ const Shop = () => {
                       </NavLink>
                     </div>
                   </div>
-                  <div className="my-10 ">
+                  <div className="mt-10 ">
                     <Outlet />
+                    <div className="flex justify-center mt-10">
+                      <Pagination pageCount={pageCount} setPage={setPage} />
+                    </div>
                   </div>
                 </div>
               </div>

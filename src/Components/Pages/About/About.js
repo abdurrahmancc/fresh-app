@@ -17,6 +17,7 @@ import Footer from "../../SharedPages/Footer/Footer";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
 import "./about.css";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
 
 const About = () => {
   return (
@@ -272,6 +273,9 @@ const About = () => {
           <Newsletters></Newsletters>
         </section>
         {/*------ Newsletters end -------*/}
+        {/*---------- scroll button start ---------*/}
+        <ScrollBtn />
+        {/*---------- scroll button end ---------*/}
       </main>
       {/*------ footer start ------*/}
       <footer className=" mt-20">
