@@ -6,6 +6,7 @@ import { getCompareListId } from "./useFakeDB";
 
 const useCompareProducts = () => {
   const [compareProducts, setCompareProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,10 +26,12 @@ const useCompareProducts = () => {
         }
         dispatch(setCompareList(data));
         setCompareProducts(savedCompareList);
+        setLoading(false);
       }
+      setLoading(false);
     })();
-  }, []);
+  }, [dispatch]);
 
-  return [compareProducts, setCompareProducts];
+  return [compareProducts, setCompareProducts, loading];
 };
 export default useCompareProducts;

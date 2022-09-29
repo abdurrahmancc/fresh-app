@@ -17,12 +17,12 @@ const Breadcrumb = () => {
   let isLast = breadcrumbs[breadcrumbs.length - 1];
   return (
     <>
-      <ul>
+      <ul className=" flex justify-center">
         {breadcrumbs.map(({ match, breadcrumb }) => {
           const disabled =
             isLast?.match?.pathname === match?.pathname
               ? "text-gray-500 disabled-link hover:no-underline"
-              : "text-primary font-bold";
+              : "text-primary font-semibold text-lg";
           return (
             <li key={match.pathname}>
               <NavLink className={` ${disabled}`} to={match.pathname}>

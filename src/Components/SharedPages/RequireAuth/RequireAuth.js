@@ -4,12 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useLocation, Outlet, Navigate } from "react-router-dom";
 import auth from "../../Hooks/useAuthState";
 import { accessToken, removeCookie } from "../../Hooks/useCookies";
-import useToken from "../../Hooks/useToken";
+import useValidToken from "../../Hooks/useValidToken";
 import Loading from "../Loading";
 
 const RequireAuth = () => {
-  const [user, loading, error] = useAuthState(auth);
-  const [token, tokenLoading, setTokenLoading] = useToken(user);
+  const [user, loading] = useAuthState(auth);
+  const [isValidToken, tokenLoading] = useValidToken(user);
   const location = useLocation();
 
   const handleSignOut = () => {
@@ -17,10 +17,9 @@ const RequireAuth = () => {
     removeCookie(accessToken);
   };
 
-  if (loading) {
+  if (loading || tokenLoading) {
     return <Loading />;
   }
-  // console.log(token);
 
   if (!user) {
     handleSignOut();

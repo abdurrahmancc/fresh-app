@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
 import axiosPrivet from "./axiosPrivet";
+import auth from "./useAuthState";
 
 const useAdmin = (user) => {
   const [admin, setAdmin] = useState(false);
@@ -18,6 +20,7 @@ const useAdmin = (user) => {
           setAdminLoading(false);
         }
       }
+      setAdminLoading(false);
     })();
   }, [user]);
   return [admin, adminLoading];

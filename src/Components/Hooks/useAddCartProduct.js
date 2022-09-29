@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { setCartList } from "../Redux/features/shoppingCartCounterSlice";
 import { addToDb } from "./useFakeDB";
-import useProducts from "./useCartProducts";
+import useCartProducts from "./useCartProducts";
 
 const useAddProduct = () => {
-  const [cartProducts, setCartProducts] = useProducts([]);
+  const [cartProducts, setCartProducts] = useCartProducts([]);
   const dispatch = useDispatch();
 
   const handleAddToCartProduct = (selectProduct) => {

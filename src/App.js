@@ -31,6 +31,7 @@ import Test from "./Components/Pages/Test/Test";
 import RequireAdmin from "./Components/SharedPages/RequireAdmin/RequireAdmin";
 import { publicRoutes } from "./routers/publicRoutes";
 import { useSelector } from "react-redux";
+import UserDashboardDetails from "./Components/UserDashBoard/userDashboardDetails/UserDashboardDetails";
 export const CartQuantity = createContext("cartQuantity");
 export const WishlistQuantity = createContext("wishlistQuantity");
 export const CompareQuantity = createContext("compareQuantity");
@@ -73,11 +74,12 @@ function App() {
           {/*--------------- require Routes --------------*/}
           <Route element={<RequireAuth />}>
             <Route path="/user-dashboard" element={<UserDashboard />}>
-              <Route index element={<MyOrder />} />
+              <Route index element={<UserDashboardDetails />} />
               <Route path="my-account" element={<MyAccount />} />
               <Route path="my-address" element={<MyAddress />} />
               <Route path="payment/:id" element={<Payment />} />
               <Route path="my-order" element={<MyOrder />} />
+              <Route path="user-dashboard-details" element={<UserDashboardDetails />} />
             </Route>
           </Route>
           <Route element={<RequireAuth />}>

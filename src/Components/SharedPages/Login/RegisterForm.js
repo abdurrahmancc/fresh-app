@@ -1,16 +1,14 @@
-import axios from "axios";
 import Cookies from "js-cookie";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
-  useSignInWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock, FaUser } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
@@ -18,7 +16,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { accessToken } from "../../Hooks/useCookies";
-import useToken from "../../Hooks/useToken";
+import useValidToken from "../../Hooks/useValidToken";
 import Loading from "../Loading";
 
 const RegisterForm = ({ handleLoginMOdal }) => {
@@ -27,18 +25,16 @@ const RegisterForm = ({ handleLoginMOdal }) => {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
-  const [matchingPass, setMatchingPass] = useState("");
   const [user, loading] = useAuthState(auth);
   const [createUserWithEmailAndPassword, cUser, cLoading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
-  const [token] = useToken(user || gUser || cUser);
+  const [validToken] = useValidToken(user || gUser || cUser);
   const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
     setError,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -49,18 +45,18 @@ const RegisterForm = ({ handleLoginMOdal }) => {
     const displayName = data.name;
     const info = { displayName, password, email };
     if (password !== confirmPassword) {
-      setMatchingPass("Password does not match");
+      toast.error("Password does not match", { id: "password-match" });
+      setError("confirmPassword", { type: "matching", message: "Password does not match" });
       return;
     }
     try {
-      const { data: result } = await axiosPrivet.post("/users", info);
+      const { data: result } = await axiosPrivet.post("users", info);
       if (result.token) {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName });
         Cookies.set(accessToken, result.token);
         toast.success("check email and please verify");
       }
-      // console.log(result);
     } catch (error) {
       console.log(error);
       if (error?.response?.data?.errors?.email) {
@@ -71,11 +67,10 @@ const RegisterForm = ({ handleLoginMOdal }) => {
   };
 
   useEffect(() => {
-    if (token) {
+    if (validToken && location.pathname.includes("register")) {
       navigate(from, { replace: true });
     }
-  }, [token]);
-  console.log(token);
+  }, [from, navigate, location.pathname, validToken]);
 
   if (updating || loading || cLoading || gLoading) {
     return <Loading />;
@@ -226,8 +221,12 @@ const RegisterForm = ({ handleLoginMOdal }) => {
                   <span className="label-text-alt text-red-500 text-xs">
                     {errors.confirmPassword.message}
                   </span>
+                ) : errors.confirmPassword?.type === "required" ? (
+                  <span className="label-text-alt text-red-500 text-xs">
+                    {errors.confirmPassword.message}
+                  </span>
                 ) : (
-                  errors.confirmPassword?.type === "required" && (
+                  errors.confirmPassword?.type === "matching" && (
                     <span className="label-text-alt text-red-500 text-xs">
                       {errors.confirmPassword.message}
                     </span>

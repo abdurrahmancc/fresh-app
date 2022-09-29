@@ -34,7 +34,14 @@ const frontSrcSet = [
   { src: img4, setting: "2000w" },
   { src: img5, setting: "2000w" },
   { src: img6, setting: "2000w" },
+];
+
+const fdf = [
+  { name: "rahman", roll: 344, skills: ["ja", "java", "javascript"] },
+  { name: "korim", roll: 230, skills: ["ja", "java", "javascript"] },
+  { name: "sohed", roll: 210, skills: ["ja", "java", "javascript"] },
 ]
+
   .map((item) => `${item.src} ${item.setting}`)
   .join(", ");
 
@@ -234,6 +241,14 @@ const Test = () => {
     <div className="Apps">
       <div className="h-[20vh] ">
         <div className="App">
+          <input checked type="checkbox" id="my-modal" className="modal-toggle" />
+          <div className="modal bg-[#ffffff9b]">
+            <div className="h-screen flex justify-center items-center">
+              <div id="loading-animate" className="flex items-center justify-center ">
+                <span class="loader"></span>
+              </div>
+            </div>
+          </div>
           <h1>react-rating-stars-component</h1>
           <h4>Readonly rating stars</h4>.
           <ReactStars {...firstExample} />

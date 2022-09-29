@@ -6,6 +6,7 @@ import { getShoppingId } from "./useFakeDB";
 
 const useCartProducts = () => {
   const [cartProducts, setCartProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
@@ -24,10 +25,12 @@ const useCartProducts = () => {
         }
         setCartProducts(savedCart);
         dispatch(setCartList(data));
+        setLoading(false);
       }
+      setLoading(false);
     })();
   }, [dispatch]);
 
-  return [cartProducts, setCartProducts];
+  return [cartProducts, setCartProducts, loading];
 };
 export default useCartProducts;

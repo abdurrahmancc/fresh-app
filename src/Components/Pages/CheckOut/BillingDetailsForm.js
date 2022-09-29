@@ -1,8 +1,17 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Hooks/useAuthState";
+import Loading from "../../SharedPages/Loading";
 import CheckOutCreateAccount from "./CheckOutCreateAccount";
 import ShipDifferentAddress from "./ShipDifferentAddress";
 
 const BillingDetailsForm = ({ register, errors }) => {
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <div className="grid lg:grid-cols-2 lg:gap-5">
@@ -196,6 +205,7 @@ const BillingDetailsForm = ({ register, errors }) => {
           <input
             id="emailAddress"
             type="text"
+            value={user?.email}
             placeholder="Email Address *"
             className="input rounded-none input-bordered"
             {...register("emailAddress", {

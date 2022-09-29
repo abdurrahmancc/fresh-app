@@ -30,7 +30,7 @@ const featuresItems = [
 const Features = () => {
   return (
     <div className="">
-      <div className="lg:col-span-3">
+      <div className="lg:col-span-3 ">
         <Swiper
           breakpoints={{
             // when window width is >= 1550px

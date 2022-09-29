@@ -11,12 +11,14 @@ import BlogSideBar from "./BlogSideBar";
 
 const Blogs = () => {
   const [pageCount, setPageCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [size] = useState(12);
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       const { data } = await axiosPrivet.get("blog/counter");
       const count = data.count;
       const pages = Math.ceil(count / size);
@@ -27,17 +29,16 @@ const Blogs = () => {
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const { data } = await axiosPrivet.get(`/blog/?page=${page}&size=${size}`);
         setBlogs(data?.blogs);
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
+        setIsLoading(false);
       }
     })();
   }, [page, size]);
-
-  if (!blogs) {
-    return <Loading />;
-  }
 
   return (
     <>
@@ -117,6 +118,7 @@ const Blogs = () => {
         </div>
       </footer>
       {/*------ footer end -------*/}
+      {(!blogs || isLoading) && <Loading />}
     </>
   );
 };

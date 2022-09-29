@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  FaEnvelope,
-  FaFacebook,
-  FaLinkedin,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
 import ContactForm from "./ContactForm";
 import "./contact.css";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
@@ -18,6 +9,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
 import ScrollBtn from "../../SharedPages/ScrollBtn";
+import FreeOnlineMoney from "../Home/FreeOnlineMoney";
 
 const Contact = () => {
   return (
@@ -43,7 +35,7 @@ const Contact = () => {
                 <h2 className="lg:text-4xl text-[4vw] text-center  font-bold capitalize ">
                   Get In Touch
                 </h2>
-                <p className="pb-10 text-center">
+                <p className="pb-10 mt-2 text-center">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dignissimos
                   deserunt <br className="md:block hidden" /> est tenetur nobis vero vel veritatis
                   voluptatem corporis in.
@@ -99,7 +91,13 @@ const Contact = () => {
           <ContactForm></ContactForm>
         </section>
         {/*-------------- contact form end ----------- */}
-        {/*--------------  contact form end -----------*/}
+        {/*------- icons  free online money start----- */}
+        <section className="container mx-auto mt-20">
+          <div className="lg:mx-0 mx-5">
+            <FreeOnlineMoney></FreeOnlineMoney>
+          </div>
+        </section>
+        {/*------- icons  free online money end ------*/}
         {/*-------------- Newsletters start -----------*/}
         <section className="max-w-[100%] w-full mt-40">
           <Newsletters></Newsletters>

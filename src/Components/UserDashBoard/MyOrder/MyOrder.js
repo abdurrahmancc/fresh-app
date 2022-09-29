@@ -6,7 +6,7 @@ import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import Loading from "../../SharedPages/Loading";
 import MyOrderDetailsModal from "./MyOrderDetailsModal";
-import MyOrderTable from "./MyOrderTable";
+import MyOrderTable from "./MyOrderTableRow";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
@@ -23,32 +23,30 @@ const MyOrder = () => {
   }
 
   let isLast = data?.data[data?.data.length - 1];
+
+  console.log(data, user);
   return (
     <>
       {data?.data.length >= 1 ? (
-        <div className="w-full">
-          <div className="m-5 dashboardBodyShadow rounded-lg lg:min-h-[80vh]">
-            <div
-              className={`flex bg-primary rounded-t-lg justify-between px-10 py-5 ${
-                isLast ? "" : "border-b"
-              }`}
-            >
-              <h4 className="text-3xl text-white font-semibold">My Orders</h4>
+        <div className="w-full h-full">
+          <div className="m-5 h-full dashboardBodyShadow rounded-lg lg:min-h-[80vh]">
+            <div className={`flex rounded-t-lg justify-between px-10 py-5 border-b`}>
+              <h4 className="text-3xl font-semibold">My Orders</h4>
             </div>
             <div className="p-10 ">
-              <div className="shadow-md border">
-                <Table className=" w-full">
+              <div className="border">
+                <Table className="w-full">
                   {/* <!-- head --> */}
-                  <Thead className="bg-primary">
-                    <Tr className=" sm:text-white ">
-                      <Th className="font-bold px-2 sm:text-center py-5 text-lg ">#</Th>
-                      <Th className="font-bold text-start py-5 text-lg">Order ID</Th>
-                      <Th className="font-bold text-start py-5 text-lg">Date</Th>
-                      <Th className="font-bold text-start py-5 text-lg">Total</Th>
-                      <Th className="font-bold text-start py-5 text-lg">Payment </Th>
-                      <Th className="font-bold text-start py-5 text-lg">Status</Th>
-                      <Th className="font-bold text-start py-5 text-lg">Transaction</Th>
-                      <Th className="font-bold text-center py-5 text-lg">Details</Th>
+                  <Thead className="bg-[#F3F3F3] border-b-2 border-b-primary text-[#070815]">
+                    <Tr className="">
+                      <Th className="font-semibold px-2 sm:text-center py-5 text-[17px]">#</Th>
+                      <Th className="font-semibold text-start py-5 text-[17px]">Order ID</Th>
+                      <Th className="font-semibold text-start py-5 text-[17px]">Date</Th>
+                      <Th className="font-semibold text-start py-5 text-[17px]">Total</Th>
+                      <Th className="font-semibold text-start py-5 text-[17px]">Payment </Th>
+                      <Th className="font-semibold text-start py-5 text-[17px]">Status</Th>
+                      <Th className="font-semibold text-start py-5 text-[17px]">Transaction</Th>
+                      <Th className="font-semibold text-center py-5 text-[17px]">Details</Th>
                     </Tr>
                   </Thead>
                   <Tbody id="order_Table_Row" className="cursor-pointer rounded-none">
@@ -75,8 +73,11 @@ const MyOrder = () => {
         <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
           <h4 className="text-4xl font-bold">There are no order</h4>
           <h4>
-            <button onClick={() => window.history.back()} className="btn btn-primary text-neutral">
-              Return to Back Page
+            <button
+              onClick={() => window.history.back()}
+              className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
+            >
+              Return to back page
             </button>
           </h4>
         </div>

@@ -10,10 +10,7 @@ const PresentAddress = ({ data, refetch, user }) => {
   const [presentStreetAddress, setPresentStreetAddress] = useState("");
   const [presentZipCode, setPresentZipCode] = useState("");
   const [presentAddress, setPresentAddress] = useState(false);
-
-  const { register, handleSubmit, reset, watch } = useForm();
-
-  const handleUpdatePresentAddress = () => {};
+  const { register, handleSubmit, reset } = useForm();
 
   const handlePresentAddress = () => {
     setPresentAddress(true);
@@ -56,15 +53,14 @@ const PresentAddress = ({ data, refetch, user }) => {
           {presentAddress ? (
             <div className="flex gap-2 items-center">
               <button
-                onClick={() => handleUpdatePresentAddress()}
                 type="submit"
-                className="bg-primary py-1 h-8 rounded-full text-neutral px-3"
+                className="bg-primary text-sm inline-block py-[3px] rounded-full text-neutral px-3"
               >
                 update
               </button>
               <button
                 onClick={() => setPresentAddress(false)}
-                className="bg-primary py-1 h-8 bor rounded-full text-neutral px-3"
+                className="bg-primary text-sm inline-block py-[3px] rounded-full text-neutral px-3"
               >
                 Cancel
               </button>
@@ -72,7 +68,7 @@ const PresentAddress = ({ data, refetch, user }) => {
           ) : (
             <div
               onClick={() => handlePresentAddress()}
-              className="flex justify-between items-center gap-2 cursor-pointer"
+              className="flex justify-between items-center gap-2 cursor-pointer text-primary"
             >
               <span> Edit</span>
               <span>
@@ -83,7 +79,9 @@ const PresentAddress = ({ data, refetch, user }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10">
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentCountry">Your Country:</label>
+            <label htmlFor="presentCountry" className="text-sm font-bold text-black pb-2">
+              Your Country:
+            </label>
             {presentAddress && (
               <input
                 type="text"
@@ -95,15 +93,17 @@ const PresentAddress = ({ data, refetch, user }) => {
             {presentAddress || (
               <div>
                 {data?.country ? (
-                  <span className="text-lg text-primary font-semibold">{data?.country}</span>
+                  <span className="text-[16px] text-[#969696]">{data?.country}</span>
                 ) : (
-                  <span className="text-error">{"Update Your Country"}</span>
+                  <span className="text-error text-sm">Update Your Country</span>
                 )}
               </div>
             )}
           </div>
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentDistrict">District:</label>
+            <label htmlFor="presentDistrict" className="text-sm font-bold pb-2 text-black">
+              District:
+            </label>
             {presentAddress && (
               <input
                 type="text"
@@ -115,15 +115,17 @@ const PresentAddress = ({ data, refetch, user }) => {
             {presentAddress || (
               <div>
                 {data?.district ? (
-                  <span className="text-lg text-primary font-semibold">{data?.district}</span>
+                  <span className="text-[16px] text-[#969696] ">{data?.district}</span>
                 ) : (
-                  <span className="text-error">{"Update Your District"}</span>
+                  <span className="text-error text-sm">Update Your District</span>
                 )}
               </div>
             )}
           </div>
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentStreetAddress">Street Address:</label>
+            <label htmlFor="presentStreetAddress" className="text-sm font-bold text-black pb-2">
+              Street Address:
+            </label>
             {presentAddress && (
               <input
                 type="text"
@@ -135,15 +137,17 @@ const PresentAddress = ({ data, refetch, user }) => {
             {presentAddress || (
               <div>
                 {data?.streetAddress ? (
-                  <span className="text-lg text-primary font-semibold">{data?.streetAddress}</span>
+                  <span className="text-[16px] text-[#969696]">{data?.streetAddress}</span>
                 ) : (
-                  <span className="text-error">{"Update Your Street Address"}</span>
+                  <span className="text-error text-sm">Update Your Street Address</span>
                 )}
               </div>
             )}
           </div>
           <div className="flex flex-col leading-7">
-            <label htmlFor="presentZipCode">Zip Code:</label>
+            <label htmlFor="presentZipCode" className="text-sm font-bold pb-2">
+              Zip Code:
+            </label>
             {presentAddress && (
               <input
                 type="text"
@@ -155,9 +159,9 @@ const PresentAddress = ({ data, refetch, user }) => {
             {presentAddress || (
               <div>
                 {data?.zipCode ? (
-                  <span className="text-lg text-primary font-semibold">{data?.zipCode}</span>
+                  <span className="text-[16px] text-[#969696]">{data?.zipCode}</span>
                 ) : (
-                  <span className="text-error">{"Update Your Street Address"}</span>
+                  <span className="text-error text-sm">Update Zip Code</span>
                 )}
               </div>
             )}

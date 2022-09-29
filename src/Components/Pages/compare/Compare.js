@@ -13,9 +13,10 @@ import { useDispatch } from "react-redux";
 import { setCompareList } from "../../Redux/features/compareCounterSlice";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
 import useAddCartProduct from "../../Hooks/useAddCartProduct";
+import Loading from "../../SharedPages/Loading";
 
 const Compare = () => {
-  const [compareProducts, setCompareProducts] = useCompareProducts();
+  const [compareProducts, setCompareProducts, loading] = useCompareProducts();
   const [handleAddToCartProduct] = useAddCartProduct();
   const dispatch = useDispatch();
 
@@ -34,6 +35,10 @@ const Compare = () => {
   const handleAddToCart = (item) => {
     handleAddToCartProduct(item);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -345,7 +350,7 @@ const Compare = () => {
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
+                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
                 >
                   Return to back page
                 </button>

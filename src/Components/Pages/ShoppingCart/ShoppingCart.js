@@ -1,15 +1,16 @@
 import React from "react";
 import { FiRefreshCw } from "react-icons/fi";
-import useProducts from "../../Hooks/useCartProducts";
+import useCartProducts from "../../Hooks/useCartProducts";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
+import Loading from "../../SharedPages/Loading";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
 import TotalPrice from "./TotalPrice";
 import ViewShoppingCartTable from "./ViewShoppingCartTable";
 
 const ShoppingCart = () => {
-  const [cartProducts, setCartProducts] = useProducts();
+  const [cartProducts, setCartProducts, loading] = useCartProducts();
   const cartTableRowInfo = [cartProducts];
 
   let totalPrice;
@@ -18,6 +19,10 @@ const ShoppingCart = () => {
   if (price?.length >= 1) {
     const sumReduce = price.reduce((previous, current) => previous + current, initialValue);
     totalPrice = sumReduce;
+  }
+
+  if (loading) {
+    return <Loading />;
   }
   return (
     <>
@@ -49,12 +54,12 @@ const ShoppingCart = () => {
                       placeholder="Enter Your Coupon"
                       className="  placeholder:italic w-full  placeholder:text-slate-400 border border-primary block  py-3  shadow-sm focus:outline-none input rounded-sm focus:ring-0 sm:text-sm pr-16"
                     />
-                    <button className="btn capitalize rounded-sm outline-none btn-primary py-3 text-white absolute top-0 right-0 ">
+                    <button className="btn capitalize rounded-sm outline-none btn-animate btn-primary py-3 text-white absolute top-0 right-0 ">
                       Apply
                     </button>
                   </div>
                   <div>
-                    <button className="btn rounded-sm capitalize btn-primary py-3 text-white">
+                    <button className="btn btn-animate rounded-sm capitalize btn-primary py-3 text-white">
                       <FiRefreshCw className="mr-2 text-lg" /> Update Cart
                     </button>
                   </div>
@@ -70,7 +75,7 @@ const ShoppingCart = () => {
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
+                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
                 >
                   Return to back page
                 </button>

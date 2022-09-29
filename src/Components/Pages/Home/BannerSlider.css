@@ -44,6 +44,13 @@
     color: black;
     animation: typing-2 10s linear infinite;
   }
+
+  .swiper-pagination-bullet-active {
+    background-color: #76A713 !important;
+}
+.swiper-pagination-bullets{
+    bottom: 40px !important;
+}
   
   @keyframes typing-1 {
     0% {

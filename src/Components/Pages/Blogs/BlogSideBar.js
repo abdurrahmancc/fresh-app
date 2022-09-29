@@ -75,6 +75,7 @@ const BlogSideBar = () => {
   return (
     <>
       <div className="flex flex-col gap-y-12 justify-center">
+        {/*---------- search start --------*/}
         <div className=" w-full">
           <h4 className="text-xl font-bold border-b-2 border-primary inline-block ml-5 pb-5">
             Search
@@ -95,7 +96,7 @@ const BlogSideBar = () => {
                   </button>
                   <button
                     onClick={() => resetField("search")}
-                    className={`absolute left-[5px] p-[10px] rounded top-[4px] ${
+                    className={`absolute left-[5px] p-[10px] rounded top-2 ${
                       inputSearch ? "block" : "hidden"
                     }`}
                   >
@@ -108,38 +109,40 @@ const BlogSideBar = () => {
 
           {error && <p className="ml-4 mt-2">{error}</p>}
         </div>
+        {/*---------- search end --------*/}
+        {/*---------- category start --------*/}
         <div className="shadow rounded-2xl border border-gray-100">
           <h4 className="text-xl font-bold border-b-2 border-primary inline-block ml-5 py-5">
             Categories
           </h4>
           <div className="px-5 border-t border-gray-200">
             <ul className="flex flex-col text-lg">
-              <li className=" hover:text-primary border-b hover:border-primary capitalize">
+              <li className=" transition duration-300 ease-linear hover:text-primary border-b hover:border-primary capitalize">
                 <Link to={"/blogs"} className="flex py-4 items-center justify-between gap-4">
                   organic fruits <VscTriangleRight />
                 </Link>
               </li>
-              <li className=" hover:text-primary border-b hover:border-primary capitalize">
+              <li className="transition duration-300 ease-linear hover:text-primary border-b hover:border-primary capitalize">
                 <Link to={"/blogs"} className="flex py-4 items-center justify-between gap-4">
                   frozen food <VscTriangleRight />
                 </Link>
               </li>
-              <li className=" hover:text-primary border-b hover:border-primary capitalize">
+              <li className="transition duration-300 ease-linear hover:text-primary border-b hover:border-primary capitalize">
                 <Link to={"/blogs"} className="flex py-4 items-center justify-between gap-4">
                   meat & fish <VscTriangleRight />
                 </Link>
               </li>
-              <li className=" hover:text-primary border-b hover:border-primary capitalize">
+              <li className="transition duration-300 ease-linear hover:text-primary border-b hover:border-primary capitalize">
                 <Link to={"/blogs"} className="flex py-4 items-center justify-between gap-4">
                   custard powder <VscTriangleRight />
                 </Link>
               </li>
-              <li className=" hover:text-primary border-b hover:border-primary capitalize">
+              <li className="transition duration-300 ease-linear hover:text-primary border-b hover:border-primary capitalize">
                 <Link to={"/blogs"} className="flex py-4 items-center justify-between gap-4">
                   fruit juices <VscTriangleRight />
                 </Link>
               </li>
-              <li className=" hover:text-primary  capitalize">
+              <li className="transition duration-300 ease-linear hover:text-primary  capitalize">
                 <Link to={"/blogs"} className="flex py-4 items-center justify-between gap-4">
                   Snacks item <VscTriangleRight />
                 </Link>
@@ -148,38 +151,41 @@ const BlogSideBar = () => {
             </ul>
           </div>
         </div>
+        {/*---------- category end --------*/}
+        {/*---------- new product start--------*/}
         <div className="shadow rounded-2xl border border-gray-100">
           <h4 className="text-xl font-bold border-b-2 border-primary inline-block ml-5 py-5 ">
             New products
           </h4>
-          <div className="p-5 border-t border-gray-200">
+          <div className="px-5 pt-5 border-t border-gray-200">
             <div className="grid grid-rows-4">
               {products.map((product) => {
                 const bordered = isLast?._id === product?._id ? "" : "border-b ";
                 return (
-                  <div
-                    key={product?._id}
-                    className={`card relative  hover:top-[-4px] top-0 ease-in-out duration-200 card-side items-center rounded-none ${bordered}`}
-                  >
-                    <figure className="w-20">
-                      <Link to="/" className="p-0">
-                        <img src={product?.img} alt="Album" className="w-20" />
-                      </Link>
-                    </figure>
-                    <div className="card-body p-3">
-                      <h2 className=" leading-5 font-semibold ">
-                        <Link to={"/"}>{product?.title}</Link>
-                      </h2>
+                  <div key={product?._id} className={`${bordered}`}>
+                    <div
+                      className={`card relative hover:top-[-4px] top-0 ease-linear duration-300 card-side items-center rounded-none`}
+                    >
+                      <figure className="w-20">
+                        <Link to="/" className="p-0">
+                          <img src={product?.img} alt="Album" className="w-20" />
+                        </Link>
+                      </figure>
+                      <div className="card-body p-3">
+                        <h2 className=" leading-5 font-semibold ">
+                          <Link to={"/"}>{product?.title}</Link>
+                        </h2>
 
-                      <Rating />
+                        <Rating />
 
-                      <div className="flex gap-2  items-center">
-                        <span className="text-lg text-primary capitalize font-semibold">
-                          ${product?.price}
-                        </span>
-                        <span className="text-gray-400 line-through capitalize">
-                          ${product?.regularPrice}
-                        </span>
+                        <div className="flex gap-2  items-center">
+                          <span className="text-lg text-primary capitalize font-semibold">
+                            ${product?.price}
+                          </span>
+                          <span className="text-gray-400 line-through capitalize">
+                            ${product?.regularPrice}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -188,6 +194,8 @@ const BlogSideBar = () => {
             </div>
           </div>
         </div>
+        {/*---------- new product end--------*/}
+        {/*---------- popular tag start--------*/}
         <div className="shadow rounded-2xl border border-gray-100">
           <h4 className="text-xl font-bold border-b-2 border-primary inline-block ml-5 py-5 ">
             popular Tags
@@ -253,6 +261,7 @@ const BlogSideBar = () => {
             </div>
           </div>
         </div>
+        {/*---------- popular tag end--------*/}
         <div className="hidden lg:block">
           <img
             src={sideBanner}

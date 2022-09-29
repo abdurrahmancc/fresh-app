@@ -19,7 +19,7 @@ const FeaturesItems = ({ feature }) => {
       <div
         onMouseEnter={showCartHandler}
         onMouseLeave={hideCartHandler}
-        className="card bg-base-100 shadow border border-gray-200 hover:border-primary transition duration-300 ease-linear"
+        className="card mb-1 bg-base-100 shadow border border-gray-200 hover:border-primary transition duration-300 ease-linear"
       >
         <figure className="px-10 pt-7">
           <img src={feature?.img} alt={feature?.name} className="rounded-xl" />

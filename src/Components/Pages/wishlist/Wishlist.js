@@ -3,13 +3,18 @@ import { Table, Tbody, Th, Thead, Tr } from "react-super-responsive-table";
 import useWishlistProducts from "../../Hooks/useWishlistProducts";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
+import Loading from "../../SharedPages/Loading";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
 import WishlistDeleteModal from "./WishlistDeleteModal";
 import WishlistTableRow from "./WishlistTableRow";
 
 const Wishlist = () => {
-  const [wishProducts, setWishProducts] = useWishlistProducts();
+  const [wishProducts, setWishProducts, loading] = useWishlistProducts();
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -64,7 +69,7 @@ const Wishlist = () => {
               <h4>
                 <button
                   onClick={() => window.history.back()}
-                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-10"
+                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
                 >
                   Return to back page
                 </button>

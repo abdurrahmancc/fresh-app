@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { ImStarHalf } from "react-icons/im";
 import { FaUserAlt } from "react-icons/fa";
 import { MdDarkMode, MdLocationOn } from "react-icons/md";
-import { BiHeart, BiNotepad } from "react-icons/bi";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { BiHeart, BiNotepad, BiUser } from "react-icons/bi";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AiFillSetting, AiOutlineCaretDown } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { VscSettings } from "react-icons/vsc";
@@ -17,12 +17,15 @@ import { accessToken, removeCookie } from "../../../Hooks/useCookies";
 import logo from "../../../../assets/logo/logo_white.png";
 import BottomHeaderCategories from "./BottomHeaderCategories";
 import NavSideBar from "./NavSideBar";
+import { useEffect } from "react";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const BottomHeader = () => {
   const [user, loading] = useAuthState(auth);
   const [isLogin, setIsLogin] = useState(false);
-  const [isUser] = useState(true);
+  const { pathname } = useLocation();
   const [toggle, setToggle] = useState(false);
+  const [admin, adminLoading] = useAdmin(user);
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -31,9 +34,18 @@ const BottomHeader = () => {
     removeCookie(accessToken);
   };
 
-  if (loading) {
+  useEffect(() => {
+    if (pathname.includes("login")) {
+      setIsLogin(false);
+    }
+  }, [pathname]);
+
+  if (loading || adminLoading) {
     return <Loading />;
   }
+
+  console.log(admin);
+
   const navItems = (
     <>
       <li className="py-2" tabIndex="0">
@@ -255,63 +267,67 @@ const BottomHeader = () => {
               </label>
               <ul
                 tabIndex="0"
-                className="dropdown-content menu mt-[-6px] shadow-xl bg-base-100 rounded-box w-52"
+                className="dropdown-content menu mt-[-6px] shadow-xl bg-base-100 rounded-box w-56"
               >
                 <li>
                   <Link
-                    to={"/user-dashboard/my-account"}
-                    className="flex hover:text-white hover:bg-primary duration-500 ease-in-out items-center active:text-white gap-3"
+                    to={"/user-dashboard/user-dashboard-details"}
+                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
-                    <FaUserAlt className="text-lg " />
+                    <BiUser className="text-lg " />
                     <span> My Account</span>
                   </Link>
                 </li>
                 <li>
-                  <div className="flex hover:text-white hover:bg-primary duration-500 ease-in-out items-center active:text-white gap-3">
+                  <Link
+                    to={"user-dashboard/my-order"}
+                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                  >
                     <MdLocationOn className="text-lg" />
                     <span>Order Tracking</span>
-                  </div>
+                  </Link>
                 </li>
                 <li>
-                  <div className="flex hover:text-white hover:bg-primary duration-500 ease-in-out items-center active:text-white  gap-3">
+                  <Link
+                    to={"/user-dashboard/user-dashboard-details"}
+                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                  >
                     <BiNotepad className="text-lg" />
                     <span>My Voucher</span>
-                  </div>
+                  </Link>
                 </li>
                 <li>
-                  <div className="flex hover:text-white hover:bg-primary duration-500 items-center active:text-white gap-3">
+                  <Link
+                    to={"wishlist"}
+                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                  >
                     <BiHeart className="text-lg" />
                     <span>My Wishlist</span>
-                  </div>
+                  </Link>
                 </li>
                 <li>
-                  <div className="flex hover:text-white hover:bg-primary duration-500 items-center active:text-white gap-3">
+                  <Link
+                    to={"user-dashboard/my-account"}
+                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                  >
                     <AiFillSetting className="text-lg" />
 
                     <span>Setting</span>
-                  </div>
+                  </Link>
                 </li>
-                {isUser && (
+                {admin && (
                   <li>
                     <NavLink
                       to={"/admin-dashboard"}
-                      className="flex hover:text-white hover:bg-primary duration-500 items-center gap-3 active:text-white"
+                      className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
                     >
                       <VscSettings className="rotate-90 text-lg font-bold " />
                       <span>Dashboard</span>
                     </NavLink>
                   </li>
                 )}
-
                 <li>
-                  <div className="flex hover:text-white hover:bg-primary duration-500 justify-items-center active:text-white gap-3">
-                    <MdDarkMode className="text-lg" />
-                    <span>DarkMode</span>
-                    {/* <Themes></Themes> */}
-                  </div>
-                </li>
-                <li>
-                  <div className="hover:text-white hover:bg-primary duration-500 active:text-white">
+                  <div className="hover:text-primary hover:bg-white duration-300 transition ease-linear active:text-primary px-6">
                     {user ? (
                       <div className="flex items-center gap-3" onClick={() => handleSignOut()}>
                         <FiLogOut className="text-lg" />

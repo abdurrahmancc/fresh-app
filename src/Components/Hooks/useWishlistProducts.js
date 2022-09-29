@@ -6,6 +6,7 @@ import { setWishList } from "../Redux/features/wishlistCounterSlice";
 
 const useWishlistProducts = () => {
   const [wishlistProducts, setWishlistProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,10 +26,12 @@ const useWishlistProducts = () => {
         }
         dispatch(setWishList(savedWishlist));
         setWishlistProducts(savedWishlist);
+        setLoading(false);
       }
+      setLoading(false);
     })();
-  }, []);
+  }, [dispatch]);
 
-  return [wishlistProducts, setWishlistProducts];
+  return [wishlistProducts, setWishlistProducts, loading];
 };
 export default useWishlistProducts;

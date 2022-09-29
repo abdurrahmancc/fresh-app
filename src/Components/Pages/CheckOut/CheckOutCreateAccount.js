@@ -17,7 +17,7 @@ const CheckOutCreateAccount = ({ register, errors }) => {
       </div>
       <Collapsible className="w-full" open={isChecked}>
         {isChecked && (
-          <div className="grid lg:grid-cols-2 lg:gap-5">
+          <div className="grid m-1 lg:grid-cols-2 lg:gap-5">
             {/* Create account password * */}
             <div className="form-control pb-5 w-full">
               {/* <label htmlFor="createAccountPassword" className="label">

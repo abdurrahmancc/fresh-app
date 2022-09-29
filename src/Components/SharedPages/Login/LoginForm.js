@@ -15,8 +15,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { accessToken } from "../../Hooks/useCookies";
-import useToken from "../../Hooks/useToken";
-import Loading from "../Loading";
+import useValidToken from "../../Hooks/useValidToken";
 
 const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [showPass, setShowPass] = useState(false);
@@ -25,7 +24,8 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [signInWithEmailAndPassword, eUser, eLoading, eError] = useSignInWithEmailAndPassword(auth);
   const location = useLocation();
   const navigate = useNavigate();
-  const [token, tokenLoading] = useToken(user || gUser || eUser);
+  const [isValidToken] = useValidToken(user || eUser || gUser);
+  const [isLogin, setIsLogin] = useState(false);
   const from = location.state?.from?.pathname || "/";
 
   const {
@@ -40,8 +40,10 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     const password = data.password;
     const info = { username, password };
     try {
-      const { data: result } = await axiosPrivet.post("/login", info);
+      console.log(info);
+      const { data: result } = await axiosPrivet.post("login", info);
       await signInWithEmailAndPassword(username, password);
+      setIsLogin(true);
       Cookies.set(accessToken, result.token);
     } catch (error) {
       toast.error("login fail! please try again");
@@ -59,14 +61,10 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   };
 
   useEffect(() => {
-    if (token) {
+    if (isValidToken && location.pathname.includes("login")) {
       navigate(from, { replace: true });
     }
-  }, [token, from, navigate]);
-
-  if (loading || eLoading || gLoading || tokenLoading) {
-    return <Loading />;
-  }
+  }, [from, navigate, isValidToken, location.pathname]);
 
   return (
     <>
@@ -214,6 +212,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
           )}
         </div>
       </div>
+      {/* {(loading || eLoading || gLoading) && <Loading />} */}
     </>
   );
 };

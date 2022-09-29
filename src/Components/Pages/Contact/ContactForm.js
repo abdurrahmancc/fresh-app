@@ -30,7 +30,7 @@ const ContactForm = () => {
     <>
       <div className="pb-10">
         <h2 className="lg:text-4xl text-[4vw] text-center  font-bold capitalize ">contact us</h2>
-        <p className="text-center">
+        <p className="text-center mt-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dignissimos deserunt{" "}
           <br className="md:block hidden" />
           est tenetur nobis vero vel veritatis voluptatem corporis in.

@@ -10,14 +10,13 @@ const PermanentAddress = ({ data, refetch, user }) => {
   const [permanentStreetAddress, setPermanentStreetAddress] = useState("");
   const [permanentAddress, setPermanentAddress] = useState(false);
   const [permanentZipCode, setPermanentZipCode] = useState("");
-  const { register, handleSubmit, reset, watch } = useForm();
-  const handleUpdatePermanentAddress = () => {};
+  const { register, handleSubmit, reset } = useForm();
 
   const handlePermanentAddress = () => {
     setPermanentAddress(true);
-    setPermanentCountry(data?.permanentCountry && data?.permanentCountry);
-    setPermanentDistrict(data?.permanentDistrict && data?.permanentDistrict);
-    setPermanentStreetAddress(data?.permanentStreetAddress && data?.permanentStreetAddress);
+    setPermanentCountry(data?.country && data?.country);
+    setPermanentDistrict(data?.district && data?.district);
+    setPermanentStreetAddress(data?.streetAddress && data?.streetAddress);
     setPermanentZipCode(data?.zipCode && data?.zipCode);
   };
 
@@ -34,7 +33,7 @@ const PermanentAddress = ({ data, refetch, user }) => {
           `users/update/permanentAddress/${user?.email}`,
           { info }
         );
-        console.log(result);
+
         if (result) {
           toast.success("Update permanent Address", { id: "updatePermanentAddress" });
           reset();
@@ -53,15 +52,14 @@ const PermanentAddress = ({ data, refetch, user }) => {
             {permanentAddress ? (
               <div className="flex gap-2 items-center">
                 <button
-                  onClick={() => handleUpdatePermanentAddress()}
-                  className="bg-primary py-1 h-8 rounded-full text-neutral px-3"
+                  className="bg-primary inline-block py-[3px] rounded-full text-sm text-neutral px-3"
                   type="submit"
                 >
                   update
                 </button>
                 <button
                   onClick={() => setPermanentAddress(false)}
-                  className="bg-primary py-1 h-8 bor rounded-full text-neutral px-3"
+                  className="bg-primary inline-block py-[3px] rounded-full text-sm text-neutral px-3"
                 >
                   Cancel
                 </button>
@@ -69,7 +67,7 @@ const PermanentAddress = ({ data, refetch, user }) => {
             ) : (
               <div
                 onClick={() => handlePermanentAddress()}
-                className="flex justify-between items-center gap-2 cursor-pointer"
+                className="flex justify-between items-center gap-2 cursor-pointer text-primary"
               >
                 <span> Edit</span>
                 <span>
@@ -80,7 +78,9 @@ const PermanentAddress = ({ data, refetch, user }) => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10">
             <div className="flex flex-col leading-7">
-              <label htmlFor="permanentCountry">Your Country:</label>
+              <label htmlFor="permanentCountry" className="text-sm font-bold text-black pb-2">
+                Your Country:
+              </label>
               {permanentAddress && (
                 <input
                   type="text"
@@ -92,15 +92,17 @@ const PermanentAddress = ({ data, refetch, user }) => {
               {permanentAddress || (
                 <div>
                   {data?.country ? (
-                    <span className="text-lg text-primary font-semibold">{data?.country}</span>
+                    <span className="text-[16px] text-[#969696]">{data?.country}</span>
                   ) : (
-                    <span className="text-error">{"Update Your Country"}</span>
+                    <span className="text-error text-sm">Update Your Country</span>
                   )}
                 </div>
               )}
             </div>
             <div className="flex flex-col leading-7">
-              <label htmlFor="permanentDistrict">District:</label>
+              <label htmlFor="permanentDistrict" className="text-sm text-black font-bold pb-2">
+                District:
+              </label>
               {permanentAddress && (
                 <input
                   type="text"
@@ -112,15 +114,17 @@ const PermanentAddress = ({ data, refetch, user }) => {
               {permanentAddress || (
                 <div>
                   {data?.district ? (
-                    <span className="text-lg text-primary font-semibold">{data?.district}</span>
+                    <span className="text-[16px] text-[#969696]">{data?.district}</span>
                   ) : (
-                    <span className="text-error">{"Update Your District"}</span>
+                    <span className="text-error text-sm">Update Your District</span>
                   )}
                 </div>
               )}
             </div>
             <div className="flex flex-col leading-7">
-              <label htmlFor="permanentStreetAddress">Street Address:</label>
+              <label htmlFor="permanentStreetAddress" className="text-sm font-bold text-black pb-2">
+                Street Address:
+              </label>
               {permanentAddress && (
                 <input
                   type="text"
@@ -132,17 +136,17 @@ const PermanentAddress = ({ data, refetch, user }) => {
               {permanentAddress || (
                 <div>
                   {data?.streetAddress ? (
-                    <span className="text-lg text-primary font-semibold">
-                      {data?.streetAddress}
-                    </span>
+                    <span className="text-[16px] text-[#969696]">{data?.streetAddress}</span>
                   ) : (
-                    <span className="text-error">{"Update Your Street Address"}</span>
+                    <span className="text-error text-sm">Update Your Permanent Address</span>
                   )}
                 </div>
               )}
             </div>
             <div className="flex flex-col leading-7">
-              <label htmlFor="permanentZipCode">Zip Code:</label>
+              <label htmlFor="permanentZipCode" className="text-sm font-bold text-black pb-2">
+                Zip Code:
+              </label>
               {permanentAddress && (
                 <input
                   type="text"
@@ -154,9 +158,9 @@ const PermanentAddress = ({ data, refetch, user }) => {
               {permanentAddress || (
                 <div>
                   {data?.zipCode ? (
-                    <span className="text-lg text-primary font-semibold">{data?.zipCode}</span>
+                    <span className="text-[16px] text-[#969696]">{data?.zipCode}</span>
                   ) : (
-                    <span className="text-error">{"Update Your Street Address"}</span>
+                    <span className="text-error text-sm">Update Zip Code</span>
                   )}
                 </div>
               )}

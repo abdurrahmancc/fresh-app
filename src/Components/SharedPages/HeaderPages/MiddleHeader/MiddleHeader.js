@@ -6,11 +6,9 @@ import { FiHeart } from "react-icons/fi";
 import { MdAddShoppingCart } from "react-icons/md";
 import Select from "react-select";
 import { middleCategorySelected } from "../../../SharedCss/SelectComponentCss";
-import { BiSearchAlt } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
-import toast from "react-hot-toast";
 import { setSearchProducts } from "../../../Redux/features/searchProductsSlice";
 
 const options = [
@@ -70,7 +68,7 @@ const MiddleHeader = () => {
   };
 
   return (
-    <div className=" hidden sm:block">
+    <div className=" hidden lg:block">
       <div className="container mx-auto">
         <div className="z-20 relative ">
           <div className="navbar  py-7">
@@ -81,34 +79,33 @@ const MiddleHeader = () => {
               </Link>
             </div>
             {/*----- category search from start ------*/}
-            <div className="navbar-center border h-[60px] rounded bg-[white] w-[50vw] max-w-[700px] ">
-              <div className="w-full  ">
+            <div className="navbar-center rounded-full border border-primary bg-[white] w-[50vw] max-w-[700px] ">
+              <div className="w-full h-full">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="flex justify-center w-full  relative pl-4 "
+                  className="flex justify-center w-full h-full relative"
                 >
-                  <div className="inline-block  mt-1 ml-[-10px] max-w-[100px] md:max-w-[190px]  relative w-full">
+                  <div className="inline-block max-w-[100px] md:max-w-[190px]  relative w-full">
                     <Select
                       id="select-component"
                       styles={middleCategorySelected}
                       defaultValue={selectedOption}
                       onChange={setSelectedOption}
                       options={options}
-                      placeholder={"Categories"}
+                      placeholder={"All Categories"}
                     />
                   </div>
 
-                  <div className=" my-auto z-20 border-[#070707] "></div>
+                  <div className="z-20 border-[#070707] "></div>
                   <label className="relative block w-full">
-                    <span className="sr-only">Search</span>
                     <button
                       type="submit"
-                      className="absolute btn bg-[#76A713] duration-500 hover:bg-[#6a9d04] inset-y-0 right-[6px] rounded transition-all  flex items-center px-3"
+                      className="absolute bg-[#76A713] duration-500 h-full capitalize text-[15px] font-bold border-none hover:bg-[#6a9d04] right-[0px] rounded-r-full btn-animate text-white transition-all flex items-center px-10"
                     >
-                      <BiSearchAlt className="text-2xl text-neutral" />
+                      Search
                     </button>
                     <input
-                      className="placeholder:italic placeholder:text-slate-500 block bg-white w-full h-12  rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0  focus:ring-0 sm:text-sm"
+                      className="placeholder:italic placeholder:text-slate-500 block bg-white w-full h-full max-w-[480px]  rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0 focus:ring-0 sm:text-sm"
                       placeholder="Search for items..."
                       type="text"
                       name="search"

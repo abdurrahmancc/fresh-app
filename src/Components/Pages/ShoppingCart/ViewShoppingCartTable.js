@@ -10,15 +10,15 @@ const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
         <div className="border rounded-sm max-w-full">
           <Table className="w-full">
             {/* <!-- head --> */}
-            <Thead className="border bg-primary ">
-              <Tr className="sm:text-white">
-                <Th className="font-bold px-4 py-5 text-lg">#</Th>
-                <Th className="font-bold text-start py-5 text-lg">Image</Th>
-                <Th className="font-bold text-start py-5 text-lg">Name</Th>
-                <Th className="font-bold text-start py-5 text-lg">Price</Th>
-                <Th className="font-bold text-start py-5 text-lg">Quantity</Th>
-                <Th className="font-bold text-start py-5 text-lg">Subtotal</Th>
-                <Th className="font-bold text-center py-5 text-lg">
+            <Thead className="border border-b-2 border-b-primary bg-[#F3F3F3]">
+              <Tr className="sm:text-black">
+                <Th className="font-semibold px-4 py-5 text-[17px]">#</Th>
+                <Th className="font-semibold text-start py-5 text-[17px]">Image</Th>
+                <Th className="font-semibold text-start py-5 text-[17px]">Name</Th>
+                <Th className="font-semibold text-start py-5 text-[17px]">Price</Th>
+                <Th className="font-semibold text-start py-5 text-[17px]">Quantity</Th>
+                <Th className="font-semibold text-start py-5 text-[17px]">Subtotal</Th>
+                <Th className="font-semibold text-center py-5 text-[17px]">
                   {" "}
                   <label htmlFor="CartDeleteModal" className="cursor-pointer">
                     Remove All

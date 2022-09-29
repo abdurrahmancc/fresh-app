@@ -17,7 +17,7 @@ const ShipDifferentAddress = ({ register, errors }) => {
       </div>
       <Collapsible className="w-full" open={isChecked}>
         {isChecked && (
-          <div>
+          <div className="m-1">
             <div className="grid lg:grid-cols-2 lg:gap-5">
               {/* First Name  */}
               <div className="form-control pb-5 w-full">

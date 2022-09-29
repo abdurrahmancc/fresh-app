@@ -2,22 +2,26 @@
 export const middleCategorySelected = {
   singleValue: (provided) => ({
     ...provided,
-    color: "#ffffff",
+    color: "#000",
     //   width: 55,
   }),
   control: (base, state) => ({
     ...base,
-    background: "#76A713",
-    color: "#ffffff",
-    height: 48,
-    marginTop: -3,
+    // background: "#76A713",
+    color: "#000",
+    borderTopLeftRadius: "25px",
+    borderBottomLeftRadius: "25px",
+    borderBottomRightRadius: 0,
+    borderTopRightRadius: 0,
+    height: 52,
     border: "none",
+    paddingLeft: "20px",
+    borderRight: "1px solid #cccccc",
     boxShadow: state.isFocused ? null : null,
   }),
   menu: (base) => ({
     ...base,
     borderRadius: 0,
-    marginTop: 5.8,
     zIndex: 100,
   }),
   menuList: (base) => ({
@@ -26,24 +30,25 @@ export const middleCategorySelected = {
   }),
   dropdownIndicator: (base) => ({
     ...base,
-    color: "#ffffff",
+    color: "#000",
+    width: "32px",
     paddingRight: 10,
     "&:hover": {
-      color: "#ffffff",
+      color: "#000",
     },
   }),
   input: (base, state) => ({
     ...base,
-    color: "#ffffff",
+    color: "#000",
   }),
   defaultValue: (base, state) => ({
     ...base,
-    color: "#ffffff",
+    color: "#000",
   }),
   placeholder: (defaultStyles) => {
     return {
       ...defaultStyles,
-      color: "#ffffff",
+      color: "#000",
     };
   },
 };

@@ -127,9 +127,6 @@ const Shop = () => {
     applyFilters();
   }, [categories, minPrice, maxPrice]);
 
-  if (!products || isLoading) {
-    return <Loading />;
-  }
   return (
     <>
       <main>
@@ -230,6 +227,7 @@ const Shop = () => {
         </div>
       </footer>
       {/*------ footer end -------*/}
+      {(!products || isLoading) && <Loading />}
     </>
   );
 };

@@ -8,6 +8,7 @@ import { signOut } from "firebase/auth";
 import auth from "../../Hooks/useAuthState";
 import AdminDashboardThemes from "./AdminDashboardThemes";
 import { accessToken, removeCookie } from "../../Hooks/useCookies";
+import { Link } from "react-router-dom";
 
 const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen }) => {
   const [openSearch, setOpenSearch] = useState(false);
@@ -117,16 +118,16 @@ const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen
 
             <ul className=" mt-2 menu bg-base-200 w-40 rounded-box">
               <li className=" ">
-                <a className=" px-8">
+                <Link to={"/user-dashboard/user-dashboard-details"} className=" px-8">
                   <AiOutlineUser className="text-lg" />
                   profile
-                </a>
+                </Link>
               </li>
               <li className=" ">
-                <a className="px-8">
+                <Link to={"message"} className="px-8">
                   <MdOutlineMessage className="text-lg" />
                   Message
-                </a>
+                </Link>
               </li>
               <li className="  border-t border-gray-500 ">
                 <span onClick={handleSignOut} className="px-8 ">
