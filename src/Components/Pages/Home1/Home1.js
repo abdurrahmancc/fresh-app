@@ -9,16 +9,15 @@ import "../Home/home.css";
 import ProductsOfYourChoice from "../Home/ProductsOfYourChoice/ProductsOfYourChoice";
 import banner1 from "../../../assets/product_Banner/product_Banner-2.png";
 import banner2 from "../../../assets/product_Banner/product_Banner-4.png";
-import banner4 from "../../../assets/product_Banner/product_Banner-1.png";
-import banner3 from "../../../assets/product_Banner/product_Banner-3.png";
 import TopTrendingRecently from "../Home/TopTrendingRecently/TopTrendingRecently";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
+
 import Footer from "../../SharedPages/Footer/Footer";
 import ScrollBtn from "../../SharedPages/ScrollBtn";
+import ProductBannerSlider from "../Home/ProductBannerSlider";
 
 const Home1 = () => {
   const img1 = [banner1, banner2];
-  const img2 = [banner3, banner4];
   return (
     <>
       <main>
@@ -59,7 +58,7 @@ const Home1 = () => {
         {/*Banner start*/}
         <section className="container mx-auto mt-20">
           <div className="lg:mx-0 mx-5">
-            <ProductBanner img={img2}></ProductBanner>
+            <ProductBannerSlider />
           </div>
         </section>
         {/* Banner  end */}

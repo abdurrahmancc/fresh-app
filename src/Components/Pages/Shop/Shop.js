@@ -33,8 +33,8 @@ const Shop = () => {
   const [size, setSize] = useState({ value: 20, label: "20" });
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [minPrice, setMinPrice] = useState(10);
-  const [maxPrice, setMaxPrice] = useState(99);
+  const [minPrice, setMinPrice] = useState(50);
+  const [maxPrice, setMaxPrice] = useState(150);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);

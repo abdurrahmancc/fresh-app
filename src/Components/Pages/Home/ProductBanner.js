@@ -26,7 +26,7 @@ const ProductBanner = ({ img }) => {
                   <p className="text-lg pb-7 uppercase text-error font-bold">save up to 20% off</p>
                 </Fade>
                 <Fade bottom delay={600}>
-                  <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded btn-primary ">
+                  <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded-none btn-primary ">
                     Shop Now
                   </button>
                 </Fade>
@@ -56,7 +56,7 @@ const ProductBanner = ({ img }) => {
               <p className="text-lg pb-7 uppercase text-error font-bold">save up to 20% off</p>
             </Fade>
             <Fade bottom delay={600}>
-              <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded btn-primary ">
+              <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded-none btn-primary ">
                 Shop Now
               </button>
             </Fade>

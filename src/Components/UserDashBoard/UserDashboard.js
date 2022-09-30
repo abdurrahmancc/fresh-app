@@ -70,7 +70,7 @@ const UserDashboard = () => {
           </div>
         </section>
         {/* Breadcrumb end */}
-        <section className="container mx-auto mt-5">
+        <section className="container mx-auto mt-10">
           <div className="flex md:flex-row flex-col gap-y-10">
             <div className="min-h-[780px]">
               <ul className="menu min-h-[780px] h-full lg:w-[290px] m-5 rounded-lg dashboardBodyShadow bg-white text-base-content">
@@ -79,11 +79,11 @@ const UserDashboard = () => {
                   <div className="absolute hover:bg-white right-0">
                     {!isUpdate ? (
                       <button onClick={() => setIsUpdate(!isUpdate)} className="focus:bg-white">
-                        <FiEdit2 />
+                        <FiEdit2 className="text-primary" />
                       </button>
                     ) : (
                       <button onClick={() => setIsUpdate(!isUpdate)} className="focus:bg-white">
-                        <IoCloseCircle />
+                        <IoCloseCircle className="text-primary" />
                       </button>
                     )}
                   </div>
