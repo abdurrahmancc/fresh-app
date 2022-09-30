@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import auth from "../../../Hooks/useAuthState";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { GrMail } from "react-icons/gr";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaLock } from "react-icons/fa";
 import { confirmPasswordReset } from "firebase/auth";
@@ -12,17 +10,14 @@ import { confirmPasswordReset } from "firebase/auth";
 const ResetPasswordForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
-  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
   const [searchParams] = useSearchParams();
 
   const {
     register,
     handleSubmit,
     setError,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -106,13 +101,13 @@ const ResetPasswordForm = () => {
                       onClick={() => setShowConfirmPass(!showConfirmPass)}
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
-                      <AiFillEyeInvisible className={`${showPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showPass && "hidden"} `} />
+                      <AiFillEyeInvisible className={`${showConfirmPass || "hidden"} `} />{" "}
+                      <AiFillEye className={`${showConfirmPass && "hidden"} `} />
                     </div>
                   </div>
                 </label>
                 <input
-                  type={`${showPass ? "text" : "password"}`}
+                  type={`${showConfirmPass ? "text" : "password"}`}
                   placeholder="Confirm password"
                   className="input bg-white pl-16 input-bordered py-2 z-10 w-full appearance-none border text-sm text-gray-700 placeholder:text-gray-700 rounded-md min-h-12 transition duration-200 focus:ring-0 ease-in-out border-gray-300 focus:outline-none focus:border-primary h-11 md:h-12"
                   {...register("confirmPassword", {

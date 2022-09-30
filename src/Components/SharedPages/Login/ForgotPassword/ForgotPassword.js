@@ -18,8 +18,8 @@ const ForgotPassword = () => {
         </section>
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-20">
-          <div className="">
-            <div className="max-w-[400px] mx-auto">
+          <div className="min-h-[60vh] h-full flex justify-center items-center">
+            <div className="max-w-[400px] w-full mx-auto">
               <div className="rounded-lg bg-white loginBodyShadow">
                 <div className="p-5">
                   <ForgotPasswordForm />

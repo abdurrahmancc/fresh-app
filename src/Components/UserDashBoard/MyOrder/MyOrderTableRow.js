@@ -50,7 +50,7 @@ const MyOrderTableRow = ({ order, index, setMyOrderModal, Td, Tr }) => {
             <BsInfoCircleFill
               onClick={() => setMyOrderModal(order?.orderInfo)}
               title="Details"
-              className="text-xl sm:mx-auto"
+              className="text-xl text-[#6d6e6e] sm:mx-auto"
             />
           </label>
         </Td>

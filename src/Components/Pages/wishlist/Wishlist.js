@@ -33,15 +33,15 @@ const Wishlist = () => {
             <div className="border rounded-sm max-w-full">
               <Table className="w-full">
                 {/* <!-- head --> */}
-                <Thead className="border bg-primary ">
-                  <Tr className="sm:text-white">
-                    <Th className="font-bold px-4 text-start py-5 text-lg">#</Th>
-                    <Th className="font-bold text-start py-5 text-lg">Image</Th>
-                    <Th className="font-bold text-start py-5 text-lg">Name</Th>
-                    <Th className="font-bold text-start py-5 text-lg">Price</Th>
-                    <Th className="font-bold text-center py-5 text-lg ">Stock Status</Th>
-                    <Th className="font-bold text-center py-5 text-lg">Action</Th>
-                    <Th className="font-bold text-center py-5 text-lg">
+                <Thead className="border border-b-2 border-b-primary bg-[#F3F3F3]">
+                  <Tr className="text-black">
+                    <Th className="font-semibold px-4 text-start py-5 text-[17px]">#</Th>
+                    <Th className="font-semibold text-start py-5 text-[17px]">Image</Th>
+                    <Th className="font-semibold text-start py-5 text-[17px]">Name</Th>
+                    <Th className="font-semibold text-start py-5 text-[17px]">Price</Th>
+                    <Th className="font-semibold text-center py-5 text-[17px] ">Stock Status</Th>
+                    <Th className="font-semibold text-center py-5 text-[17px]">Action</Th>
+                    <Th className="font-semibold text-center py-5 text-[17px]">
                       <label htmlFor="wishlistDeleteModal">Remove All </label>
                     </Th>
                   </Tr>
@@ -66,14 +66,12 @@ const Wishlist = () => {
               <h4 className="md:text-4xl text-xl font-bold">
                 There are 0 products in your wishlist
               </h4>
-              <h4>
-                <button
-                  onClick={() => window.history.back()}
-                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
-                >
-                  Return to back page
-                </button>
-              </h4>
+              <button
+                onClick={() => window.history.back()}
+                className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
+              >
+                Return to back page
+              </button>
             </div>
           )}
           <WishlistDeleteModal setWishProducts={setWishProducts} />

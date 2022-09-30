@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { memo, createContext, useMemo, useEffect, useState } from "react";
 import { FaList } from "react-icons/fa";
 import { MdGridView } from "react-icons/md";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
@@ -32,17 +32,24 @@ const Shop = () => {
   const [selectedSortOption, setSelectedSortOption] = useState("popularity");
   const [size, setSize] = useState({ value: 20, label: "20" });
   const [products, setProducts] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
-  const [reload, setReload] = useState(true);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [minPrice, setMinPrice] = useState(60);
-  const [maxPrice, setMaxPrice] = useState(130);
+  const [minPrice, setMinPrice] = useState(10);
+  const [maxPrice, setMaxPrice] = useState(99);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState(filterCategories);
 
-  const categoriesChecked = categories.filter((item) => item.checked);
+  let checkedCategories = useMemo(() => {
+    let checked = [];
+    categories.forEach((category) => {
+      if (category.checked) {
+        checked = [...checked, category.label];
+      }
+    });
+    return checked;
+  }, [categories]);
+
   useEffect(() => {
     (async () => {
       try {
@@ -65,22 +72,18 @@ const Shop = () => {
       try {
         setIsLoading(true);
         const { data } = await axiosPrivet.post(
-          `product/all-products/?page=${page}&size=${size?.value}`,
-          categoriesChecked
+          `product/all-products/?page=${page}&size=${size?.value}&minPrice=${minPrice}&maxPrice=${maxPrice}`,
+          checkedCategories
         );
-
-        if (data) {
-          setAllProducts(data);
-          setProducts(data);
-          setReload(true);
-        }
+        setProducts(data);
         setIsLoading(false);
+        console.log(data);
       } catch (error) {
         console.log(error.message);
         setIsLoading(false);
       }
     })();
-  }, [reload, page, size?.value]);
+  }, [page, size?.value, checkedCategories, minPrice, maxPrice]);
 
   // filter categories
   const handleChangeChecked = (id) => {
@@ -90,42 +93,6 @@ const Shop = () => {
     );
     setCategories(changeCheckedList);
   };
-
-  // filter products
-  const applyFilters = () => {
-    let filterAllProducts = allProducts;
-    let filterProducts = products;
-    let priceFilter;
-    let filterProduct;
-
-    // filter categories
-    const categoriesChecked = categories.filter((item) => item.checked).map((item) => item.label);
-
-    if (categoriesChecked.length) {
-      filterProduct = products.filter((prod) => {
-        for (let oneKeyword of categoriesChecked) {
-          if (prod.category.includes(oneKeyword)) return true;
-        }
-      });
-      if (filterProduct.length) {
-        filterAllProducts = filterProduct;
-      }
-    }
-    // filter price
-    if (minPrice !== 1 || maxPrice !== 200) {
-      priceFilter = filterAllProducts.filter(
-        (item) => item.price >= minPrice && item.price <= maxPrice
-      );
-      if (filterProducts.length) {
-        filterAllProducts = priceFilter;
-      }
-    }
-    setProducts(filterAllProducts);
-  };
-
-  useEffect(() => {
-    applyFilters();
-  }, [categories, minPrice, maxPrice]);
 
   return (
     <>
@@ -202,12 +169,26 @@ const Shop = () => {
                       </NavLink>
                     </div>
                   </div>
-                  <div className="mt-10 ">
-                    <Outlet />
-                    <div className="flex justify-center mt-10">
-                      <Pagination pageCount={pageCount} setPage={setPage} />
+                  {products ? (
+                    <div className="mt-10">
+                      <Outlet />
+                      <div className="flex justify-center mt-10">
+                        <Pagination pageCount={pageCount} setPage={setPage} />
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
+                      <h4 className="md:text-4xl text-xl font-bold">
+                        There are 0 products in your wishlist
+                      </h4>
+                      <button
+                        onClick={() => window.history.back()}
+                        className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
+                      >
+                        Return to back page
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -232,4 +213,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default memo(Shop);

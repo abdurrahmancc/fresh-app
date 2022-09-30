@@ -74,14 +74,14 @@ const BlogSideBar = () => {
   let isLast = products[products.length - 1];
   return (
     <>
-      <div className="flex flex-col gap-y-12 justify-center">
+      <div className="flex flex-col gap-y-[51px] justify-center">
         {/*---------- search start --------*/}
         <div className=" w-full">
           <h4 className="text-xl font-bold border-b-2 border-primary inline-block ml-5 pb-5">
             Search
           </h4>
           <div className=" border-t border-gray-200">
-            <form className="pt-8" onSubmit={handleSubmit(onSubmit)}>
+            <form className="pt-10" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <div className="relative">
                   <input
@@ -262,6 +262,7 @@ const BlogSideBar = () => {
           </div>
         </div>
         {/*---------- popular tag end--------*/}
+        {/* ------- banner image start ------- */}
         <div className="hidden lg:block">
           <img
             src={sideBanner}
@@ -269,6 +270,7 @@ const BlogSideBar = () => {
             alt="best selling banner"
           />
         </div>
+        {/* ------- banner image end ------- */}
       </div>
     </>
   );

@@ -72,14 +72,12 @@ const MyOrder = () => {
       ) : (
         <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
           <h4 className="text-4xl font-bold">There are no order</h4>
-          <h4>
-            <button
-              onClick={() => window.history.back()}
-              className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
-            >
-              Return to back page
-            </button>
-          </h4>
+          <button
+            onClick={() => window.history.back()}
+            className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
+          >
+            Return to back page
+          </button>
         </div>
       )}
     </>

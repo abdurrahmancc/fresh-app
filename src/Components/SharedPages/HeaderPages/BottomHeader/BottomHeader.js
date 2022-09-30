@@ -272,7 +272,7 @@ const BottomHeader = () => {
                 <li>
                   <Link
                     to={"/user-dashboard/user-dashboard-details"}
-                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                    className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
                     <BiUser className="text-lg " />
                     <span> My Account</span>
@@ -281,7 +281,7 @@ const BottomHeader = () => {
                 <li>
                   <Link
                     to={"user-dashboard/my-order"}
-                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                    className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
                     <MdLocationOn className="text-lg" />
                     <span>Order Tracking</span>
@@ -290,7 +290,7 @@ const BottomHeader = () => {
                 <li>
                   <Link
                     to={"/user-dashboard/user-dashboard-details"}
-                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                    className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
                     <BiNotepad className="text-lg" />
                     <span>My Voucher</span>
@@ -299,7 +299,7 @@ const BottomHeader = () => {
                 <li>
                   <Link
                     to={"wishlist"}
-                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                    className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
                     <BiHeart className="text-lg" />
                     <span>My Wishlist</span>
@@ -308,7 +308,7 @@ const BottomHeader = () => {
                 <li>
                   <Link
                     to={"user-dashboard/my-account"}
-                    className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                    className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
                     <AiFillSetting className="text-lg" />
 
@@ -319,7 +319,7 @@ const BottomHeader = () => {
                   <li>
                     <NavLink
                       to={"/admin-dashboard"}
-                      className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear items-center active:text-primary gap-3 px-6"
+                      className="flex hover:text-primary hover:bg-white duration-300 transition ease-linear font-semibold items-center active:text-primary gap-3 px-6"
                     >
                       <VscSettings className="rotate-90 text-lg font-bold " />
                       <span>Dashboard</span>
@@ -327,7 +327,7 @@ const BottomHeader = () => {
                   </li>
                 )}
                 <li>
-                  <div className="hover:text-primary hover:bg-white duration-300 transition ease-linear active:text-primary px-6">
+                  <div className="hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear active:text-primary px-6">
                     {user ? (
                       <div className="flex items-center gap-3" onClick={() => handleSignOut()}>
                         <FiLogOut className="text-lg" />

@@ -347,14 +347,12 @@ const Compare = () => {
               <h4 className="md:text-4xl text-xl font-bold">
                 There are 0 products in your compare
               </h4>
-              <h4>
-                <button
-                  onClick={() => window.history.back()}
-                  className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
-                >
-                  Return to back page
-                </button>
-              </h4>
+              <button
+                onClick={() => window.history.back()}
+                className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
+              >
+                Return to back page
+              </button>
             </div>
           )}
         </section>

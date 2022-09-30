@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Components/SharedPages/HeaderPages/Header";
 import Shop from "./Components/Pages/Shop/Shop";
 import ShopVertical from "./Components/Pages/Shop/ShopVertical";
-import ShopCardHorizontal from "./Components/Pages/Shop/ShopCardHorizontal ";
+import ShopHorizontal from "./Components/Pages/Shop/ShopHorizontal ";
 import ProductDetails from "./Components/Pages/Products/ProductDetails";
 import { createContext, useState } from "react";
 import { Toaster } from "react-hot-toast";
@@ -64,12 +64,12 @@ function App() {
           <Route path="/shop" element={<Shop />}>
             <Route index element={<ShopVertical />}></Route>
             <Route path="1" element={<ShopVertical />}></Route>
-            <Route path="2" element={<ShopCardHorizontal />}></Route>
+            <Route path="2" element={<ShopHorizontal />}></Route>
           </Route>
           <Route path="/shop/fullwidth" element={<Shop />}>
             <Route index element={<ShopVertical />}></Route>
             <Route path="1" element={<ShopVertical />}></Route>
-            <Route path="2" element={<ShopCardHorizontal />}></Route>
+            <Route path="2" element={<ShopHorizontal />}></Route>
           </Route>
           {/*--------------- require Routes --------------*/}
           <Route element={<RequireAuth />}>

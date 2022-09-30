@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
-import axiosPrivet from "../../Hooks/axiosPrivet";
 import ScrollBtn from "../../SharedPages/ScrollBtn";
 import { shopAllProducts } from "./Shop";
 import ShopVerticalCard from "./ShopVerticalCard";
@@ -11,7 +10,7 @@ const ShopVertical = () => {
 
   return (
     <>
-      {products.length ? (
+      {products.length && (
         <div
           className={`grid  ${
             pathname.includes("/shop/fullwidth")
@@ -20,10 +19,6 @@ const ShopVertical = () => {
           }`}
         >
           {products && products.map((item) => <ShopVerticalCard key={item?._id} item={item} />)}
-        </div>
-      ) : (
-        <div>
-          <h5 className="text-center">No Data Found</h5>
         </div>
       )}
       <ScrollBtn />
