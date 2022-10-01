@@ -1,10 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { IoLocationOutline } from "react-icons/io5";
-import { AiOutlineMail, AiOutlineQuestionCircle } from "react-icons/ai";
-import { FaShippingFast } from "react-icons/fa";
-import { BsCurrencyDollar } from "react-icons/bs";
-import { TbWorld } from "react-icons/tb";
 import "./TopHeader.css";
 import Select from "react-select";
 import { topHeaderSelectLibraryStyle } from "../../../SharedCss/SelectComponentCss";
@@ -32,23 +27,20 @@ const TopHeader = () => {
         <div className="flex items-center justify-center  lg:justify-between">
           <div className="hidden lg:block">
             <nav>
-              <ul id="vertical-line1" className="flex justify-start items-center gap-5">
-                <li>
-                  <Link to="#" className="flex items-center px-2 gap-1 pl-0">
-                    <IoLocationOutline />
-                    <span>Location</span>
+              <ul id="vertical-line1" className="flex justify-start items-center gap-[10px]">
+                <li className="flex items-center">
+                  <Link to="#" className="flex">
+                    Location
                   </Link>
+                  <div className="w-[1px] ml-[10px] h-5 border border-gray-300"></div>
+                </li>
+                <li className="flex items-center">
+                  <span className="px-2 vertical-line">Info@fresh.com</span>
+                  <div className="w-[1px] ml-[10px] h-5 border border-gray-300"></div>
                 </li>
                 <li>
-                  <span className="flex items-center px-2 gap-1 vertical-line">
-                    <AiOutlineMail />
-                    <span>Info@fresh.com</span>
-                  </span>
-                </li>
-                <li>
-                  <Link to="#" className="flex items-center px-2 gap-1 vertical-line13">
-                    <AiOutlineQuestionCircle />
-                    <span>Free Query</span>
+                  <Link to="#" className="px-2  vertical-line13">
+                    Free Query
                   </Link>
                 </li>
               </ul>
@@ -58,36 +50,29 @@ const TopHeader = () => {
             <nav>
               <ul
                 id="vertical-line"
-                className="flex justify-center lg:justify-end items-center gap-5"
+                className="flex justify-center lg:justify-end items-center gap-[10px]"
               >
-                <li /* className="pr-5 border-r border-gray-400" */>
-                  <Link to="user-dashboard/my-order" className="flex px-2 items-center gap-1">
-                    <span>
-                      <FaShippingFast className="opacity-80" />
-                    </span>
-                    <span> Order Tracking</span>
+                <li className="flex items-center">
+                  <Link to="user-dashboard/my-order" className=" px-2">
+                    Order Tracking
                   </Link>
+                  <div className="w-[1px] ml-[10px] h-5 border border-gray-300"></div>
                 </li>
-                <li /* className="pr-5 border-r border-gray-400" */>
+                <li className="flex items-center">
                   <span className="flex px-2 rounded-md items-center gap-1 vertical-line">
-                    <TbWorld className="opacity-80" />
-
-                    <span>
-                      <Select
-                        styles={topHeaderSelectLibraryStyle}
-                        id="top-header-select-component"
-                        defaultValue={selectedOption}
-                        onChange={setSelectedOption}
-                        placeholder={"English"}
-                        options={options}
-                      />
-                    </span>
+                    <Select
+                      styles={topHeaderSelectLibraryStyle}
+                      id="top-header-select-component"
+                      defaultValue={selectedOption}
+                      onChange={setSelectedOption}
+                      placeholder={"English"}
+                      options={options}
+                    />
                   </span>
+                  <div className="w-[1px] ml-[10px] h-5 border border-gray-300"></div>
                 </li>
                 <li>
                   <Link to="#" className="flex rounded-md px-2 items-center  vertical-line">
-                    <BsCurrencyDollar />
-
                     <span>
                       <Select
                         styles={topHeaderSelectLibraryStyle}

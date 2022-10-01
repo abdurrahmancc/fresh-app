@@ -10,7 +10,7 @@ const ShopVertical = () => {
 
   return (
     <>
-      {products.length && (
+      {products && (
         <div
           className={`grid  ${
             pathname.includes("/shop/fullwidth")

@@ -6,7 +6,6 @@ import Compare from "../Components/Pages/compare/Compare";
 import Contact from "../Components/Pages/Contact/Contact";
 import Faq from "../Components/Pages/Faq/Faq";
 import Home1 from "../Components/Pages/Home1/Home1";
-import Home2 from "../Components/Pages/Home2/Home2";
 import NotFound from "../Components/Pages/NotFound/NotFound";
 import ProductDetails from "../Components/Pages/Products/ProductDetails";
 import Products from "../Components/Pages/Products/Products";
@@ -21,7 +20,6 @@ import ResetPassword from "../Components/SharedPages/Login/ResetPassword/ResetPa
 export const publicRoutes = [
   { path: "/", Component: Home1 },
   { path: "/home", Component: Home1 },
-  { path: "/home2", Component: Home2 },
   { path: "/about", Component: About },
   { path: "/contact", Component: Contact },
   { path: "/FAQ", Component: Faq },

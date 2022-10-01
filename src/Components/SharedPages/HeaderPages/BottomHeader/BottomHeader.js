@@ -19,6 +19,7 @@ import BottomHeaderCategories from "./BottomHeaderCategories";
 import NavSideBar from "./NavSideBar";
 import { useEffect } from "react";
 import useAdmin from "../../../Hooks/useAdmin";
+import { IoLocationOutline, IoSettingsOutline } from "react-icons/io5";
 
 const BottomHeader = () => {
   const [user, loading] = useAuthState(auth);
@@ -44,11 +45,9 @@ const BottomHeader = () => {
     return <Loading />;
   }
 
-  console.log(admin);
-
   const navItems = (
     <>
-      <li className="py-2" tabIndex="0">
+      <li className="py-2">
         <NavLink
           to={"/home"}
           className={({ isActive }) =>
@@ -58,30 +57,7 @@ const BottomHeader = () => {
           }
         >
           Home
-          <AiOutlineCaretDown className="text-sm" />
         </NavLink>
-        <ul className="menu py-5 rounded-lg bg-base-100 overflow-hidden z-50 w-[270px]  shadow-xl">
-          <li>
-            <Link
-              to={"/home"}
-              className={
-                "sub-menu-animate py-[10px] relative text-[15px] bg-white px-0 font-semibold hover:text-primary"
-              }
-            >
-              <span className="px-8 capitalize">Home 1</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"/home2"}
-              className={
-                "sub-menu-animate relative py-[10px] text-[15px] bg-white px-0 font-semibold  hover:text-primary"
-              }
-            >
-              <span className="px-8 capitalize">Home 2</span>
-            </Link>
-          </li>
-        </ul>
       </li>
       <li className="py-2" tabIndex="0">
         <NavLink
@@ -283,7 +259,7 @@ const BottomHeader = () => {
                     to={"user-dashboard/my-order"}
                     className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
-                    <MdLocationOn className="text-lg" />
+                    <IoLocationOutline className="text-lg" />
                     <span>Order Tracking</span>
                   </Link>
                 </li>
@@ -310,7 +286,7 @@ const BottomHeader = () => {
                     to={"user-dashboard/my-account"}
                     className="flex hover:text-primary hover:bg-white duration-300 font-semibold transition ease-linear items-center active:text-primary gap-3 px-6"
                   >
-                    <AiFillSetting className="text-lg" />
+                    <IoSettingsOutline className="text-lg" />
 
                     <span>Setting</span>
                   </Link>
@@ -351,7 +327,7 @@ const BottomHeader = () => {
       </div>
       {/*----- Bottom header end ----*/}
       {/* login Modal start*/}
-      {isLogin && <LoginModal />}
+      {!pathname.includes("login") ? isLogin && <LoginModal /> : ""}
       {/* login Modal end*/}
     </div>
   );

@@ -8,7 +8,7 @@ const Header = () => {
   const { pathname } = useLocation();
   return (
     <header className={pathname.includes("admin-dashboard") && "hidden"}>
-      {pathname.includes("home2") || <TopHeader />}
+      <TopHeader />
       <MiddleHeader />
       <BottomHeader />
     </header>

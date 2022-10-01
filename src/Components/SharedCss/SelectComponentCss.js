@@ -58,11 +58,9 @@ export const topHeaderSelectLibraryStyle = {
   singleValue: (provided) => ({
     ...provided,
     color: "#333",
-    //   width: 55,
   }),
   control: (base, state) => ({
     ...base,
-    // background: "#76A713",
     color: "#333",
     border: "none",
     boxShadow: state.isFocused ? null : null,
@@ -71,6 +69,7 @@ export const topHeaderSelectLibraryStyle = {
     ...base,
     borderRadius: 0,
     marginTop: 5,
+    width: 100,
     zIndex: 100,
   }),
   menuList: (base) => ({
@@ -80,6 +79,7 @@ export const topHeaderSelectLibraryStyle = {
   dropdownIndicator: (base) => ({
     ...base,
     color: "#333",
+    width: 12,
     padding: 0,
     "&:hover": {
       color: "#333",
@@ -88,15 +88,18 @@ export const topHeaderSelectLibraryStyle = {
   input: (base, state) => ({
     ...base,
     color: "#ffffff",
+    padding: 0,
   }),
   defaultValue: (base, state) => ({
     ...base,
     color: "#ffffff",
+    padding: 0,
   }),
   placeholder: (defaultStyles) => {
     return {
       ...defaultStyles,
       color: "#333",
+      padding: 0,
     };
   },
 };

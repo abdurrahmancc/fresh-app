@@ -40,13 +40,15 @@ export const ToggleAdminDashboardSideBar = createContext("sideBar");
 function App() {
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const [dark, setDark] = useState(false);
+  // const count = useSelector((state) => state);
 
   const handleOpen = () => {
     if (toggleSideBar) {
       setToggleSideBar(!toggleSideBar);
     }
   };
-  const count = useSelector((state) => console.log(state));
+
+  // console.log(count);
   return (
     <>
       <Toaster />

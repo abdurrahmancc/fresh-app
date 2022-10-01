@@ -34,7 +34,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
         setToggle(false);
       }
     };
-  }, []);
+  }, [setToggle]);
   return (
     <div className="">
       <div>
@@ -106,16 +106,6 @@ const NavSideBar = ({ toggle, setToggle }) => {
                           }
                         >
                           Home 1
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to={"/home2"}
-                          className={
-                            "pl-[10px] inline-block py-2 text-[#444] text-[14px] font-bold"
-                          }
-                        >
-                          Home 2
                         </Link>
                       </li>
                     </ul>

@@ -12,6 +12,9 @@ import user3 from "../../../assets/about-img/user-3.png";
 import user4 from "../../../assets/about-img/user-4.png";
 import user5 from "../../../assets/about-img/user-5.png";
 import user6 from "../../../assets/about-img/user-6.png";
+import about9 from "../../../assets/about-img/about-9.png";
+import about10 from "../../../assets/about-img/about-10.png";
+import about11 from "../../../assets/about-img/about-11.png";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
@@ -38,25 +41,27 @@ const About = () => {
             <div className="max-w-[1320px] mx-auto">
               <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 ">
                 <img src={banner} className="rounded-lg shadow-xl mx-auto" alt="banner" />
-                <div className="">
-                  <h2 className="lg:text-4xl text-[4vw] font-bold text-center lg:text-start capitalize  pb-8">
-                    Welcome to Fresh
-                  </h2>
-                  <p className="pb-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis delectus
-                    tempore mollitia! Suscipit, aliquid id possimus dolores odit maiores inventore
-                    quam corrupti qui itaque perferendis reiciendis soluta est tempora officia
-                    laudantium, porro rem, facere saepe eligendi dolor voluptatem molestias.
-                    Provident.
-                  </p>
-                  <p className="pb-12">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolorem pariatur
-                    optio voluptatem exercitationem, error laborum eaque dolorum velit deleniti in
-                    ad voluptates praesentium quae debitis accusantium voluptate voluptatum fugit?
-                    Saepe aspernatur impedit nulla voluptatibus maiores debitis repudiandae! Dicta
-                    nulla doloribus voluptate quam pariatur nam provident reprehenderit officiis
-                    quia voluptatum?
-                  </p>
+                <div>
+                  <div className="mx-10 md:mx-0">
+                    <h2 className="lg:text-4xl text-3xl font-bold text-center lg:text-start capitalize pb-8">
+                      Welcome to Fresh
+                    </h2>
+                    <p className="pb-6">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis delectus
+                      tempore mollitia! Suscipit, aliquid id possimus dolores odit maiores inventore
+                      quam corrupti qui itaque perferendis reiciendis soluta est tempora officia
+                      laudantium, porro rem, facere saepe eligendi dolor voluptatem molestias.
+                      Provident.
+                    </p>
+                    <p className="pb-12">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolorem pariatur
+                      optio voluptatem exercitationem, error laborum eaque dolorum velit deleniti in
+                      ad voluptates praesentium quae debitis accusantium voluptate voluptatum fugit?
+                      Saepe aspernatur impedit nulla voluptatibus maiores debitis repudiandae! Dicta
+                      nulla doloribus voluptate quam pariatur nam provident reprehenderit officiis
+                      quia voluptatum?
+                    </p>
+                  </div>
                   <div>
                     <div>
                       <SlickList />
@@ -68,14 +73,120 @@ const About = () => {
           </div>
         </section>
         {/*------------- Welcome To Fresh end ---------- */}
+        {/*--------- Why Choose Us start---------*/}
+        <section className="mt-20">
+          <div className="py-20 bg-[#f4f1ed]">
+            <div className="container mx-auto">
+              <div className="max-w-[1320px] mx-auto">
+                <div className="mb-10">
+                  <h2 className="lg:text-4xl text-3xl font-bold text-center capitalize pb-3">
+                    Why Choose Us
+                  </h2>
+                  <p className="text-center text-[16px] px-8">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, neque ut!
+                  </p>
+                </div>
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
+                  <div className="max-w-[26.3rem]">
+                    <figure className="w-full">
+                      <img
+                        src={about10}
+                        className="rounded-lg hover:top-[-4px] relative top-0 ease-in-out duration-500"
+                        alt="user_photo"
+                      />
+                    </figure>
+                    <div className="card-body  pt-5 p-0 w-full items-center text-center">
+                      <h2 className="card-title capitalize">Who We Are</h2>
+                      <p className="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quas ab
+                        eaque hic, aperiam animi rem laudantium placeat dolores!
+                      </p>
+                    </div>
+                  </div>
+                  <div className="max-w-[26.3rem] ">
+                    <figure className="w-full">
+                      <img
+                        src={about9}
+                        className="rounded-lg hover:top-[-4px] relative top-0 ease-in-out duration-500"
+                        alt="user_photo"
+                      />
+                    </figure>
+                    <div className="card-body pt-5 p-0 w-full items-center text-center">
+                      <h2 className="card-title capitalize">How We Work</h2>
+                      <p className="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quas ab
+                        eaque hic, aperiam animi rem laudantium placeat dolores!
+                      </p>
+                    </div>
+                  </div>
+                  <div className="max-w-[26.3rem] ">
+                    <figure className="w-full">
+                      <img
+                        src={about11}
+                        className=" rounded-lg hover:top-[-4px] relative top-0 ease-in-out duration-500"
+                        alt="user_photo"
+                      />
+                    </figure>
+
+                    <div className="card-body pt-5 p-0 w-full items-center text-center">
+                      <h2 className="card-title capitalize">Our Products</h2>
+                      <p className="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quas ab
+                        eaque hic, aperiam animi rem laudantium placeat dolores!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/*--------- Why Choose Us end---------*/}
+
+        {/*---------- Our performance start ----------*/}
+        <section className="mt-20">
+          <div className="container mx-auto">
+            <div className="max-w-[1320px] lg:mx-auto">
+              <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 items-center">
+                <img src={solution} className="rounded-lg mx-auto shadow-lg" alt="banner" />
+                <div className="mx-10 sm:mx-0">
+                  <span className="text-2xl lg:text-start text-center block  text-gray-500 lg:inline">
+                    Our performance
+                  </span>
+                  <h2 className="lg:text-4xl pt-3 text-3xl font-bold text-center lg:text-start capitalize pb-8">
+                    Your Partner for e-commerce grocery solution
+                  </h2>
+                  <p className="pb-6">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis delectus
+                    tempore mollitia! Suscipit, aliquid id possimus dolores odit maiores inventore
+                    quam corrupti qui itaque perferendis reiciendis soluta est tempora officia
+                    laudantium, porro rem, facere saepe eligendi dolor voluptatem molestias.
+                  </p>
+                  <p className="pb-12">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolorem pariatur
+                    optio voluptatem exercitationem, error laborum eaque dolorum velit deleniti in
+                    ad voluptates praesentium quae debitis accusantium voluptate voluptatum fugit?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/*---------- Our performance end ----------*/}
+
         {/*----------- easily purchase our products start ----------*/}
         <section className="mt-20">
           <div className="py-20 bg-[#f4f1ed]">
             <div className="container mx-auto">
               <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center pb-10 font-bold capitalize ">
-                  You can easily purchase our products <br /> within your price range.
-                </h2>
+                <div className="pb-10">
+                  <h2 className="lg:text-4xl text-3xl font-bold text-center capitalize pb-3">
+                    Easily Buy Our Products
+                  </h2>
+                  <p className="text-center text-[16px] px-8">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, neque ut!
+                  </p>
+                </div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-20">
                   <div className="card max-w-[26.3rem] rounded-lg ">
                     <figure>
@@ -119,63 +230,103 @@ const About = () => {
           </div>
         </section>
         {/*----------- easily purchase our products end ----------*/}
-        {/*---------- Our performance start ----------*/}
+
+        {/*--------- our happy clients  start---------*/}
         <section className="mt-20">
-          <div className="container mx-auto">
-            <div className="max-w-[1320px] lg:mx-auto mx-10">
-              <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 items-center">
-                <img src={solution} className="rounded-lg shadow-lg" alt="banner" />
-                <div className="">
-                  <span className="text-2xl lg:text-start text-center block  text-gray-500 lg:inline">
-                    Our performance
-                  </span>
-                  <h2 className="lg:text-5xl text-center lg:text-start text-[4vw] font-bold capitalize  py-8">
-                    Your Partner for e-commerce grocery solution
+          <div className="py-20">
+            <div className="container mx-auto">
+              <div className="max-w-[1320px] mx-auto">
+                <div className="pb-10">
+                  <h2 className="lg:text-4xl text-3xl font-bold text-center capitalize pb-3">
+                    Our Happy clients
                   </h2>
-                  <p className="pb-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis delectus
-                    tempore mollitia! Suscipit, aliquid id possimus dolores odit maiores inventore
-                    quam corrupti qui itaque perferendis reiciendis soluta est tempora officia
-                    laudantium, porro rem, facere saepe eligendi dolor voluptatem molestias.
+                  <p className="text-center text-[16px] px-8">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, neque ut!
                   </p>
-                  <p className="pb-12">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolorem pariatur
-                    optio voluptatem exercitationem, error laborum eaque dolorum velit deleniti in
-                    ad voluptates praesentium quae debitis accusantium voluptate voluptatum fugit?
-                  </p>
+                </div>
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
+                  <div className="card hover:top-[-4px] relative top-0 ease-in-out duration-500 max-w-[26.3rem] rounded-lg  bg-base-100 clientReview_shadow">
+                    <figure className="px-10 w-full pt-10">
+                      <img src={user4} className="rounded-[50%]" alt="user_photo" />
+                    </figure>
+                    <div className="card-body pt-2 w-full items-center text-center">
+                      <Rating />
+                      <p className="pt-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
+                        laboriosam distinctio soluta, minima dolorum!
+                      </p>
+                      <h2 className="card-title capitalize pt-2 ">Williams</h2>
+                      <span className="text-gray-500 capitalize">Business man</span>
+                    </div>
+                  </div>
+                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 hover:top-[-4px] relative top-0 ease-in-out duration-500 clientReview_shadow">
+                    <figure className="px-10 pt-10">
+                      <img src={user5} className="rounded-[50%]" alt="user_photo" />
+                    </figure>
+                    <div className="card-body pt-2 items-center text-center">
+                      <Rating />
+
+                      <p className="pt-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
+                        laboriosam distinctio soluta, minima dolorum!
+                      </p>
+                      <h2 className="card-title capitalize pt-2 ">Charlotte</h2>
+                      <span className="text-gray-500 capitalize">project manager</span>
+                    </div>
+                  </div>
+                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 hover:top-[-4px] relative top-0 ease-in-out duration-500 clientReview_shadow">
+                    <figure className="px-10 pt-10">
+                      <img src={user6} className="rounded-[50%]" alt="user_photo" />
+                    </figure>
+                    <div className="card-body pt-2 items-center text-center">
+                      <Rating />
+                      <p className="pt-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
+                        laboriosam distinctio soluta, minima dolorum!
+                      </p>
+                      <h2 className="card-title capitalize pt-2 ">rodriguez</h2>
+                      <span className="text-gray-500 capitalize">Business man</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/*---------- Our performance end ----------*/}
+        {/*--------- our happy clients  end---------*/}
+
         {/*--------- Dedicated Expert Team  start---------*/}
         <section className="mt-20">
           <div className="py-20 bg-[#f4f1ed]">
             <div className="container mx-auto">
               <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center pb-20 font-bold capitalize ">
-                  our professional and dedicated <br /> expert team leader
-                </h2>
+                <div className="pb-10">
+                  <h2 className="lg:text-4xl text-3xl font-bold text-center capitalize pb-3">
+                    our professional team
+                  </h2>
+                  <p className="text-center text-[16px] px-8">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, neque ut!
+                  </p>
+                </div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
-                  <div className="card max-w-[26.3rem] rounded-lg  bg-base-100 shadow-xl">
+                  <div className="card max-w-[26.3rem] rounded-lg  bg-base-100 hover:top-[-4px] relative top-0 ease-in-out duration-500 shadow-xl">
                     <figure className="px-10 w-full pt-10">
                       <img src={user1} className="rounded-[50%]" alt="user_photo" />
                     </figure>
-                    <div className="card-body  w-full items-center text-center">
+                    <div className="card-body pt-2 w-full items-center text-center">
                       <h2 className="card-title capitalize pt-2 ">Williams</h2>
-                      <span className="text-gray-500 capitalize">project manager</span>
+                      <span className="text-gray-500 capitalize">Team Leader</span>
                       <p className="pt-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
                         laboriosam distinctio soluta, minima dolorum!
                       </p>
                     </div>
                   </div>
-                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 shadow-xl">
+                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 hover:top-[-4px] relative top-0 ease-in-out duration-500 shadow-xl">
                     <figure className="px-10 pt-10">
                       <img src={user3} className="rounded-[50%]" alt="user_photo" />
                     </figure>
-                    <div className="card-body items-center text-center">
+                    <div className="card-body pt-2 items-center text-center">
                       <h2 className="card-title capitalize pt-2 ">Charlotte</h2>
                       <span className="text-gray-500 capitalize">project manager</span>
                       <p className="pt-2">
@@ -184,13 +335,13 @@ const About = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 shadow-xl">
+                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 hover:top-[-4px] relative top-0 ease-in-out duration-500 shadow-xl">
                     <figure className="px-10 pt-10">
                       <img src={user2} className="rounded-[50%]" alt="user_photo" />
                     </figure>
-                    <div className="card-body items-center text-center">
+                    <div className="card-body pt-2 items-center text-center">
                       <h2 className="card-title capitalize pt-2 ">rodriguez</h2>
-                      <span className="text-gray-500 capitalize">project manager</span>
+                      <span className="text-gray-500 capitalize">side manager</span>
                       <p className="pt-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
                         laboriosam distinctio soluta, minima dolorum!
@@ -203,64 +354,7 @@ const About = () => {
           </div>
         </section>
         {/*--------- Dedicated Expert Team  end---------*/}
-        {/*--------- our happy clients  start---------*/}
-        <section className="mt-20">
-          <div className="py-20">
-            <div className="container mx-auto">
-              <div className="max-w-[1320px] mx-auto">
-                <h2 className="lg:text-4xl text-[4vw] text-center pb-20 font-bold capitalize ">
-                  Our Happy clients
-                </h2>
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
-                  <div className="card max-w-[26.3rem] rounded-lg  bg-base-100 clientReview_shadow">
-                    <figure className="px-10 w-full pt-10">
-                      <img src={user4} className="rounded-[50%]" alt="user_photo" />
-                    </figure>
-                    <div className="card-body  w-full items-center text-center">
-                      <Rating />
-                      <p className="pt-2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
-                        laboriosam distinctio soluta, minima dolorum!
-                      </p>
-                      <h2 className="card-title capitalize pt-2 ">Williams</h2>
-                      <span className="text-gray-500 capitalize">project manager</span>
-                    </div>
-                  </div>
-                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 clientReview_shadow">
-                    <figure className="px-10 pt-10">
-                      <img src={user5} className="rounded-[50%]" alt="user_photo" />
-                    </figure>
-                    <div className="card-body items-center text-center">
-                      <Rating />
 
-                      <p className="pt-2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
-                        laboriosam distinctio soluta, minima dolorum!
-                      </p>
-                      <h2 className="card-title capitalize pt-2 ">Charlotte</h2>
-                      <span className="text-gray-500 capitalize">project manager</span>
-                    </div>
-                  </div>
-                  <div className="card max-w-[26.3rem] rounded-lg bg-base-100 clientReview_shadow">
-                    <figure className="px-10 pt-10">
-                      <img src={user6} className="rounded-[50%]" alt="user_photo" />
-                    </figure>
-                    <div className="card-body items-center text-center">
-                      <Rating />
-                      <p className="pt-2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
-                        laboriosam distinctio soluta, minima dolorum!
-                      </p>
-                      <h2 className="card-title capitalize pt-2 ">rodriguez</h2>
-                      <span className="text-gray-500 capitalize">project manager</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/*--------- our happy clients  end---------*/}
         {/*------- icons  free online money start----- */}
         <section className="container mx-auto mt-20">
           <div className="lg:mx-0 mx-5">

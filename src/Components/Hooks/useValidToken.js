@@ -24,13 +24,13 @@ const useValidToken = (user) => {
           if (error?.response?.status === (401 || 403)) {
             removeCookie(accessToken);
             signOut(auth);
+            setTokenLoading(false);
             return <Navigate to="/login" state={{ from: location }} replace />;
           }
           setIsValidToken(false);
           setTokenLoading(false);
         }
       }
-      setTokenLoading(false);
     })();
   }, [email, location]);
 

@@ -49,8 +49,9 @@
     background-color: #76A713 !important;
 }
 .swiper-pagination-bullets{
-    bottom: 40px !important;
+    bottom: 32px !important;
 }
+
   
   @keyframes typing-1 {
     0% {

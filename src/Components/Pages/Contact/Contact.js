@@ -41,7 +41,7 @@ const Contact = () => {
                   voluptatem corporis in.
                 </p>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-center justify-items-center gap-10">
-                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
+                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow hover:top-[-4px] relative top-0 ease-in-out duration-500 w-full">
                     <IoLocationSharp className="text-5xl mb-5 text-primary w-full" />
 
                     <div className="card-body p-0 w-full items-center text-center">
@@ -54,7 +54,7 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
+                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow hover:top-[-4px] relative top-0 ease-in-out duration-500 w-full">
                     <FiPhoneCall className="text-5xl mb-5 text-primary w-full" />
 
                     <div className="card-body p-0 w-full items-center text-center">
@@ -67,7 +67,7 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow w-full">
+                  <div className="card max-w-[26.3rem] p-8 rounded-lg clientReview_shadow hover:top-[-4px] relative top-0 ease-in-out duration-500 w-full">
                     <AiOutlineMail className="text-5xl mb-5 text-primary w-full" />
 
                     <div className="card-body p-0 w-full items-center text-center">

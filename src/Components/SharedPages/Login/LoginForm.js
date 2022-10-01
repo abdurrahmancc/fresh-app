@@ -24,7 +24,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [signInWithEmailAndPassword, eUser, eLoading, eError] = useSignInWithEmailAndPassword(auth);
   const location = useLocation();
   const navigate = useNavigate();
-  const [isValidToken] = useValidToken(user || eUser || gUser);
+  const [isValidToken, tokenLoading] = useValidToken(user || eUser || gUser);
   const [isLogin, setIsLogin] = useState(false);
   const from = location.state?.from?.pathname || "/";
 
@@ -40,10 +40,8 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     const password = data.password;
     const info = { username, password };
     try {
-      console.log(info);
       const { data: result } = await axiosPrivet.post("login", info);
       await signInWithEmailAndPassword(username, password);
-      setIsLogin(true);
       Cookies.set(accessToken, result.token);
     } catch (error) {
       toast.error("login fail! please try again");
@@ -155,7 +153,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
                   </span>
                 </label>
               </div>
-              {loading || eLoading || gLoading ? (
+              {loading || eLoading || gLoading || tokenLoading ? (
                 <span className="label-text-alt">Loading...</span>
               ) : (
                 eError && <span className="text-red-500 label-text-alt">{eError?.message}</span>
