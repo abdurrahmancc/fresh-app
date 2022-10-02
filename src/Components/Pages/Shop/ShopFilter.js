@@ -90,8 +90,8 @@ const ShopFilter = ({
             >
               <div className="p-5 border-t border-gray-200">
                 {/* Apple */}
-                {categories.map((category) => (
-                  <div className="form-control">
+                {categories.map((category, i) => (
+                  <div key={i} className="form-control">
                     <label className="label justify-start gap-2 cursor-pointer">
                       <input
                         type="checkbox"

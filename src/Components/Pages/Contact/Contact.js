@@ -85,21 +85,21 @@ const Contact = () => {
             </div>
           </div>
         </section>
-        {/*-------------- get In Touch end -------------*/}
-        {/*-------------- contact form start ----------- */}
+        {/*----------- get In Touch end ---------*/}
+        {/*----------- contact form start ------ */}
         <section section className="container mx-auto mt-20">
           <ContactForm></ContactForm>
         </section>
         {/*-------------- contact form end ----------- */}
         {/*------- icons  free online money start----- */}
-        <section className="container mx-auto mt-20">
+        <section className="container mx-auto mt-40">
           <div className="lg:mx-0 mx-5">
             <FreeOnlineMoney></FreeOnlineMoney>
           </div>
         </section>
         {/*------- icons  free online money end ------*/}
         {/*-------------- Newsletters start -----------*/}
-        <section className="max-w-[100%] w-full mt-40">
+        <section className="max-w-[100%] w-full mt-20">
           <Newsletters></Newsletters>
         </section>
         {/*----------------- Newsletters end -----------*/}

@@ -9,7 +9,7 @@ const Loading = () => {
         <div className="modal bg-[#ffffff5a]">
           <div className="h-screen flex justify-center items-center">
             <div id="loading-animate" className="flex items-center justify-center ">
-              <span class="loader"></span>
+              <span className="loader"></span>
             </div>
           </div>
         </div>

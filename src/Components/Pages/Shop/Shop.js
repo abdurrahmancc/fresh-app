@@ -12,6 +12,7 @@ import Footer from "../../SharedPages/Footer/Footer";
 import { filterCategories } from "./shopCategories";
 import Loading from "../../SharedPages/Loading";
 import Pagination from "../../SharedPages/pagination/Pagination";
+import { useSelector } from "react-redux";
 export const shopAllProducts = createContext("products");
 const sortOptions = [
   { value: "popularity", label: "popularity" },
@@ -39,6 +40,7 @@ const Shop = () => {
   const [pageCount, setPageCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState(filterCategories);
+  const searchProducts = useSelector((state) => state.searchProducts);
 
   let checkedCategories = useMemo(() => {
     let checked = [];
@@ -77,7 +79,6 @@ const Shop = () => {
         );
         setProducts(data);
         setIsLoading(false);
-        console.log(data);
       } catch (error) {
         console.log(error.message);
         setIsLoading(false);
@@ -93,6 +94,16 @@ const Shop = () => {
     );
     setCategories(changeCheckedList);
   };
+
+  useEffect(() => {
+    try {
+      if (searchProducts.isSearchProducts) {
+        setProducts(searchProducts.products);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [searchProducts]);
 
   return (
     <>
@@ -169,7 +180,7 @@ const Shop = () => {
                       </NavLink>
                     </div>
                   </div>
-                  {products ? (
+                  {products.length >= 1 ? (
                     <div className="mt-10">
                       <Outlet />
                       <div className="flex justify-center mt-10">
@@ -178,9 +189,7 @@ const Shop = () => {
                     </div>
                   ) : (
                     <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
-                      <h4 className="md:text-4xl text-xl font-bold">
-                        There are 0 products in your wishlist
-                      </h4>
+                      <h4 className="md:text-4xl text-xl font-bold">There are 0 products</h4>
                       <button
                         onClick={() => window.history.back()}
                         className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"

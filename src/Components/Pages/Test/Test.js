@@ -245,7 +245,7 @@ const Test = () => {
           <div className="modal bg-[#ffffff9b]">
             <div className="h-screen flex justify-center items-center">
               <div id="loading-animate" className="flex items-center justify-center ">
-                <span class="loader"></span>
+                <span className="loader"></span>
               </div>
             </div>
           </div>
