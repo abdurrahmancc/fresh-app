@@ -27,7 +27,7 @@ const FeaturesItems = ({ feature }) => {
         <div className="card-body pt-3 pb-5 items-center text-center">
           <h2
             className={`card-title transition duration-300 ease-linear text-lg lg:text-xl md:text-[15px] capitalize ${
-              hoveredCart && "text-primary"
+              hoveredCart ? "text-primary" : ""
             }`}
           >
             {feature?.name}

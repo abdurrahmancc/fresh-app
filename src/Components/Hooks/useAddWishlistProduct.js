@@ -12,7 +12,6 @@ const useAddWishlistProduct = () => {
       let newWishlist = [];
       let exists = wishlistProducts.find((product) => product._id === selectProduct._id);
       if (!exists) {
-        console.log(selectProduct);
         selectProduct.quantity = 1;
         newWishlist = [...wishlistProducts, selectProduct];
       } else {

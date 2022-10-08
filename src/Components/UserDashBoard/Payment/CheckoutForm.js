@@ -6,7 +6,7 @@ import auth from "../../Hooks/useAuthState";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import Loading from "../../SharedPages/Loading";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ id, price, userEmail, firstName }) => {
   const [user, loading] = useAuthState(auth);

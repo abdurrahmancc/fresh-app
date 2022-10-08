@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./TopHeader.css";
 import Select from "react-select";
-import { topHeaderSelectLibraryStyle } from "../../../SharedCss/SelectComponentCss";
+import {
+  topHeaderCurrencySelectorStyle,
+  topHeaderLanguageSelectorStyle,
+} from "../../../SharedCss/SelectComponentCss";
 
 const TopHeader = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -59,9 +62,9 @@ const TopHeader = () => {
                   <div className="w-[1px] ml-[10px] h-5 border border-gray-300"></div>
                 </li>
                 <li className="flex items-center">
-                  <span className="flex px-2 rounded-md items-center gap-1 vertical-line">
+                  <span className="flex px-2 rounded-none items-center gap-1 vertical-line">
                     <Select
-                      styles={topHeaderSelectLibraryStyle}
+                      styles={topHeaderLanguageSelectorStyle}
                       id="top-header-select-component"
                       defaultValue={selectedOption}
                       onChange={setSelectedOption}
@@ -72,18 +75,16 @@ const TopHeader = () => {
                   <div className="w-[1px] ml-[10px] h-5 border border-gray-300"></div>
                 </li>
                 <li>
-                  <Link to="#" className="flex rounded-md px-2 items-center  vertical-line">
-                    <span>
-                      <Select
-                        styles={topHeaderSelectLibraryStyle}
-                        id="top-header-select-component"
-                        defaultValue={selectedMoneyOption}
-                        onChange={setSelectedMoneyOption}
-                        placeholder={"USD"}
-                        options={optionsM}
-                      />
-                    </span>
-                  </Link>
+                  <span className="flex rounded-none px-2 items-center  vertical-line">
+                    <Select
+                      styles={topHeaderCurrencySelectorStyle}
+                      id="top-header-select-component"
+                      defaultValue={selectedMoneyOption}
+                      onChange={setSelectedMoneyOption}
+                      placeholder={"USD"}
+                      options={optionsM}
+                    />
+                  </span>
                 </li>
               </ul>
             </nav>

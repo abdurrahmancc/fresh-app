@@ -1,5 +1,4 @@
 import React from "react";
-import featureBanner from "../../../assets/banner_img/side-banner-1.png";
 import bakery from "../../../assets/feature-img/bakery.png";
 import custard_powder from "../../../assets/feature-img/custard_powder.png";
 import frozen_food from "../../../assets/feature-img/frozen_food.png";
@@ -14,7 +13,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useState } from "react";
 
 const featuresItems = [
   { id: 1, img: vegetables, name: "fresh vegetables", quantity: "12" },
@@ -29,7 +27,7 @@ const featuresItems = [
 
 const Features = () => {
   return (
-    <div className="">
+    <div>
       <div className="lg:col-span-3 ">
         <Swiper
           breakpoints={{

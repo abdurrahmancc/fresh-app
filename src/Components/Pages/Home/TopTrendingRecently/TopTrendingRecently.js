@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CashewNuts from "../../../../assets/products_img/CashewNuts.png";
-import driedFishPacket from "../../../../assets/products_img/driedFishPacket.png";
-import dryShrimp from "../../../../assets/products_img/dryShrimp.png";
-import greenPeasPacket from "../../../../assets/products_img/greenPeasPacket.png";
+import CashewNuts from "../../../../assets/products_img/CashewNuts-1.png";
+import driedFishPacket from "../../../../assets/products_img/driedFishPacket-1.png";
+import dryShrimp from "../../../../assets/products_img/dryShrimp-1.png";
 import Rating from "../../../SharedPages/Rating";
 const TopTrendingRecently = () => {
   const products = [
@@ -54,13 +53,14 @@ const TopTrendingRecently = () => {
               key={product?._id}
               className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="max-h-[80px] max-w-[80px] w-full">
+              <figure className="max-h-[110px] rounded bg-[#f2f2f2] max-w-[110px] h-full w-full">
                 <Link to="/" className="p-0">
-                  <img src={product?.img} alt="Album" className="w-full h-full " />
+                  <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
+
               <div className="card-body p-3">
-                <h2 className="card-title leading-5 text-lg">
+                <h2 className="card-title leading-5 text-[16px]">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 
@@ -90,13 +90,13 @@ const TopTrendingRecently = () => {
               key={product?._id}
               className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="max-h-[80px] max-w-[80px] w-full">
+              <figure className="max-h-[110px] rounded bg-[#f2f2f2] max-w-[110px] h-full w-full">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
               <div className="card-body p-3">
-                <h2 className="card-title leading-5 text-lg">
+                <h2 className="card-title leading-5 text-[16px]">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 
@@ -126,13 +126,13 @@ const TopTrendingRecently = () => {
               key={product?._id}
               className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="max-h-[80px] max-w-[80px] w-full">
+              <figure className="max-h-[110px] rounded bg-[#f2f2f2] max-w-[110px] h-full w-full">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
               <div className="card-body p-3">
-                <h2 className="card-title leading-5 text-lg">
+                <h2 className="card-title leading-5 text-[16px]">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 
@@ -162,13 +162,13 @@ const TopTrendingRecently = () => {
               key={product?._id}
               className="card relative hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-none"
             >
-              <figure className="max-h-[80px] max-w-[80px] w-full">
+              <figure className="max-h-[110px] rounded bg-[#f2f2f2] max-w-[110px] h-full w-full">
                 <Link to={"/"}>
                   <img src={product?.img} alt="Album" className="w-full h-full" />
                 </Link>
               </figure>
               <div className="card-body p-3">
-                <h2 className="card-title leading-5 text-lg">
+                <h2 className="card-title text-[16px] leading-5">
                   <Link to={"/"}>Nestle Original Coffee-Mate Coffee Creamer</Link>
                 </h2>
 

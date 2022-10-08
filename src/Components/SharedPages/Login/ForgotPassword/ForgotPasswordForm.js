@@ -7,9 +7,7 @@ import { GrMail } from "react-icons/gr";
 import toast from "react-hot-toast";
 
 const ForgotPasswordForm = () => {
-  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   const {
     register,
@@ -17,9 +15,6 @@ const ForgotPasswordForm = () => {
     formState: { errors },
   } = useForm();
 
-  if (sending) {
-    // return <Loading />;
-  }
   const onSubmit = async (data) => {
     const email = data.email;
     try {

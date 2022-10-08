@@ -14,7 +14,7 @@ const ViewShoppingCartTableRow = ({ item, index, setCartProducts, children }) =>
 
   useEffect(() => {
     setValue(item?.quantity);
-  }, []);
+  }, [item?.quantity]);
 
   const handleOnChange = (data) => {
     const inputValue = data;

@@ -22,12 +22,12 @@ const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen
       <div className="navbar-start">
         <div
           onClick={() => setIsOpen(true)}
-          className={`drawer-button lg:hidden ${isOpen && "hidden"}`}
+          className={`drawer-button lg:hidden ${isOpen ? "hidden" : ""}`}
         >
           <FaBars onClick={toggle} className="text-xl" />
         </div>
         <label className={`relative w-[250px]  md:block max-w-xs hidden `}>
-          <form action="">
+          <form>
             <button
               type="submit"
               className="absolute inset-y-0 right-2 rounded pr-1  flex items-center pl-2"

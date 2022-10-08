@@ -1,10 +1,9 @@
 import React from "react";
-import logo from "../../../assets/logo/logo.png";
+import logo from "../../../assets/logo/logo-1.png";
 import apple from "../../../assets/logo/apple.png";
 import googlePlay from "../../../assets/logo/googlePlay.png";
 import paypal from "../../../assets/logo/paypal-logo.png";
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP, FaYoutube } from "react-icons/fa";
-import { TbPhoneCall } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { SiMinutemailer } from "react-icons/si";
 
@@ -14,7 +13,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <footer className="footer md:grid-cols-5 md:justify-items-start  sm:grid-cols-3 text-base-content">
           <div>
-            <img className="md:w-6/12 w-4/12" src={logo} alt="logo" />
+            <img className="md:w-5/12 w-4/12" src={logo} alt="logo" />
             <p className="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <ul className="flex flex-col gap-y-3">
               <li className="flex gap-2">
@@ -153,7 +152,7 @@ const Footer = () => {
             <p className="capitalize text-center md:text-start">
               Copyright &copy; {new Date().getFullYear()}, {""}
               <strong className="text-primary">Fresh</strong>
-              {""} - Ecommerce template <br /> All rights reserved
+              {""} E-commerce template
             </p>
           </div>
           <div className="hidden md:flex flex-col">
@@ -192,7 +191,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <p className="text-gray-500">Up to 15% discount on your first subscribe</p>
           </div>
         </footer>
       </div>

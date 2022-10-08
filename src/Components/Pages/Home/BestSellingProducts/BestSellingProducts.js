@@ -31,7 +31,7 @@ const BestSellingProducts = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <div className="flex justify-between  border-b">
         <h3 className="md:text-2xl text-lg capitalize font-bold">Best selling products</h3>
         <div className="flex items-center md:gap-20 sm:gap-10 gap-2">
@@ -39,8 +39,9 @@ const BestSellingProducts = () => {
             <li
               onClick={() => handleGetProducts("snacksItem")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "snacksItem" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "snacksItem"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               recent
@@ -48,8 +49,9 @@ const BestSellingProducts = () => {
             <li
               onClick={() => handleGetProducts("grocery&Frozen")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "grocery&Frozen" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "grocery&Frozen"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               popular
@@ -57,7 +59,9 @@ const BestSellingProducts = () => {
             <li
               onClick={() => handleGetProducts("milkCream")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "milkCream" && "text-primary border-primary  border-b-2 activeProducts"
+                category === "milkCream"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               featured

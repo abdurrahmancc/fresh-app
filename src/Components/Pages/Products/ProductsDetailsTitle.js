@@ -12,7 +12,7 @@ const ProductsDetailsTitle = ({ data }) => {
     if (weight) {
       setActiveWeight(weight[0]);
     }
-  }, []);
+  }, [weight]);
 
   const handleWeight = (index) => {
     setActiveWeight(index);
@@ -47,33 +47,29 @@ const ProductsDetailsTitle = ({ data }) => {
             <ul className="flex items-center gap-2">
               <li className="flex items-center">
                 <input
-                  checked
+                  defaultChecked={true}
                   type="radio"
-                  // name="radio-1"
                   className="radio checked:bg-primary border-primary"
                 />
               </li>
               <li className="flex items-center">
                 <input
-                  checked
+                  defaultChecked={true}
                   type="radio"
-                  // name="radio-2"
                   className="radio  border-black checked:bg-black"
                 />
               </li>
               <li className="flex items-center">
                 <input
-                  checked
+                  defaultChecked={true}
                   type="radio"
-                  // name="radio-3"
                   className="radio checked:bg-yellow-500 border-yellow-500"
                 />
               </li>
               <li className="flex items-center">
                 <input
-                  checked
+                  defaultChecked={true}
                   type="radio"
-                  // name="radio-4"
                   className="radio checked:bg-red-500 border-red-500"
                 />
               </li>
@@ -89,7 +85,7 @@ const ProductsDetailsTitle = ({ data }) => {
                   key={i}
                   onClick={() => handleWeight(data)}
                   className={`flex cursor-pointer items-center border transition-all duration-500 hover:text-white hover:bg-primary border-primary px-3 py-[2px] rounded-sm ${
-                    activeWeight === data && "bg-primary text-white"
+                    activeWeight === data ? "bg-primary text-white" : ""
                   }`}
                 >
                   <span>{data}g</span>

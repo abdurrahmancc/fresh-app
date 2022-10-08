@@ -12,17 +12,19 @@ import ScrollBtn from "../../SharedPages/ScrollBtn";
 import "./faq.css";
 
 const Faq = () => {
-  const serviceId = "service_spvy3lm";
+  const serviceId = process.env.REACT_APP_CONTACT_SERVICE_ID;
+  const publicKey = process.env.REACT_APP_CONTACT_PUBLIC_KEY;
+  const templateId = process.env.REACT_APP_CONTACT_TEMPLATE_ID;
+
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    send(serviceId, "template_4re6v4f", data, "3yqLbkyP3p1TnDMMq")
+    send(serviceId, templateId, data, publicKey)
       .then((response) => {
         reset();
         toast.success("success", { id: "email_send" });
@@ -169,7 +171,10 @@ const Faq = () => {
               <Collapsible
                 className="w-full"
                 open={true}
-                trigger={[`1. Lorem ipsum dolor sit amet?`, <BsChevronDown />]}
+                trigger={[
+                  `1. Lorem ipsum dolor sit amet?`,
+                  <BsChevronDown key={"faq-trigger-1"} />,
+                ]}
               >
                 <div className="p-5 border-t border-gray-200">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis impedit ea ullam
@@ -187,7 +192,7 @@ const Faq = () => {
                 trigger={[
                   `2. Lorem ipsum dolor sit amet ?
 `,
-                  <BsChevronDown />,
+                  <BsChevronDown key={"faq-trigger-2"} />,
                 ]}
               >
                 <div className="p-5 border-t border-gray-200">
@@ -206,7 +211,7 @@ const Faq = () => {
                 trigger={[
                   `3. Lorem ipsum dolor sit amet ?
 `,
-                  <BsChevronDown />,
+                  <BsChevronDown key={"faq-trigger-3"} />,
                 ]}
               >
                 <div className="p-5 border-t border-gray-200">
@@ -225,7 +230,7 @@ const Faq = () => {
                 trigger={[
                   `4. Lorem ipsum dolor sit amet ?
 `,
-                  <BsChevronDown />,
+                  <BsChevronDown key={"faq-trigger-4"} />,
                 ]}
               >
                 <div className="p-5 border-t border-gray-200">
@@ -244,7 +249,7 @@ const Faq = () => {
                 trigger={[
                   `5. Lorem ipsum dolor sit amet ?
 `,
-                  <BsChevronDown />,
+                  <BsChevronDown key={"faq-trigger-5"} />,
                 ]}
               >
                 <div className="p-5 border-t border-gray-200">
@@ -263,7 +268,7 @@ const Faq = () => {
                 trigger={[
                   `6. Lorem ipsum dolor sit amet ?
 `,
-                  <BsChevronDown />,
+                  <BsChevronDown key={"faq-trigger-6"} />,
                 ]}
               >
                 <div className="p-5 border-t border-gray-200">

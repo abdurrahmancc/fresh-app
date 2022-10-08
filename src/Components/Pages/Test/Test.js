@@ -242,13 +242,14 @@ const Test = () => {
       <div className="h-[20vh] ">
         <div className="App">
           <input checked type="checkbox" id="my-modal" className="modal-toggle" />
-          <div className="modal bg-[#ffffff9b]">
+          {/* <div className="modal bg-[#ffffff9b]">
             <div className="h-screen flex justify-center items-center">
               <div id="loading-animate" className="flex items-center justify-center ">
                 <span className="loader"></span>
               </div>
             </div>
-          </div>
+          </div> */}
+          <button type="button" className="btn-loading border-t-primary"></button>
           <h1>react-rating-stars-component</h1>
           <h4>Readonly rating stars</h4>.
           <ReactStars {...firstExample} />

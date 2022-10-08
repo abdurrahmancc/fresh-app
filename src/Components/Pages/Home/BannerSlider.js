@@ -69,7 +69,7 @@ const BannerSlider = () => {
                 <Fade bottom delay={600} duration={500}>
                   <Link
                     to="/shop"
-                    className="lg:w-[148px] w-[132px] block px-6 text-center text-[16px] lg:text-lg  py-[10px] lg:py-3 btn-animate bg-primary hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral font-semibold"
+                    className="lg:w-[148px] w-[132px] block px-6 text-center text-[16px] lg:text-lg  py-[10px] lg:py-3 btn-animate bg-primary hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral border-none rounded-sm font-semibold"
                   >
                     Shop Now
                   </Link>
@@ -86,7 +86,7 @@ const BannerSlider = () => {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className={`w-full h-[420px] lg:h-[600px] xl:h-[600px] rounded-xl`}
+            className="w-full h-[420px] lg:h-[600px] xl:h-[600px] rounded-xl"
           >
             <div className="py-20 h-full flex flex-col justify-center">
               <div>
@@ -104,7 +104,7 @@ const BannerSlider = () => {
                 <Fade bottom delay={600}>
                   <Link
                     to="/shop"
-                    className="lg:w-[148px] w-[132px] mx-auto block px-4 text-[16px] lg:text-lg py-[10px] lg:py-3 btn-animate bg-primary text-center hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral rounded-none font-semibold"
+                    className="lg:w-[148px] w-[132px] mx-auto block px-4 text-[16px] lg:text-lg py-[10px] lg:py-3 btn-animate bg-primary text-center hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral border-none rounded-sm font-semibold"
                   >
                     Shop Now
                   </Link>
@@ -153,7 +153,7 @@ const BannerSlider = () => {
                 <Fade bottom delay={600} duration={500}>
                   <Link
                     to="/shop"
-                    className="lg:w-[148px] w-[132px] block px-6 text-center text-[16px] lg:text-lg  py-[10px] lg:py-3 btn-animate bg-primary hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral font-semibold"
+                    className="lg:w-[148px] w-[132px] block px-6 text-center text-[16px] lg:text-lg  py-[10px] lg:py-3 btn-animate bg-primary hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral border-none rounded-sm font-semibold"
                   >
                     Shop Now
                   </Link>
@@ -188,7 +188,7 @@ const BannerSlider = () => {
                 <Fade bottom delay={600}>
                   <Link
                     to="/shop"
-                    className="lg:w-[148px] w-[132px] mx-auto block px-4 text-[16px] lg:text-lg text-center py-[10px] lg:py-3  btn-animate bg-primary hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral rounded-none font-semibold"
+                    className="lg:w-[148px] w-[132px] mx-auto block px-4 text-[16px] lg:text-lg text-center py-[10px] lg:py-3  btn-animate bg-primary hover:bg-[#67950b] ease-in-out transition duration-500 text-neutral border-none rounded-sm font-semibold"
                   >
                     Shop Now
                   </Link>

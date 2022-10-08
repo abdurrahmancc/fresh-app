@@ -82,7 +82,7 @@ const Blogs = () => {
                         <div className="card-actions justify-start pt-4">
                           <Link
                             to={`/blog-details/${blog?._id}`}
-                            href=""
+                            state={blog?.title}
                             className="capitalize font-bold text-primary"
                           >
                             read more...

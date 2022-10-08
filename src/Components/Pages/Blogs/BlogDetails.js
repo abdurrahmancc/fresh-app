@@ -87,7 +87,7 @@ const BlogDetails = () => {
                 <div>
                   <ul>
                     <li className=" flex items-center">
-                      <BsFillTagFill Fill className="text-[#FF6000] text-lg" />
+                      <BsFillTagFill className="text-[#FF6000] text-lg" />
                       <Link className="pl-2" to={"blog"}>
                         NestFood
                       </Link>

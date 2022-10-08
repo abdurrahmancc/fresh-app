@@ -1,4 +1,4 @@
-import "./App.css";
+import "./Components/SharedCss/share.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Components/SharedPages/HeaderPages/Header";
 import Shop from "./Components/Pages/Shop/Shop";

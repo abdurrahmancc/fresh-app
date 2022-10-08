@@ -48,13 +48,13 @@ const ShopHorizontalCard = ({ item }) => {
           <div className="w-full">
             <figure
               className={`m-3  md:max-w-[300px] md:border-none border-b border-gray-300 md:w-[300px] md:max-h-[320px] overflow-hidden duration-700 transition-all ease-in-out ${
-                hoveredCart === "block" && "rounded-lg"
+                hoveredCart === "block" ? "rounded-lg" : ""
               }`}
             >
               <Link to={`product-details/${item?._id}`}>
                 <img
                   className={`md:h-[320px] w-[264px] mx-auto md:w-[300px] rounded-lg h-auto duration-300 transition-all ease-linear ${
-                    hoveredCart === "block" && " scale-110 "
+                    hoveredCart === "block" ? "scale-110" : ""
                   }`}
                   src={item?.productImages[0]}
                   alt={item?.productName}

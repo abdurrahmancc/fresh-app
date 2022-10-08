@@ -24,12 +24,10 @@ const ProductDetails = () => {
   const [value, setValue] = useState(1);
   const navigate = useNavigate();
   const { id } = useParams();
-  // const [handleAddToCartProduct] = useAddProduct();
 
   const { data, isLoading } = useQuery("itemsDetails", () =>
     axiosPrivet.get(`product/product-details/${id}`)
   );
-  console.log(data);
 
   if (isLoading) {
     return <Loading />;
@@ -59,9 +57,9 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    //   handleAddToCartProduct(data?.data);
     toast.success("Add To Cart", { id: "addToCart" });
   };
+
   return (
     <>
       <main>
@@ -118,17 +116,12 @@ const ProductDetails = () => {
                   </button>
                 </div>
                 <div>
-                  <button
-                    // onClick={handleAddToCart}
-                    title="Compare"
-                    className="btn btn-primary rounded-sm text-neutral"
-                  >
+                  <button title="Compare" className="btn btn-primary rounded-sm text-neutral">
                     <BsShuffle className="text-xl" />
                   </button>
                 </div>
                 <div>
                   <button
-                    // onClick={handleAddToCart}
                     title="Add to wishlist"
                     className="btn btn-primary  rounded-sm text-neutral"
                   >

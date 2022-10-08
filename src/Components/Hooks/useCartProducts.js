@@ -10,24 +10,29 @@ const useCartProducts = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
-      const storedCart = getShoppingId();
-      const savedCart = [];
-      const keys = Object.keys(storedCart);
-      const { data } = await axiosPrivet.post("/product/cart-products", keys);
-      if (data) {
-        for (const id in storedCart) {
-          const addedProduct = data.find((product) => product._id === id);
-          if (addedProduct) {
-            const quantity = storedCart[id];
-            addedProduct.quantity = quantity;
-            savedCart.push(addedProduct);
+      try {
+        const storedCart = getShoppingId();
+        const savedCart = [];
+        const keys = Object.keys(storedCart);
+        const { data } = await axiosPrivet.post("/product/cart-products", keys);
+        if (data) {
+          for (const id in storedCart) {
+            const addedProduct = data.find((product) => product._id === id);
+            if (addedProduct) {
+              const quantity = storedCart[id];
+              addedProduct.quantity = quantity;
+              savedCart.push(addedProduct);
+            }
           }
+          setCartProducts(savedCart);
+          dispatch(setCartList(data));
+          setLoading(false);
         }
-        setCartProducts(savedCart);
-        dispatch(setCartList(data));
+        setLoading(false);
+      } catch (error) {
+        console.log(error.message);
         setLoading(false);
       }
-      setLoading(false);
     })();
   }, [dispatch]);
 

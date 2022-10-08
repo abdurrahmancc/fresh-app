@@ -54,15 +54,17 @@ export const middleCategorySelected = {
 };
 
 /* top header language select library style  */
-export const topHeaderSelectLibraryStyle = {
+export const topHeaderLanguageSelectorStyle = {
   singleValue: (provided) => ({
     ...provided,
-    color: "#333",
+    color: "#000",
   }),
   control: (base, state) => ({
     ...base,
-    color: "#333",
+    color: "#000",
     border: "none",
+    cursor: "pointer",
+    width: 67,
     boxShadow: state.isFocused ? null : null,
   }),
   menu: (base) => ({
@@ -78,7 +80,7 @@ export const topHeaderSelectLibraryStyle = {
   }),
   dropdownIndicator: (base) => ({
     ...base,
-    color: "#333",
+    color: "#000",
     width: 12,
     padding: 0,
     "&:hover": {
@@ -87,18 +89,70 @@ export const topHeaderSelectLibraryStyle = {
   }),
   input: (base, state) => ({
     ...base,
-    color: "#ffffff",
+    color: "#000",
     padding: 0,
   }),
   defaultValue: (base, state) => ({
     ...base,
-    color: "#ffffff",
+    color: "#000",
     padding: 0,
   }),
   placeholder: (defaultStyles) => {
     return {
       ...defaultStyles,
+      color: "#000",
+      padding: 0,
+    };
+  },
+};
+/* top header currency select library style  */
+export const topHeaderCurrencySelectorStyle = {
+  singleValue: (provided) => ({
+    ...provided,
+    color: "#000",
+  }),
+  control: (base, state) => ({
+    ...base,
+    color: "#000",
+    border: "none",
+    cursor: "pointer",
+    width: 47,
+    boxShadow: state.isFocused ? null : null,
+  }),
+  menu: (base) => ({
+    ...base,
+    borderRadius: 0,
+    marginTop: 5,
+    width: 100,
+    zIndex: 100,
+  }),
+  menuList: (base) => ({
+    ...base,
+    padding: 0,
+  }),
+  dropdownIndicator: (base) => ({
+    ...base,
+    color: "#000",
+    width: 12,
+    padding: 0,
+    "&:hover": {
       color: "#333",
+    },
+  }),
+  input: (base, state) => ({
+    ...base,
+    color: "#000",
+    padding: 0,
+  }),
+  defaultValue: (base, state) => ({
+    ...base,
+    color: "#000",
+    padding: 0,
+  }),
+  placeholder: (defaultStyles) => {
+    return {
+      ...defaultStyles,
+      color: "#000",
       padding: 0,
     };
   },

@@ -44,10 +44,10 @@ const BottomHeaderCategories = () => {
           <span className="text-lg font-semibold text-white">SHOP BY CATEGORY</span>
           <IoMenuSharp className="text-white text-lg font-semibold" />
         </div>
-        <input type="checkbox" checked={isCategoriesOpen} id="touch-category" />
+        <input type="checkbox" onChange={() => {}} checked={isCategoriesOpen} id="touch-category" />
         <ul
           className={`category-subMenu-slide ${
-            isCategoriesOpen && "border-b"
+            isCategoriesOpen ? "border-b" : ""
           } border-x max-w-[292.5px] lg:max-w-[250.5px] xl:max-w-[292.5px] bg-white rounded-b-lg absolute z-[100]`}
         >
           <li

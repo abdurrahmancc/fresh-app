@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
-import CashewNuts from "../../../../assets/products_img/CashewNuts.png";
-import driedFishPacket from "../../../../assets/products_img/driedFishPacket.png";
-import dryShrimp from "../../../../assets/products_img/dryShrimp.png";
-import greenPeasPacket from "../../../../assets/products_img/greenPeasPacket.png";
-import naturalNuts from "../../../../assets/products_img/naturalNuts.png";
 import sideBanner from "../../../../assets/banner_img/side-banner-1.png";
 import DealsProducts from "./DealsProductCard";
 import "./dealsOfTheDay.css";
@@ -35,7 +30,7 @@ const DealsOfTheDay = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <div className="flex justify-between  border-b">
         <h3 className="md:text-2xl text-lg  capitalize font-bold ">Deals Of The Day</h3>
         <div className="flex items-center md:gap-20 sm:gap-10 gap-2">
@@ -43,8 +38,9 @@ const DealsOfTheDay = () => {
             <li
               onClick={() => handleGetProducts("grocery&Frozen")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "grocery&Frozen" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "grocery&Frozen"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               top products
@@ -52,8 +48,9 @@ const DealsOfTheDay = () => {
             <li
               onClick={() => handleGetProducts("oil&Vinegars")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "oil&Vinegars" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "oil&Vinegars"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               incredible price

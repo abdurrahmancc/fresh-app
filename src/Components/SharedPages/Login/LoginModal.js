@@ -16,7 +16,7 @@ const LoginModal = () => {
   };
 
   return (
-    <div className={`${user ? "hidden" : !isOpenModal && "hidden"}`}>
+    <div className={`${user ? "hidden" : !isOpenModal ? "hidden" : ""}`}>
       <input type="checkbox" id="loginModal" className="modal-toggle" />
       <label htmlFor="loginModal" className="modal cursor-pointer">
         <label className="modal-box relative">

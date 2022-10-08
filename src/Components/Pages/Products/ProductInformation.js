@@ -5,7 +5,7 @@ import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 const ProductInformation = ({ data }) => {
   const weight = data?.weight[0] ? data?.weight[0].split(",") : null;
   const isLast = weight[weight.length - 1];
-  console.log(isLast);
+
   return (
     <div>
       <Table className="w-full">
@@ -21,8 +21,10 @@ const ProductInformation = ({ data }) => {
           <Tr className={"hover:bg-gray-100 transition duration-300 ease-in-out"}>
             <Td className="py-3 border-r pl-5 font-semibold">Weight</Td>
             <Td className="py-3 pl-5 flex gap-2">
-              {weight.map((w) => (
-                <span className={`${isLast === w ? "" : "after:content-[',']"}`}>{w}g</span>
+              {weight.map((w, i) => (
+                <span key={i} className={`${isLast === w ? "" : "after:content-[',']"}`}>
+                  {w}g
+                </span>
               ))}
             </Td>
           </Tr>

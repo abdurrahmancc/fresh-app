@@ -6,15 +6,13 @@ import { VscTriangleRight } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import Rating from "../../SharedPages/Rating";
 import { useForm } from "react-hook-form";
-import product1 from "../../../assets/products_img/CashewNuts.png";
-import product2 from "../../../assets/products_img/driedFishPacket.png";
-import product3 from "../../../assets/products_img/dryShrimp.png";
-import product4 from "../../../assets/products_img/greenPeasPacket.png";
-import Loading from "../../SharedPages/Loading";
+import product1 from "../../../assets/products_img/CashewNuts-1.png";
+import product2 from "../../../assets/products_img/driedFishPacket-1.png";
+import product3 from "../../../assets/products_img/dryShrimp-1.png";
+import product4 from "../../../assets/products_img/greenPeasPacket-1.png";
 import sideBanner from "../../../assets/banner_img/side-banner-6.png";
 
 const BlogSideBar = () => {
-  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -106,8 +104,6 @@ const BlogSideBar = () => {
               </div>
             </form>
           </div>
-
-          {error && <p className="ml-4 mt-2">{error}</p>}
         </div>
         {/*---------- search end --------*/}
         {/*---------- category start --------*/}
@@ -166,13 +162,13 @@ const BlogSideBar = () => {
                     <div
                       className={`card relative hover:top-[-4px] top-0 ease-linear duration-300 card-side items-center rounded-none`}
                     >
-                      <figure className="w-20">
+                      <figure className="w-20 rounded bg-[#f2f2f2]">
                         <Link to="/" className="p-0">
                           <img src={product?.img} alt="Album" className="w-20" />
                         </Link>
                       </figure>
                       <div className="card-body p-3">
-                        <h2 className=" leading-5 font-semibold ">
+                        <h2 className=" leading-5 text-[16px] font-semibold ">
                           <Link to={"/"}>{product?.title}</Link>
                         </h2>
 

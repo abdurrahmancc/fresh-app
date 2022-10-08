@@ -35,6 +35,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
       }
     };
   }, [setToggle]);
+
   return (
     <div className="">
       <div>
@@ -93,7 +94,10 @@ const NavSideBar = ({ toggle, setToggle }) => {
                         id="mobile-collapsible-home"
                         className="flex items-center justify-between w-full"
                       >
-                        {[`Home`, <BsChevronDown id="sidebarSubMenuItems" />]}
+                        {[
+                          `Home`,
+                          <BsChevronDown key="categories-trigger" id="sidebarSubMenuItems" />,
+                        ]}
                       </span>
                     }
                   >
@@ -125,7 +129,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                         id="mobile-collapsible-shop"
                         className="flex items-center justify-between w-full"
                       >
-                        {[`Shop`, <BsChevronDown id="sidebarSubMenuItems" />]}
+                        {[`Shop`, <BsChevronDown key="brands-trigger" id="sidebarSubMenuItems" />]}
                       </span>
                     }
                   >
@@ -167,7 +171,10 @@ const NavSideBar = ({ toggle, setToggle }) => {
                         id="mobile-collapsible-pates"
                         className="flex items-center justify-between w-full"
                       >
-                        {[`Pages`, <BsChevronDown id="sidebarSubMenuItems" />]}
+                        {[
+                          `Pages`,
+                          <BsChevronDown key="newProd-trigger" id="sidebarSubMenuItems" />,
+                        ]}
                       </span>
                     }
                   >

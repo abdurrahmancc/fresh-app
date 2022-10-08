@@ -13,15 +13,18 @@ const ProductDetailsImages = ({ data }) => {
       setImg(data?.productImages[0]);
     }
   }, [data?.productImages]);
+
   const hoverHandler = (image, i) => {
+    if (!image) return;
     setImg(image);
-    refs.current[i].classList.add("active-image");
+    refs?.current[i]?.classList.add("active-image");
     for (var j = 0; j < data?.productImages.length; j++) {
       if (i !== j) {
-        refs.current[j].classList.remove("active-image");
+        refs?.current[j]?.classList.remove("active-image");
       }
     }
   };
+
   const refs = useRef([]);
   refs.current = [];
   const addRefs = (el) => {
@@ -29,6 +32,7 @@ const ProductDetailsImages = ({ data }) => {
       refs.current.push(el);
     }
   };
+
   return (
     <>
       <div className="flex justify-center">
@@ -40,25 +44,28 @@ const ProductDetailsImages = ({ data }) => {
       </div>
       <div className="mt-10 flex justify-center max-w-[540px] mx-auto gap-x-4">
         {data?.productImages &&
-          data?.productImages.map((image, i) => (
-            <div
-              className={
-                i === 0
-                  ? "w-[127px] h-auto cursor-pointer border active-image"
-                  : "w-[127px] h-auto cursor-pointer border border-gray-300"
-              }
-              key={i}
-              onMouseOver={() => hoverHandler(image, i)}
-              ref={addRefs}
-            >
-              <figure className="">
-                <label htmlFor={`image${i}`} className="">
-                  <img width="127px" className=" h-auto" src={image} alt="" />
-                </label>
-              </figure>
-              <ProductsImagesModal modal={`image${i}`} img={image} />
-            </div>
-          ))}
+          data?.productImages.map((image, i) => {
+            if (!image) return;
+            return (
+              <div
+                className={
+                  i === 0
+                    ? "w-[127px] h-auto cursor-pointer border active-image"
+                    : "w-[127px] h-auto cursor-pointer border border-gray-300"
+                }
+                key={i}
+                onMouseOver={() => hoverHandler(image, i)}
+                ref={addRefs}
+              >
+                <figure className="">
+                  <label htmlFor={`image${i}`} className="">
+                    <img width="127px" className=" h-auto" src={image} alt="product-img" />
+                  </label>
+                </figure>
+                <ProductsImagesModal modal={`image${i}`} img={image} />
+              </div>
+            );
+          })}
       </div>
     </>
   );

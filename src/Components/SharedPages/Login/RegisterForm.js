@@ -28,7 +28,8 @@ const RegisterForm = ({ handleLoginMOdal }) => {
   const [user, loading] = useAuthState(auth);
   const [createUserWithEmailAndPassword, cUser, cLoading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+  const [updateProfile, updating] = useUpdateProfile(auth);
+  const [isLogin, setIsLogin] = useState(false);
   const [validToken] = useValidToken(user || gUser || cUser);
   const from = location.state?.from?.pathname || "/";
   const {
@@ -50,19 +51,21 @@ const RegisterForm = ({ handleLoginMOdal }) => {
       return;
     }
     try {
+      setIsLogin(true);
       const { data: result } = await axiosPrivet.post("users", info);
       if (result.token) {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName });
         Cookies.set(accessToken, result.token);
+        setIsLogin(false);
         toast.success("check email and please verify");
       }
+      setIsLogin(false);
     } catch (error) {
-      console.log(error);
+      setIsLogin(false);
       if (error?.response?.data?.errors?.email) {
         setError("email", { type: "pattern", message: error?.response?.data?.errors?.email?.msg });
       }
-      console.log(error);
     }
   };
 
@@ -72,9 +75,6 @@ const RegisterForm = ({ handleLoginMOdal }) => {
     }
   }, [from, navigate, location.pathname, validToken]);
 
-  if (updating || loading || cLoading || gLoading) {
-    return <Loading />;
-  }
   return (
     <>
       <div className={`p-4 `}>
@@ -158,7 +158,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
                       <AiFillEyeInvisible className={`${showPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showPass && "hidden"} `} />
+                      <AiFillEye className={`${showPass ? "hidden" : ""} `} />
                     </div>
                   </div>
                 </label>
@@ -198,7 +198,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
                       <AiFillEyeInvisible className={`${showPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showPass && "hidden"} `} />
+                      <AiFillEye className={`${showPass ? "hidden" : ""} `} />
                     </div>
                   </div>
                 </label>
@@ -215,9 +215,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
                     },
                   })}
                 />
-                {loading || gLoading ? (
-                  <span className="label-text-alt">Loading...</span>
-                ) : errors.confirmPassword?.type === "pattern" ? (
+                {errors.confirmPassword?.type === "pattern" ? (
                   <span className="label-text-alt text-red-500 text-xs">
                     {errors.confirmPassword.message}
                   </span>
@@ -239,7 +237,11 @@ const RegisterForm = ({ handleLoginMOdal }) => {
                   type="submit"
                   className="btn capitalize text-neutral rounded-md btn-primary  py-3 transition-all focus:outline-none my-1"
                 >
-                  Register
+                  {isLogin || updating || loading || gLoading ? (
+                    <span className="btn-loading inline-block"></span>
+                  ) : (
+                    <span>Register</span>
+                  )}
                 </button>
               </div>
             </form>

@@ -46,13 +46,13 @@ const ProductBannerSlider = () => {
                   </div>
                 </Fade>
                 <Fade bottom>
-                  <h4 className="md:text-[26px] text-center text-2xl text-white  pb-6 leading-10 font-bold uppercase font-[Asul]">
+                  <h4 className="md:text-[26px] text-center text-2xl text-white  pb-6 leading-10 font-bold uppercase ">
                     FRESH & NATURAL <br /> HEALTHY FOOD SPECIAL OFFER
                   </h4>
                 </Fade>
                 <Fade bottom delay={600}>
                   <div className="text-center">
-                    <button className="py-3 btn-animate btn px-6 text-neutral mx-auto text-center font-bold rounded-none btn-primary ">
+                    <button className="py-3 btn-animate btn px-6 text-neutral mx-auto text-center font-bold rounded-sm border-none btn-primary ">
                       Shop Now
                     </button>
                   </div>
@@ -80,13 +80,13 @@ const ProductBannerSlider = () => {
                   </p>
                 </Fade>
                 <Fade bottom>
-                  <h4 className="md:text-3xl text-2xl text-black md:pb-8 pb-5 leading-10 font-bold capitalize font-[Asul]">
+                  <h4 className="md:text-3xl text-2xl text-black md:pb-8 pb-5 leading-10 font-bold capitalize ">
                     Organic span up to 20% off
                   </h4>
                 </Fade>
 
                 <Fade bottom delay={600}>
-                  <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded-none btn-primary ">
+                  <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded-sm border-none btn-primary ">
                     Shop Now
                   </button>
                 </Fade>
@@ -112,7 +112,7 @@ const ProductBannerSlider = () => {
                   </div>
                 </Fade>
                 <Fade bottom>
-                  <h4 className="md:text-[26px] text-center text-2xl text-white  pb-6 leading-10 font-bold uppercase font-[Asul]">
+                  <h4 className="md:text-[26px] text-center text-2xl text-white  pb-6 leading-10 font-bold uppercase ">
                     FRESH & NATURAL <br /> HEALTHY FOOD SPECIAL OFFER
                   </h4>
                 </Fade>
@@ -141,13 +141,13 @@ const ProductBannerSlider = () => {
                   </p>
                 </Fade>
                 <Fade bottom>
-                  <h4 className="md:text-3xl text-2xl text-black md:pb-8 pb-5 leading-10 font-bold capitalize font-[Asul]">
+                  <h4 className="md:text-3xl text-2xl text-black md:pb-8 pb-5 leading-10 font-bold capitalize ">
                     Organic span up to 20% off
                   </h4>
                 </Fade>
 
                 <Fade bottom delay={600}>
-                  <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded-none btn-primary ">
+                  <button className="py-3 btn-animate btn px-6 text-neutral font-bold rounded-sm border-none btn-primary ">
                     Shop Now
                   </button>
                 </Fade>

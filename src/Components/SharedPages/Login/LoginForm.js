@@ -40,10 +40,13 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
     const password = data.password;
     const info = { username, password };
     try {
+      setIsLogin(true);
       const { data: result } = await axiosPrivet.post("login", info);
       await signInWithEmailAndPassword(username, password);
       Cookies.set(accessToken, result.token);
+      setIsLogin(false);
     } catch (error) {
+      setIsLogin(false);
       toast.error("login fail! please try again");
     }
   };
@@ -117,7 +120,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
                       <AiFillEyeInvisible className={`${showPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showPass && "hidden"} `} />
+                      <AiFillEye className={`${showPass ? "hidden" : ""} `} />
                     </div>
                   </div>
                 </label>
@@ -153,18 +156,19 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
                   </span>
                 </label>
               </div>
-              {loading || eLoading || gLoading || tokenLoading ? (
-                <span className="label-text-alt">Loading...</span>
-              ) : (
-                eError && <span className="text-red-500 label-text-alt">{eError?.message}</span>
-              )}
+              {eError && <span className="text-red-500 label-text-alt">{eError?.message}</span>}
               <div className="form-control mt-5">
                 <button
                   type="submit"
-                  className="btn capitalize text-neutral rounded-md btn-primary  py-3 transition-all focus:outline-none my-1"
+                  className="btn capitalize text-neutral rounded-md btn-primary py-3 transition-all focus:outline-none my-1"
                 >
-                  Login
+                  {isLogin || loading || eLoading || gLoading || tokenLoading ? (
+                    <span className="btn-loading inline-block"></span>
+                  ) : (
+                    <span>Login</span>
+                  )}
                 </button>
+                <button type="button" className="bg-indigo-500 btn-loading"></button>
               </div>
             </form>
           </div>

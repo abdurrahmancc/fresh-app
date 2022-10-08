@@ -67,8 +67,11 @@ const ProductReviews = () => {
     <div className="max-w-[1250px] w-full mx-auto">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
         <div className="flex flex-col gap-y-8">
-          {reviews.map((review) => (
-            <div className="card pt-5 lg:pt-0 py-0 pr-0 lg:card-side bg-base-100 rounded-sm shadow-sm border p-8">
+          {reviews.map((review, i) => (
+            <div
+              key={i}
+              className="card pt-5 lg:pt-0 py-0 pr-0 lg:card-side bg-base-100 rounded-sm shadow-sm border p-8"
+            >
               <figure>
                 <img width={80} src={review?.img} alt="Album" />
               </figure>

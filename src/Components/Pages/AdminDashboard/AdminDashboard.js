@@ -54,7 +54,7 @@ const AdminDashboard = () => {
         }}
         style={{ position: "fixed" }}
         className={`sidebar scrollbar top-0 overflow-y-scroll left-0 z-10 bg-base-100  h-screen ${
-          !isOpen && "left-[-50px] lg:left-0  hidden lg:block"
+          !isOpen ? "left-[-50px] lg:left-0  hidden lg:block" : ""
         }`}
       >
         <div className="top-section  w-full py-4 px-3 flex items-center justify-between">

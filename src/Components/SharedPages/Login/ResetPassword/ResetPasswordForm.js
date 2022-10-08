@@ -62,7 +62,7 @@ const ResetPasswordForm = () => {
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
                       <AiFillEyeInvisible className={`${showPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showPass && "hidden"} `} />
+                      <AiFillEye className={`${showPass ? "hidden" : ""} `} />
                     </div>
                   </div>
                 </label>
@@ -102,7 +102,7 @@ const ResetPasswordForm = () => {
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
                       <AiFillEyeInvisible className={`${showConfirmPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showConfirmPass && "hidden"} `} />
+                      <AiFillEye className={`${showConfirmPass ? "hidden" : ""} `} />
                     </div>
                   </div>
                 </label>

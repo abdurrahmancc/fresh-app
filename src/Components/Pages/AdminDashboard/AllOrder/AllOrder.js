@@ -140,7 +140,7 @@ const AllOrder = () => {
               <button
                 key={index}
                 className={`btn border rounded-none text-neutral border-primary ${
-                  page === number && "btn-primary"
+                  page === number ? "btn-primary" : ""
                 }`}
                 onClick={() => setPage(number)}
               >

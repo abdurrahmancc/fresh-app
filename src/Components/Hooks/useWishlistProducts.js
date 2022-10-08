@@ -11,24 +11,29 @@ const useWishlistProducts = () => {
 
   useEffect(() => {
     (async () => {
-      const storedWishlist = getWishlistId();
-      const savedWishlist = [];
-      const keys = Object.keys(storedWishlist);
-      const { data } = await axiosPrivet.post("/product/wishlist-products", keys);
-      if (data) {
-        for (const id in storedWishlist) {
-          const addedProduct = data.find((product) => product._id === id);
-          if (addedProduct) {
-            const quantity = storedWishlist[id];
-            addedProduct.quantity = quantity;
-            savedWishlist.push(addedProduct);
+      try {
+        const storedWishlist = getWishlistId();
+        const savedWishlist = [];
+        const keys = Object.keys(storedWishlist);
+        const { data } = await axiosPrivet.post("/product/wishlist-products", keys);
+        if (data) {
+          for (const id in storedWishlist) {
+            const addedProduct = data.find((product) => product._id === id);
+            if (addedProduct) {
+              const quantity = storedWishlist[id];
+              addedProduct.quantity = quantity;
+              savedWishlist.push(addedProduct);
+            }
           }
+          dispatch(setWishList(savedWishlist));
+          setWishlistProducts(savedWishlist);
+          setLoading(false);
         }
-        dispatch(setWishList(savedWishlist));
-        setWishlistProducts(savedWishlist);
+        setLoading(false);
+      } catch (error) {
+        console.log(error?.message);
         setLoading(false);
       }
-      setLoading(false);
     })();
   }, [dispatch]);
 

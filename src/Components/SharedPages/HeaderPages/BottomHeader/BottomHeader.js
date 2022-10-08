@@ -214,7 +214,7 @@ const BottomHeader = () => {
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal flex justify-center items-center gap-5 ">
+            <ul className="menu menu-horizontal flex justify-center items-center gap-5 lg:gap-8 ">
               {navItems}
             </ul>
           </div>

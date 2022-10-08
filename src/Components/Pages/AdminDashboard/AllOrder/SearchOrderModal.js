@@ -17,13 +17,16 @@ const SearchOrderModal = ({
     <>
       <input
         type="checkbox"
+        onChange={() => {}}
         checked={toggleSearch}
         id="searchOrderModal"
         className="modal-toggle"
       />
       <div className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
-          <div className={`overflow-x-auto w-full ${handleHeight && "pb-[6.5rem] ease-in-out"}`}>
+          <div
+            className={`overflow-x-auto w-full ${handleHeight ? "pb-[6.5rem] ease-in-out" : ""}`}
+          >
             <table className="table w-full">
               {/* <!-- head --> */}
               <thead>

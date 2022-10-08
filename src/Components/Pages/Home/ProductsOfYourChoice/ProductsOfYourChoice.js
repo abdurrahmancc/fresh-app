@@ -28,7 +28,7 @@ const ProductsOfYourChoice = () => {
     refetch();
   };
   return (
-    <div className="">
+    <div>
       <div className="flex justify-between  border-b">
         <h3 className="md:text-2xl text-lg capitalize font-bold">Products of your choice</h3>
         <div className="flex items-center xl:gap-20  sm:gap-10 gap-2">
@@ -36,8 +36,9 @@ const ProductsOfYourChoice = () => {
             <li
               onClick={() => handleGetProducts("grocery&Frozen")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden px-3 font-semibold capitalize cursor-pointer pb-3 ${
-                category === "grocery&Frozen" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "grocery&Frozen"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               all
@@ -45,8 +46,9 @@ const ProductsOfYourChoice = () => {
             <li
               onClick={() => handleGetProducts("bread&Bakery")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "bread&Bakery" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "bread&Bakery"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               Bakery & Pastry
@@ -54,7 +56,9 @@ const ProductsOfYourChoice = () => {
             <li
               onClick={() => handleGetProducts("freshMeat")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "freshMeat" && "text-primary border-primary  border-b-2 activeProducts"
+                category === "freshMeat"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               Meat & fish
@@ -62,8 +66,9 @@ const ProductsOfYourChoice = () => {
             <li
               onClick={() => handleGetProducts("freshVegetable")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "freshVegetable" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "freshVegetable"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               vegetables
@@ -71,8 +76,9 @@ const ProductsOfYourChoice = () => {
             <li
               onClick={() => handleGetProducts("freshFruits")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden font-semibold capitalize cursor-pointer pb-3 ${
-                category === "freshFruits" &&
-                "text-primary border-primary  border-b-2 activeProducts"
+                category === "freshFruits"
+                  ? "text-primary border-primary  border-b-2 activeProducts"
+                  : ""
               }`}
             >
               Fruits & juices

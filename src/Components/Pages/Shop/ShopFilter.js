@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import Collapsible from "react-collapsible";
 import { BsChevronDown } from "react-icons/bs";
 import "./ShopFilter.css";
-import product1 from "../../../assets/products_img/CashewNuts.png";
-import product2 from "../../../assets/products_img/driedFishPacket.png";
-import product3 from "../../../assets/products_img/dryShrimp.png";
-import product4 from "../../../assets/products_img/greenPeasPacket.png";
+import product1 from "../../../assets/products_img/CashewNuts-1.png";
+import product2 from "../../../assets/products_img/driedFishPacket-1.png";
+import product3 from "../../../assets/products_img/dryShrimp-1.png";
+import product4 from "../../../assets/products_img/greenPeasPacket-1.png";
 import Rating from "../../SharedPages/Rating";
 import { Link } from "react-router-dom";
 import { filterBrands } from "./shopCategories";
@@ -82,16 +82,19 @@ const ShopFilter = ({
               className="w-full"
               open={toggleCategory}
               trigger={[
-                <h4 className="inline-block border-b-2 pb-5 border-b-primary">
+                <h4
+                  key={"shop-Category-title-trigger"}
+                  className="inline-block border-b-2 pb-5 border-b-primary"
+                >
                   Product Categories
                 </h4>,
-                <BsChevronDown className="dropDown-trigger" />,
+                <BsChevronDown key={"shop-Category-trigger"} className="dropDown-trigger" />,
               ]}
             >
               <div className="p-5 border-t border-gray-200">
                 {/* Apple */}
-                {categories.map((category, i) => (
-                  <div key={i} className="form-control">
+                {categories.map((category, index) => (
+                  <div key={index} className="form-control">
                     <label className="label justify-start gap-2 cursor-pointer">
                       <input
                         type="checkbox"
@@ -159,13 +162,18 @@ const ShopFilter = ({
               className="w-full"
               open={true}
               trigger={[
-                <h4 className="inline-block border-b-2 pb-5 border-b-primary">Brands</h4>,
-                <BsChevronDown className="dropDown-trigger" />,
+                <h4
+                  key={"shop-brands-title-trigger"}
+                  className="inline-block border-b-2 pb-5 border-b-primary"
+                >
+                  Brands
+                </h4>,
+                <BsChevronDown key={"shop-brands-trigger"} className="dropDown-trigger" />,
               ]}
             >
               <div className="p-5 border-t border-gray-200">
-                {filterBrands.map((category) => (
-                  <div className="form-control">
+                {filterBrands.map((category, index) => (
+                  <div key={index} className="form-control">
                     <label className="label justify-start gap-2 cursor-pointer">
                       <input
                         type="checkbox"
@@ -194,17 +202,17 @@ const ShopFilter = ({
               {products.map((product) => {
                 const bordered = isLast?._id === product?._id ? "" : "border-b ";
                 return (
-                  <div key={product?._id} className={`${bordered}`}>
+                  <div key={product._id} className={`${bordered}`}>
                     <div
                       className={`card relative  hover:top-[-4px] top-0 ease-linear duration-200 card-side items-center rounded-non`}
                     >
-                      <figure className="w-20">
+                      <figure className="w-20 rounded bg-[#f2f2f2]">
                         <Link to="/" className="p-0">
                           <img src={product?.img} alt="Album" className="w-20" />
                         </Link>
                       </figure>
                       <div className="card-body p-3">
-                        <h4 className=" leading-5 font-semibold ">
+                        <h4 className=" leading-5 text-[16px] font-semibold ">
                           <Link to={"/"}>{product?.title}</Link>
                         </h4>
 

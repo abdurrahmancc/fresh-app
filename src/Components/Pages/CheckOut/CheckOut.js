@@ -16,9 +16,10 @@ import CheckOutCreateAccount from "./CheckOutCreateAccount";
 import Loading from "../../SharedPages/Loading";
 
 const CheckOut = () => {
-  const [cartProducts, setCartProducts] = useProducts();
+  const [cartProducts] = useProducts();
   const [user, loading] = useAuthState(auth);
   const [product, setProduct] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -31,20 +32,28 @@ const CheckOut = () => {
 
   useEffect(() => {
     (async () => {
-      if (id) {
-        const { data } = await axiosPrivet.get(`product-details/${id}`);
+      try {
         if (id) {
-          const search = window.location.search;
-          const params = new URLSearchParams(search);
-          const info = params.get("info");
-          data.quantity = info;
+          setIsLoading(true);
+          const { data } = await axiosPrivet.get(`product/product-details/${id}`);
+
+          if (id) {
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+            const info = params.get("info");
+            data.quantity = info;
+          }
+          setProduct([data]);
+          setIsLoading(false);
         }
-        setProduct([data]);
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error.message);
       }
     })();
   }, [id]);
 
-  if (loading) {
+  if (loading || isLoading) {
     return <Loading />;
   }
 
@@ -67,6 +76,11 @@ const CheckOut = () => {
   let total = parseFloat(totalPrice) + Shipping + tax;
 
   const onSubmit = async (data) => {
+    if (!user) {
+      toast.error("Please Login or Register Your Fresh Account", { id: "checkout" });
+      return;
+    }
+
     let itemInfo;
     if (id) {
       itemInfo = product;

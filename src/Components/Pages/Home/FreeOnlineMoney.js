@@ -21,13 +21,13 @@ const FreeOnlineMoney = () => {
         >
           <div className="flex justify-around items-center  lg:max-w-[250px] max-w-[230px]">
             <div
-              className={`px-4 mr-3 transition-all ease-linear duration-300 py-4 rounded-full ${
+              className={`px-4 mr-3 transition-all ease-in-out duration-300 py-4 rounded-full ${
                 hoverFreeDelivery ? "bg-primary" : "bg-[#F2F2F2]"
               }`}
             >
               <FaShippingFast
                 className={`text-3xl ${
-                  hoverFreeDelivery && "text-white transition-all ease-linear duration-300"
+                  hoverFreeDelivery ? "text-white transition-all ease-in-out duration-300" : ""
                 }`}
               />
             </div>
@@ -44,13 +44,13 @@ const FreeOnlineMoney = () => {
         >
           <div className="flex justify-around items-center lg:max-w-[250px] max-w-[230px]">
             <div
-              className={`px-4 mr-3 transition-all ease-linear duration-300 py-4 rounded-full ${
+              className={`px-4 mr-3 transition-all ease-in-out duration-300 py-4 rounded-full ${
                 hoverOnlineSupport ? "bg-primary" : "bg-[#F2F2F2]"
               }`}
             >
               <BsHeadset
                 className={`text-3xl ${
-                  hoverOnlineSupport && "text-white transition-all ease-linear duration-300"
+                  hoverOnlineSupport ? "text-white transition-all ease-in-out duration-300" : ""
                 }`}
               />
             </div>
@@ -67,13 +67,13 @@ const FreeOnlineMoney = () => {
         >
           <div className="flex justify-around items-center lg:max-w-[250px] max-w-[230px]">
             <div
-              className={`px-4 mr-3 transition-all ease-linear duration-300 py-4 rounded-full ${
+              className={`px-4 mr-3 transition-all ease-in-out duration-300 py-4 rounded-full ${
                 hoverMoneyReturn ? "bg-primary" : "bg-[#F2F2F2]"
               }`}
             >
               <AiOutlineDollar
                 className={`text-3xl ${
-                  hoverMoneyReturn && "text-white transition-all ease-linear duration-300"
+                  hoverMoneyReturn ? "text-white transition-all ease-in-out duration-300" : ""
                 }`}
               />
             </div>
@@ -90,13 +90,13 @@ const FreeOnlineMoney = () => {
         >
           <div className="flex justify-around items-center lg:max-w-[250px] max-w-[230px]">
             <div
-              className={`px-4 mr-3 transition-all ease-linear duration-300 py-4 rounded-full ${
+              className={`px-4 mr-3 transition-all ease-in-out duration-300 py-4 rounded-full ${
                 hoverSafePayment ? "bg-primary" : "bg-[#F2F2F2]"
               }`}
             >
               <RiSecurePaymentFill
                 className={`text-3xl ${
-                  hoverSafePayment && "text-white transition-all ease-linear duration-300"
+                  hoverSafePayment ? "text-white transition-all ease-in-out duration-300" : ""
                 }`}
               />
             </div>

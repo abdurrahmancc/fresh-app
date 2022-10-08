@@ -13,6 +13,7 @@ import { filterCategories } from "./shopCategories";
 import Loading from "../../SharedPages/Loading";
 import Pagination from "../../SharedPages/pagination/Pagination";
 import { useSelector } from "react-redux";
+import { es } from "date-fns/locale";
 export const shopAllProducts = createContext("products");
 const sortOptions = [
   { value: "popularity", label: "popularity" },
@@ -97,8 +98,12 @@ const Shop = () => {
 
   useEffect(() => {
     try {
-      if (searchProducts.isSearchProducts) {
-        setProducts(searchProducts.products);
+      if (searchProducts?.isSearchProducts) {
+        if (searchProducts?.products) {
+          setProducts(searchProducts?.products);
+        } else {
+          setProducts([]);
+        }
       }
     } catch (error) {
       console.log(error);

@@ -46,7 +46,7 @@ const BestSellingProduct = ({ product }) => {
           <figure className="m-3 md:max-w-[12.75rem] max-w-[280px] max-h-[251px] border-b border-gray-200 md:max-h-[12.75rem] overflow-hidden">
             <img
               className={`rounded duration-[1s] transition-all ease-linear w-full ${
-                hoveredCart === "block" && " scale-110 "
+                hoveredCart === "block" ? " scale-110 " : ""
               }`}
               src={product?.productImages && product?.productImages[0]}
               alt={product?.productName}

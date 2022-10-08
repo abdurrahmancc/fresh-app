@@ -74,6 +74,7 @@ const MiddleHeader = () => {
   if (isLoading) {
     return <Loading />;
   }
+
   return (
     <>
       <div className=" hidden lg:block">
@@ -134,7 +135,12 @@ const MiddleHeader = () => {
                       >
                         <BsArrowLeftRight className="text-lg" />
                       </Link>
-                      <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white indicator-item top-2 right-1 text-[0.6875rem]">
+                      <div
+                        style={{
+                          background: "radial-gradient(circle at 50px 50px, #aa010a, #eb121d)",
+                        }}
+                        className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full  text-white cursor-pointer indicator-item top-2 right-1 text-[0.6875rem]"
+                      >
                         <span>{compareListCounter.compareList.length}</span>
                       </div>
                     </div>
@@ -147,7 +153,12 @@ const MiddleHeader = () => {
                       >
                         <FiHeart className="text-lg" />
                       </Link>
-                      <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white  indicator-item top-2 right-1 text-[0.6875rem]">
+                      <div
+                        style={{
+                          background: "radial-gradient(circle at 50px 50px, #aa010a, #eb121d)",
+                        }}
+                        className="flex justify-center items-center p-1 lg:w-5 cursor-pointer lg:h-5 h-4 w-4 rounded-full  text-white  indicator-item top-2 right-1 text-[0.6875rem]"
+                      >
                         <span>{wishlistCounter.wishlist.length}</span>
                       </div>
                     </div>
@@ -160,7 +171,12 @@ const MiddleHeader = () => {
                       >
                         <MdAddShoppingCart className="text-lg " />
                       </Link>
-                      <div className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full bg-[#F10505] text-white  indicator-item top-2 right-1 text-[0.6875rem]">
+                      <div
+                        style={{
+                          background: "radial-gradient(circle at 50px 50px, #aa010a, #eb121d)",
+                        }}
+                        className="flex justify-center items-center p-1 lg:w-5 cursor-pointer lg:h-5 h-4 w-4 rounded-full  text-white  indicator-item top-2 right-1 text-[0.6875rem]"
+                      >
                         <span>{shoppingCartsCounter.shoppingCart.length}</span>
                       </div>
                     </div>

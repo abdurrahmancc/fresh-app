@@ -11,24 +11,29 @@ const useCompareProducts = () => {
 
   useEffect(() => {
     (async () => {
-      const storedCompareList = getCompareListId();
-      const savedCompareList = [];
-      const keys = Object.keys(storedCompareList);
-      const { data } = await axiosPrivet.post("/product/compare-List/products", keys);
-      if (data) {
-        for (const id in storedCompareList) {
-          const addedProduct = data.find((product) => product._id === id);
-          if (addedProduct) {
-            const quantity = storedCompareList[id];
-            addedProduct.quantity = quantity;
-            savedCompareList.push(addedProduct);
+      try {
+        const storedCompareList = getCompareListId();
+        const savedCompareList = [];
+        const keys = Object.keys(storedCompareList);
+        const { data } = await axiosPrivet.post("/product/compare-List/products", keys);
+        if (data) {
+          for (const id in storedCompareList) {
+            const addedProduct = data.find((product) => product._id === id);
+            if (addedProduct) {
+              const quantity = storedCompareList[id];
+              addedProduct.quantity = quantity;
+              savedCompareList.push(addedProduct);
+            }
           }
+          dispatch(setCompareList(data));
+          setCompareProducts(savedCompareList);
+          setLoading(false);
         }
-        dispatch(setCompareList(data));
-        setCompareProducts(savedCompareList);
+        setLoading(false);
+      } catch (error) {
+        console.log(error?.message);
         setLoading(false);
       }
-      setLoading(false);
     })();
   }, [dispatch]);
 
