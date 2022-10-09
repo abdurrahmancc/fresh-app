@@ -11,6 +11,8 @@ import { useForm } from "react-hook-form";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 import { setSearchProducts } from "../../../Redux/features/searchProductsSlice";
 import Loading from "../../Loading";
+import { useEffect } from "react";
+import { fetchCarts } from "../../../../redux/features/shoppingCart/shoppingCartSlice";
 
 const options = [
   { value: "grocery&Frozen", label: "Grocery & Frozen" },
@@ -32,9 +34,11 @@ const MiddleHeader = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { wishlistCounter, shoppingCartsCounter, compareListCounter } = useSelector(
-    (state) => state
-  );
+  const { wishlist, cartList, compareList } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(fetchCarts());
+  }, [dispatch]);
 
   const {
     register,
@@ -141,7 +145,7 @@ const MiddleHeader = () => {
                         }}
                         className="flex justify-center items-center p-1 lg:w-5 lg:h-5 h-4 w-4 rounded-full  text-white cursor-pointer indicator-item top-2 right-1 text-[0.6875rem]"
                       >
-                        <span>{compareListCounter.compareList.length}</span>
+                        <span>{compareList?.compareList?.length}</span>
                       </div>
                     </div>
                   </li>
@@ -159,7 +163,7 @@ const MiddleHeader = () => {
                         }}
                         className="flex justify-center items-center p-1 lg:w-5 cursor-pointer lg:h-5 h-4 w-4 rounded-full  text-white  indicator-item top-2 right-1 text-[0.6875rem]"
                       >
-                        <span>{wishlistCounter.wishlist.length}</span>
+                        <span>{wishlist?.wishlist?.length}</span>
                       </div>
                     </div>
                   </li>
@@ -177,7 +181,8 @@ const MiddleHeader = () => {
                         }}
                         className="flex justify-center items-center p-1 lg:w-5 cursor-pointer lg:h-5 h-4 w-4 rounded-full  text-white  indicator-item top-2 right-1 text-[0.6875rem]"
                       >
-                        <span>{shoppingCartsCounter.shoppingCart.length}</span>
+                        <span>{cartList?.carts?.length}</span>
+                        {/* <span>{shoppingCartsCounter.shoppingCart.length}</span> */}
                       </div>
                     </div>
                   </li>

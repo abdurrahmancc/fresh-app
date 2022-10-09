@@ -143,67 +143,71 @@ const Shop = () => {
                     />
                   </div>
                 </div>
-                <div
-                  className={` ${
-                    pathname.includes("/shop/fullwidth") ? "lg:col-span-5" : "lg:col-span-4"
-                  }`}
-                >
-                  <div className="flex lg:justify-between items-center justify-center ">
-                    <div className="max-w-xs w-full lg:block hidden ">
-                      <p>
-                        Showing 1–{size.value} of {totalProducts} results
-                      </p>
-                    </div>
-                    <div className="flex justify-center items-center lg:gap-5 gap-3 ">
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold">Sort by: </span>
-                        <Select
-                          styles={sortByProduct}
-                          id="top-header-select-component"
-                          defaultValue={selectedSortOption}
-                          onChange={setSelectedSortOption}
-                          placeholder={"popularity"}
-                          options={sortOptions}
-                        />
+                {isLoading ? (
+                  (!products || isLoading) && <Loading />
+                ) : (
+                  <div
+                    className={` ${
+                      pathname.includes("/shop/fullwidth") ? "lg:col-span-5" : "lg:col-span-4"
+                    }`}
+                  >
+                    <div className="flex lg:justify-between items-center justify-center ">
+                      <div className="max-w-xs w-full lg:block hidden ">
+                        <p>
+                          Showing 1–{size.value} of {totalProducts} results
+                        </p>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold">Show: </span>
-                        <Select
-                          styles={shopProduct}
-                          id="top-header-select-component"
-                          defaultValue={size}
-                          onChange={setSize}
-                          placeholder={"5"}
-                          options={showOption}
-                        />
+                      <div className="flex justify-center items-center lg:gap-5 gap-3 ">
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold">Sort by: </span>
+                          <Select
+                            styles={sortByProduct}
+                            id="top-header-select-component"
+                            defaultValue={selectedSortOption}
+                            onChange={setSelectedSortOption}
+                            placeholder={"popularity"}
+                            options={sortOptions}
+                          />
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold">Show: </span>
+                          <Select
+                            styles={shopProduct}
+                            id="top-header-select-component"
+                            defaultValue={size}
+                            onChange={setSize}
+                            placeholder={"5"}
+                            options={showOption}
+                          />
+                        </div>
+                        <NavLink to="1">
+                          <MdGridView className="cursor-pointer text-lg" />
+                        </NavLink>
+                        <NavLink to="2">
+                          <FaList className="cursor-pointer text-lg" />
+                        </NavLink>
                       </div>
-                      <NavLink to="1">
-                        <MdGridView className="cursor-pointer text-lg" />
-                      </NavLink>
-                      <NavLink to="2">
-                        <FaList className="cursor-pointer text-lg" />
-                      </NavLink>
                     </div>
+                    {products ? (
+                      <div className="mt-10">
+                        <Outlet />
+                        <div className="flex justify-center mt-10">
+                          <Pagination pageCount={pageCount} setPage={setPage} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
+                        <h4 className="md:text-4xl text-xl font-bold">There are 0 products</h4>
+                        <button
+                          onClick={() => window.history.back()}
+                          className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
+                        >
+                          Return to back page
+                        </button>
+                      </div>
+                    )}
                   </div>
-                  {products.length >= 1 ? (
-                    <div className="mt-10">
-                      <Outlet />
-                      <div className="flex justify-center mt-10">
-                        <Pagination pageCount={pageCount} setPage={setPage} />
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">
-                      <h4 className="md:text-4xl text-xl font-bold">There are 0 products</h4>
-                      <button
-                        onClick={() => window.history.back()}
-                        className="text-white duration-300 transition-all ease-in-out flex items-center gap-3 btn-animate hover:bg-[#60880f] bg-primary rounded-full font-semibold uppercase py-4 mx-auto text-center text-lg px-8"
-                      >
-                        Return to back page
-                      </button>
-                    </div>
-                  )}
-                </div>
+                )}
               </div>
             </div>
           </shopAllProducts.Provider>
@@ -222,7 +226,6 @@ const Shop = () => {
         </div>
       </footer>
       {/*------ footer end -------*/}
-      {(!products || isLoading) && <Loading />}
     </>
   );
 };

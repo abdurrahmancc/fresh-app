@@ -5,34 +5,30 @@ import { FaTrashAlt } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Td, Tr } from "react-super-responsive-table";
-import useAddCartProduct from "../../Hooks/useAddCartProduct";
-import { WishlistRemoveFromDb } from "../../Hooks/useFakeDB";
 import { useDispatch } from "react-redux";
-import { setWishList } from "../../Redux/features/wishlistCounterSlice";
+import { removeToWishlist } from "../../../redux/features/wishlist/wishlistSlice";
+import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
 
-const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
-  const [handleAddToCartProduct] = useAddCartProduct();
+const WishlistTableRow = ({ item, index }) => {
   const dispatch = useDispatch();
 
   const handleRemove = (id) => {
     try {
-      const rest = wishProducts.filter((item) => item._id !== id);
-      setWishProducts(rest);
-      WishlistRemoveFromDb(id);
-      dispatch(setWishList(rest));
+      dispatch(removeToWishlist(id));
+      toast.success("Deleted", { id: "removeWishlist" });
     } catch (error) {
-      toast.error(error.message, { id: "removeWish" });
+      toast.error(error.message, { id: "removeWishlist" });
     }
   };
 
   const handleAddToCart = (item) => {
-    handleAddToCartProduct(item);
+    dispatch(addToCart(item));
     toast.success("Add To Cart", { id: "addToCart" });
   };
 
   return (
     <>
-      <Tr key={item?._id} className={"border-y"}>
+      <Tr className={"border-y"}>
         <Td className="my-5 sm:my-0 px-4">{index + 1}</Td>
         <Td className="py-5">
           <Link to={`/product-details/${item?._id}`} className="p-0">
@@ -43,7 +39,11 @@ const WishlistTableRow = ({ item, index, setWishProducts, wishProducts }) => {
           <h5 className="text-lg font-semibold hover:text-primary cursor-pointer">
             <Link to={`/product-details/${item?._id}`} className="p-0">
               {item?.productName.length >= 25
-                ? [item?.productName.slice(0, 25), <br />, item?.productName.slice(26, 50)]
+                ? [
+                    item?.productName.slice(0, 25),
+                    <br key={item?._id} />,
+                    item?.productName.slice(26, 50),
+                  ]
                 : item?.productName}
             </Link>
           </h5>

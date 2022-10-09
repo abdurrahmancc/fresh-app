@@ -1,12 +1,14 @@
 import React from "react";
 import toast from "react-hot-toast";
-import { deleteAllWishlist } from "../../Hooks/useFakeDB";
+import { useDispatch } from "react-redux";
+import { removeAllWishlist } from "../../../redux/features/wishlist/wishlistSlice";
 
-const WishlistDeleteModal = ({ setWishProducts }) => {
+const WishlistDeleteModal = () => {
+  const dispatch = useDispatch();
+
   const handleAllCartRemoveA = () => {
-    deleteAllWishlist();
-    toast.success("deleted", { id: "deleteAllWishlist" });
-    setWishProducts("");
+    dispatch(removeAllWishlist());
+    toast.success("Deleted", { id: "deleteAllCart" });
   };
   return (
     <>

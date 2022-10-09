@@ -1,12 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Table, Tbody, Th, Thead, Tr } from "react-super-responsive-table";
 import CartDeleteModal from "./CartDeleteModal";
 import ViewShoppingCartTableRow from "./ViewShoppingCartTableRow";
 
-const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
+const ViewShoppingCartTable = () => {
+  const { carts } = useSelector((state) => state?.cartList);
+
   return (
     <>
-      {cartProducts?.length >= 1 && (
+      {carts?.length >= 1 && (
         <div className="border rounded-sm max-w-full">
           <Table className="w-full">
             {/* <!-- head --> */}
@@ -29,20 +32,14 @@ const ViewShoppingCartTable = ({ cartProducts, setCartProducts, children }) => {
             <Tbody>
               {/* <!-- row 1 --> */}
 
-              {cartProducts.map((item, index) => (
-                <ViewShoppingCartTableRow
-                  key={item?._id}
-                  item={item}
-                  setCartProducts={setCartProducts}
-                  index={index}
-                  children={children}
-                />
+              {carts.map((item, index) => (
+                <ViewShoppingCartTableRow key={item?._id} item={item} index={index} />
               ))}
             </Tbody>
           </Table>
         </div>
       )}
-      <CartDeleteModal setCartProducts={setCartProducts} />
+      <CartDeleteModal />
     </>
   );
 };

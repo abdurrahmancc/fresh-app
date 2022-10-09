@@ -1,6 +1,6 @@
 import React from "react";
 import { FiRefreshCw } from "react-icons/fi";
-import useCartProducts from "../../Hooks/useCartProducts";
+import { useSelector } from "react-redux";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
 import Loading from "../../SharedPages/Loading";
@@ -10,18 +10,17 @@ import TotalPrice from "./TotalPrice";
 import ViewShoppingCartTable from "./ViewShoppingCartTable";
 
 const ShoppingCart = () => {
-  const [cartProducts, setCartProducts, loading] = useCartProducts();
-  const cartTableRowInfo = [cartProducts];
+  const { carts, isLoading } = useSelector((state) => state?.cartList);
 
   let totalPrice;
-  const price = cartProducts && cartProducts.map((product) => product.price * product.quantity);
+  const price = carts && carts.map((product) => product.price * product.quantity);
   const initialValue = 0;
   if (price?.length >= 1) {
     const sumReduce = price.reduce((previous, current) => previous + current, initialValue);
     totalPrice = sumReduce;
   }
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
   return (
@@ -37,16 +36,10 @@ const ShoppingCart = () => {
         </section>
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-20">
-          {cartProducts.length >= 1 ? (
+          {carts?.length >= 1 ? (
             <div className="grid xl:grid-cols-3 lg:grid-cols-1 lg:gap-10">
               <div className="xl:col-span-2">
-                <ViewShoppingCartTable
-                  // setTotalPrice={setTotalPrice}
-                  cartProducts={cartProducts}
-                  setCartProducts={setCartProducts}
-                >
-                  {cartTableRowInfo}
-                </ViewShoppingCartTable>
+                <ViewShoppingCartTable></ViewShoppingCartTable>
                 <div className="flex justify-between pt-8 border-t border-gray-300 mt-5">
                   <div className="relative max-w-xs w-full">
                     <input

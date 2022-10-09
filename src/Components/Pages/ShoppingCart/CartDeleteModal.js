@@ -1,12 +1,14 @@
 import React from "react";
 import toast from "react-hot-toast";
-import { deleteShoppingCart } from "../../Hooks/useFakeDB";
+import { useDispatch } from "react-redux";
+import { removeAllCarts } from "../../../redux/features/shoppingCart/shoppingCartSlice";
 
-const CartDeleteModal = ({ setCartProducts }) => {
-  const handleAllCartRemoveA = () => {
-    deleteShoppingCart();
-    toast.success("deleted", { id: "deleteAllCart" });
-    setCartProducts("");
+const CartDeleteModal = () => {
+  const dispatch = useDispatch();
+
+  const handleAllCartRemove = () => {
+    dispatch(removeAllCarts());
+    toast.success("Deleted", { id: "deleteAllCart" });
   };
 
   return (
@@ -26,7 +28,7 @@ const CartDeleteModal = ({ setCartProducts }) => {
               Cancel
             </label>
             <label
-              onClick={() => handleAllCartRemoveA()}
+              onClick={() => handleAllCartRemove()}
               htmlFor="CartDeleteModal"
               className="btn btn-sm rounded btn-primary text-neutral"
             >

@@ -3,6 +3,7 @@ import compareCartReducer from "../features/compareCounterSlice";
 import searchProducts from "../features/searchProductsSlice";
 import shoppingCartReducer from "../features/shoppingCartCounterSlice";
 import wishlistReducer from "../features/wishlistCounterSlice";
+import cartReducer from "../features/testSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     shoppingCartsCounter: shoppingCartReducer,
     compareListCounter: compareCartReducer,
     searchProducts: searchProducts,
+    carts: cartReducer,
   },
 });
 

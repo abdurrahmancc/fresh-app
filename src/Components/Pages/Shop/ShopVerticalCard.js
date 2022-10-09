@@ -7,16 +7,15 @@ import { Link } from "react-router-dom";
 import Badges from "../../SharedPages/Badges";
 import QuickVIewProductModal from "../../SharedPages/Modals/QuickVIewProductModal";
 import Rating from "../../SharedPages/Rating";
-import useAddCartProduct from "../../Hooks/useAddCartProduct";
-import useAddCompareProduct from "../../Hooks/useAddCompareProduct";
-import useAddWishlistProduct from "../../Hooks/useAddWishlistProduct";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
+import { addToWishlist } from "../../../redux/features/wishlist/wishlistSlice";
+import toast from "react-hot-toast";
+import { addToCompare } from "../../../redux/features/compare/compareListSlice";
 
 const ShopVerticalCard = ({ item }) => {
   const [hoveredCart, setHoveredCart] = useState("hidden");
-  const [handleAddToCartProduct] = useAddCartProduct();
-  const [handleAddToWishlistProduct] = useAddWishlistProduct();
-  const [handleAddToCompareProduct] = useAddCompareProduct();
-
+  const dispatch = useDispatch();
   const showCartHandler = () => {
     setHoveredCart("block");
   };
@@ -26,15 +25,17 @@ const ShopVerticalCard = ({ item }) => {
   };
 
   const handleAddToCart = (item) => {
-    handleAddToCartProduct(item);
+    dispatch(addToCart(item));
   };
 
   const handleAddToWishlist = (item) => {
-    handleAddToWishlistProduct(item);
+    dispatch(addToWishlist(item));
+    toast.success("Add To Wishlist", { id: "addToWishlist" });
   };
 
   const handleAddToCompareList = (item) => {
-    handleAddToCompareProduct(item);
+    dispatch(addToCompare(item));
+    toast.success("Add To Compare List", { id: "addToCompareList" });
   };
 
   return (

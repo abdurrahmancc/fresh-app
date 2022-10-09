@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Table, Tbody, Th, Thead, Tr } from "react-super-responsive-table";
-import useWishlistProducts from "../../Hooks/useWishlistProducts";
+import { fetchWishlist } from "../../../redux/features/wishlist/wishlistSlice";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
 import Loading from "../../SharedPages/Loading";
@@ -10,9 +12,14 @@ import WishlistDeleteModal from "./WishlistDeleteModal";
 import WishlistTableRow from "./WishlistTableRow";
 
 const Wishlist = () => {
-  const [wishProducts, setWishProducts, loading] = useWishlistProducts();
+  const { wishlist, isLoading } = useSelector((state) => state?.wishlist);
+  const dispatch = useDispatch();
 
-  if (loading) {
+  useEffect(() => {
+    dispatch(fetchWishlist());
+  }, [dispatch]);
+
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -29,7 +36,7 @@ const Wishlist = () => {
         </section>
         {/*----------- Breadcrumb end ------------*/}
         <section className="container mx-auto mt-20 min-h-[calc(100vh-820px)] ">
-          {wishProducts?.length >= 1 ? (
+          {wishlist?.length >= 1 ? (
             <div className="border rounded-sm max-w-full">
               <Table className="w-full">
                 {/* <!-- head --> */}
@@ -49,15 +56,10 @@ const Wishlist = () => {
                 <Tbody>
                   {/* <!-- row 1 --> */}
 
-                  {wishProducts.map((item, index) => (
-                    <WishlistTableRow
-                      key={item?._id}
-                      item={item}
-                      setWishProducts={setWishProducts}
-                      index={index}
-                      wishProducts={wishProducts}
-                    />
-                  ))}
+                  {wishlist &&
+                    wishlist.map((item, index) => (
+                      <WishlistTableRow key={item?._id} item={item} index={index} />
+                    ))}
                 </Tbody>
               </Table>
             </div>
@@ -74,7 +76,7 @@ const Wishlist = () => {
               </button>
             </div>
           )}
-          <WishlistDeleteModal setWishProducts={setWishProducts} />
+          <WishlistDeleteModal />
         </section>
         {/*------- icons  free online money start----- */}
         <section className="container mx-auto mt-20">

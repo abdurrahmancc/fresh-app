@@ -4,39 +4,43 @@ import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./compare.css";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { MdAddShoppingCart, MdDelete } from "react-icons/md";
-import { compareListRemoveFromDb } from "../../Hooks/useFakeDB";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
-import useCompareProducts from "../../Hooks/useCompareProducts";
-import { useDispatch } from "react-redux";
-import { setCompareList } from "../../Redux/features/compareCounterSlice";
+import { useDispatch, useSelector } from "react-redux";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";
-import useAddCartProduct from "../../Hooks/useAddCartProduct";
 import Loading from "../../SharedPages/Loading";
+import {
+  fetchCompareList,
+  removeToCompare,
+} from "../../../redux/features/compare/compareListSlice";
+import { useEffect } from "react";
+import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
+import toast from "react-hot-toast";
 
 const Compare = () => {
-  const [compareProducts, setCompareProducts, loading] = useCompareProducts();
-  const [handleAddToCartProduct] = useAddCartProduct();
+  const { compareList, isLoading } = useSelector((state) => state.compareList);
   const dispatch = useDispatch();
 
-  if (compareProducts.length > 4) {
-    compareProducts.length = 4;
+  useEffect(() => {
+    dispatch(fetchCompareList());
+  }, [dispatch]);
+
+  if (compareList.length > 4) {
+    compareList.length = 4;
   }
 
   const handleRemove = (id) => {
-    const rest = compareProducts.filter((item) => item._id !== id);
-
-    setCompareProducts(rest);
-    compareListRemoveFromDb(id);
-    dispatch(setCompareList(rest));
+    dispatch(removeToCompare(id));
+    toast.success("Deleted", { id: "removeWishlist" });
   };
 
   const handleAddToCart = (item) => {
-    handleAddToCartProduct(item);
+    dispatch(addToCart(item));
+    toast.success("Add To Cart", { id: "addToCart" });
   };
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -53,7 +57,7 @@ const Compare = () => {
         </section>
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-20">
-          {compareProducts?.length >= 1 ? (
+          {compareList?.length >= 1 ? (
             <div id="compareTable" className="w-full">
               <Table>
                 <Tbody>
@@ -65,13 +69,10 @@ const Compare = () => {
                     >
                       Image
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
+                    {compareList &&
+                      compareList.map((product) => (
+                        <Td key={product?._id} className={"border"}>
+                          <div className={"border-t sm:border-none border-gray-300"}>
                             <figure>
                               <img
                                 className="mx-auto"
@@ -91,13 +92,10 @@ const Compare = () => {
                     >
                       Name
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
+                    {compareList &&
+                      compareList.map((product) => (
+                        <Td key={product?._id} className={"border"}>
+                          <div className={"border-t sm:border-none border-gray-300"}>
                             <h5 className="text-center sm:text-[1.2vw] lg:text-lg xl:text-xl font-semibold py-5">
                               {product?.productName}
                             </h5>
@@ -113,13 +111,10 @@ const Compare = () => {
                     >
                       Price
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
+                    {compareList &&
+                      compareList.map((product) => (
+                        <Td key={product?._id} className={"border"}>
+                          <div className={"border-t sm:border-none border-gray-300"}>
                             <h5 className="text-center  lg:text-lg xl:text-xl font-semibold py-5 flex items-baseline gap-1 justify-center">
                               <span className="sm:text-[1.2vw]">${product?.price}</span>
                               <span className="text-lg line-through opacity-70">
@@ -138,13 +133,10 @@ const Compare = () => {
                     >
                       Rating
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
+                    {compareList &&
+                      compareList.map((product) => (
+                        <Td key={product?._id} className={"border"}>
+                          <div className={"border-t sm:border-none border-gray-300"}>
                             <div className="text-center sm:text-[1.2vw] lg:text-lg xl:text-xl font-semibold py-5 flex gap-2 justify-center">
                               <div className="rating lg:rating-xs ">
                                 <span className="text-orange-400">
@@ -177,13 +169,10 @@ const Compare = () => {
                     >
                       Stock status
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => (
-                        <Td className={"border"}>
-                          <div
-                            key={product?._id}
-                            className={"border-t sm:border-none border-gray-300"}
-                          >
+                    {compareList &&
+                      compareList.map((product) => (
+                        <Td key={product?._id} className={"border"}>
+                          <div className={"border-t sm:border-none border-gray-300"}>
                             <div className="text-center sm:text-[1.2vw] lg:text-lg font-semibold py-5">
                               <span
                                 className={`rounded-sm capitalize sm:text-[1.2vw] lg:text-lg  px-3 py-1 ${
@@ -209,22 +198,25 @@ const Compare = () => {
                     >
                       Weight
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => {
+                    {compareList &&
+                      compareList.map((product) => {
                         const weight = product?.weight[0] ? product?.weight[0].split(",") : null;
-                        const isLast = weight[weight.length - 1];
+                        let isLast;
+                        if (weight?.length) isLast = weight[weight?.length - 1];
+
                         return (
-                          <Td className={"border"}>
-                            <div
-                              key={product?._id}
-                              className={"border-t sm:border-none border-gray-300"}
-                            >
+                          <Td key={product?._id} className={"border"}>
+                            <div className={"border-t sm:border-none border-gray-300"}>
                               <div className="text-center sm:text-[1.2vw] lg:text-sm  py-5 flex gap-x-2 justify-center">
-                                {weight.map((w) => (
-                                  <span className={`${isLast === w ? "" : "after:content-[',']"}`}>
-                                    {w}g
-                                  </span>
-                                ))}
+                                {weight?.length > 0 &&
+                                  weight.map((w, i) => (
+                                    <span
+                                      key={i}
+                                      className={`${isLast === w ? "" : "after:content-[',']"}`}
+                                    >
+                                      {w}g
+                                    </span>
+                                  ))}
                               </div>
                             </div>
                           </Td>
@@ -239,14 +231,11 @@ const Compare = () => {
                     >
                       Dimensions
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => {
+                    {compareList &&
+                      compareList.map((product) => {
                         return (
-                          <Td className={"border"}>
-                            <div
-                              key={product?._id}
-                              className={"border-t sm:border-none border-gray-300"}
-                            >
+                          <Td key={product?._id} className={"border"}>
+                            <div className={"border-t sm:border-none border-gray-300"}>
                               <div className="text-center sm:text-[1.2vw] lg:text-sm font-semibold py-5 flex gap-x-2 justify-center">
                                 <span>{product?.dimensions}</span>
                               </div>
@@ -263,14 +252,11 @@ const Compare = () => {
                     >
                       Description
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => {
+                    {compareList &&
+                      compareList.map((product) => {
                         return (
-                          <Td className={"border"}>
-                            <div
-                              key={product?._id}
-                              className={"border-t sm:border-none border-gray-300"}
-                            >
+                          <Td key={product?._id} className={"border"}>
+                            <div className={"border-t sm:border-none border-gray-300"}>
                               <div className="text-center sm:text-[1.2vw] lg:text-sm py-5 flex gap-x-2 justify-center px-2">
                                 <span className="opacity-80">
                                   {product?.productDescription.slice(0, 200)}...
@@ -289,14 +275,11 @@ const Compare = () => {
                     >
                       Add to cart
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => {
+                    {compareList &&
+                      compareList.map((product) => {
                         return (
-                          <Td className={"border"}>
-                            <div
-                              key={product?._id}
-                              className={"border-t sm:border-none border-gray-300"}
-                            >
+                          <Td key={product?._id} className={"border"}>
+                            <div className={"border-t sm:border-none border-gray-300"}>
                               <div className="py-5">
                                 <button
                                   onClick={() => handleAddToCart(product)}
@@ -319,14 +302,11 @@ const Compare = () => {
                     >
                       Action
                     </Td>
-                    {compareProducts &&
-                      compareProducts.map((product) => {
+                    {compareList &&
+                      compareList.map((product) => {
                         return (
-                          <Td className={"border"}>
-                            <div
-                              key={product?._id}
-                              className={"border-t sm:border-none border-gray-300"}
-                            >
+                          <Td key={product?._id} className={"border"}>
+                            <div className={"border-t sm:border-none border-gray-300"}>
                               <div
                                 onClick={() => handleRemove(product?._id)}
                                 className="py-5 text-center cursor-pointer flex items-center gap-2 justify-center"
