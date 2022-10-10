@@ -6,15 +6,14 @@ import { TbArrowsRightLeft } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { BsSuitHeart } from "react-icons/bs";
 import Badges from "../../../SharedPages/Badges";
-import useAddCartProduct from "../../../Hooks/useAddCartProduct";
-import useAddCompareProduct from "../../../Hooks/useAddCompareProduct";
-import useAddWishlistProduct from "../../../Hooks/useAddWishlistProduct";
+import { useDispatch } from "react-redux";
+import { addToCompare } from "../../../../redux/features/compare/compareListSlice";
+import { addToCart } from "../../../../redux/features/shoppingCart/shoppingCartSlice";
+import { addToWishlist } from "../../../../redux/features/wishlist/wishlistSlice";
 
 const ProductsOfYourChoiceCard = ({ product }) => {
   const [hoveredCart, setHoveredCart] = useState("hidden");
-  const [handleAddToCartProduct] = useAddCartProduct();
-  const [handleAddToWishlistProduct] = useAddWishlistProduct();
-  const [handleAddToCompareProduct] = useAddCompareProduct();
+  const dispatch = useDispatch();
 
   const showCartHandler = () => {
     setHoveredCart("block");
@@ -25,15 +24,15 @@ const ProductsOfYourChoiceCard = ({ product }) => {
   };
 
   const handleAddToCart = (item) => {
-    handleAddToCartProduct(item);
+    dispatch(addToCart(item));
   };
 
   const handleAddToWishlist = (item) => {
-    handleAddToWishlistProduct(item);
+    dispatch(addToWishlist(item));
   };
 
   const handleAddToCompareList = (item) => {
-    handleAddToCompareProduct(item);
+    dispatch(addToCompare(item));
   };
   return (
     <div

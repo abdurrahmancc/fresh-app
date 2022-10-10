@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { FiRefreshCw } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
@@ -11,14 +12,32 @@ import ViewShoppingCartTable from "./ViewShoppingCartTable";
 
 const ShoppingCart = () => {
   const { carts, isLoading } = useSelector((state) => state?.cartList);
+  const [prices, setPrices] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(1);
 
-  let totalPrice;
-  const price = carts && carts.map((product) => product.price * product.quantity);
-  const initialValue = 0;
-  if (price?.length >= 1) {
-    const sumReduce = price.reduce((previous, current) => previous + current, initialValue);
-    totalPrice = sumReduce;
-  }
+  useEffect(() => {
+    try {
+      const storageCart = JSON.parse(localStorage.getItem("fresh-shopping-cart-list"));
+      const cartPrices =
+        carts &&
+        carts.map((product) => {
+          const quantity = storageCart[product._id];
+          return product?.price * quantity;
+        });
+      setPrices(cartPrices);
+
+      const initialValue = 0;
+      if (cartPrices?.length >= 1) {
+        const sumReduce = cartPrices.reduce(
+          (previous, current) => previous + current,
+          initialValue
+        );
+        setTotalPrice(sumReduce);
+      }
+    } catch (error) {
+      console.log(error?.message);
+    }
+  }, [carts]);
 
   if (isLoading) {
     return <Loading />;
@@ -37,7 +56,7 @@ const ShoppingCart = () => {
         {/* Breadcrumb end */}
         <section className="container mx-auto mt-20">
           {carts?.length >= 1 ? (
-            <div className="grid xl:grid-cols-3 lg:grid-cols-1 lg:gap-10">
+            <div className="grid xl:grid-cols-3 lg:grid-cols-1 lg:gap-10 gap-y-20">
               <div className="xl:col-span-2">
                 <ViewShoppingCartTable></ViewShoppingCartTable>
                 <div className="flex justify-between pt-8 border-t border-gray-300 mt-5">
@@ -59,7 +78,7 @@ const ShoppingCart = () => {
                 </div>
               </div>
               <div className="xl:col-span-1">
-                <TotalPrice totalPrice={totalPrice} cartProducts={price} />
+                <TotalPrice totalPrice={totalPrice} prices={prices} />
               </div>
             </div>
           ) : (

@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import payment_img from "../../../assets/logo/payment2.png";
 
-const TotalPrice = ({ totalPrice, cartProducts }) => {
+const TotalPrice = ({ totalPrice, prices }) => {
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
+
   let Shipping = 15;
-  Shipping = cartProducts.length * Shipping;
+  Shipping = prices.length * Shipping;
   const tax = totalPrice * 0.05;
   let total = totalPrice + Shipping + tax;
+
   return (
     <div className="w-full">
       <div className="w-full border px-8 pt-5 pb-10 ">
+        {/*------------------- price table start--------------- */}
         <table className=" w-full">
           <thead>
             <tr>

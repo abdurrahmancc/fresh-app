@@ -67,3 +67,24 @@ export const addCart = async (data) => {
     console.log(error?.message);
   }
 };
+
+/*--------- add to Cart quantity -----------*/
+export const setCartQuantityToDb = async (data) => {
+  const { id, quantity } = data;
+  try {
+    if (quantity < 1) {
+      return;
+    }
+
+    let shoppingCart = {};
+    const storedCart = localStorage.getItem(freshShoppingCart);
+    if (storedCart) {
+      shoppingCart = JSON.parse(storedCart);
+      shoppingCart[id] = quantity;
+      localStorage.setItem(freshShoppingCart, JSON.stringify(shoppingCart));
+      return quantity;
+    }
+  } catch (error) {
+    console.log(error?.message);
+  }
+};

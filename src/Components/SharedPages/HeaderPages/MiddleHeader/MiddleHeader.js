@@ -9,10 +9,11 @@ import { middleCategorySelected } from "../../../SharedCss/SelectComponentCss";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
-import { setSearchProducts } from "../../../Redux/features/searchProductsSlice";
+
 import Loading from "../../Loading";
 import { useEffect } from "react";
 import { fetchCarts } from "../../../../redux/features/shoppingCart/shoppingCartSlice";
+import { setSearchProducts } from "../../../../redux/features/searchProducts/searchProductsSlice";
 
 const options = [
   { value: "grocery&Frozen", label: "Grocery & Frozen" },

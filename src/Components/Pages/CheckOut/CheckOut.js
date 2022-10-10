@@ -6,20 +6,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { useAuthState } from "react-firebase-hooks/auth";
-import useProducts from "../../Hooks/useCartProducts";
 import Footer from "../../SharedPages/Footer/Footer";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import BillingDetailsForm from "./BillingDetailsForm";
 import CheckoutTable from "./CheckoutTable";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
-import CheckOutCreateAccount from "./CheckOutCreateAccount";
 import Loading from "../../SharedPages/Loading";
+import { useSelector } from "react-redux";
 
 const CheckOut = () => {
-  const [cartProducts] = useProducts();
+  const { carts, isLoading } = useSelector((state) => state.carts);
   const [user, loading] = useAuthState(auth);
   const [product, setProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [cLoading, cSetLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -34,7 +33,7 @@ const CheckOut = () => {
     (async () => {
       try {
         if (id) {
-          setIsLoading(true);
+          cSetLoading(true);
           const { data } = await axiosPrivet.get(`product/product-details/${id}`);
 
           if (id) {
@@ -44,28 +43,28 @@ const CheckOut = () => {
             data.quantity = info;
           }
           setProduct([data]);
-          setIsLoading(false);
+          cSetLoading(false);
         }
       } catch (error) {
-        setIsLoading(false);
+        cSetLoading(false);
         console.log(error.message);
       }
     })();
   }, [id]);
 
-  if (loading || isLoading) {
+  if (loading || isLoading || cLoading) {
     return <Loading />;
   }
 
   let totalPrice;
   let Shipping = 15;
   if (!id) {
-    const price = cartProducts.map((product) => product.price * product.quantity);
+    const price = carts.map((product) => product.price * product.quantity);
     const initialValue = 0;
     if (price?.length >= 1) {
       const sumReduce = price.reduce((previous, current) => previous + current, initialValue);
       totalPrice = sumReduce;
-      Shipping = cartProducts.length * Shipping;
+      Shipping = carts.length * Shipping;
     }
   } else {
     totalPrice = product[0]?.price;
@@ -85,7 +84,7 @@ const CheckOut = () => {
     if (id) {
       itemInfo = product;
     } else {
-      itemInfo = cartProducts;
+      itemInfo = carts;
     }
     data.userEmail = user?.email;
     data.photoURL = user?.photoURL;
@@ -137,7 +136,7 @@ const CheckOut = () => {
                   {id ? (
                     <CheckoutTable cartProducts={product} onSubmit={onSubmit} />
                   ) : (
-                    <CheckoutTable cartProducts={cartProducts} onSubmit={onSubmit} />
+                    <CheckoutTable cartProducts={carts} onSubmit={onSubmit} />
                   )}
                 </div>
               </div>

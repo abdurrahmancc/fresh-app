@@ -2,39 +2,49 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Td, Tr } from "react-super-responsive-table";
-import { addToCart, removeToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
+
+import {
+  setQuantity,
+  removeToCart,
+  changeQuantity,
+} from "../../../redux/features/shoppingCart/shoppingCartSlice";
 
 const ViewShoppingCartTableRow = ({ item, index }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setValue(item?.quantity);
-  }, [item?.quantity]);
+    const storageCart = JSON.parse(localStorage.getItem("fresh-shopping-cart-list"));
+    setValue(storageCart[item._id]);
+
+    dispatch(setQuantity(storageCart[item._id]));
+  }, [item, dispatch]);
 
   const handleOnChange = (data) => {
     const inputValue = data;
     setValue(inputValue);
   };
 
+  // cart quantity decrease
   const handleDecrease = () => {
     if (value <= 1) {
       return;
     }
-    const decreaseValue = value - 1;
+    const decreaseValue = Number(value) - 1;
     setValue(decreaseValue);
-    // decreaseToCart(item._id);
+    dispatch(changeQuantity({ id: item._id, quantity: decreaseValue }));
   };
 
+  // cart quantity increase
   const handleIncrease = () => {
-    const increaseValue = parseInt(value) + 1;
+    const increaseValue = Number(value) + 1;
     setValue(increaseValue);
-    // addToDb(item._id);
-    dispatch(addToCart(item));
+    dispatch(changeQuantity({ id: item._id, quantity: increaseValue }));
   };
 
+  // remove a cart
   const handleRemove = (id) => {
     dispatch(removeToCart(id));
   };

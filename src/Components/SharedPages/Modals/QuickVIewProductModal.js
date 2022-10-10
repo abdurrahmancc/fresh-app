@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import useAddCartProduct from "../../Hooks/useAddCartProduct";
 import { AiOutlinePlus, AiOutlineTwitter } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
 import { FaFacebookF, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 import ProductsDetailsTitle from "../../Pages/Products/ProductsDetailsTitle";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
 
 const QuickVIewProductModal = ({ product }) => {
-  const [handleAddToCartProduct] = useAddCartProduct();
+  const dispatch = useDispatch();
   const [value, setValue] = useState(1);
 
   const handleOnChange = (data) => {
@@ -28,8 +29,8 @@ const QuickVIewProductModal = ({ product }) => {
     setValue(increaseValue);
   };
 
-  const handleAddToCart = (product) => {
-    handleAddToCartProduct(product);
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
   };
   return (
     <>

@@ -53,7 +53,6 @@ const wishlistSlice = createSlice({
         state.isError = false;
       })
       .addCase(removeToWishlist.fulfilled, (state, action) => {
-        console.log(action);
         state.isLoading = false;
         state.isError = false;
         state.wishlist = state.wishlist.filter((t) => t._id !== action.meta?.arg);
