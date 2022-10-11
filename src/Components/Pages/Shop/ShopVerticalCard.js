@@ -10,12 +10,13 @@ import Rating from "../../SharedPages/Rating";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
 import { addToWishlist } from "../../../redux/features/wishlist/wishlistSlice";
-import toast from "react-hot-toast";
 import { addToCompare } from "../../../redux/features/compare/compareListSlice";
+import { toast } from "react-toastify";
 
 const ShopVerticalCard = ({ item }) => {
   const [hoveredCart, setHoveredCart] = useState("hidden");
   const dispatch = useDispatch();
+
   const showCartHandler = () => {
     setHoveredCart("block");
   };
@@ -26,11 +27,12 @@ const ShopVerticalCard = ({ item }) => {
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
+    toast.success("Add To cart", { autoClose: 1000 });
   };
 
   const handleAddToWishlist = (item) => {
     dispatch(addToWishlist(item));
-    toast.success("Add To Wishlist", { id: "addToWishlist" });
+    toast.success("Add To Wishlist", { autoClose: 1000 });
   };
 
   const handleAddToCompareList = (item) => {
@@ -115,9 +117,11 @@ const ShopVerticalCard = ({ item }) => {
           </div>
           <div className="flex gap-1  items-center">
             <span className="text-lg text-primary capitalize font-semibold">${item?.price}</span>
-            <span className="text-gray-400 block mt-1 text-sm line-through capitalize">
-              ${item?.regularPrice}
-            </span>
+            {item?.regularPrice && (
+              <span className="text-gray-400 block mt-1 text-sm line-through capitalize">
+                ${item?.regularPrice}
+              </span>
+            )}
           </div>
           <div className="card-actions">
             <button

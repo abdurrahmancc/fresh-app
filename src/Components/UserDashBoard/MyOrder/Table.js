@@ -40,10 +40,10 @@ const Tables = () => {
       <Table>
         <Thead>
           <Tr className=" bg-slate-400">
-            <Td className={"py-3"}>id</Td>
-            <Td>img</Td>
-            <Td>number</Td>
-            <Td>name</Td>
+            <Th className={"py-3"}>id</Th>
+            <Th>img</Th>
+            <Th>number</Th>
+            <Th>name</Th>
           </Tr>
         </Thead>
         <Tbody>

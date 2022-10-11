@@ -3,13 +3,13 @@ import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
 import { useQuery } from "react-query";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 import Loading from "../../../SharedPages/Loading";
 import ScrollBtn from "../../../SharedPages/ScrollBtn";
 import OrderTable from "./OrderTable";
 import SearchOrderModal from "./SearchOrderModal";
 import Breadcrumb from "../../../SharedPages/Breadcrumb";
+import { toast } from "react-toastify";
 
 const AllOrder = () => {
   const [page, setPage] = useState(0);
@@ -56,7 +56,7 @@ const AllOrder = () => {
         }
       } catch (error) {
         toast.error(`not result found ${data?.searchOrder} please enter your order Id`, {
-          id: "orderNotFound",
+          autoClose: 1000,
         });
       }
     }

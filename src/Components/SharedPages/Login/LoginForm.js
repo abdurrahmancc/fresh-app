@@ -6,12 +6,12 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { accessToken } from "../../Hooks/useCookies";
@@ -47,7 +47,7 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
       setIsLogin(false);
     } catch (error) {
       setIsLogin(false);
-      toast.error("login fail! please try again");
+      toast.error("login fail! please try again", { autoClose: 1000 });
     }
   };
   /*---------------- submit form end --------------*/

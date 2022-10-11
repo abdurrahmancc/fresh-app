@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useAuthState, useUpdateProfile } from "react-firebase-hooks/auth";
-import toast from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
 import { useQuery } from "react-query";
 import axiosPrivet from "../../Hooks/axiosPrivet";
@@ -10,6 +9,7 @@ import { format } from "date-fns";
 import GraphicOrder from "./GraphicOrder";
 import { FiTrendingUp } from "react-icons/fi";
 import { IoSquareSharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const MyAccount = () => {
   const [user, loading] = useAuthState(auth);
@@ -33,17 +33,17 @@ const MyAccount = () => {
     try {
       await updateProfile({ displayName: userName });
       if (updatingError) {
-        toast.error(updatingError?.message);
+        toast.error(updatingError?.message, { autoClose: 1000 });
         return;
       }
       await axiosPrivet.put(`users/update/userName/${user?.email}`, {
         displayName: userName,
       });
       setUpdateUserName(false);
-      toast.success("Updated UserName", { id: "updateUserName" });
+      toast.success("Updated UserName", { autoClose: 1000 });
       refetch();
     } catch (error) {
-      toast.error(error.message, { id: "updateUserName-error" });
+      toast.error(error.message, { autoClose: 1000 });
       refetch();
     }
   };
@@ -59,17 +59,17 @@ const MyAccount = () => {
     try {
       await updateProfile({ phoneNumber: userNumber });
       if (updatingError) {
-        toast.error(updatingError?.message);
+        toast.error(updatingError?.message, { autoClose: 1000 });
         return;
       }
       await axiosPrivet.put(`users/update/Number/${user?.email}`, {
         phoneNumber: userNumber,
       });
       setUpdateUserNumber(false);
-      toast.success("Updated UserNumber", { id: "updateUserNumber" });
+      toast.success("Updated UserNumber", { autoClose: 1000 });
       refetch();
     } catch (error) {
-      toast.error(error.message, { id: "updateUserNumber-error" });
+      toast.error(error.message, { autoClose: 1000 });
       refetch();
     }
   };

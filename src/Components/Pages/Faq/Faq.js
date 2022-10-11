@@ -2,8 +2,8 @@ import { send } from "@emailjs/browser";
 import React from "react";
 import Collapsible from "react-collapsible";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { BsChevronDown } from "react-icons/bs";
+import { toast } from "react-toastify";
 import callCenter from "../../../assets/banner_img/contact-img-2.png";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
@@ -27,7 +27,7 @@ const Faq = () => {
     send(serviceId, templateId, data, publicKey)
       .then((response) => {
         reset();
-        toast.success("success", { id: "email_send" });
+        toast.success("success", { autoClose: 1000 });
       })
       .catch((err) => {
         console.log("FAILED...", err);

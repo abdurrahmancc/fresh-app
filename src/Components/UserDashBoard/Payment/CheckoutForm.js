@@ -5,8 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Hooks/useAuthState";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import Loading from "../../SharedPages/Loading";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckoutForm = ({ id, price, userEmail, firstName }) => {
   const [user, loading] = useAuthState(auth);

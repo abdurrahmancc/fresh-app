@@ -17,8 +17,8 @@ import { signOut } from "firebase/auth";
 import { accessToken, removeCookie } from "../Hooks/useCookies";
 import { useState } from "react";
 import { imgUpload } from "../api/api";
-import toast from "react-hot-toast";
 import axiosPrivet from "../Hooks/axiosPrivet";
+import { toast } from "react-toastify";
 
 const UserDashboard = () => {
   const [user, loading] = useAuthState(auth);
@@ -35,17 +35,17 @@ const UserDashboard = () => {
       if (image?.data?.url) {
         await updateProfile({ photoURL: image?.data?.url });
         if (updatingError) {
-          toast.error(updatingError?.message);
+          toast.error(updatingError?.message, { autoClose: 1000 });
           return;
         }
         await axiosPrivet.put(`users/update/photoURL/${user?.email}`, {
           photoURL: image?.data?.url,
         });
         setIsUpdate(false);
-        toast.success("Updated Image", { id: "updateUserImage" });
+        toast.success("Updated Image", { autoClose: 1000 });
       }
     } catch (error) {
-      toast.error(error.message, { id: "updateUserImage-error" });
+      toast.error(error.message, { autoClose: 1000 });
     }
   };
 

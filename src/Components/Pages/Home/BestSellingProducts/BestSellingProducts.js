@@ -13,7 +13,7 @@ const BestSellingProducts = () => {
 
   const { data, isLoading, refetch } = useQuery(
     ["best-selling-products", category],
-    async () => await axiosPrivet.get(`product/home/products/${category}`)
+    async () => await axiosPrivet.get(`product/home/products/${category}?limit=5`)
   );
 
   if (isLoading) {
@@ -21,9 +21,6 @@ const BestSellingProducts = () => {
   }
 
   let products = data?.data?.result ? data?.data?.result : "";
-  if (products) {
-    products.length = 5;
-  }
 
   const handleGetProducts = (data) => {
     setCategory(data);

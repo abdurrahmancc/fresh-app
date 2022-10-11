@@ -1,5 +1,5 @@
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const DeleteUserModal = ({ deleteModal, setDeleteModal, refetch }) => {
@@ -9,11 +9,11 @@ const DeleteUserModal = ({ deleteModal, setDeleteModal, refetch }) => {
       const { data } = await axiosPrivet.delete(`users/${id}`);
       if (data?.acknowledged) {
         setDeleteModal(null);
-        toast.success("deleted");
+        toast.success("deleted", { autoClose: 1000 });
         refetch();
       }
     } catch (error) {
-      toast.error(error?.message, { id: "deleteUser" });
+      toast.error(error?.message, { autoClose: 1000 });
     }
   };
 

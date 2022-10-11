@@ -142,9 +142,8 @@ const Shop = () => {
                     />
                   </div>
                 </div>
-                {isLoading ? (
-                  (!products || isLoading) && <Loading />
-                ) : (
+
+                {products && (
                   <div
                     className={` ${
                       pathname.includes("/shop/fullwidth") ? "lg:col-span-5" : "lg:col-span-4"
@@ -210,6 +209,7 @@ const Shop = () => {
               </div>
             </div>
           </shopAllProducts.Provider>
+          {isLoading && <Loading />}
         </section>
         {/* filter body end*/}
         {/*------ Newsletters start ------*/}

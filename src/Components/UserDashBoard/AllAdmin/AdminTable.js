@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import DeleteUserModal from "../../Pages/AdminDashboard/AllUser/DeleteUserModal";
@@ -22,7 +22,7 @@ const AdminTable = () => {
   }
 
   if (isError) {
-    toast.error(isError?.message, { id: "allUsers" });
+    toast.error(isError?.message, { autoClose: 1000 });
   }
 
   const allAdmin = data?.data?.users.length > 0 ? data?.data?.users : null;

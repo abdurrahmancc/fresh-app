@@ -1,5 +1,5 @@
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const OrderStatusModal = ({ setStatusModal, statusModal, refetch }) => {
@@ -9,12 +9,11 @@ const OrderStatusModal = ({ setStatusModal, statusModal, refetch }) => {
         const { data } = await axiosPrivet.patch(`/paymentOrder/${id}`, { status: statusModal[1] });
         if (data?.updateOrder?.acknowledged) {
           setStatusModal(null);
-          toast.success("success");
+          toast.success("success", { autoClose: 1000 });
           refetch();
         }
       } catch (error) {
-        toast.error(error?.message, { id: "deleteUser" });
-        console.log(error);
+        toast.error(error?.message, { autoClose: 1000 });
       }
     }
   };

@@ -7,12 +7,12 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF, FaLock, FaUser } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { accessToken } from "../../Hooks/useCookies";
@@ -46,7 +46,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
     const displayName = data.name;
     const info = { displayName, password, email };
     if (password !== confirmPassword) {
-      toast.error("Password does not match", { id: "password-match" });
+      toast.error("Password does not match", { autoClose: 1000 });
       setError("confirmPassword", { type: "matching", message: "Password does not match" });
       return;
     }

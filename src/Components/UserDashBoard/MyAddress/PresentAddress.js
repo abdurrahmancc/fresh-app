@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 
 const PresentAddress = ({ data, refetch, user }) => {
@@ -34,14 +34,14 @@ const PresentAddress = ({ data, refetch, user }) => {
           { info }
         );
         if (result) {
-          toast.success("Update Permanent Address", { id: "updatePresentAddress" });
+          toast.success("Update Permanent Address", { autoClose: 1000 });
           reset();
           refetch();
           setPresentAddress(false);
         }
       }
     } catch (error) {
-      toast.error(error.message, { id: "updatePermanentAddress-error" });
+      toast.error(error.message, { autoClose: 1000 });
       refetch();
     }
   };

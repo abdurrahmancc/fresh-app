@@ -1,6 +1,6 @@
 import React from "react";
-import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { removeAllCarts } from "../../../redux/features/shoppingCart/shoppingCartSlice";
 
 const CartDeleteModal = () => {
@@ -8,7 +8,7 @@ const CartDeleteModal = () => {
 
   const handleAllCartRemove = () => {
     dispatch(removeAllCarts());
-    toast.success("Deleted", { id: "deleteAllCart" });
+    toast.success("Deleted", { autoClose: 1000 });
   };
 
   return (

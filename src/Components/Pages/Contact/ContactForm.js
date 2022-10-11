@@ -1,7 +1,7 @@
 import { send } from "@emailjs/browser";
 import React from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import callCenter from "../../../assets/banner_img/contact-img.png";
 
 const ContactForm = () => {
@@ -20,7 +20,7 @@ const ContactForm = () => {
     send(serviceId, templateId, data, publicKey)
       .then((response) => {
         reset();
-        toast.success("success", { id: "email_send" });
+        toast.success("success", { autoClose: 1000 });
       })
       .catch((err) => {
         console.log("FAILED...", err);

@@ -6,6 +6,7 @@ import { FaFacebookF, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 import ProductsDetailsTitle from "../../Pages/Products/ProductsDetailsTitle";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
+import { toast } from "react-toastify";
 
 const QuickVIewProductModal = ({ product }) => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const QuickVIewProductModal = ({ product }) => {
   };
 
   const handleAddToCart = (item) => {
+    toast.success("Add To cart", { autoClose: 1000 });
     dispatch(addToCart(item));
   };
   return (

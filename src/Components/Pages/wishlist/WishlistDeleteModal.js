@@ -1,6 +1,6 @@
 import React from "react";
-import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { removeAllWishlist } from "../../../redux/features/wishlist/wishlistSlice";
 
 const WishlistDeleteModal = () => {
@@ -8,7 +8,7 @@ const WishlistDeleteModal = () => {
 
   const handleAllCartRemoveA = () => {
     dispatch(removeAllWishlist());
-    toast.success("Deleted", { id: "deleteAllCart" });
+    toast.success("Deleted", { autoClose: 1000 });
   };
   return (
     <>

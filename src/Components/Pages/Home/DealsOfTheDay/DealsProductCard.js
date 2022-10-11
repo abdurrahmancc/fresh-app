@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../../../redux/features/shoppingCart/shoppingCartSlice";
 import { addToWishlist } from "../../../../redux/features/wishlist/wishlistSlice";
 import { addToCompare } from "../../../../redux/features/compare/compareListSlice";
+import { toast } from "react-toastify";
 
 const DealsProducts = ({ product }) => {
   const dispatch = useDispatch();
@@ -26,14 +27,17 @@ const DealsProducts = ({ product }) => {
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
+    toast.success("Add to cart", { autoClose: 1000 });
   };
 
   const handleAddToWishlist = (item) => {
     dispatch(addToWishlist(item));
+    toast.success("Add to wishlist", { autoClose: 1000 });
   };
 
   const handleAddToCompareList = (item) => {
     dispatch(addToCompare(item));
+    toast.success("Add to compare", { autoClose: 1000 });
   };
 
   return (

@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../Hooks/useAuthState";
 import { useForm } from "react-hook-form";
 import { GrMail } from "react-icons/gr";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const ForgotPasswordForm = () => {
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
@@ -19,9 +19,9 @@ const ForgotPasswordForm = () => {
     const email = data.email;
     try {
       await sendPasswordResetEmail(email, { url: "http://localhost:3000/login" });
-      toast.success("Email send, please check your email");
+      toast.success("Email send, please check your email", { autoClose: 1000 });
     } catch (error) {
-      toast.error(error.message, { id: "forgot-password" });
+      toast.error(error.message, { autoClose: 1000 });
     }
   };
 

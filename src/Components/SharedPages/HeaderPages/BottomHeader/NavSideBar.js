@@ -29,7 +29,8 @@ const NavSideBar = ({ toggle, setToggle }) => {
         e.target.id !== "mobile-collapsible-pates" &&
         e.target.id !== "mobile-collapsible-home" &&
         e.target.id !== "mobile-collapsible-shop" &&
-        e.target.id !== "mobile-menu"
+        e.target.id !== "mobile-menu" &&
+        e.target.id !== "menu-item"
       ) {
         setToggle(false);
       }
@@ -136,6 +137,16 @@ const NavSideBar = ({ toggle, setToggle }) => {
                     <ul className="pt-[9px] pb-[5px] border-t">
                       <li>
                         <Link
+                          to={"/shop"}
+                          className={
+                            "pl-[10px] inline-block py-2 text-[#444] text-[14px] font-bold"
+                          }
+                        >
+                          Shop default
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
                           to={"/shop/fullwidth"}
                           className={
                             "pl-[10px] inline-block py-2 text-[#444] text-[14px] font-bold"
@@ -223,10 +234,41 @@ const NavSideBar = ({ toggle, setToggle }) => {
                   </Collapsible>
                 </div>
               </li>
-              <li className="inline-block list-none w-full">
-                <a href="/" className="tracking-[2px] text-[1em]">
-                  Item 1
-                </a>
+              <li
+                id="menu-item"
+                className="inline-block border-b py-[6px] text-black list-none w-full"
+              >
+                <Link
+                  to={"/contact"}
+                  href="/"
+                  className="leading-9 font-bold text-[15px] text-[#444]"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li
+                id="menu-item"
+                className="inline-block border-b py-[6px] text-black list-none w-full"
+              >
+                <Link
+                  to={"/about"}
+                  href="/"
+                  className="leading-9 font-bold text-[15px] text-[#444]"
+                >
+                  About
+                </Link>
+              </li>
+              <li
+                id="menu-item"
+                className="inline-block border-b py-[6px] text-black list-none w-full"
+              >
+                <Link
+                  to={"/blogs"}
+                  href="/"
+                  className="leading-9 font-bold text-[15px] text-[#444]"
+                >
+                  Blogs
+                </Link>
               </li>
             </ul>
           </div>

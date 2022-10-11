@@ -6,7 +6,6 @@ import ShopVertical from "./Components/Pages/Shop/ShopVertical";
 import ShopHorizontal from "./Components/Pages/Shop/ShopHorizontal ";
 import ProductDetails from "./Components/Pages/Products/ProductDetails";
 import { createContext, useState } from "react";
-import { Toaster } from "react-hot-toast";
 import RequireAuth from "./Components/SharedPages/RequireAuth/RequireAuth";
 import UserDashboard from "./Components/UserDashBoard/UserDashboard";
 import MyOrder from "./Components/UserDashBoard/MyOrder/MyOrder";
@@ -32,6 +31,8 @@ import RequireAdmin from "./Components/SharedPages/RequireAdmin/RequireAdmin";
 import { publicRoutes } from "./routers/publicRoutes";
 import { useSelector } from "react-redux";
 import UserDashboardDetails from "./Components/UserDashBoard/userDashboardDetails/UserDashboardDetails";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const CartQuantity = createContext("cartQuantity");
 export const WishlistQuantity = createContext("wishlistQuantity");
 export const CompareQuantity = createContext("compareQuantity");
@@ -51,7 +52,7 @@ function App() {
   console.log(count);
   return (
     <>
-      <Toaster />
+      <ToastContainer />
       <ToggleAdminDashboardSideBar.Provider
         value={[toggleSideBar, setToggleSideBar, dark, setDark, handleOpen]}
       >

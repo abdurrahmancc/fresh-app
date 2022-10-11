@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const BlogComment = () => {
   const {
@@ -11,7 +11,7 @@ const BlogComment = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    toast.success("Your request has been pending!");
+    toast.success("Your request has been pending!", { autoClose: 1000 });
     reset();
   };
   return (

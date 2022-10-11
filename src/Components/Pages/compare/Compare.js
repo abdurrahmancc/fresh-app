@@ -16,7 +16,7 @@ import {
 } from "../../../redux/features/compare/compareListSlice";
 import { useEffect } from "react";
 import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const Compare = () => {
   const { compareList, isLoading } = useSelector((state) => state.compareList);
@@ -32,12 +32,12 @@ const Compare = () => {
 
   const handleRemove = (id) => {
     dispatch(removeToCompare(id));
-    toast.success("Deleted", { id: "removeWishlist" });
+    toast.success("Deleted", { autoClose: 1000 });
   };
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
-    toast.success("Add To Cart", { id: "addToCart" });
+    toast.success("Add To cart", { autoClose: 1000 });
   };
 
   if (isLoading) {

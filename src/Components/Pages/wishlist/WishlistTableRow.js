@@ -1,5 +1,4 @@
 import React from "react";
-import toast from "react-hot-toast";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -8,6 +7,7 @@ import { Td, Tr } from "react-super-responsive-table";
 import { useDispatch } from "react-redux";
 import { removeToWishlist } from "../../../redux/features/wishlist/wishlistSlice";
 import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
+import { toast } from "react-toastify";
 
 const WishlistTableRow = ({ item, index }) => {
   const dispatch = useDispatch();
@@ -15,15 +15,15 @@ const WishlistTableRow = ({ item, index }) => {
   const handleRemove = (id) => {
     try {
       dispatch(removeToWishlist(id));
-      toast.success("Deleted", { id: "removeWishlist" });
+      toast.success("Deleted", { autoClose: 1000 });
     } catch (error) {
-      toast.error(error.message, { id: "removeWishlist" });
+      toast.error(error.message, { autoClose: 1000 });
     }
   };
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
-    toast.success("Add To Cart", { id: "addToCart" });
+    toast.success("Add To Cart", { autoClose: 1000 });
   };
 
   return (

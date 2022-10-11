@@ -24,7 +24,7 @@ const Contact = () => {
           </div>
         </section>
         {/* Breadcrumb end */}
-        <section className="container mx-auto mt-20">
+        <section className="max-w-full">
           <GoogleMaps />
         </section>
         {/*------- get In Touch start ------*/}

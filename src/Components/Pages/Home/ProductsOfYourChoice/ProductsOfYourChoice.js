@@ -7,10 +7,10 @@ import axiosPrivet from "../../../Hooks/axiosPrivet";
 import Loading from "../../../SharedPages/Loading";
 
 const ProductsOfYourChoice = () => {
-  const [category, setCategory] = useState("grocery&Frozen");
+  const [category, setCategory] = useState("all");
   const { data, isLoading, refetch } = useQuery(
     ["deals-Products", category],
-    async () => await axiosPrivet.get(`product/home/products/${category}`)
+    async () => await axiosPrivet.get(`product/home/products/${category}?limit=12`)
   );
 
   if (isLoading) {
@@ -34,11 +34,9 @@ const ProductsOfYourChoice = () => {
         <div className="flex items-center xl:gap-20  sm:gap-10 gap-2">
           <ul className="flex items-center gap-5">
             <li
-              onClick={() => handleGetProducts("grocery&Frozen")}
+              onClick={() => handleGetProducts("all")}
               className={`text-lg hover:text-primary duration-200 transition-all ease-linear lg:block hidden px-3 font-semibold capitalize cursor-pointer pb-3 ${
-                category === "grocery&Frozen"
-                  ? "text-primary border-primary  border-b-2 activeProducts"
-                  : ""
+                category === "all" ? "text-primary border-primary  border-b-2 activeProducts" : ""
               }`}
             >
               all

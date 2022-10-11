@@ -1,5 +1,5 @@
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const UserRoleConfirmModal = ({ inputRoleId, refetch }) => {
@@ -8,10 +8,10 @@ const UserRoleConfirmModal = ({ inputRoleId, refetch }) => {
   const handleAddUser = async (id) => {
     try {
       await axiosPrivet.post(`users/makeRole/${id}`, { role: role });
-      toast.success(`Add ${role}`, { id: `make${role}` });
+      toast.success(`Add ${role}`, { autoClose: 1000 });
       refetch();
     } catch (error) {
-      toast.error(error?.message, { id: `make${role}Error` });
+      toast.error(error?.message, { autoClose: 1000 });
       console.log(error);
     }
   };

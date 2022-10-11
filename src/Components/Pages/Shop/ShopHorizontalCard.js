@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/features/shoppingCart/shoppingCartSlice";
 import { addToWishlist } from "../../../redux/features/wishlist/wishlistSlice";
 import { addToCompare } from "../../../redux/features/compare/compareListSlice";
+import { toast } from "react-toastify";
 
 const ShopHorizontalCard = ({ item }) => {
   const [hoveredCart, setHoveredCart] = useState("");
@@ -26,14 +27,17 @@ const ShopHorizontalCard = ({ item }) => {
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
+    toast.success("Add To cart", { autoClose: 1000 });
   };
 
   const handleAddToWishlist = (item) => {
     dispatch(addToWishlist(item));
+    toast.success("Add To wishlist", { autoClose: 1000 });
   };
 
   const handleAddToCompareList = (item) => {
     dispatch(addToCompare(item));
+    toast.success("Add To compare", { autoClose: 1000 });
   };
   return (
     <>

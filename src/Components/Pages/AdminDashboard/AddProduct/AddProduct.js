@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import ScrollBtn from "../../../SharedPages/ScrollBtn";
 import ProductImage from "./ProductImage";
 import BasicInformation from "./BasicInformation";
@@ -9,6 +8,7 @@ import { imgUpload } from "../../../api/api";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 import Breadcrumb from "../../../SharedPages/Breadcrumb";
 import { dimensionsOptions, stockStatusOptions } from "./dashboardSelectorOptions";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const [uploadAImage, setUploadAImage] = useState(true);
@@ -27,8 +27,6 @@ const AddProduct = () => {
     reset,
     formState: { errors },
   } = useForm();
-
-  // const selectCategory = watch("uploadImage");
 
   /* selected Category values*/
   let categories = [];
@@ -77,7 +75,7 @@ const AddProduct = () => {
         const image = await imgUpload(formData);
         images = [image.data.url];
       } catch (error) {
-        toast.error("not uploaded image", { id: "upload_image_error" });
+        toast.error("not uploaded image", { autoClose: 1000 });
       }
     } else if (imageUrl) {
       images = [data.img1];
@@ -113,7 +111,7 @@ const AddProduct = () => {
     if (images[0]) {
       try {
         const { data: result } = await axiosPrivet.post("product/add-product", inputInfo);
-        toast.success(result.message, { id: "success-add-product" });
+        toast.success(result.message, { autoClose: 1000 });
         reset();
         setSelectedWeight([]);
         setSelectedColors([]);
@@ -121,8 +119,7 @@ const AddProduct = () => {
         setSelectedStockStatus([]);
         setSelectedCategory([]);
       } catch (error) {
-        // console.log(error);
-        toast.error(error?.response?.data?.errors?.common?.msg, { id: "add-product-error" });
+        toast.error(error?.response?.data?.errors?.common?.msg);
       }
     }
   };

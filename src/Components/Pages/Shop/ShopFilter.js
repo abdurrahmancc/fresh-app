@@ -138,14 +138,14 @@ const ShopFilter = ({
               <div className="flex justify-between pt-4">
                 <div className="border border-gray-300 ">
                   <input
-                    className="input border-none text-center block h-8   focus:outline-none bg-none rounded-none max-w-[8rem] w-full text-[1vw]"
+                    className="input border-none text-center block h-8   focus:outline-none bg-none rounded-none max-w-[8rem] w-full text-lg"
                     value={minValue}
                     onChange={(e) => set_minValue(e.target.value)}
                   />
                 </div>
                 <div className="border border-gray-300">
                   <input
-                    className="input border-none text-center block h-8 focus:outline-none bg-none rounded-none max-w-[8rem] w-full  text-[1vw]"
+                    className="input border-none text-center block h-8 focus:outline-none bg-none rounded-none max-w-[8rem] w-full  text-lg"
                     value={maxValue}
                     onChange={(e) => set_maxValue(e.target.value)}
                   />

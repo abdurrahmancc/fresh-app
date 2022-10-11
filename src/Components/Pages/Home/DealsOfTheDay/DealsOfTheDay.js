@@ -12,7 +12,7 @@ const DealsOfTheDay = () => {
   const [category, setCategory] = useState("grocery&Frozen");
   const { data, isLoading, refetch } = useQuery(
     ["deals-Products", category],
-    async () => await axiosPrivet.get(`product/home/products/${category}`)
+    async () => await axiosPrivet.get(`product/home/products/${category}?limit=5`)
   );
 
   if (isLoading) {
@@ -20,9 +20,6 @@ const DealsOfTheDay = () => {
   }
 
   let products = data?.data?.result ? data?.data?.result : "";
-  if (products) {
-    products.length = 5;
-  }
 
   const handleGetProducts = (data) => {
     setCategory(data);

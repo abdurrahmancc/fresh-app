@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import auth from "../../../Hooks/useAuthState";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaLock } from "react-icons/fa";
 import { confirmPasswordReset } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const ResetPasswordForm = () => {
   const [showPass, setShowPass] = useState(false);
@@ -28,11 +28,11 @@ const ResetPasswordForm = () => {
     if (password === confirmPassword) {
       try {
         await confirmPasswordReset(auth, searchParams.get("oobCode"), password);
-        toast.success("success", { id: "reset-password" });
+        toast.success("success", { autoClose: 1000 });
         navigate("/login");
         setLoading(false);
       } catch (error) {
-        toast.error(error.message, { id: "reset-password" });
+        toast.error(error.message, { autoClose: 1000 });
         setLoading(false);
       }
     } else if (password !== confirmPassword) {

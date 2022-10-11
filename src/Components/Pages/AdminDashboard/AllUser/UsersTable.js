@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 import auth from "../../../Hooks/useAuthState";
 import Loading from "../../../SharedPages/Loading";
@@ -26,7 +26,7 @@ const UsersTable = () => {
   }
 
   if (isError) {
-    toast.error(isError?.message, { id: "allUsers" });
+    toast.error(isError?.message, { autoClose: 1000 });
   }
 
   console.log(user);

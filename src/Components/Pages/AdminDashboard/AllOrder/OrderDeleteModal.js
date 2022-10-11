@@ -1,5 +1,6 @@
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 import axiosPrivet from "../../../Hooks/axiosPrivet";
 
 const OrderDeleteModal = ({ orderDeleteModal, refetch, reset, setOrderDeleteModal }) => {
@@ -9,12 +10,12 @@ const OrderDeleteModal = ({ orderDeleteModal, refetch, reset, setOrderDeleteModa
         const { data } = await axiosPrivet.delete(`/deleteOrder/${id}`);
         if (data?.acknowledged) {
           setOrderDeleteModal(null);
-          toast.success("deleted");
+          toast.success("deleted", { autoClose: 1000 });
           refetch();
           reset();
         }
       } catch (error) {
-        toast.error(error?.message, { id: "deleteUser" });
+        toast.error(error?.message, { autoClose: 1000 });
         console.log(error);
       }
     }

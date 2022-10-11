@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
@@ -13,6 +12,7 @@ import CheckoutTable from "./CheckoutTable";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Loading from "../../SharedPages/Loading";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const CheckOut = () => {
   const { carts, isLoading } = useSelector((state) => state.carts);
@@ -76,7 +76,7 @@ const CheckOut = () => {
 
   const onSubmit = async (data) => {
     if (!user) {
-      toast.error("Please Login or Register Your Fresh Account", { id: "checkout" });
+      toast.error("Please Login or Register Your Fresh Account", { autoClose: 1000 });
       return;
     }
 
@@ -95,12 +95,12 @@ const CheckOut = () => {
       try {
         const { data: result } = await axiosPrivet.post("order", data);
         if (result?.acknowledged) {
-          toast.success("success", { id: "successOrder" });
+          toast.success("success", { autoClose: 1000 });
           navigate("/user-dashboard/my-order");
           reset();
         }
       } catch (error) {
-        toast.error(error.message);
+        toast.error(error.message, { autoClose: 1000 });
       }
     }
   };

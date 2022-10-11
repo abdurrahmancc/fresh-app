@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+
 import { AiOutlinePlus, AiOutlineTwitter } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
 import { BsShuffle } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaRegHeart } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import Footer from "../../SharedPages/Footer/Footer";
@@ -57,7 +58,7 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    toast.success("Add To Cart", { id: "addToCart" });
+    toast.success("Add To Cart", { autoClose: 1000 });
   };
 
   return (
