@@ -6,6 +6,7 @@ import AllOrder from "../Components/adminDashboard/allOrder/AllOrder";
 import AllUsers from "../Components/adminDashboard/allUser/AllUser";
 import Analytics from "../Components/adminDashboard/Analytics/Analytics";
 import DashboardHome from "../Components/adminDashboard/DashboardHome/DashboardHome";
+import FileManager from "../Components/adminDashboard/FileManager/FileManager";
 import Message from "../Components/adminDashboard/Message/Message";
 import PaidOrder from "../Components/adminDashboard/paidOrder/PaidOrder";
 import PendingOrder from "../Components/adminDashboard/pendingOrder/PendingOrder";
@@ -37,7 +38,7 @@ export const adminDashboardRoutes = [
   { path: "order-pending", Component: PendingOrder },
   { path: "message", Component: Message },
   { path: "analytics", Component: Analytics },
-  { path: "file-manager", Component: Analytics },
+  { path: "file-manager", Component: FileManager },
   { path: "saved", Component: Saved },
   { path: "order-paid", Component: PaidOrder },
 ];

@@ -21,12 +21,7 @@ const useValidToken = (user) => {
           setIsValidToken(data?.admin);
           setTokenLoading(false);
         } catch (error) {
-          if (error?.response?.status === (401 || 403)) {
-            removeCookie(accessToken);
-            signOut(auth);
-            setTokenLoading(false);
-            return <Navigate to="/login" state={{ from: location }} replace />;
-          }
+          console.log(error);
           setIsValidToken(false);
           setTokenLoading(false);
         }

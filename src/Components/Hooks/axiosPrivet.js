@@ -2,8 +2,8 @@ import axios from "axios";
 
 const axiosPrivet = axios.create({
   withCredentials: true,
-  // baseURL: "https://fresh-0mf8.onrender.com/api/v1/",
-  baseURL: "http://localhost:5000/api/v1/",
+  baseURL: "https://fresh-0mf8.onrender.com/api/v1/",
+  // baseURL: "http://localhost:5000/api/v1/",
 });
 axiosPrivet.interceptors.request.use(
   function (config) {
