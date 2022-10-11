@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 
 const OrderStatusModal = ({ setStatusModal, statusModal, refetch }) => {
   const handleStateModal = async (id) => {

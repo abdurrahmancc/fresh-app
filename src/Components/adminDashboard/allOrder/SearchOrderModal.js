@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { MdDelete, MdDetails } from "react-icons/md";
-import emptyImg from "../../../../assets/logo/empty-user.png";
+import emptyImg from "../../../assets/logo/empty-user.png";
 
 const SearchOrderModal = ({
   order,

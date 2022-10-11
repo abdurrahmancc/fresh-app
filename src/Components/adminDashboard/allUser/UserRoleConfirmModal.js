@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 
 const UserRoleConfirmModal = ({ inputRoleId, refetch }) => {
   const { user, role } = inputRoleId;

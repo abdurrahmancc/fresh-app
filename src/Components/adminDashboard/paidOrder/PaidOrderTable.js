@@ -18,7 +18,7 @@ const PaidOrderTable = ({ paidOrders, setPaidDeleteModal, refetch }) => {
               <th>Rating</th>
               <th>Total Paid</th>
               <th>status</th>
-              <th>Joining Date</th>
+              <th>Date</th>
               <th>Action</th>
             </tr>
           </thead>

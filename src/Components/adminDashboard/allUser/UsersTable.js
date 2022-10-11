@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
-import DeleteUserModal from "../../Pages/AdminDashboard/AllUser/DeleteUserModal";
-import UserRoleConfirmModal from "../../Pages/AdminDashboard/AllUser/UserRoleConfirmModal";
 import Loading from "../../SharedPages/Loading";
-import AdminTableRow from "./AdminTableRow";
+import DeleteUserModal from "./DeleteUserModal";
+import UserRoleConfirmModal from "./UserRoleConfirmModal";
+import UsersTableRow from "./UsersTableRow";
 
-const AdminTable = () => {
+const UsersTable = () => {
   const [user, loading] = useAuthState(auth);
   const [deleteModal, setDeleteModal] = useState(null);
   const [inputRoleId, setInputRoleId] = useState({});
-  const { data, isLoading, isError, refetch } = useQuery("allAdmin", () =>
-    axiosPrivet.get(`users/admin/${user?.email}`)
+  console.log(user?.email);
+  const { data, isLoading, isError, refetch } = useQuery("getAllUsers", () =>
+    axiosPrivet.get(`users/${user?.email}`)
   );
+
+  const allUsers = data?.data?.users.length > 0 ? data?.data?.users : null;
 
   if (isLoading || loading) {
     return <Loading />;
@@ -25,7 +29,7 @@ const AdminTable = () => {
     toast.error(isError?.message, { autoClose: 1000 });
   }
 
-  const allAdmin = data?.data?.users.length > 0 ? data?.data?.users : null;
+  console.log(user);
   return (
     <div className="pt-6">
       <div className="overflow-x-auto w-full pb-[6.5rem]">
@@ -39,14 +43,15 @@ const AdminTable = () => {
               <th>Address</th>
               <th>Role</th>
               <th>Joining Date</th>
+              <th>Last Joined</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody id="order_Table_Row" className="cursor-pointer">
             {/* <!-- row 1 --> */}
-            {allAdmin &&
-              allAdmin.map((user, index) => (
-                <AdminTableRow
+            {allUsers &&
+              allUsers.map((user, index) => (
+                <UsersTableRow
                   key={index}
                   user={user}
                   index={index}
@@ -56,17 +61,20 @@ const AdminTable = () => {
                 />
               ))}
           </tbody>
-          {/* <!-- foot --> */}
         </table>
-        <DeleteUserModal
-          deleteModal={deleteModal}
-          setDeleteModal={setDeleteModal}
-          refetch={refetch}
-        />
+
+        {deleteModal && (
+          <DeleteUserModal
+            deleteModal={deleteModal}
+            setDeleteModal={setDeleteModal}
+            refetch={refetch}
+          />
+        )}
+
         {inputRoleId && <UserRoleConfirmModal inputRoleId={inputRoleId} refetch={refetch} />}
       </div>
     </div>
   );
 };
 
-export default AdminTable;
+export default UsersTable;

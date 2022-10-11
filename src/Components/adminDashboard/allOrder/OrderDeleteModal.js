@@ -1,7 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-
-import axiosPrivet from "../../../Hooks/axiosPrivet";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 
 const OrderDeleteModal = ({ orderDeleteModal, refetch, reset, setOrderDeleteModal }) => {
   const handleDeleteOrder = async (id) => {

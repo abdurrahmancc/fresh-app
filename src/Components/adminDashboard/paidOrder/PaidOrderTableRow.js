@@ -1,9 +1,14 @@
+import { format } from "date-fns";
 import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { MdDelete, MdLocalShipping, MdOutlineHomeRepairService, MdPending } from "react-icons/md";
 
 const PaidOrderTableRow = ({ paidOrder, index, setPaidDeleteModal, setStatusModal }) => {
+  let orderDate;
+  if (paidOrder?.createdAt) {
+    orderDate = format(new Date(paidOrder?.createdAt), "PP");
+  }
   return (
     <>
       <tr className="hover">
@@ -13,8 +18,8 @@ const PaidOrderTableRow = ({ paidOrder, index, setPaidDeleteModal, setStatusModa
         </td>
         <td>
           <div>
-            <div className="font-normal ">{paidOrder?.phoneNumber}</div>
-            <div className="text-xs ">{paidOrder?.email}</div>
+            <div className="font-normal ">{paidOrder?.phone}</div>
+            <div className="text-xs ">{paidOrder?.userEmail}</div>
           </div>
         </td>
         <td>
@@ -26,7 +31,9 @@ const PaidOrderTableRow = ({ paidOrder, index, setPaidDeleteModal, setStatusModa
           </div>
         </td>
         <td>
-          <span className="font-normal capitalize">$ {paidOrder?.totalPaid}</span>
+          <span className="font-normal capitalize">
+            $ {paidOrder?.totalPaid && Number(paidOrder?.totalPaid).toFixed(2)}
+          </span>
         </td>
         <td className="flex items-center gap-2">
           <span className="font-normal capitalize">
@@ -82,7 +89,7 @@ const PaidOrderTableRow = ({ paidOrder, index, setPaidDeleteModal, setStatusModa
           </div>
         </td>
         <td>
-          <span className="">$ {paidOrder?.paidDate}</span>
+          <span className=""> {orderDate}</span>
         </td>
         <td>
           <label htmlFor="paidOrderDelete">

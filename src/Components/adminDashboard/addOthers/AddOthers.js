@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
-import { imgUpload } from "../../../api/api";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
 import OthersBasicInfo from "./OthersBasicInfo";
-import ProductImage from "../AddProduct/ProductImage";
-import ScrollBtn from "../../../SharedPages/ScrollBtn";
-import Breadcrumb from "../../../SharedPages/Breadcrumb";
-import Loading from "../../../SharedPages/Loading";
 import { toast } from "react-toastify";
+import { imgUpload } from "../../api/api";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
+import Loading from "../../SharedPages/Loading";
+import Breadcrumb from "../../SharedPages/Breadcrumb";
+import axiosPrivet from "../../Hooks/axiosPrivet";
+import ProductImage from "../addProduct/ProductImage";
 
 const AddOthers = () => {
   const [uploadAImage, setUploadAImage] = useState(true);

@@ -7,7 +7,7 @@ const MyOrderTableRow = ({ order, index, setMyOrderModal, Td, Tr }) => {
   const navigate = useNavigate();
   let orderDate;
   if (order?.createdAt) {
-    orderDate = format(new Date(order?.createdAt), "PP");
+    orderDate = format(new Date(order?.updatedAt), "PP");
   }
 
   const totalPrice = order?.totalPrice ? parseFloat(order?.totalPrice) : null;

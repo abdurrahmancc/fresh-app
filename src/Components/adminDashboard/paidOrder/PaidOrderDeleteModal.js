@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 
 const PaidOrderDeleteModal = ({ children }) => {
   const [setPaidDeleteModal, refetch, paidDeleteModal] = children;
@@ -16,7 +16,6 @@ const PaidOrderDeleteModal = ({ children }) => {
         }
       } catch (error) {
         toast.error(error?.message, { id: "deleteUser" });
-        console.log(error);
       }
     }
   };

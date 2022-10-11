@@ -3,13 +3,13 @@ import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
 import { useQuery } from "react-query";
 import { useForm } from "react-hook-form";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
-import Loading from "../../../SharedPages/Loading";
-import ScrollBtn from "../../../SharedPages/ScrollBtn";
 import OrderTable from "./OrderTable";
 import SearchOrderModal from "./SearchOrderModal";
-import Breadcrumb from "../../../SharedPages/Breadcrumb";
 import { toast } from "react-toastify";
+import axiosPrivet from "../../Hooks/axiosPrivet";
+import Loading from "../../SharedPages/Loading";
+import Breadcrumb from "../../SharedPages/Breadcrumb";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
 
 const AllOrder = () => {
   const [page, setPage] = useState(0);
@@ -23,7 +23,6 @@ const AllOrder = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     setError,
     formState: { errors },
@@ -38,8 +37,12 @@ const AllOrder = () => {
     })();
   }, [size]);
 
-  const { data, isLoading, refetch } = useQuery(["userOrders", page, size], () =>
-    axiosPrivet.post(`allOrders/?page=${page}&size=${size}`)
+  const {
+    data: result,
+    isLoading,
+    refetch,
+  } = useQuery(["userOrders", page, size], () =>
+    axiosPrivet.post(`order/orders?page=${page}&size=${size}`)
   );
 
   if (isLoading) {
@@ -68,7 +71,7 @@ const AllOrder = () => {
     <>
       <div className="p-10 w-full">
         <div className="flex justify-between pb-4">
-          <h4 className="uppercase text-[1.4vw]   text-neutral font-bold">ORDERS</h4>
+          <h4 className="uppercase text-[1.4vw] text-neutral font-bold">ORDERS</h4>
           <div>
             <div className="text-sm breadcrumbs">
               <Breadcrumb />
@@ -117,7 +120,7 @@ const AllOrder = () => {
             </div>
           </div>
           <OrderTable
-            orders={data?.data}
+            orders={result?.data?.orders}
             refetch={refetch}
             reset={reset}
             setOrderDeleteModal={setOrderDeleteModal}
@@ -135,16 +138,18 @@ const AllOrder = () => {
               orderDetailModal={orderDetailModal}
             />
           )}
-          <div className="flex justify-center ">
-            {[...Array(pageCount).keys()].map((number, index) => (
+          <div className="flex justify-center gap-1 -mt-10 pb-5">
+            {[...Array(5).keys()].map((number, index) => (
               <button
                 key={index}
-                className={`btn border rounded-none text-neutral border-primary ${
-                  page === number ? "btn-primary" : ""
+                className={`btn rounded-full border-[#76A713]   border px-5 flex justify-center items-center hover:bg-[#76A713] hover:text-white ${
+                  page === number
+                    ? "bg-[#76A713] hover:bg-[#76A713] text-white hover:border-[#76A713] "
+                    : "text-black"
                 }`}
                 onClick={() => setPage(number)}
               >
-                {number + 1}
+                <span>{number + 1}</span>
               </button>
             ))}
           </div>

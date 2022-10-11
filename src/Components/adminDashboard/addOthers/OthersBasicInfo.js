@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
-import { categoryOptions } from "../AddProduct/dashboardSelectorOptions";
-import { selectCategoryStyle } from "../AddProduct/selectorStyle";
+import { categoryOptions } from "../addProduct/dashboardSelectorOptions";
+import { selectCategoryStyle } from "../addProduct/selectorStyle";
 
 const OthersBasicInfo = ({ register, errors, selectedCategory, setSelectedCategory }) => {
   return (

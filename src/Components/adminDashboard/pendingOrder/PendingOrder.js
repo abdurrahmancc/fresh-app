@@ -1,7 +1,7 @@
 import React from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
-import Breadcrumb from "../../../SharedPages/Breadcrumb";
+import Breadcrumb from "../../SharedPages/Breadcrumb";
 import PendingOrderTable from "./PendingOrderTable";
 
 const PendingOrder = () => {

@@ -5,10 +5,10 @@ import { CgLogOff } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
 import { BiSearch, BiSearchAlt } from "react-icons/bi";
 import { signOut } from "firebase/auth";
-import auth from "../../Hooks/useAuthState";
 import AdminDashboardThemes from "./AdminDashboardThemes";
-import { accessToken, removeCookie } from "../../Hooks/useCookies";
 import { Link } from "react-router-dom";
+import auth from "../Hooks/useAuthState";
+import { accessToken, removeCookie } from "../Hooks/useCookies";
 
 const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen }) => {
   const [openSearch, setOpenSearch] = useState(false);

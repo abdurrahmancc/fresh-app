@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { ImStarHalf } from "react-icons/im";
 import { FaUserAlt } from "react-icons/fa";
-import { MdDarkMode, MdLocationOn } from "react-icons/md";
 import { BiHeart, BiNotepad, BiUser } from "react-icons/bi";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { AiFillSetting, AiOutlineCaretDown } from "react-icons/ai";
+import { AiOutlineCaretDown } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { VscSettings } from "react-icons/vsc";
 import { useAuthState } from "react-firebase-hooks/auth";

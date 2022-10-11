@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ToggleAdminDashboardSideBar } from "../../../App";
+import { ToggleAdminDashboardSideBar } from "../../App";
 
 const AdminDashboardThemes = ({ toggleSideBar, setToggleSideBar }) => {
   const getToggleSiteBar = useContext(ToggleAdminDashboardSideBar);
+
   const [themes, setThemes] = useState("");
-  // console.log(themes);
 
   const getThemes = localStorage.getItem("themesDashboard");
   useEffect(() => {

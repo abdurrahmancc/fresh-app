@@ -2,23 +2,21 @@ import React, { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
 import { useQuery } from "react-query";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
-import Breadcrumb from "../../../SharedPages/Breadcrumb";
+import axiosPrivet from "../../Hooks/axiosPrivet";
+import Breadcrumb from "../../SharedPages/Breadcrumb";
+import Loading from "../../SharedPages/Loading";
 import PaidOrderDeleteModal from "./PaidOrderDeleteModal";
 import PaidOrderTable from "./PaidOrderTable";
 
 const PaidOrder = () => {
   const [paidDeleteModal, setPaidDeleteModal] = useState(null);
-  const crumbs = [
-    { path: "admin-dashboard", name: "admin-dashboard" },
-    { path: "admin-dashboard/order-paid", name: "order-paid" },
-  ];
+
   const { data, isLoading, refetch } = useQuery("allPayments", () =>
-    axiosPrivet.get("allPayments")
+    axiosPrivet.get("order/paid/Orders")
   );
 
   if (isLoading) {
-    // return <Loading />;
+    return <Loading />;
   }
 
   const deleteModalInfo = [setPaidDeleteModal, refetch, paidDeleteModal];
@@ -60,7 +58,7 @@ const PaidOrder = () => {
         </div>
         <PaidOrderTable
           refetch={refetch}
-          paidOrders={data?.data}
+          paidOrders={data?.data?.orders}
           setPaidDeleteModal={setPaidDeleteModal}
         />
         {paidDeleteModal && <PaidOrderDeleteModal>{deleteModalInfo}</PaidOrderDeleteModal>}

@@ -1,10 +1,17 @@
+import { format } from "date-fns";
 import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { MdDelete, MdDetails } from "react-icons/md";
-import emptyImg from "../../../../assets/logo/empty-user.png";
+import { useNavigate } from "react-router-dom";
+import emptyImg from "../../../assets/logo/empty-user.png";
 
 const OrderTableRow = ({ index, order, setOrderDeleteModal, setOrderDetailModal }) => {
+  const navigate = useNavigate();
+  let orderDate;
+  if (order?.createdAt) {
+    orderDate = format(new Date(order?.updatedAt), "PP");
+  }
   return (
     <>
       <tr className="hover">
@@ -30,12 +37,21 @@ const OrderTableRow = ({ index, order, setOrderDeleteModal, setOrderDetailModal 
             </div>
           </div>
         </td>
-        <td>{order?.timeDate}</td>
-        <td>$ {order?.totalPrice}</td>
+        <td>{orderDate}</td>
+        <td>$ {order?.totalPrice && Number(order?.totalPrice).toFixed(2)}</td>
         <td className=" ">
-          <span className=" btn btn-ghost text-success px-3 font-normal bg-[#2B4A50] rounded-full btn-xs capitalize">
-            Paid{" "}
-          </span>
+          {order.paid ? (
+            <span className="px-[27px] font-normal text-white text-sm rounded-full py-[2.5px] capitalize bg-[#2B4A50] ">
+              Paid
+            </span>
+          ) : (
+            <span
+              onClick={() => navigate(`/user-dashboard/payment/${order?._id}`)}
+              className="btn px-3 font-normal btn-warning text-neutral rounded-full btn-xs text-sm capitalize"
+            >
+              Pay Now
+            </span>
+          )}
         </td>
 
         <td>

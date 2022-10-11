@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import ScrollBtn from "../../../SharedPages/ScrollBtn";
+import ScrollBtn from "../../SharedPages/ScrollBtn";
 import ProductImage from "./ProductImage";
 import BasicInformation from "./BasicInformation";
 import DetailsInformation from "./DetailsInformation";
-import { imgUpload } from "../../../api/api";
-import axiosPrivet from "../../../Hooks/axiosPrivet";
-import Breadcrumb from "../../../SharedPages/Breadcrumb";
+import { imgUpload } from "../../api/api";
+import Breadcrumb from "../../SharedPages/Breadcrumb";
 import { dimensionsOptions, stockStatusOptions } from "./dashboardSelectorOptions";
 import { toast } from "react-toastify";
+import axiosPrivet from "../../Hooks/axiosPrivet";
 
 const AddProduct = () => {
   const [uploadAImage, setUploadAImage] = useState(true);
