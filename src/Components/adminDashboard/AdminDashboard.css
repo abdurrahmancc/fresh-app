@@ -1,0 +1,29 @@
+/*------------------------------------------
+     admin dashboard Collapsible style start
+------------------------------------------- */
+#admin-dashboard-Collapsible span{
+    display:  flex ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#admin-dashboard-Collapsible .Collapsible__trigger.is-open svg {
+    transform: rotate(180deg);
+  }
+
+/*------------------------------------------
+     admin dashboard Collapsible style end
+------------------------------------------- */
+
+
+.link{
+    transition: 0.2s cubic-bezier(0.6,-0.28,0.735, 0.045);
+}
+@media screen and (max-width:1023px) {
+    .sidebar{
+        position: absolute;
+        /* top: 70px; */
+
+    }
+}
+

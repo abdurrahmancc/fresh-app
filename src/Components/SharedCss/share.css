@@ -1,0 +1,74 @@
+/* product button animate */
+.btn-animate{
+    background-image: linear-gradient(#76A713,#76A713);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: .4s ;
+  }
+.btn-animate:hover {
+    background-size: 100% 100%;
+
+  }
+
+
+  /*-------------- product card shadow---------- */
+  .product-card-shadow:hover{
+    box-shadow:1px 1px 10px 1px #C9C9C9;
+    -webkit-box-shadow:1px 1px 10px 1px #C9C9C9;
+    -moz-box-shadow:1px 1px 10px 1px #C9C9C9;
+  }
+
+#select-component .css-1s2u09g-control{
+    border: none;
+    border-width: 0px;
+}
+#select-component .css-1pahdxg-control{
+    border: none;
+    border-width: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+#select-component .css-1okebmr-indicatorSeparator{
+    display: none;
+}
+
+
+#top-header-select-component .css-1okebmr-indicatorSeparator{
+    display: none;
+}
+
+#top-header-select-component .css-319lph-ValueContainer{
+    padding: 0;
+}
+
+#top-header-select-component .css-1d8n9bt,  .css-319lph-ValueContainer {
+    padding: 0 !important;
+}
+
+/* custom Badge */
+.customBadge{
+    padding: 5px 14px;
+    position: absolute;
+    top: 0;
+    border-bottom-right-radius: 1rem;
+    display: inline-block;
+    
+}
+
+
+.btn-loading {
+    height: 20px;
+    width: 20px;
+    background: none;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    animation: spinner2 1s linear infinite;
+}
+
+@keyframes spinner2 {
+    to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,17 @@
+#faq-Collapsible .Collapsible__trigger{
+    font-size: 16px;
+    padding: 20px;
+    line-height: 28px;
+    font-weight: bold;
+}
+
+#faq-Collapsible .Collapsible__trigger{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+  
+#faq-Collapsible .Collapsible__trigger.is-open svg {
+    transform: rotate(180deg);
+  }
