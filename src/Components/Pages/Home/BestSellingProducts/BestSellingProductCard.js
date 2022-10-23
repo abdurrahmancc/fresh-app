@@ -38,6 +38,7 @@ const BestSellingProduct = ({ product }) => {
     dispatch(addToCompare(item));
     toast.success("Add to compare", { autoClose: 1000 });
   };
+
   return (
     <div
       onMouseEnter={showCartHandler}

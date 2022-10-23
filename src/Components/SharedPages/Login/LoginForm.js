@@ -16,7 +16,6 @@ import axiosPrivet from "../../Hooks/axiosPrivet";
 import auth from "../../Hooks/useAuthState";
 import { accessToken } from "../../Hooks/useCookies";
 import useValidToken from "../../Hooks/useValidToken";
-import Loading from "../Loading";
 
 const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
   const [showPass, setShowPass] = useState(false);
@@ -48,7 +47,6 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
       setIsLogin(false);
     } catch (error) {
       setIsLogin(false);
-      console.log(error);
       toast.error("login fail! please try again", { autoClose: 1000 });
     }
   };
@@ -74,19 +72,16 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
           const displayName = gUser?.user?.displayName;
           const providerId = gUser?.providerId;
           let info = { username, displayName, photoURL, providerId };
-          const { data: result } = await axiosPrivet.put("users/google", info);
+          const { data: result } = await axiosPrivet.put("login/google", info);
           Cookies.set(accessToken, result.token);
           navigate(from, { replace: true });
         } catch (error) {
+          console.log(error);
           toast.error(error?.message, { autoClose: 1000 });
         }
       })();
     }
   }, [gUser, navigate, from]);
-
-  if (gLoading) {
-    return <Loading />;
-  }
 
   return (
     <>
@@ -207,8 +202,15 @@ const LoginForm = ({ handleLoginMOdal, setIsOpenModal }) => {
             onClick={() => signInWithGoogle()}
             className="relative bottom-0 z-50 cursor-pointer text-sm inline-flex items-center transition ease-in-out duration-300 font-semibold text-center justify-center rounded-md capitalize focus:outline-none text-gray-600 bg-gray-100 shadow-sm md:px-2 my-1 sm:my-1 md:my-1 lg:my-0 lg:px-3 py-4 md:py-3.5 lg:py-4 gap-1 hover:text-white hover:bg-error h-11 md:h-12 w-full mr-2"
           >
-            <BsGoogle />
-            <span>Continue with google</span>
+            {gLoading ? (
+              <span className="btn-loading inline-block"></span>
+            ) : (
+              <span className="flex items-center gap-[6px]">
+                {" "}
+                <BsGoogle />
+                <span>Continue with google</span>
+              </span>
+            )}
           </button>
         </div>
         <div className="mt-4 text-center text-gray-500">

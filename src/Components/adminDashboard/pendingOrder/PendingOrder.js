@@ -1,10 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
 import Breadcrumb from "../../SharedPages/Breadcrumb";
 import PendingOrderTable from "./PendingOrderTable";
 
 const PendingOrder = () => {
+  const [page, setPage] = useState(0);
+
   return (
     <div className="p-10 w-full">
       <div className="flex justify-between pb-4">
@@ -18,6 +21,7 @@ const PendingOrder = () => {
       <div className="bg-base-100 p-5">
         <div className="flex justify-between">
           <div>
+            {/* ========= form start======== */}
             <form>
               <label className={`relative w-[250px]  md:block max-w-xs hidden `}>
                 <button
@@ -34,6 +38,7 @@ const PendingOrder = () => {
                 />
               </label>
             </form>
+            {/* ========= form end======== */}
           </div>
           <div>
             <button className="btn btn-sm capitalize font-normal  text-neutral rounded-full btn-success">
@@ -42,6 +47,21 @@ const PendingOrder = () => {
           </div>
         </div>
         <PendingOrderTable />
+        <div className="flex justify-center gap-1 -mt-10 pb-5">
+          {[...Array(5).keys()].map((number, index) => (
+            <button
+              key={index}
+              className={`btn rounded-full border-[#76A713]   border px-5 flex justify-center hover:border-[#76A713] items-center hover:bg-[#76A713] hover:text-white ${
+                page === number
+                  ? "bg-[#76A713] hover:bg-[#76A713] text-white hover:border-[#76A713] "
+                  : "text-black"
+              }`}
+              onClick={() => setPage(number)}
+            >
+              <span>{number + 1}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

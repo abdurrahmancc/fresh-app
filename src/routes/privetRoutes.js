@@ -17,6 +17,7 @@ import MyOrder from "../Components/UserDashBoard/MyOrder/MyOrder";
 import Payment from "../Components/UserDashBoard/Payment/Payment";
 import UserDashboardDetails from "../Components/UserDashBoard/userDashboardDetails/UserDashboardDetails";
 
+/*============= user Dashboard Routes ===============*/
 export const userDashboardRoutes = [
   { path: "my-account", Component: MyAccount },
   { path: "my-address", Component: MyAddress },
@@ -25,6 +26,7 @@ export const userDashboardRoutes = [
   { path: "user-dashboard-details", Component: UserDashboardDetails },
 ];
 
+/* ============= admin Dashboard Routes ================= */
 export const adminDashboardRoutes = [
   { path: "home-dashboard", Component: DashboardHome },
   { path: "ecommerce", Component: AdminDashboardSubMenu },

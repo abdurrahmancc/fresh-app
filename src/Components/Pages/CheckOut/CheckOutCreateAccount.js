@@ -20,9 +20,6 @@ const CheckOutCreateAccount = ({ register, errors }) => {
           <div className="grid m-1 lg:grid-cols-2 lg:gap-5">
             {/* Create account password * */}
             <div className="form-control pb-5 w-full">
-              {/* <label htmlFor="createAccountPassword" className="label">
-        <span className="label-text text-xs">Create account password *</span>
-      </label> */}
               <input
                 id="createAccountPassword"
                 type="text"
@@ -40,9 +37,6 @@ const CheckOutCreateAccount = ({ register, errors }) => {
             </div>
             {/* Confirm Password **/}
             <div className="form-control pb-5 w-full">
-              {/* <label htmlFor="confirmPassword" className="label">
-        <span className="label-text text-xs">Confirm Password *</span>
-      </label> */}
               <input
                 id="confirmPassword"
                 type="text"

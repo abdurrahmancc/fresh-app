@@ -58,9 +58,7 @@ const ContactForm = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label pb-0 pt-4">
-                    {/* <span className="label-text ">Phone number</span> */}
-                  </label>
+                  <label className="label pb-0 pt-4"></label>
                   <input
                     type="text"
                     placeholder="Phone Number"
@@ -72,9 +70,7 @@ const ContactForm = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label pt-4 pb-0">
-                    {/* <span className="label-text ">Name</span> */}
-                  </label>
+                  <label className="label pt-4 pb-0"></label>
                   <input
                     type="text"
                     placeholder="Subject"
@@ -86,9 +82,7 @@ const ContactForm = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label pb-0 pt-4">
-                    {/* <span className="label-text ">Email</span> */}
-                  </label>
+                  <label className="label pb-0 pt-4"></label>
                   <input
                     type="email"
                     placeholder="Email"
@@ -111,9 +105,7 @@ const ContactForm = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label pt-4 pb-0">
-                    {/* <span className="label-text ">How can I help you?</span> */}
-                  </label>
+                  <label className="label pt-4 pb-0"></label>
                   <textarea
                     className="textarea h-44  border border-gray-300  textarea-bordered"
                     placeholder="Tell us a little about the project..."

@@ -1,7 +1,5 @@
-import { signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import axiosPrivet from "./axiosPrivet";
-import auth from "./useAuthState";
 
 const useAdmin = (user) => {
   const [admin, setAdmin] = useState(false);

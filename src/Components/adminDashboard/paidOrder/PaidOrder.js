@@ -10,6 +10,7 @@ import PaidOrderTable from "./PaidOrderTable";
 
 const PaidOrder = () => {
   const [paidDeleteModal, setPaidDeleteModal] = useState(null);
+  const [page, setPage] = useState(0);
 
   const { data, isLoading, refetch } = useQuery("allPayments", () =>
     axiosPrivet.get("order/paid/Orders")
@@ -33,6 +34,7 @@ const PaidOrder = () => {
       <div className="bg-base-100 p-5">
         <div className="flex justify-between">
           <div>
+            {/* ========= search form start======== */}
             <form>
               <label className={`relative w-[250px]  md:block max-w-xs hidden `}>
                 <button
@@ -49,6 +51,7 @@ const PaidOrder = () => {
                 />
               </label>
             </form>
+            {/* ========= search form end======== */}
           </div>
           <div>
             <button className="btn btn-sm capitalize font-normal  text-neutral rounded-full btn-success">
@@ -62,6 +65,21 @@ const PaidOrder = () => {
           setPaidDeleteModal={setPaidDeleteModal}
         />
         {paidDeleteModal && <PaidOrderDeleteModal>{deleteModalInfo}</PaidOrderDeleteModal>}
+        <div className="flex justify-center gap-1 -mt-10 pb-5">
+          {[...Array(5).keys()].map((number, index) => (
+            <button
+              key={index}
+              className={`btn rounded-full border-[#76A713]   border px-5 flex justify-center hover:border-[#76A713] items-center hover:bg-[#76A713] hover:text-white ${
+                page === number
+                  ? "bg-[#76A713] hover:bg-[#76A713] text-white hover:border-[#76A713] "
+                  : "text-black"
+              }`}
+              onClick={() => setPage(number)}
+            >
+              <span>{number + 1}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

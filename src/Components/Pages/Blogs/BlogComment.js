@@ -16,6 +16,7 @@ const BlogComment = () => {
   };
   return (
     <>
+      {/* ========== blog comment form start ========= */}
       <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
         <span className="font-bold">Comment *</span>
         <textarea className="textarea textarea-bordered w-full h-52" placeholder=""></textarea>
@@ -87,6 +88,7 @@ const BlogComment = () => {
           Submit
         </button>
       </form>
+      {/* ========== blog comment form end ========= */}
     </>
   );
 };

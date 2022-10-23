@@ -143,13 +143,6 @@ const ShopHorizontalCard = ({ item }) => {
               <MdAddShoppingCart /> Add to cart
             </button>
           </div>
-          {/* <div>
-          <span className="text-error capitalize">
-            {item?.stockStatus && item?.stockStatus.includes("in stock")
-              ? item?.stockStatus
-              : "out stock"}
-          </span>
-        </div> */}
         </div>
       </div>
       <QuickVIewProductModal product={item} />

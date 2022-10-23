@@ -30,7 +30,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating] = useUpdateProfile(auth);
   const [isLoading, setIsLoading] = useState(false);
-  const [validToken] = useValidToken(user || cUser);
+  const [validToken, tokenLoading] = useValidToken(user || cUser);
   const from = location.state?.from?.pathname || "/";
   const {
     register,
@@ -40,17 +40,17 @@ const RegisterForm = ({ handleLoginMOdal }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const email = data.email;
-    const confirmPassword = data.confirmPassword;
-    const password = data.password;
-    const displayName = data.name;
-    const info = { displayName, password, email };
-    if (password !== confirmPassword) {
-      toast.error("Password does not match", { autoClose: 1000 });
-      setError("confirmPassword", { type: "matching", message: "Password does not match" });
-      return;
-    }
     try {
+      const email = data.email;
+      const confirmPassword = data.confirmPassword;
+      const password = data.password;
+      const displayName = data.name;
+      const info = { displayName, password, email };
+      if (password !== confirmPassword) {
+        toast.error("Password does not match", { autoClose: 1000 });
+        setError("confirmPassword", { type: "matching", message: "Password does not match" });
+        return;
+      }
       setIsLoading(true);
       const { data: result } = await axiosPrivet.post("users", info);
       if (result.token) {
@@ -94,7 +94,7 @@ const RegisterForm = ({ handleLoginMOdal }) => {
     }
   }, [gUser, navigate, from]);
 
-  if (gLoading) {
+  if (gLoading || tokenLoading) {
     return <Loading />;
   }
 
@@ -220,13 +220,13 @@ const RegisterForm = ({ handleLoginMOdal }) => {
                       onClick={() => setShowConfirmPass(!showConfirmPass)}
                       className="text-lg absolute cursor-pointer z-20 right-3 top-11 text-gray-500"
                     >
-                      <AiFillEyeInvisible className={`${showPass || "hidden"} `} />{" "}
-                      <AiFillEye className={`${showPass ? "hidden" : ""} `} />
+                      <AiFillEyeInvisible className={`${showConfirmPass || "hidden"} `} />{" "}
+                      <AiFillEye className={`${showConfirmPass ? "hidden" : ""} `} />
                     </div>
                   </div>
                 </label>
                 <input
-                  type={`${showPass ? "text" : "password"}`}
+                  type={`${showConfirmPass ? "text" : "password"}`}
                   placeholder="Confirm password"
                   className="input bg-white pl-16 input-bordered py-2 z-10 w-full appearance-none border text-sm text-gray-700 placeholder:text-gray-700 rounded-md min-h-12 transition duration-200 focus:ring-0 ease-in-out border-gray-300 focus:outline-none focus:border-primary h-11 md:h-12"
                   {...register("confirmPassword", {

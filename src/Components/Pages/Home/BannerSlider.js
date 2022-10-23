@@ -15,7 +15,6 @@ const BannerSlider = () => {
   return (
     <>
       <Swiper
-        spaceBetween={30}
         centeredSlides={true}
         pagination={{
           clickable: true,

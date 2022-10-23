@@ -16,6 +16,7 @@ const OrderTable = ({
   return (
     <div className="pt-6">
       <div className="overflow-x-auto w-full pb-[6.5rem]">
+        {/* ========= table start====== */}
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
@@ -42,12 +43,15 @@ const OrderTable = ({
               ))}
           </tbody>
         </table>
+        {/* ========= table end ====== */}
+        {/* ========= delete modal start====== */}
         <OrderDeleteModal
           orderDeleteModal={orderDeleteModal}
           setOrderDeleteModal={setOrderDeleteModal}
           refetch={refetch}
           reset={reset}
         />
+        {/* ========= delete modal end ====== */}
         {orderDetailModal && <OrderDetails orderDetailModal={orderDetailModal} />}
       </div>
     </div>

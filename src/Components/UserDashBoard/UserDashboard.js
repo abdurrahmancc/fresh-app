@@ -89,7 +89,7 @@ const UserDashboard = () => {
                   </div>
                   <div className="p-10 hover:bg-white flex flex-col">
                     <div className="avatar online mx-auto">
-                      <div className="w-24 rounded-full">
+                      <div className="w-24 border-2 border-primary rounded-full">
                         <img
                           src={user?.photoURL ? user?.photoURL : emptyUser}
                           className={"mx-auto"}

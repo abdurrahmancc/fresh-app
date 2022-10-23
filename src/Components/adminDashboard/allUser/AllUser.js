@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { HiOutlinePlus } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +7,7 @@ import Breadcrumb from "../../SharedPages/Breadcrumb";
 import UsersTable from "./UsersTable";
 
 const AllUsers = () => {
+  const [page, setPage] = useState(0);
   const navigate = useNavigate();
 
   return (
@@ -48,8 +50,20 @@ const AllUsers = () => {
           </div>
         </div>
         <UsersTable />
-        <div className="flex justify-center w-full relative top-[-40px]">
-          {/* <Pagination /> */}
+        <div className="flex justify-center gap-1 -mt-10 pb-5">
+          {[...Array(5).keys()].map((number, index) => (
+            <button
+              key={index}
+              className={`btn rounded-full border-[#76A713]   border px-5 flex justify-center hover:border-[#76A713] items-center hover:bg-[#76A713] hover:text-white ${
+                page === number
+                  ? "bg-[#76A713] hover:bg-[#76A713] text-white hover:border-[#76A713] "
+                  : "text-black"
+              }`}
+              onClick={() => setPage(number)}
+            >
+              <span>{number + 1}</span>
+            </button>
+          ))}
         </div>
       </div>
     </div>

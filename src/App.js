@@ -8,7 +8,6 @@ import RequireAuth from "./Components/SharedPages/RequireAuth/RequireAuth";
 import UserDashboard from "./Components/UserDashBoard/UserDashboard";
 import RequireAdmin from "./Components/SharedPages/RequireAdmin/RequireAdmin";
 import { publicRoutes } from "./routes/publicRoutes";
-import { useSelector } from "react-redux";
 import UserDashboardDetails from "./Components/UserDashBoard/userDashboardDetails/UserDashboardDetails";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,9 +16,6 @@ import AdminDashboard from "./Components/adminDashboard/AdminDashboard";
 import { adminDashboardRoutes, userDashboardRoutes } from "./routes/privetRoutes";
 
 function App() {
-  const count = useSelector((state) => state);
-
-  console.log(count);
   return (
     <>
       <ToastContainer />

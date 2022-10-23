@@ -18,7 +18,9 @@ const ForgotPasswordForm = () => {
   const onSubmit = async (data) => {
     const email = data.email;
     try {
-      await sendPasswordResetEmail(email, { url: "http://localhost:3000/login" });
+      await sendPasswordResetEmail(email, {
+        url: `${process.env.REACT_APP_FRESH_LIVE_SITE_URL}/login`,
+      });
       toast.success("Email send, please check your email", { autoClose: 1000 });
     } catch (error) {
       toast.error(error.message, { autoClose: 1000 });

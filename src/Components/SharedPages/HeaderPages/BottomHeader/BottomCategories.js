@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Collapsible from "react-collapsible";
 import { BsChevronDown } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";
@@ -54,7 +54,7 @@ const BottomCategories = () => {
             <Link to={"/categories/AC"}>Meat</Link>
           </li>
           <li className="hover:bg-primary border-b border-gray-200 hover:text-neutral capitalize">
-            <a className="">More Category</a>
+            <a>More Category</a>
           </li>
         </ul>
       </Collapsible>

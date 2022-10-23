@@ -22,7 +22,6 @@ const OrderDeleteModal = ({ orderDeleteModal, refetch, reset, setOrderDeleteModa
   return (
     <>
       <input type="checkbox" id="userOrderDelete" className="modal-toggle" />
-
       <div className="modal">
         <div className="modal-box ">
           <h3 className="font-bold text-lg text-center">Are you suer want to delete</h3>

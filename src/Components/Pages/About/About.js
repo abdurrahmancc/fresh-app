@@ -1,6 +1,5 @@
 import React from "react";
 import banner from "../../../assets/about-img/organic-foods.png";
-
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Footer from "../../SharedPages/Footer/Footer";
 import FreeOnlineMoney from "../Home/FreeOnlineMoney";

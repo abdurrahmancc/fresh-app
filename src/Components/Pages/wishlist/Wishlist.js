@@ -38,6 +38,7 @@ const Wishlist = () => {
         <section className="container mx-auto px-10 sm:px-0 mt-20 min-h-[calc(100vh-820px)] ">
           {wishlist?.length >= 1 ? (
             <div className="border rounded-sm max-w-full">
+              {/* ========== wishlist table start ======== */}
               <Table className="w-full">
                 {/* <!-- head --> */}
                 <Thead className="sm:border sm:border-b-2 sm:border-b-primary bg-[#F3F3F3]">
@@ -62,6 +63,7 @@ const Wishlist = () => {
                     ))}
                 </Tbody>
               </Table>
+              {/* ========== wishlist table end ======== */}
             </div>
           ) : (
             <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">

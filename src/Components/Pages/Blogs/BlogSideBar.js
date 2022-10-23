@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BiSearchAlt } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
@@ -12,6 +12,53 @@ import product3 from "../../../assets/products_img/dryShrimp-1.png";
 import product4 from "../../../assets/products_img/greenPeasPacket-1.png";
 import sideBanner from "../../../assets/banner_img/side-banner-6.png";
 
+const products = [
+  {
+    _id: "1",
+    title: "Cashew Nuts",
+    img: product1,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: "new",
+  },
+  {
+    _id: "2",
+    title: "dried Fish Packet",
+    img: product2,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: "new",
+  },
+  {
+    _id: "3",
+    title: "Dry Shrimp",
+    img: product3,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: 20,
+  },
+  {
+    _id: "4",
+    title: "green Peas Packet",
+    img: product4,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: "hot",
+  },
+];
+
 const BlogSideBar = () => {
   const {
     register,
@@ -23,52 +70,6 @@ const BlogSideBar = () => {
   const inputSearch = watch("search");
   const onSubmit = (data) => {};
 
-  const products = [
-    {
-      _id: "1",
-      title: "Cashew Nuts",
-      img: product1,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "new",
-    },
-    {
-      _id: "2",
-      title: "dried Fish Packet",
-      img: product2,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "new",
-    },
-    {
-      _id: "3",
-      title: "Dry Shrimp",
-      img: product3,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: 20,
-    },
-    {
-      _id: "4",
-      title: "green Peas Packet",
-      img: product4,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "hot",
-    },
-  ];
   let isLast = products[products.length - 1];
 
   return (

@@ -18,13 +18,11 @@ const MyOrderDetailsModal = ({ myOrderModal }) => {
   console.log(myOrderModal);
   return (
     <>
-      {/* <!-- The button to open modal --> */}
-
-      {/* <!-- Put this part before </body> tag --> */}
       <input type="checkbox" id="myOrderDetails" className="modal-toggle" />
       <label htmlFor="myOrderDetails" className="modal cursor-pointer">
         <label className="modal-box relative p-2" htmlFor="">
           <div className="w-full p-5 rounded-2xl">
+            {/* ========= order details modal start ====== */}
             <Table className=" w-full">
               <Thead>
                 <Tr className="text-center relative left-7">
@@ -86,6 +84,7 @@ const MyOrderDetailsModal = ({ myOrderModal }) => {
                 </Tr>
               </Tbody>
             </Table>
+            {/* ========= order details modal end ====== */}
           </div>
         </label>
       </label>

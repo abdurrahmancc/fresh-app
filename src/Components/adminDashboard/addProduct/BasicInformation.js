@@ -10,10 +10,9 @@ const BasicInformation = ({
   selectedCategory,
   setSelectedCategory,
   setSelectedDimensions,
-  setSelectedStockStatus,
 }) => {
   const [data, setData] = useState(null);
-  console.log(data);
+
   return (
     <>
       <div className="grid sm:grid-cols-2 grid-cols-1 gap-10">

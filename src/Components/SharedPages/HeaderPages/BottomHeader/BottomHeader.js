@@ -199,6 +199,8 @@ const BottomHeader = () => {
     </>
   );
 
+  console.log(admin);
+
   return (
     <div className="bg-primary">
       {/*----- Bottom Header start -----*/}

@@ -9,9 +9,17 @@ import AdminDashboardThemes from "./AdminDashboardThemes";
 import { Link } from "react-router-dom";
 import auth from "../Hooks/useAuthState";
 import { accessToken, removeCookie } from "../Hooks/useCookies";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "../SharedPages/Loading";
+import emptyUser from "../../assets/logo/empty-user.png";
 
 const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen }) => {
   const [openSearch, setOpenSearch] = useState(false);
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleSignOut = () => {
     signOut(auth);
@@ -99,7 +107,7 @@ const SideNavbar = ({ toggle, toggleSideBar, setToggleSideBar, setIsOpen, isOpen
             <div className="bg-inherit">
               <div className="avatar ">
                 <div className="w-8 rounded-full ring ring-base-100 ring-offset-base-100 ring-offset-1">
-                  <img src="https://api.lorem.space/image/face?hash=3174" alt="img" />
+                  <img src={user?.photoURL || emptyUser} alt="img" />
                 </div>
               </div>
               <div className="flex items-center">

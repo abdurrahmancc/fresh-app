@@ -27,6 +27,7 @@ const SearchOrderModal = ({
           <div
             className={`overflow-x-auto w-full ${handleHeight ? "pb-[6.5rem] ease-in-out" : ""}`}
           >
+            {/* ========= table start ====== */}
             <table className="table w-full">
               {/* <!-- head --> */}
               <thead>
@@ -117,6 +118,7 @@ const SearchOrderModal = ({
                 </tr>
               </tbody>
             </table>
+            {/* ========= table end====== */}
           </div>
           <div className="modal-action">
             <label

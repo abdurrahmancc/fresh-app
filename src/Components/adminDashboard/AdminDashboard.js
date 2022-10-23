@@ -126,6 +126,7 @@ const AdminDashboard = () => {
             setToggleSideBar={setToggleSideBar}
           ></SideNavbar>
         </header>
+        {/* ========== admin dashboard main start ========= */}
         <main
           className={`min-h-[calc(100vh-125px)]  ease-in-out duration-500 ${
             !isOpen ? "lg:ml-10" : "ml-[200px]"
@@ -133,13 +134,7 @@ const AdminDashboard = () => {
         >
           {<Outlet />}
         </main>
-        <footer
-          className={` bg-base-200 ease-in-out duration-500  ${
-            !isOpen ? "lg:ml-10 " : "ml-[200px]"
-          }`}
-        >
-          {/* <DashboardFooter /> */}
-        </footer>
+        {/* ========== admin dashboard main end ========= */}
       </div>
     </div>
   );

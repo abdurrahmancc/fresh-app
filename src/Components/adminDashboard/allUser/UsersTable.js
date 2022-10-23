@@ -33,6 +33,7 @@ const UsersTable = () => {
   return (
     <div className="pt-6">
       <div className="overflow-x-auto w-full pb-[6.5rem]">
+        {/* ========= table start ====== */}
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
@@ -62,7 +63,8 @@ const UsersTable = () => {
               ))}
           </tbody>
         </table>
-
+        {/* ========= table end ====== */}
+        {/* ========= delete modal start ====== */}
         {deleteModal && (
           <DeleteUserModal
             deleteModal={deleteModal}
@@ -70,8 +72,10 @@ const UsersTable = () => {
             refetch={refetch}
           />
         )}
-
+        {/* ========= delete modal end ====== */}
+        {/* ========= User Role Confirm Modal start ====== */}
         {inputRoleId && <UserRoleConfirmModal inputRoleId={inputRoleId} refetch={refetch} />}
+        {/* ========= User Role Confirm Modal end ====== */}
       </div>
     </div>
   );

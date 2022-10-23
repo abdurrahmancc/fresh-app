@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import axiosPrivet from "../../Hooks/axiosPrivet";
 import Footer from "../../SharedPages/Footer/Footer";
 import Loading from "../../SharedPages/Loading";

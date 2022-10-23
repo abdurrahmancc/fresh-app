@@ -8,6 +8,7 @@ const PaidOrderTable = ({ paidOrders, setPaidDeleteModal, refetch }) => {
   return (
     <div className="pt-6">
       <div className="overflow-x-auto w-full pb-[6.5rem]">
+        {/* ========= table  start======== */}
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
@@ -37,6 +38,8 @@ const PaidOrderTable = ({ paidOrders, setPaidDeleteModal, refetch }) => {
           </tbody>
           {/* <!-- foot --> */}
         </table>
+        {/* ========= table end======== */}
+        {/* ========= order status modal start======== */}
         {statusModal && (
           <OrderStatusModal
             statusModal={statusModal}
@@ -44,6 +47,7 @@ const PaidOrderTable = ({ paidOrders, setPaidDeleteModal, refetch }) => {
             refetch={refetch}
           ></OrderStatusModal>
         )}
+        {/* ========= order status modal end======== */}
       </div>
     </div>
   );

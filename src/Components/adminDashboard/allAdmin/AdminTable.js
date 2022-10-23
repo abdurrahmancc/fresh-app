@@ -29,6 +29,7 @@ const AdminTable = () => {
   return (
     <div className="pt-6">
       <div className="overflow-x-auto w-full pb-[6.5rem]">
+        {/* =============== Table start ============== */}
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
@@ -58,11 +59,14 @@ const AdminTable = () => {
           </tbody>
           {/* <!-- foot --> */}
         </table>
+        {/* =============== Table end ============== */}
+        {/* ============= delete modal start =========== */}
         <DeleteUserModal
           deleteModal={deleteModal}
           setDeleteModal={setDeleteModal}
           refetch={refetch}
         />
+        {/* ============= delete modal end =========== */}
         {inputRoleId && <UserRoleConfirmModal inputRoleId={inputRoleId} refetch={refetch} />}
       </div>
     </div>

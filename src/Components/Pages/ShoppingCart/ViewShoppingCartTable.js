@@ -11,6 +11,7 @@ const ViewShoppingCartTable = () => {
     <>
       {carts?.length >= 1 && (
         <div className="border rounded-sm max-w-full">
+          {/* ========== shopping cart  table start ======== */}
           <Table className="w-full">
             {/* <!-- head --> */}
             <Thead className="sm:border sm:border-b-2 sm:border-b-primary bg-[#F3F3F3]">
@@ -37,6 +38,7 @@ const ViewShoppingCartTable = () => {
               ))}
             </Tbody>
           </Table>
+          {/* ========== table end ======== */}
         </div>
       )}
       <CartDeleteModal />

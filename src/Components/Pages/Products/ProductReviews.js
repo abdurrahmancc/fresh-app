@@ -1,9 +1,7 @@
 import React from "react";
-import emptyUser from "../../../assets/logo/empty-user.png";
 import user1 from "../../../assets/about-img/user-1.png";
 import user2 from "../../../assets/about-img/user-2.png";
 import user3 from "../../../assets/about-img/user-3.png";
-import Rating from "../../SharedPages/Rating";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
 
@@ -38,9 +36,6 @@ const ProductReviews = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    reset,
-    setError,
     formState: { errors },
   } = useForm();
 
@@ -96,6 +91,7 @@ const ProductReviews = () => {
 
             <ReactStars {...rating} />
           </div>
+          {/* ========== review form start ======== */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <span className="opacity-80">Your review *</span>
             <textarea
@@ -165,6 +161,7 @@ const ProductReviews = () => {
               Submit
             </button>
           </form>
+          {/* ========== review form end ======== */}
         </div>
       </div>
     </div>

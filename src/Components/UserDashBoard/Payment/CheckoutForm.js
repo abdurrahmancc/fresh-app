@@ -91,7 +91,7 @@ const CheckoutForm = ({ id, price, userEmail, firstName }) => {
       await axiosPrivet.patch(`payment/${id}`, payment);
       setProcessing(false);
       toast.success("Payment Success", { id: "payment-success" });
-      navigate("user-dashboard/my-order");
+      navigate("/user-dashboard/my-order");
     }
   };
   return (

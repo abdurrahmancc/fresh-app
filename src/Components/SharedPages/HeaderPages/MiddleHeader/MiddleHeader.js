@@ -13,6 +13,8 @@ import Loading from "../../Loading";
 import { useEffect } from "react";
 import { fetchCarts } from "../../../../redux/features/shoppingCart/shoppingCartSlice";
 import { setSearchProducts } from "../../../../redux/features/searchProducts/searchProductsSlice";
+import { fetchWishlist } from "../../../../redux/features/wishlist/wishlistSlice";
+import { fetchCompareList } from "../../../../redux/features/compare/compareListSlice";
 
 const options = [
   { value: "grocery&Frozen", label: "Grocery & Frozen" },
@@ -38,6 +40,8 @@ const MiddleHeader = () => {
 
   useEffect(() => {
     dispatch(fetchCarts());
+    dispatch(fetchWishlist());
+    dispatch(fetchCompareList());
   }, [dispatch]);
 
   const {
@@ -86,20 +90,19 @@ const MiddleHeader = () => {
         <div className="container mx-auto">
           <div className="z-20 relative ">
             <div className="navbar  py-7">
-              {/* <div className="container mx-auto"> */}
               <div className="navbar-start  lg:pr-8 pr-4 flex items-center justify-between">
                 <Link to="/" className="max-h-[60px] pl-0">
                   <img className="w-[10vw] lg:w-[100px]  max-w-[150px]" src={logo} alt="logo" />
                 </Link>
               </div>
               {/*----- category search from start ------*/}
-              <div className="navbar-center rounded-full border border-primary border-l-[2px] bg-[white] w-[50vw] max-w-[700px] ">
+              <div className="navbar-center rounded-full border border-primary z-50 bg-[white] w-[50vw] max-w-[700px] ">
                 <div className="w-full h-full">
                   <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex justify-center w-full h-full relative"
                   >
-                    <div className="inline-block max-w-[100px] md:max-w-[190px]  relative w-full">
+                    <div className="inline-block z-10 max-w-[160px] xl:max-w-[190px]  relative w-full">
                       <Select
                         id="select-component"
                         styles={middleCategorySelected}
@@ -119,7 +122,7 @@ const MiddleHeader = () => {
                         Search
                       </button>
                       <input
-                        className="placeholder:italic placeholder:text-slate-500 block bg-white w-full h-full max-w-[480px]  rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0 focus:ring-0 sm:text-sm"
+                        className="placeholder:italic placeholder:text-slate-500 block bg-white w-full h-full lg:max-w-[300px] xl:max-w-[400px] rounded-md py-2 pl-6 pr-9 focus:outline-none focus:border-0 focus:ring-0 sm:text-sm"
                         placeholder="Search for items..."
                         type="text"
                         name="search"
@@ -183,7 +186,6 @@ const MiddleHeader = () => {
                         className="flex justify-center items-center p-1 lg:w-5 cursor-pointer lg:h-5 h-4 w-4 rounded-full  text-white  indicator-item top-2 right-1 text-[0.6875rem]"
                       >
                         <span>{cartList?.carts?.length || 0}</span>
-                        {/* <span>{shoppingCartsCounter.shoppingCart.length}</span> */}
                       </div>
                     </div>
                   </li>

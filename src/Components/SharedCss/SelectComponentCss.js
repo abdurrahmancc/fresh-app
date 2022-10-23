@@ -3,12 +3,11 @@ export const middleCategorySelected = {
   singleValue: (provided) => ({
     ...provided,
     color: "#000",
-    //   width: 55,
   }),
   control: (base, state) => ({
     ...base,
-    // background: "#76A713",
     color: "#000",
+    background: "none",
     borderTopLeftRadius: "25px",
     borderBottomLeftRadius: "25px",
     borderBottomRightRadius: 0,

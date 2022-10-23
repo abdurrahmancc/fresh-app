@@ -23,7 +23,7 @@ const Home1 = () => {
       <main>
         {/*------- Banner Slider section start -------*/}
         <section className="container mx-auto mt-10">
-          <div className="lg:ml-[260px] xl:ml-[320px] mx-5">
+          <div className="lg:ml-[260px] xl:ml-[320px]">
             <BannerSlider />
           </div>
         </section>

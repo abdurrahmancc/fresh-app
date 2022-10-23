@@ -13,7 +13,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
 const Payment = () => {
   const { id } = useParams();
-  console.log("payment", id);
+
   const { data, isLoading } = useQuery(["orderInfo", id], () => axiosPrivet.get(`order/${id}`));
 
   if (isLoading) {
@@ -59,6 +59,7 @@ const Payment = () => {
             </div>
             <div className=" ">
               <div className="border-x">
+                {/* ========= table start ====== */}
                 <Table className=" w-full">
                   {/* <!-- head --> */}
                   <Thead className="">
@@ -97,6 +98,7 @@ const Payment = () => {
                   </Tbody>
                   {/* <!-- foot --> */}
                 </Table>
+                {/* ========= table end ====== */}
               </div>
             </div>
           </div>

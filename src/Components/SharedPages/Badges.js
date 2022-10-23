@@ -1,4 +1,3 @@
-import id from "date-fns/esm/locale/id/index.js";
 import React from "react";
 
 const Badges = ({ item, className }) => {

@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -15,7 +14,7 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const CheckOut = () => {
-  const { carts, isLoading } = useSelector((state) => state.carts);
+  const { carts, isLoading } = useSelector((state) => state?.cartList);
   const [user, loading] = useAuthState(auth);
   const [product, setProduct] = useState([]);
   const [cLoading, cSetLoading] = useState(false);

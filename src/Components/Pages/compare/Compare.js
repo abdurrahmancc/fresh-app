@@ -59,6 +59,7 @@ const Compare = () => {
         <section className="container mx-auto mt-20">
           {compareList?.length >= 1 ? (
             <div id="compareTable" className="w-full">
+              {/* =========== compare table start ========== */}
               <Table>
                 <Tbody>
                   <Tr className={"border"}>
@@ -321,6 +322,7 @@ const Compare = () => {
                   </Tr>
                 </Tbody>
               </Table>
+              {/* =========== compare table end ========== */}
             </div>
           ) : (
             <div className="min-h-[calc(100vh-820px)] h-[60vh] flex flex-col justify-center gap-y-10 items-center">

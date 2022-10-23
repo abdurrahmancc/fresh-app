@@ -76,7 +76,7 @@ const ProductImage = ({ children }) => {
         {uploadAImage === true && (
           <div>
             <label htmlFor="uploadImage">
-              <div className="w-full h-60 flex justify-center  items-center border-white border-dashed border-2 rounded-md">
+              <div className="w-full h-60 flex justify-center  items-center  border-dashed border-2 rounded-md">
                 <div className="text-5xl text-center">
                   <p>
                     <input

@@ -21,6 +21,7 @@ const OrderDetails = ({ orderDetailModal }) => {
       <label htmlFor="orderDetailsModal" className="modal cursor-pointer">
         <label className="modal-box relative p-2" htmlFor="">
           <div className="w-full bg-base-200 p-5 rounded-2xl">
+            {/* ========= stable start ====== */}
             <table className=" w-full">
               <thead>
                 <tr className="text-center relative left-7">
@@ -72,6 +73,7 @@ const OrderDetails = ({ orderDetailModal }) => {
                 </tr>
               </tbody>
             </table>
+            {/* ========= table end ====== */}
           </div>
         </label>
       </label>

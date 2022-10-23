@@ -60,9 +60,7 @@ const Faq = () => {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-2 items-center gap-3">
                       <div className="form-control">
-                        <label className="label  pb-0">
-                          {/* <span className="label-text ">Name</span> */}
-                        </label>
+                        <label className="label  pb-0"></label>
                         <input
                           type="text"
                           placeholder="Your name"
@@ -74,9 +72,7 @@ const Faq = () => {
                         )}
                       </div>
                       <div className="form-control">
-                        <label className="label pb-0">
-                          {/* <span className="label-text ">Phone number</span> */}
-                        </label>
+                        <label className="label pb-0"></label>
                         <input
                           type="text"
                           placeholder="Phone Number"
@@ -89,9 +85,7 @@ const Faq = () => {
                       </div>
                     </div>
                     <div className="form-control">
-                      <label className="label pt-4 pb-0">
-                        {/* <span className="label-text ">Name</span> */}
-                      </label>
+                      <label className="label pt-4 pb-0"></label>
                       <input
                         type="text"
                         placeholder="Subject"
@@ -103,9 +97,7 @@ const Faq = () => {
                       )}
                     </div>
                     <div className="form-control">
-                      <label className="label pb-0 pt-4">
-                        {/* <span className="label-text ">Email</span> */}
-                      </label>
+                      <label className="label pb-0 pt-4"></label>
                       <input
                         type="email"
                         placeholder="Email"
@@ -130,9 +122,7 @@ const Faq = () => {
                       )}
                     </div>
                     <div className="form-control">
-                      <label className="label pt-4 pb-0">
-                        {/* <span className="label-text ">How can I help you?</span> */}
-                      </label>
+                      <label className="label pt-4 pb-0"></label>
                       <textarea
                         className="textarea h-44  border border-gray-300  textarea-bordered"
                         placeholder="Tell us a little about the project..."
@@ -151,7 +141,6 @@ const Faq = () => {
                       </button>
                     </div>
                   </form>
-                  {/* contact form end */}
                 </div>
               </div>
               <img

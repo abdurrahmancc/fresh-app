@@ -17,6 +17,7 @@ import Login from "../Components/SharedPages/Login/Login";
 import Register from "../Components/SharedPages/Login/Register";
 import ResetPassword from "../Components/SharedPages/Login/ResetPassword/ResetPassword";
 
+/* ============ public Routes =============== */
 export const publicRoutes = [
   { path: "/", Component: Home1 },
   { path: "/home", Component: Home1 },

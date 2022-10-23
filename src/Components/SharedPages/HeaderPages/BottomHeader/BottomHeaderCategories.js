@@ -57,10 +57,7 @@ const BottomHeaderCategories = () => {
           >
             <div className="dropdown  py-3 w-full hover:overflow-visible dropdown-right dropdown-hover">
               <label tabIndex="0" className="w-full ">
-                <Link
-                  to={"/categories/computer"}
-                  className={"flex items-center justify-between pr-8"}
-                >
+                <Link to={"/shop"} className={"flex items-center justify-between pr-8"}>
                   <span className="flex items-center gap-3">
                     <GiFruitTree
                       className={`text-lg ${
@@ -97,10 +94,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/laptop"}
-              className={"py-3  relative flex gap-3 items-center font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3  relative flex gap-3 items-center font-semibold"}>
               <GiTreeBranch
                 className={`text-lg  ${
                   hovered === "freshVegetable"
@@ -116,10 +110,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/monitor"}
-              className={"py-3 relative font-semibold flex items-center gap-3"}
-            >
+            <Link to={"/shop"} className={"py-3 relative font-semibold flex items-center gap-3"}>
               <GiCherry
                 className={`text-lg  ${
                   hovered === "freshFruits"
@@ -135,10 +126,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/phone"}
-              className={"py-3 flex items-center gap-3  relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3  relative font-semibold"}>
               <FaGlassMartiniAlt
                 className={`text-lg  ${
                   hovered === "fruitJuices"
@@ -154,10 +142,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/headphone"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <GiHotMeal
                 className={`text-lg ${
                   hovered === "salads"
@@ -174,7 +159,7 @@ const BottomHeaderCategories = () => {
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
             <Link
-              to={"/categories/speaker"}
+              to={"/shop"}
               className={"py-3 flex justify-items-start gap-3  relative font-semibold"}
             >
               <GiChickenOven
@@ -192,10 +177,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/watch"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <GiButter
                 className={`text-lg  ${
                   hovered === "butter&Egg"
@@ -211,10 +193,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/refrigerator"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <FaBoxTissue
                 className={`text-lg ${
                   hovered === "milkCream"
@@ -230,10 +209,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/refrigerator"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <GiWineBottle
                 className={`text-lg ${
                   hovered === "oil&Vinegars"
@@ -249,10 +225,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/AC"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <GiSlicedBread
                 className={`text-lg ${
                   hovered === "bread&Bakery"
@@ -268,10 +241,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/AC"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <FaSitemap
                 className={`text-lg ${
                   hovered === "snacksItem"
@@ -287,10 +257,7 @@ const BottomHeaderCategories = () => {
             onMouseLeave={() => setHovered("")}
             className="transition duration-300 ease-in-out  border-b border-gray-200 hover:text-primary capitalize pl-8 w-full text-start"
           >
-            <Link
-              to={"/categories/AC"}
-              className={"py-3 flex items-center gap-3 relative font-semibold"}
-            >
+            <Link to={"/shop"} className={"py-3 flex items-center gap-3 relative font-semibold"}>
               <IoFishOutline
                 className={`text-lg ${
                   hovered === "fish"

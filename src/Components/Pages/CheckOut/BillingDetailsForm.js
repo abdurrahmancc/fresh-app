@@ -17,9 +17,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       <div className="grid lg:grid-cols-2 lg:gap-5">
         {/* First Name  */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="firstName " className="label">
-            <span className="label-text text-xs">First Name *</span>
-          </label> */}
           <input
             id="firstName"
             type="text"
@@ -35,9 +32,6 @@ const BillingDetailsForm = ({ register, errors }) => {
         </div>
         {/* last Name */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="lastName " className="label">
-            <span className="label-text text-xs">Last Name</span>
-          </label> */}
           <input
             id="lastName"
             type="text"
@@ -55,9 +49,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       <div className="grid lg:grid-cols-2 lg:gap-5">
         {/* company Name */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="companyName" className="label">
-            <span className="label-text text-xs">Company Name</span>
-          </label> */}
           <input
             id="companyName"
             type="text"
@@ -75,9 +66,6 @@ const BillingDetailsForm = ({ register, errors }) => {
         </div>
         {/* Country */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="country" className="label">
-            <span className="label-text text-xs">Country</span>
-          </label> */}
           <input
             id="country"
             type="text"
@@ -94,9 +82,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       </div>
       {/* Street Address */}
       <div className="form-control pb-5 w-full">
-        {/* <label htmlFor="streetAddress" className="label">
-          <span className="label-text text-xs">Street Address</span>
-        </label> */}
         <input
           id="streetAddress"
           type="text"
@@ -123,9 +108,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       </div>
       {/* Town / City */}
       <div className="form-control pb-5 w-full">
-        {/* <label htmlFor="townCity" className="label">
-          <span className="label-text text-xs">Town / City</span>
-        </label> */}
         <input
           id="townCity"
           type="text"
@@ -142,9 +124,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       <div className="grid lg:grid-cols-2 lg:gap-5">
         {/* State */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="state" className="label">
-            <span className="label-text text-xs">State</span>
-          </label> */}
           <input
             id="state"
             type="text"
@@ -160,9 +139,6 @@ const BillingDetailsForm = ({ register, errors }) => {
         </div>
         {/* Postcode / Zip */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="postcode" className="label">
-            <span className="label-text text-xs">Postcode / Zip</span>
-          </label> */}
           <input
             id="postcode"
             type="text"
@@ -181,9 +157,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       <div className="grid lg:grid-cols-2 lg:gap-5">
         {/* Phone */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="phone" className="label">
-            <span className="label-text text-xs">Phone</span>
-          </label> */}
           <input
             id="phone"
             type="text"
@@ -199,9 +172,6 @@ const BillingDetailsForm = ({ register, errors }) => {
         </div>
         {/* Email Address */}
         <div className="form-control pb-5 w-full">
-          {/* <label htmlFor="emailAddress" className="label">
-            <span className="label-text text-xs">Email Address</span>
-          </label> */}
           <input
             id="emailAddress"
             type="text"
@@ -224,9 +194,6 @@ const BillingDetailsForm = ({ register, errors }) => {
       <ShipDifferentAddress register={register} errors={errors} />
       {/* Order Notes */}
       <div className="form-control">
-        {/* <label htmlFor="orderNotes" className="label">
-          <span className="label-text text-xs">Order Notes (Optional)</span>
-        </label> */}
         <textarea
           id="orderNotes"
           className="textarea textarea-bordered rounded-none h-40  w-full"

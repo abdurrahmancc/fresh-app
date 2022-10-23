@@ -4,42 +4,43 @@ import CashewNuts from "../../../../assets/products_img/CashewNuts-1.png";
 import driedFishPacket from "../../../../assets/products_img/driedFishPacket-1.png";
 import dryShrimp from "../../../../assets/products_img/dryShrimp-1.png";
 import Rating from "../../../SharedPages/Rating";
+
+const products = [
+  {
+    _id: "1",
+    title: "Cashew Nuts",
+    img: CashewNuts,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: "new",
+  },
+  {
+    _id: "2",
+    title: "dried Fish Packet",
+    img: driedFishPacket,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: "new",
+  },
+  {
+    _id: "3",
+    title: "Dry Shrimp",
+    img: dryShrimp,
+    quantity: "123",
+    price: "43",
+    regularPrice: "50",
+    raging: "4",
+    brand: "amazon",
+    productQuality: 20,
+  },
+];
 const TopTrendingRecently = () => {
-  const products = [
-    {
-      _id: "1",
-      title: "Cashew Nuts",
-      img: CashewNuts,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "new",
-    },
-    {
-      _id: "2",
-      title: "dried Fish Packet",
-      img: driedFishPacket,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: "new",
-    },
-    {
-      _id: "3",
-      title: "Dry Shrimp",
-      img: dryShrimp,
-      quantity: "123",
-      price: "43",
-      regularPrice: "50",
-      raging: "4",
-      brand: "amazon",
-      productQuality: 20,
-    },
-  ];
   return (
     <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-7">
       <div className="">

@@ -65,8 +65,6 @@ const AllOrder = () => {
     }
   };
 
-  console.log(orderDetailModal);
-
   return (
     <>
       <div className="p-10 w-full">
@@ -142,7 +140,7 @@ const AllOrder = () => {
             {[...Array(5).keys()].map((number, index) => (
               <button
                 key={index}
-                className={`btn rounded-full border-[#76A713]   border px-5 flex justify-center items-center hover:bg-[#76A713] hover:text-white ${
+                className={`btn rounded-full border-[#76A713]   border px-5 flex hover:border-[#76A713] justify-center items-center hover:bg-[#76A713] hover:text-white ${
                   page === number
                     ? "bg-[#76A713] hover:bg-[#76A713] text-white hover:border-[#76A713] "
                     : "text-black"
@@ -153,6 +151,7 @@ const AllOrder = () => {
               </button>
             ))}
           </div>
+          {/* ========= scroll bottom ====== */}
           <ScrollBtn />
         </div>
       </div>
