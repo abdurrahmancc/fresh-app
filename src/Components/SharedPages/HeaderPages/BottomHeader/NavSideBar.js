@@ -82,7 +82,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
             </Link>
           </div>
           <div>
-            <button className="bg-[#d0e2af] text-black rounded-full p-1">
+            <button className="bg-[#d0e2af] text-black rounded-full p-1" title="close">
               {" "}
               <IoMdClose className="text-lg" />
             </button>
@@ -101,7 +101,11 @@ const NavSideBar = ({ toggle, setToggle }) => {
                     {...register("search")}
                     className="placeholder:italic w-full placeholder:text-slate-400 block pl-5  pr-9 shadow-sm focus:outline-none h-[45px] focus:border-[#bbd094] input rounded-sm border border-gray-200 focus:ring-0 sm:text-sm"
                   />
-                  <button type="submit" className=" absolute right-[2px] p-2 rounded top-[5px]">
+                  <button
+                    type="submit"
+                    className=" absolute right-[2px] p-2 rounded top-[5px]"
+                    aria-label="search"
+                  >
                     <BiSearchAlt id="search-product" className="text-xl text-gray-400" />
                   </button>
                 </div>
@@ -242,6 +246,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                 </Collapsible>
               </div>
             </li>
+            {/*-------------- contact -------------- */}
             <li
               id="menu-item"
               className="inline-block border-b py-[6px] text-black list-none w-full"
@@ -254,6 +259,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                 Contact
               </Link>
             </li>
+            {/*-------------- about -------------- */}
             <li
               id="menu-item"
               className="inline-block border-b py-[6px] text-black list-none w-full"
@@ -262,6 +268,7 @@ const NavSideBar = ({ toggle, setToggle }) => {
                 About
               </Link>
             </li>
+            {/*-------------- blogs -------------- */}
             <li
               id="menu-item"
               className="inline-block border-b py-[6px] text-black list-none w-full"

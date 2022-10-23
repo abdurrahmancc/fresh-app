@@ -140,6 +140,7 @@ const MiddleHeader = () => {
                       <Link
                         to={"/shop-compare"}
                         className="lg:p-3 p-2 rounded-full bg-primary text-white"
+                        aria-label="compare"
                       >
                         <BsArrowLeftRight className="text-lg" />
                       </Link>
@@ -158,6 +159,7 @@ const MiddleHeader = () => {
                       <Link
                         to={"/wishlist"}
                         className="lg:p-3 p-2 rounded-full bg-primary text-white"
+                        aria-label="wishlist"
                       >
                         <FiHeart className="text-lg" />
                       </Link>
@@ -176,6 +178,7 @@ const MiddleHeader = () => {
                       <Link
                         to={"/shopping-cart"}
                         className="lg:p-3 p-2  rounded-full bg-primary text-white"
+                        aria-label="shopping-cart"
                       >
                         <MdAddShoppingCart className="text-lg " />
                       </Link>

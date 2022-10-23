@@ -27,6 +27,7 @@ const ScrollBtn = () => {
         className="cursor-pointer animate-bounce fixed bottom-14 right-2 text-[2rem]"
         onClick={scrollToTop}
         style={{ display: visible ? "inline" : "none" }}
+        title="scroll Up"
       >
         <FaArrowCircleUp className="text-primary " />
       </button>
