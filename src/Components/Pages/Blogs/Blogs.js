@@ -7,6 +7,7 @@ import Loading from "../../SharedPages/Loading";
 import Newsletters from "../../SharedPages/Newsletters/Newsletters";
 import Pagination from "../../SharedPages/pagination/Pagination";
 import ScrollBtn from "../../SharedPages/ScrollBtn";
+import BlogCard from "./BlogCard";
 import BlogSideBar from "./BlogSideBar";
 
 const Blogs = () => {
@@ -40,10 +41,12 @@ const Blogs = () => {
     })();
   }, [page, size]);
 
+  console.log(blogs);
+
   return (
     <>
       <main>
-        {/* Breadcrumb start */}
+        {/*=========== Breadcrumb start ===============*/}
         <section className=" bg-slate-100">
           <div className="container mx-auto">
             <div className="py-8 breadcrumbs">
@@ -51,46 +54,12 @@ const Blogs = () => {
             </div>
           </div>
         </section>
-        {/* Breadcrumb end */}
+        {/*============= Breadcrumb end ==============*/}
         <div className="container mx-auto mt-20">
           <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-10">
             <div className="col-span-3">
               <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-10 mx-auto">
-                {blogs &&
-                  blogs.map((blog) => (
-                    <div
-                      key={blog?._id}
-                      className="card hover:top-[-4px] relative top-0 ease-in-out duration-500 card-compact lg:max-w-sm max-w-md mx-auto  bg-base-100 shadow"
-                    >
-                      <figure>
-                        <img
-                          height={256}
-                          width={384}
-                          className={"h-[256px] w-full"}
-                          src={blog?.image}
-                          alt="blog"
-                        />
-                      </figure>
-                      <div className="card-body">
-                        <div className="flex justify-center gap-5 items-center">
-                          <span className="text-gray-400">category</span>
-                          <span className="text-gray-400">122k view</span>
-                          <span className="text-gray-400">23 April 3232</span>
-                        </div>
-                        <h2 className="card-title text-2xl leading-10">{blog?.title}</h2>
-                        <p className="text-sm pt-2">{blog?.description1.slice(0, 184)}...</p>
-                        <div className="card-actions justify-start pt-4">
-                          <Link
-                            to={`/blog-details/${blog?._id}`}
-                            state={blog?.title}
-                            className="capitalize font-bold text-primary"
-                          >
-                            read more...
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                {blogs && blogs.map((blog) => <BlogCard key={blog?._id} blog={blog} />)}
               </div>
               <div className="flex justify-center mt-10 mb-10 btn-group">
                 <Pagination pageCount={pageCount} setPage={setPage} />
